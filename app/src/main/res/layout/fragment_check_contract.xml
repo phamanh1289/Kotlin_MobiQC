@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_16dp"
+    tools:ignore="ContentDescription"
+    tools:targetApi="lollipop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/loai_hd"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/fragCheckContract_rbProcessing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="true"
+                    android:text="@string/chua_hoan_tat"
+                    android:textSize="@dimen/_13dp"/>
+
+                <RadioButton
+                    android:id="@+id/fragCheckContract_rbCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text="@string/da_hoan_tat"
+                    android:textSize="@dimen/_13dp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/don_vi"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="@dimen/_4dp"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <TextView
+                    android:id="@+id/fragCheckContract_tvMobiGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_boder_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/to"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="@dimen/_4dp"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <TextView
+                    android:id="@+id/fragCheckContract_tvMobiAcc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_boder_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/loai_tc"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="@dimen/_4dp"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <TextView
+                    android:id="@+id/fragCheckContract_tvMobiType"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_boder_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/tu_ngay"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="@dimen/_4dp"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <TextView
+                    android:id="@+id/fragCheckContract_tvFromDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_boder_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_date"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/den_ngay"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="@dimen/_4dp"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <TextView
+                    android:id="@+id/fragCheckContract_tvToDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_boder_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_date"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_submit_login"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingBottom="@dimen/_10dp"
+                android:paddingTop="@dimen/_10dp"
+                android:text="@string/lam_moi"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_19dp"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+
+            <TextView
+                android:id="@+id/fragCheckContract_tvSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:background="@drawable/selector_submit_login"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingBottom="@dimen/_10dp"
+                android:paddingTop="@dimen/_10dp"
+                android:paddingStart="@dimen/_50dp"
+                android:paddingEnd="@dimen/_50dp"
+                android:text="@string/xem"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_19dp"
+                fontPath="@string/Helvetica_Bold"
+                tools:ignore="MissingPrefix"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

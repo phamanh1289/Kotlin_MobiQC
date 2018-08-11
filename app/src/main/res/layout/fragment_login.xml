@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="@dimen/_130dp"
+        android:layout_height="@dimen/_130dp"
+        android:src="@drawable/img_logo"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_50dp"
+        android:layout_marginBottom="@dimen/_30dp"/>
+
+    <EditText
+        android:id="@+id/fragLogin_tvUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:background="@drawable/shape_circle_black"
+        android:hint="@string/login_user"
+        android:inputType="text"
+        android:text="minhhl2"
+        android:maxLines="1"
+        android:padding="@dimen/_8dp"
+        android:textSize="@dimen/_17dp"/>
+
+    <EditText
+        android:id="@+id/fragLogin_tvPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:background="@drawable/shape_circle_black"
+        android:hint="@string/login_pass"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:text="024367630"
+        android:padding="@dimen/_8dp"
+        android:textSize="@dimen/_17dp"/>
+
+    <CheckBox
+        android:id="@+id/fragLogin_cbShowPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/login_show_pass"/>
+
+    <TextView
+        android:id="@+id/fragLogin_tvSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:background="@drawable/selector_submit_login"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="@dimen/_16dp"
+        android:clickable="true"
+        android:text="@string/action_sign_in"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_17dp"
+        fontPath="@string/Helvetica_Bold"
+        android:focusable="true"
+        tools:ignore="MissingPrefix"/>
+</LinearLayout>
+
+

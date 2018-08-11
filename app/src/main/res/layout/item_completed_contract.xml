@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemCompletedContract_llRootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/_8dp">
+
+    <TextView
+        android:id="@+id/Contract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/contract_number"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemCompletedContract_tvContract"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itemCompletedContract_tvContract"/>
+
+    <TextView
+        android:id="@+id/itemCompletedContract_tvContract"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_boder_grey_text_view"
+        android:padding="@dimen/_8dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AssignDate"
+        app:layout_constraintTop_toBottomOf="@+id/itemCompletedContract_tvDate"
+        tools:text="tvContract"/>
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/contract_name"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemCompletedContract_tvName"
+        app:layout_constraintStart_toStartOf="@+id/Contract"
+        app:layout_constraintTop_toTopOf="@+id/itemCompletedContract_tvName"/>
+
+    <TextView
+        android:id="@+id/itemCompletedContract_tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_boder_grey_text_view"
+        android:padding="@dimen/_8dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemCompletedContract_tvContract"
+        app:layout_constraintTop_toBottomOf="@+id/itemCompletedContract_tvContract"
+        tools:text="tvName"/>
+
+    <TextView
+        android:id="@+id/Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/contract_address"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemCompletedContract_tvLocation"
+        app:layout_constraintStart_toStartOf="@+id/Name"
+        app:layout_constraintTop_toTopOf="@+id/itemCompletedContract_tvLocation"/>
+
+    <TextView
+        android:id="@+id/itemCompletedContract_tvLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_boder_grey_text_view"
+        android:padding="@dimen/_8dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemCompletedContract_tvName"
+        app:layout_constraintTop_toBottomOf="@+id/itemCompletedContract_tvName"
+        tools:text="tvLocation"/>
+
+    <TextView
+        android:id="@+id/AssignDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/contract_time"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemCompletedContract_tvAssignDate"
+        app:layout_constraintStart_toStartOf="@+id/Location"
+        app:layout_constraintTop_toTopOf="@+id/itemCompletedContract_tvAssignDate"/>
+
+    <TextView
+        android:id="@+id/itemCompletedContract_tvAssignDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_boder_grey_text_view"
+        android:padding="@dimen/_8dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemCompletedContract_tvLocation"
+        app:layout_constraintTop_toBottomOf="@+id/itemCompletedContract_tvLocation"
+        tools:text="tvAssignDate"/>
+
+    <TextView
+        android:id="@+id/itemCompletedContract_tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="tvDate"/>
+
+
+</android.support.constraint.ConstraintLayout>
