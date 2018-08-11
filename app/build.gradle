@@ -13,6 +13,9 @@ android {
     dataBinding {
         enabled = true
     }
+    androidExtensions {
+        experimental = true
+    }
     defaultConfig {
         applicationId "mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp"
         minSdkVersion 19

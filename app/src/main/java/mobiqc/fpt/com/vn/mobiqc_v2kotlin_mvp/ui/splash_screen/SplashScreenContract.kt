@@ -13,7 +13,7 @@ interface SplashScreenContract {
         fun loadAppVersion(response : ResponseModel)
         fun loadCheckImei(response : ResponseModel)
         fun loadNewErrorData(response : ResponseErrorDataModel, data : String?)
-//        fun loadNewFileVersion(response: ResponseBody)
+        fun loadNewFileVersion(response : Boolean)
         fun handleError(error : String)
     }
 
@@ -21,6 +21,6 @@ interface SplashScreenContract {
         fun getAppVersion(map: HashMap<String, Any>)
         fun postCheckImei(map: HashMap<String, Any>)
         fun getNewErrorData(map: HashMap<String, Any>)
-//        fun getNewFileVersion(url : String)
+        fun getNewFileVersion(url : String)
     }
 }

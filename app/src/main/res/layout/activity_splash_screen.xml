@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frmContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/frmContainer">
+    android:layout_height="match_parent">
+
     <ImageView
+        android:id="@+id/actSplashScreen_imgLogo"
         android:layout_width="@dimen/_180dp"
         android:layout_height="@dimen/_180dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:src="@drawable/img_logo"/>
+
+    <FrameLayout
+        android:id="@+id/actSplashScreen_llLoadData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_blur"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_20dp"
+            android:layout_marginStart="@dimen/_20dp"
+            android:background="@drawable/shape_circle_dialog_while"
+            android:orientation="vertical">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/_10dp"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingTop="@dimen/_8dp"
+                android:text="@string/title_dialog"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_18dp"
+                tools:ignore="MissingPrefix"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10dp"
+                android:text="@string/wait_load_data"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_17dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
 </FrameLayout>

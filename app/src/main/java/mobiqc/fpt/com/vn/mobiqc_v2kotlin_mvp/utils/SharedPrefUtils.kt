@@ -18,6 +18,7 @@ class SharedPrefUtils constructor(app: Context?) {
         private const val MOBI_ACCOUNT = "mobiAccount"
         private const val CREATE_DATE = "createDate"
         private const val LIST_PARAMS = "list_params"
+        private const val ON_BACK_PRESS = "on_back_press"
     }
 
     var imeiDevice: String
@@ -41,6 +42,9 @@ class SharedPrefUtils constructor(app: Context?) {
     var listParams: String
         get() = sharedPreferences?.getString(LIST_PARAMS, "")!!
         set(value) = sharedPreferences?.put { putString(LIST_PARAMS, value) }!!
+    var onBackPress: Boolean
+        get() = sharedPreferences?.getBoolean(ON_BACK_PRESS, false)!!
+        set(value) = sharedPreferences?.put { putBoolean(ON_BACK_PRESS, value) }!!
 
     private inline fun SharedPreferences.put(body: SharedPreferences.Editor.() -> Unit) {
         val editor = this.edit()

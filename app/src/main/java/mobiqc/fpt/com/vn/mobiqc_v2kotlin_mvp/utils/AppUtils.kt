@@ -43,9 +43,9 @@ object AppUtils {
     }
 
     fun showDialog(fragmentManager: FragmentManager?, title: String = "", content: String = "", actionCancel: Boolean = false, confirmDialogInterface: ConfirmDialogInterface?) {
-        val dialog = ConfirmDialogFragment()
-        dialog.setDataDialog(title = title, content = content, actionCancel = actionCancel, confirmDialogInterface = confirmDialogInterface)
         fragmentManager?.let {
+            val dialog = ConfirmDialogFragment()
+            dialog.setDataDialog(title = title, content = content, actionCancel = actionCancel, confirmDialogInterface = confirmDialogInterface)
             dialog.show(it, ConfirmDialogFragment::class.java.simpleName)
         }
     }

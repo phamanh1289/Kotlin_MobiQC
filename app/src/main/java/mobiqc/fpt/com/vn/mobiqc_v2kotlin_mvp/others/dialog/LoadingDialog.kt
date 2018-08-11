@@ -23,4 +23,9 @@ class LoadingDialog : DialogFragment() {
         return inflater.inflate(R.layout.dialog_loading, container, false)
     }
 
+    override fun onStart() {
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT , ViewGroup.LayoutParams.MATCH_PARENT)
+        super.onStart()
+    }
+
 }

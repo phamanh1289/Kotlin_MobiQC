@@ -20,11 +20,13 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
  */
 class ConfirmDialogFragment : DialogFragment() {
 
+    companion object {
+        val instance = ConfirmDialogFragment()
+    }
+
     var titleDialog = ""
     var contentDialog = ""
     var actionCancel = false
-    lateinit var onClickOk: (Unit) -> Unit
-    lateinit var onClickCancel: (Unit) -> Unit
     var confirmDialogInterface: ConfirmDialogInterface? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
