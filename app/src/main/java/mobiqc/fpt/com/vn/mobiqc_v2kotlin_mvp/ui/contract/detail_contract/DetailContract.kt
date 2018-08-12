@@ -16,6 +16,7 @@ interface DetailContract {
         fun loadDepositsContract(response: ResponseModel)
         fun loadCoordinateContract(response: ResponseModel)
         fun loadPortViewInfoCollection(response: ResponseModel)
+        fun loadAllPhoneNumber(response: ResponseModel)
         fun handleError(error: String)
     }
 
@@ -27,5 +28,6 @@ interface DetailContract {
         fun getDepositsContract(map: HashMap<String, Any>)
         fun getCoordinateContract(map: HashMap<String, Any>)
         fun getPortViewInfoCollection(map: HashMap<String, Any>)
+        fun getAllPhoneNumber(map: HashMap<String, Any>)
     }
 }

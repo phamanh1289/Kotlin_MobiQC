@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_circle_dialog_while_5dp"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8dp"
+        android:gravity="center"
+        android:text="@string/group_point_info"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/_18dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:background="@color/grey_blur"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/group_point_name"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogGroupPoint_tvGroupName"
+            fontPath="@string/Helvetica_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_blur"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_address"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogGroupPoint_tvGroupAddress"
+            fontPath="@string/Helvetica_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/group_point_pop"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogGroupPoint_tvGroupPop"
+            fontPath="@string/Helvetica_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_blur"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/group_point_quantity"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogGroupPoint_tvGroupQuantity"
+            fontPath="@string/Helvetica_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_8dp"
+        android:paddingStart="@dimen/_8dp"
+        android:paddingEnd="@dimen/_8dp"
+        android:layout_marginBottom="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/group_point_used"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogGroupPoint_tvGroupUse"
+            fontPath="@string/Helvetica_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

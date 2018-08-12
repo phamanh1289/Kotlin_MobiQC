@@ -1,7 +1,5 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +8,9 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_detail_contract.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ContractDetailModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PhoneNumberModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.GroupPointDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
@@ -33,11 +29,11 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     lateinit var presenter: DetailContractPresenter
 
     private var listParams = HashMap<String, Any>()
-    private var listPhoneNumber = ArrayList<PhoneNumberModel>()
     private lateinit var contractNumber: String
     private var createDate = ""
     private var typeContract: Int = 0
     private var typeCheckList: Int = 0
+    private var typeGroupPoint = 0
     private lateinit var contractModel: ContractDetailModel
 
     companion object {
@@ -80,6 +76,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     //Start : Call api get data
     private fun handleRequestData() {
+        showLoading()
         when (typeContract) {
             Constants.STATUS_PROCESSING -> {
                 if (typeCheckList == Constants.DEPLOYMENT) presenter.getDeploymentContractDetail(listParams) else presenter.getMaintenanceContractDetail(listParams)
@@ -111,13 +108,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     private fun handleDataDeployDetail(data: ArrayList<Any>?) {
         data?.let {
-            for (i in 0 until it.size) {
-                when (i) {
-                    0 ->
-                        contractModel = Gson().fromJson(Gson().toJson(it[i]), ContractDetailModel::class.java)
-                    else -> listPhoneNumber.add(Gson().fromJson(Gson().toJson(it[i]), PhoneNumberModel::class.java))
-                }
-            }
+            contractModel = Gson().fromJson(Gson().toJson(data[0]), ContractDetailModel::class.java)
         }
         presenter.let {
             val map = HashMap<String, Any>()
@@ -207,14 +198,16 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     //Start : onclick
     private fun onClickAction() {
-        typeContract = 1
         fragDetailContract_tvObjID.setOnClickListener { onClickContractNumber() }
         fragDetailContract_tvAddress.setOnClickListener { onClickAddress() }
         fragDetailContract_tvPhone.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + fragDetailContract_tvPhone.text)))
+            AppUtils.makeCallPhoneNumber(context, fragDetailContract_tvPhone.text.toString())
         }
         fragDetailContract_tvAllPhone.setOnClickListener { onClickAllPhone() }
-        fragDetailContract_tvODCCableType.setOnClickListener { onClickODCCableType() }
+        fragDetailContract_tvODCCableType.setOnClickListener {
+            showLoading()
+            onClickODCCableType(Constants.TYPE_ADSL)
+        }
         fragDetailContract_tvCoordinate.setOnClickListener { onClickLocation() }
 //        actMain_ivNotification.setOnClickListener { onClickUpdateError() }
     }
@@ -235,24 +228,37 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     }
 
     private fun onClickAllPhone() {
-        hideLoading()
-
-    }
-
-    private fun onClickODCCableType() {
         presenter.let {
-            val map = HashMap<String,Any>()
-            map["NameTD"] = contractModel.GroupPoint
-            map["Type"] = typeContract
-            presenter.getPortViewInfoCollection(map)
+            showLoading()
+            val map = HashMap<String, Any>()
+            map["ObjID"] = contractModel.ObjID
+            it.getAllPhoneNumber(map)
         }
     }
 
-    private fun onClickUpdateError() {
-        hideLoading()
-
+    private fun onClickODCCableType(type: Int) {
+        typeGroupPoint = type
+        presenter.let {
+            val map = HashMap<String, Any>()
+            map["NameTD"] = contractModel.GroupPoint
+            map["Type"] = typeGroupPoint
+            it.getPortViewInfoCollection(map)
+        }
     }
 
+    private fun showPopUpGroupPoint(list: ArrayList<GroupPointModel>) {
+        if (list.size != 0) {
+            val dialog = GroupPointDialog()
+            dialog.setData(list[0])
+            dialog.show(fragmentManager, GroupPointDialog::class.java.simpleName)
+        }
+        hideLoading()
+    }
+
+    private fun showPopUpAllPhone(list: ArrayList<PhoneNumberModel>) {
+        AppUtils.showDialogPhoneNumber(fragmentManager, contractNumber, list)
+        hideLoading()
+    }
 
     //End : onclick
 
@@ -281,12 +287,21 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         hideLoading()
     }
 
+    override fun loadAllPhoneNumber(response: ResponseModel) {
+        showPopUpAllPhone(Gson().fromJson(response.Data.toString(), object : TypeToken<ArrayList<PhoneNumberModel>>() {}.type))
+    }
+
     override fun loadPortViewInfoCollection(response: ResponseModel) {
-        hideLoading()
+        if (response.Data.toString().replace("[", "").replace("]", "").isBlank())
+            when (typeGroupPoint) {
+                Constants.TYPE_ADSL -> onClickODCCableType(Constants.TYPE_FTTH)
+                Constants.TYPE_FTTH -> onClickODCCableType(Constants.TYPE_PON)
+            }
+        else
+            showPopUpGroupPoint(Gson().fromJson(response.Data.toString(), object : TypeToken<ArrayList<GroupPointModel>>() {}.type))
     }
 
     override fun handleError(error: String) {
-        typeContract++
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }

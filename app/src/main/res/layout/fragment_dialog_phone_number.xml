@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_circle_dialog_while_5dp"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        android:id="@+id/fragDialogPhoneNumber_tvContractName"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/_8dp"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/_18dp"
+        tools:text="@string/group_point_info"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bright_blue"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/phone_number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14dp"/>
+
+        <TextView
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal"
+            android:text="@string/phone_number_date"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14dp"/>
+
+        <TextView
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:text="@string/phone_number_sms"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14dp"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragDialogPhoneNumber_rvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

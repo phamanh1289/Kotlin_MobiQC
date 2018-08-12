@@ -7,8 +7,8 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant
 object Constants {
     const val FIRST_ITEM = 0
     const val NO_IMAGE = 0
+    const val SMS_TRUE = 1
     const val REQUEST_SUCCESS = 1
-    const val REQUEST_FAIL = 0
     const val REQUEST_UPDATE = 0
     const val NONE_LATE_DATE = 0
     const val LATE_DATE = -3
@@ -16,11 +16,11 @@ object Constants {
     const val STATUS_COMPLETED = 2
     const val DEPLOYMENT = 1
     const val MAINTENANCE = 2
+    const val TYPE_ADSL = 1
+    const val TYPE_FTTH = 2
+    const val TYPE_PON = 3
     const val SUCCESSFUL = "Successful"
     const val ERROR_NETWORK = "Không có kết nối internet!"
-    const val ERROR_DATA_SERVER = "Lỗi kết nối tới server!"
-    const val ACCEPT = "Đồng ý"
-    const val CANCEL = "Hủy bỏ"
     const val TITLE_DIALOG = "Thông báo"
     const val KT_HOP_DONG = "kt_hop_dong"
     const val CAP_NHAT_LOI = "cap_nhat_loi"
@@ -40,7 +40,6 @@ object Constants {
     const val ARG_DATE_TO = "DateTo"
     const val ARG_CONTRACT = "Contract"
     const val ARG_OBJ_CREATEDATE = "CreateDate"
-    const val ARG_LIST_PARAMS = "ListParams"
     const val DEFAULT_KIND = "3"
     const val FILE_NAME_DOWNLOAD = "MobiQc_Release.apk"
     const val PATH_FILE_DOWNLOAD = "application/vnd.android.package-archive"

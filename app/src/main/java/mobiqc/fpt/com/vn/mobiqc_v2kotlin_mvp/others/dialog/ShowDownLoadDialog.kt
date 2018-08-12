@@ -15,7 +15,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class ShowDownLoadDialogFragment : DialogFragment() {
+class ShowDownLoadDialog : DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)

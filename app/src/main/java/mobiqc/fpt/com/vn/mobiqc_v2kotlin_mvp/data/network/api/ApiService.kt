@@ -44,6 +44,9 @@ interface ApiService {
     @POST("GetCoordinateContract")
     fun getCoordinateContract(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
+    @POST("GetAllPhoneNumber")
+    fun getAllPhoneNumber(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
     @GET
     @Streaming
     fun getFileNewVersion(@Url fileUrl: String): Call<ResponseBody>

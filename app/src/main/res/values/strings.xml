@@ -94,5 +94,13 @@
     <string name="type_amount">%1$s (%2$d)</string>
     <string name="deposit_amount">%1$s VNĐ</string>
     <string name="wait_load_data">Đang tải dữ liệu, xin vui lòng chờ!</string>
+    <string name="group_point_info">Thông tin tập điểm</string>
+    <string name="group_point_name">Tên TĐ</string>
+    <string name="group_point_pop">POP-TĐ</string>
+    <string name="group_point_quantity">Dung lượng</string>
+    <string name="group_point_used">Đang sử dụng</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="phone_number_date">Ngày cập nhật</string>
+    <string name="phone_number_sms">SMS</string>
 
 </resources>

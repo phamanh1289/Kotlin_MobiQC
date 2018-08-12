@@ -17,7 +17,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDat
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.error.ErrorRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ShowDownLoadDialogFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ShowDownLoadDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
@@ -32,13 +32,13 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     lateinit var presenter: SplashScreenPresenter
 
     private var url = ""
-    private lateinit var dialogDownload: ShowDownLoadDialogFragment
+    private lateinit var mDialogDownload: ShowDownLoadDialog
     private val updateClick = object : ConfirmDialogInterface {
         override fun onClickOk() {
             if (AppUtils.getFileDownload().exists())
                 installFileExit()
             else {
-                AppUtils.showDialogDownLoadData(supportFragmentManager, dialogDownload)
+                AppUtils.showDialogDownLoadData(supportFragmentManager, mDialogDownload)
                 presenter.getNewFileVersion(url)
             }
         }
@@ -57,7 +57,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     private fun initView() {
-        dialogDownload = ShowDownLoadDialogFragment()
+        mDialogDownload = ShowDownLoadDialog()
         Handler().postDelayed({
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 getPermission().requestEachCombined(
@@ -122,7 +122,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                 map["date"] = getSharePreferences().maxDateError
                 if (ErrorRealmManager().getCountError() == 0) {
                     hideLoading()
-                    AppUtils.showDialogDownLoadData(supportFragmentManager, dialogDownload)
+                    AppUtils.showDialogDownLoadData(supportFragmentManager, mDialogDownload)
                 }
                 it.getNewErrorData(map)
             }
@@ -133,8 +133,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     override fun loadNewErrorData(response: ResponseErrorDataModel, data: String?) {
-        if (dialogDownload.isAdded)
-            dialogDownload.dismiss()
+        if (mDialogDownload.isAdded)
+            mDialogDownload.dismiss()
         hideLoading()
         if (response.code == Constants.REQUEST_SUCCESS) {
             AppUtils.deleteFileExist()
