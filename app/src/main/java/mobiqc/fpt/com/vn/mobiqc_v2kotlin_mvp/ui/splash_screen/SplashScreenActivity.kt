@@ -3,14 +3,13 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.splash_screen
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
-import android.view.View
-import kotlinx.android.synthetic.main.activity_splash_screen.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.BuildConfig
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
@@ -18,6 +17,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDat
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.error.ErrorRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ShowDownLoadDialogFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
@@ -32,10 +32,15 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     lateinit var presenter: SplashScreenPresenter
 
     private var url = ""
+    private lateinit var dialogDownload: ShowDownLoadDialogFragment
     private val updateClick = object : ConfirmDialogInterface {
         override fun onClickOk() {
-            showDialogLoadData(true)
-            presenter.getNewFileVersion(url)
+            if (AppUtils.getFileDownload().exists())
+                installFileExit()
+            else {
+                AppUtils.showDialogDownLoadData(supportFragmentManager, dialogDownload)
+                presenter.getNewFileVersion(url)
+            }
         }
 
         override fun onClickCancel() {
@@ -52,6 +57,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     private fun initView() {
+        dialogDownload = ShowDownLoadDialogFragment()
         Handler().postDelayed({
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 getPermission().requestEachCombined(
@@ -84,10 +90,13 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                 getSharePreferences().imeiDevice = (getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager).deviceId
     }
 
-    private fun showDialogLoadData(check: Boolean) {
-        getSharePreferences().onBackPress = check
-        actSplashScreen_llLoadData.visibility = if (check) View.VISIBLE else View.GONE
-        actSplashScreen_imgLogo.visibility = if (check) View.GONE else View.VISIBLE
+    private fun installFileExit() {
+        val fileUri = android.support.v4.content.FileProvider.getUriForFile(this, applicationContext.packageName + ".provider", AppUtils.getFileDownload())
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.setDataAndType(fileUri, Constants.PATH_FILE_DOWNLOAD)
+        intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        startActivity(intent)
+        this@SplashScreenActivity.finish()
     }
 
     override fun loadAppVersion(response: ResponseModel) {
@@ -111,9 +120,10 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             presenter.let { it ->
                 val map = HashMap<String, Any>()
                 map["date"] = getSharePreferences().maxDateError
-                if (ErrorRealmManager().getCountError() == 0)
+                if (ErrorRealmManager().getCountError() == 0) {
                     hideLoading()
-                showDialogLoadData(ErrorRealmManager().getCountError() == 0)
+                    AppUtils.showDialogDownLoadData(supportFragmentManager, dialogDownload)
+                }
                 it.getNewErrorData(map)
             }
         else {
@@ -123,8 +133,11 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     override fun loadNewErrorData(response: ResponseErrorDataModel, data: String?) {
+        if (dialogDownload.isAdded)
+            dialogDownload.dismiss()
         hideLoading()
         if (response.code == Constants.REQUEST_SUCCESS) {
+            AppUtils.deleteFileExist()
             data?.let {
                 getSharePreferences().maxDateError = it
             }
@@ -137,10 +150,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     override fun loadNewFileVersion(response: Boolean) {
-        if (response == Constants.DOWNLOAD_SUCCESS) {
-            showDialogLoadData(false)
-            addFragment(LoginFragment(), false, true)
-        }
+        if (response == Constants.DOWNLOAD_SUCCESS)
+            installFileExit()
     }
 
     override fun handleError(error: String) {
@@ -153,11 +164,6 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
 
     override fun onClickOk() {
         StartActivityUtils().toSettingPermission(this, packageName)
-    }
-
-    override fun onBackPressed() {
-        if (!getSharePreferences().onBackPress)
-            super.onBackPressed()
     }
 
     override fun onDestroy() {

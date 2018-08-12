@@ -42,5 +42,7 @@ object Constants {
     const val ARG_OBJ_CREATEDATE = "CreateDate"
     const val ARG_LIST_PARAMS = "ListParams"
     const val DEFAULT_KIND = "3"
+    const val FILE_NAME_DOWNLOAD = "MobiQc_Release.apk"
+    const val PATH_FILE_DOWNLOAD = "application/vnd.android.package-archive"
     const val DOWNLOAD_SUCCESS = true
 }

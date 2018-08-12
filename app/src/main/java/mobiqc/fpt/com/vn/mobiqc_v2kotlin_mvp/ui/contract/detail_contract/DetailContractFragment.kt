@@ -1,12 +1,13 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_detail_contract.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ContractDetailModel
@@ -20,6 +21,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import java.text.NumberFormat
 import java.util.*
 import javax.inject.Inject
+import kotlin.collections.HashMap
 
 /**
  * * Created by Anh Pham on 08/08/2018.     **
@@ -31,12 +33,12 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     lateinit var presenter: DetailContractPresenter
 
     private var listParams = HashMap<String, Any>()
-    private lateinit var contractNumber: String
     private var listPhoneNumber = ArrayList<PhoneNumberModel>()
+    private lateinit var contractNumber: String
+    private var createDate = ""
     private var typeContract: Int = 0
     private var typeCheckList: Int = 0
     private lateinit var contractModel: ContractDetailModel
-    private var createDate = ""
 
     companion object {
         fun newInstance(type: Int, checkList: Int, contractName: String, contractDate: String): DetailContractFragment {
@@ -76,6 +78,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         setTitle(TitleAndMenuModel(title = contractNumber, status = true, image = R.drawable.ic_warning))
     }
 
+    //Start : Call api get data
     private fun handleRequestData() {
         when (typeContract) {
             Constants.STATUS_PROCESSING -> {
@@ -87,6 +90,23 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             }
             else -> presenter.getCheckListDetail(listParams)
         }
+    }
+
+    private fun requestDataDeposit(data: String) {
+        contractModel.Deposits = data.toDouble()
+        presenter.let {
+            val map = HashMap<String, Any>()
+            map["username"] = getSharePreferences().accountName
+            map["contract"] = contractNumber
+            it.getCoordinateContract(map)
+        }
+    }
+
+    private fun requestDataCoordinate(data: String) {
+        contractModel.Coordinate = data
+        contractModel.CreateDate = createDate
+        loadContractToView(contractModel)
+        hideLoading()
     }
 
     private fun handleDataDeployDetail(data: ArrayList<Any>?) {
@@ -105,26 +125,11 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             it.getDepositsContract(map)
         }
     }
+    //End : Call api get data
 
-    private fun handleDataDeposit(data: String) {
-        contractModel.Deposits = data.toDouble()
-        presenter.let {
-            val map = HashMap<String, Any>()
-            map["username"] = getSharePreferences().accountName
-            map["contract"] = contractNumber
-            it.getCoordinateContract(map)
-        }
-    }
-
-    private fun handleDataCoordinate(data: String) {
-        contractModel.Coordinate = data
-        contractModel.CreateDate = createDate
-        handleShowData(contractModel)
-        hideLoading()
-    }
-
+    //Start : show UI
     private fun showDataDeployment(it: ContractDetailModel) {
-        handleAppearUI(true)
+        showUI(true)
         fragDetailContract_tvNewLocalType.text = it.NewLocalType
         fragDetailContract_tvLoopRemind.text = it.LoopRemind
         fragDetailContract_tvIndoor.text = getString(R.string.cable_met, it.Indoor)
@@ -140,7 +145,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     }
 
     private fun showDataMaintenance(it: ContractDetailModel) {
-        handleAppearUI(false)
+        showUI(false)
         fragDetailContract_llDeposits.setBackgroundColor(resources.getColor(R.color.grey_blur))
         fragDetailContract_llDescription.setBackgroundColor(resources.getColor(R.color.grey_blur))
         fragDetailContract_llFinishDate.setBackgroundColor(resources.getColor(R.color.white))
@@ -149,7 +154,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         fragDetailContract_tvInit_StatusD.text = it.Init_StatusD
     }
 
-    private fun handleAppearUI(type: Boolean) {
+    private fun showUI(type: Boolean) {
         when (type) {
             true -> {
                 fragDetailContract_llNewLocalType.visibility = View.VISIBLE
@@ -174,7 +179,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         }
     }
 
-    private fun handleShowData(model: ContractDetailModel?) {
+    private fun loadContractToView(model: ContractDetailModel?) {
         model?.let {
             fragDetailContract_tvObjID.text = it.ObjID.toBigDecimalOrNull().toString()
             fragDetailContract_tvName.text = it.Name
@@ -195,22 +200,63 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             if (typeContract == Constants.STATUS_COMPLETED)
                 fragDetailContract_tvFinishDate.text = AppUtils.toConvertTimeToString(context, it.FinishDate)
             fragDetailContract_scMain.visibility = View.VISIBLE
-            handleOnClickItem()
+            onClickAction()
+        }
+    }
+    //End : show UI
+
+    //Start : onclick
+    private fun onClickAction() {
+        typeContract = 1
+        fragDetailContract_tvObjID.setOnClickListener { onClickContractNumber() }
+        fragDetailContract_tvAddress.setOnClickListener { onClickAddress() }
+        fragDetailContract_tvPhone.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + fragDetailContract_tvPhone.text)))
+        }
+        fragDetailContract_tvAllPhone.setOnClickListener { onClickAllPhone() }
+        fragDetailContract_tvODCCableType.setOnClickListener { onClickODCCableType() }
+        fragDetailContract_tvCoordinate.setOnClickListener { onClickLocation() }
+//        actMain_ivNotification.setOnClickListener { onClickUpdateError() }
+    }
+
+    private fun onClickContractNumber() {
+        hideLoading()
+
+    }
+
+    private fun onClickAddress() {
+        hideLoading()
+
+    }
+
+    private fun onClickLocation() {
+        hideLoading()
+
+    }
+
+    private fun onClickAllPhone() {
+        hideLoading()
+
+    }
+
+    private fun onClickODCCableType() {
+        presenter.let {
+            val map = HashMap<String,Any>()
+            map["NameTD"] = contractModel.GroupPoint
+            map["Type"] = typeContract
+            presenter.getPortViewInfoCollection(map)
         }
     }
 
-    private fun handleOnClickItem() {
-        var s = ""
-        fragDetailContract_tvObjID.setOnClickListener { s = "fragDetailContract_tvObjID" }
-        fragDetailContract_tvAddress.setOnClickListener { s = "fragDetailContract_tvAddress" }
-        fragDetailContract_tvPhone.setOnClickListener { s = "fragDetailContract_tvPhone" }
-        fragDetailContract_tvAllPhone.setOnClickListener { s = "fragDetailContract_tvAllPhone" }
-        fragDetailContract_tvODCCableType.setOnClickListener { s = "fragDetailContract_tvODCCableType" }
-        fragDetailContract_tvCoordinate.setOnClickListener { s = "fragDetailContract_tvCoordinate" }
-        actMain_ivNotification.setOnClickListener { s = "actMain_ivNotification" }
-        AppUtils.showDialog(fragmentManager, content = s, confirmDialogInterface = null)
+    private fun onClickUpdateError() {
+        hideLoading()
+
     }
 
+
+    //End : onclick
+
+    //Start handle data from server
     override fun loadDeploymentContractDetail(response: ResponseModel) {
         handleDataDeployDetail(Gson().fromJson(response.Data.toString(), object : TypeToken<ArrayList<Any>>() {}.type))
     }
@@ -220,11 +266,11 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     }
 
     override fun loadDepositsContract(response: ResponseModel) {
-        handleDataDeposit(response.Data.toString())
+        requestDataDeposit(response.Data.toString())
     }
 
     override fun loadCoordinateContract(response: ResponseModel) {
-        handleDataCoordinate(response.Data.toString())
+        requestDataCoordinate(response.Data.toString())
     }
 
     override fun loadFinishContractDetail(response: ResponseModel) {
@@ -235,8 +281,14 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         hideLoading()
     }
 
+    override fun loadPortViewInfoCollection(response: ResponseModel) {
+        hideLoading()
+    }
+
     override fun handleError(error: String) {
+        typeContract++
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }
+    //End handle data from server
 }

@@ -1,15 +1,14 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.service
 
-import android.os.Environment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.ApiService
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.splash_screen.SplashScreenContract
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.BufferedInputStream
-import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
@@ -42,7 +41,7 @@ class DownloadService(private val url: String, private val view: SplashScreenCon
     fun downloadFile(body: ResponseBody) {
         val dataArray = ByteArray(1024 * 4)
         val buffer = BufferedInputStream(body.byteStream(), 1024 * 8)
-        val outPutStream = FileOutputStream(File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "MobiQc_Release.apk"))
+        val outPutStream = FileOutputStream(AppUtils.getFileDownload())
         totalFile = buffer.read(dataArray)
         while (totalFile != -1) {
             outPutStream.write(dataArray, 0, totalFile)

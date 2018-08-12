@@ -20,10 +20,6 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
  */
 class ConfirmDialogFragment : DialogFragment() {
 
-    companion object {
-        val instance = ConfirmDialogFragment()
-    }
-
     var titleDialog = ""
     var contentDialog = ""
     var actionCancel = false
@@ -33,7 +29,7 @@ class ConfirmDialogFragment : DialogFragment() {
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.setCanceledOnTouchOutside(false)
-        dialog?.setCancelable(false)
+        isCancelable = false
         return inflater.inflate(R.layout.fragment_dialog_confirm, container, false)
     }
 

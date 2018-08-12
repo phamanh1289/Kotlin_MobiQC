@@ -19,4 +19,7 @@ interface ApiMobiNetService {
     @POST("Maintain_GetContractDetail")
     fun getMaintenanceContractDetail(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
+    @POST("Port_ViewInfoCollection")
+    fun getPortViewInfoCollection(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
 }

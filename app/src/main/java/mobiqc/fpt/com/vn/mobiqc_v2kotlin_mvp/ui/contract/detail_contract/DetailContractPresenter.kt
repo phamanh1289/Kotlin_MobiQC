@@ -79,4 +79,15 @@ class DetailContractPresenter @Inject constructor(private val apiService: ApiSer
                     view?.handleError(it.message.toString())
                 }))
     }
+
+    override fun getPortViewInfoCollection(map: HashMap<String, Any>) {
+        addSubscribe(apiMobiNet.getPortViewInfoCollection(map)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view?.loadPortViewInfoCollection(it)
+                }, {
+                    view?.handleError(it.message.toString())
+                }))
+    }
 }

@@ -105,16 +105,15 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     }
 
     override fun onBackPressed() {
-        if (!getSharePreferences().onBackPress)
-            when (mCountBack) {
-                0 -> AppUtils.showDialog(supportFragmentManager, content = getString(R.string.content_logout), actionCancel = true, confirmDialogInterface = this)
-                else -> {
-                    super.onBackPressed()
-                    mCountBack--
-                    handleTitleMain()
-                    handleShowMenu()
-                }
+        when (mCountBack) {
+            0 -> AppUtils.showDialog(supportFragmentManager, content = getString(R.string.content_logout), actionCancel = true, confirmDialogInterface = this)
+            else -> {
+                super.onBackPressed()
+                mCountBack--
+                handleTitleMain()
+                handleShowMenu()
             }
+        }
     }
 
     override fun onClickOk() {

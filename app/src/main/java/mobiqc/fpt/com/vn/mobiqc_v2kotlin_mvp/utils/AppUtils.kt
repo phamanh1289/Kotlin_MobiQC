@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.res.Resources
 import android.net.ConnectivityManager
+import android.os.Environment
 import android.support.v4.app.FragmentManager
 import android.text.TextUtils
 import android.widget.TextView
@@ -12,6 +13,8 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ConfirmDialogFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ShowDownLoadDialogFragment
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -48,6 +51,21 @@ object AppUtils {
             dialog.setDataDialog(title = title, content = content, actionCancel = actionCancel, confirmDialogInterface = confirmDialogInterface)
             dialog.show(it, ConfirmDialogFragment::class.java.simpleName)
         }
+    }
+
+    fun showDialogDownLoadData(fragmentManager: FragmentManager?, dialogFragment: ShowDownLoadDialogFragment) {
+        fragmentManager?.let {
+            dialogFragment.show(it, ConfirmDialogFragment::class.java.simpleName)
+        }
+    }
+
+    fun getFileDownload(): File {
+        return File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), Constants.FILE_NAME_DOWNLOAD)
+    }
+
+    fun deleteFileExist() {
+        if (getFileDownload().exists())
+            getFileDownload().delete()
     }
 
     fun showPickTime(context: Context?, tvDate: TextView) {

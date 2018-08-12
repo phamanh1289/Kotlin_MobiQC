@@ -29,7 +29,7 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
 
     @Inject
     lateinit var presenter: CheckContractPresenter
-    lateinit var clickListener: View.OnClickListener
+    private lateinit var clickListener: View.OnClickListener
     private lateinit var choiceMobiAcc: SelectSinglePopup
     private lateinit var choiceMobiType: SelectSinglePopup
     private lateinit var choiceMobiGroup: SelectSingleGroupPopup
