@@ -443,6 +443,60 @@
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragDetailContract_llCableLink_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/contract_cable_link_1"
+                android:textSize="@dimen/_15dp"/>
+
+            <TextView
+                android:id="@+id/fragDetailContract_tvCableLink_1"
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_15dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragDetailContract_llCableLink_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_blur"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/contract_cable_link_2"
+                android:textSize="@dimen/_15dp"/>
+
+            <TextView
+                android:id="@+id/fragDetailContract_tvCableLink_2"
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_15dp"/>
+
+        </LinearLayout>
         //End Maintenance
 
         <LinearLayout
@@ -631,7 +685,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/button"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>

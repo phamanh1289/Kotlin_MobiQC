@@ -28,19 +28,11 @@ class CompletedContractAdapter(val onClick: (Int) -> Unit) : ListAdapter<Complet
             model?.let { item ->
                 itemView.itemCompletedContract_tvContract.text = item.Contract
                 itemView.itemCompletedContract_tvName.text = item.FullName
-                itemView.itemCompletedContract_tvAssignDate.text = handleAssignDate(item.AssignDate, item.AppointmentDate, true)
+                itemView.itemCompletedContract_tvAssignDate.text = AppUtils.handleAssignDate(itemView.context, item.AssignDate, item.AppointmentDate, true)
                 itemView.itemCompletedContract_tvDate.text = AppUtils.toConvertTimeToString(itemView.context, item.Date)
-                itemView.itemCompletedContract_tvLocation.text = handleAssignDate(item.Location, item.Support_Location, false)
+                itemView.itemCompletedContract_tvLocation.text = AppUtils.handleAssignDate(itemView.context, item.Location, item.Support_Location, false)
                 itemView.itemCompletedContract_llRootView.setBackgroundColor(if (adapterPosition % 2 != 0) itemView.context.resources.getColor(R.color.white) else itemView.context.resources.getColor(R.color.grey_blur))
                 itemView.setOnClickListener { onClick(adapterPosition) }
-            }
-        }
-
-        private fun handleAssignDate(s1: String?, s2: String?, typeCheck: Boolean): String {
-            return when {
-                s1.isNullOrEmpty() -> if (typeCheck) AppUtils.toConvertTimeToString(itemView.context, s2!!) else s2!!
-                s2.isNullOrEmpty() -> if (typeCheck) AppUtils.toConvertTimeToString(itemView.context, s1!!) else s1!!
-                else -> "N/A"
             }
         }
     }

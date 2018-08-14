@@ -38,10 +38,9 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     private val listParams = HashMap<String, Any>()
     private val dataContract = ArrayList<CompletedContractModel>()
     private val adapterComplete: CompletedContractAdapter = CompletedContractAdapter(onClick = {
-        listParams["ObjID"] = dataContract[it].ObjID.toString()
         addParams()
         getSharePreferences().listParams = Gson().toJson(listParams)
-        addFragment(DetailContractFragment.newInstance(typeContract, typeCheckList, dataContract[it].Contract, dataContract[it].Date), true, true)
+        addFragment(DetailContractFragment.newInstance("",typeContract,dataContract[it].ObjID, typeCheckList, dataContract[it].Contract, dataContract[it].Date), true, true)
     })
 
     companion object {
@@ -92,17 +91,17 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     }
 
     private fun handleCompleted() {
-        listParams["UserName"] = mobiAcc
-        listParams["FromDate"] = AppUtils.toConvertDateFormat(context, fromDate)
-        listParams["ToDate"] = AppUtils.toConvertDateFormat(context, toDate)
-        listParams["Kind"] = Constants.DEFAULT_KIND
-        listParams["SearchType"] = typeCheckList
+        listParams[Constants.PARAMS_USER_NAME] = mobiAcc
+        listParams[Constants.PARAMS_FROM_DATE] = AppUtils.toConvertDateFormat(context, fromDate)
+        listParams[Constants.PARAMS_TO_DATE] = AppUtils.toConvertDateFormat(context, toDate)
+        listParams[Constants.PARAMS_KIND] = Constants.DEFAULT_KIND
+        listParams[Constants.PARAMS_SEARCH_TYPE] = typeCheckList
         presenter.getCompletedContract(listParams)
     }
 
     private fun handleRequestProcessing(typeCheckList: Int) {
-        listParams["UserName"] = mobiAcc
-        listParams["Kind"] = Constants.DEFAULT_KIND
+        listParams[Constants.PARAMS_USER_NAME] = mobiAcc
+        listParams[Constants.PARAMS_KIND] = Constants.DEFAULT_KIND
         addParams()
         if (typeCheckList == Constants.DEPLOYMENT)
             presenter.getDeploymentContractGroup(listParams)
@@ -111,12 +110,12 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     }
 
     private fun addParams() {
-        listParams["From"] = fromDate.split("/")[0]
-        listParams["FromDay"] = fromDate.split("/")[0]
-        listParams["FromMonth"] = fromDate.split("/")[1]
-        listParams["ToDay"] = toDate.split("/")[0]
-        listParams["To"] = toDate.split("/")[0]
-        listParams["ToMonth"] = toDate.split("/")[1]
+        listParams[Constants.PARAMS_FROM] = fromDate.split("/")[0]
+        listParams[Constants.PARAMS_FROM_DATE] = fromDate.split("/")[0]
+        listParams[Constants.PARAMS_FROM_MONTH] = fromDate.split("/")[1]
+        listParams[Constants.PARAMS_TO_DATE] = toDate.split("/")[0]
+        listParams[Constants.PARAMS_TO] = toDate.split("/")[0]
+        listParams[Constants.PARAMS_TO_MONTH] = toDate.split("/")[1]
     }
 
     private fun handleDataProcessing(list: ArrayList<ProcessingContractModel>) {

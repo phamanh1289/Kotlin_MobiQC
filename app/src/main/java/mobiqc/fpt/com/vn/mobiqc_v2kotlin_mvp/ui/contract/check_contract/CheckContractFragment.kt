@@ -36,6 +36,9 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
     private var dataMobiAcc = ArrayList<SingleChoiceModel>()
     private var dataMobiType = ArrayList<SingleChoiceModel>()
     private var dataMobiGroup = ArrayList<AccountGroup>()
+    private lateinit var onClickMobiGroup: (Int) -> Unit
+    private lateinit var onClickMobiAcc: (Int) -> Unit
+    private lateinit var onClickMobiType: (Int) -> Unit
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_check_contract, container, false)
@@ -45,7 +48,7 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
         super.onViewCreated(view, savedInstanceState)
         getActivityComponent().inject(this)
         presenter.onAttach(this)
-        setTitle(TitleAndMenuModel(title = getString(R.string.menu_kt_hop_dong), status = true,image = R.drawable.ic_notifications))
+        setTitle(TitleAndMenuModel(title = getString(R.string.menu_kt_hop_dong), status = true, image = R.drawable.ic_notifications))
         activity?.let { KeyboardUtils.setupUI(view, activity = it) }
         initView()
     }
@@ -110,40 +113,41 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
     }
 
     private fun initPopUp() {
-        choiceMobiGroup = SelectSingleGroupPopup(dataMobiGroup
-        ) { index ->
+        handleListenerPopUp()
+        choiceMobiGroup = AppUtils.getPopUpSingleChoiceroup(context, dataMobiGroup, onClick = onClickMobiGroup)
+        choiceMobiAcc = AppUtils.getPopUpSingleChoice(context, dataMobiAcc, onClick = onClickMobiAcc)
+        choiceMobiType = AppUtils.getPopUpSingleChoice(context, dataMobiType, onClick = onClickMobiType)
+    }
+
+    private fun handleListenerPopUp() {
+        onClickMobiGroup = { position ->
             dataMobiGroup[choiceMobiGroup.getSelectIndex()].status = false
             choiceMobiGroup.singleAdapter.notifyItemChanged(choiceMobiGroup.getSelectIndex())
-            dataMobiGroup[index].status = true
-            choiceMobiGroup.singleAdapter.notifyItemChanged(index)
+            dataMobiGroup[position].status = true
+            choiceMobiGroup.singleAdapter.notifyItemChanged(position)
             choiceMobiGroup.dismiss()
-            fragCheckContract_tvMobiGroup.text = dataMobiGroup[index].group
-            getDataAcc(index)
+            fragCheckContract_tvMobiGroup.text = dataMobiGroup[position].group
+            getDataAcc(position)
             choiceMobiAcc.singleAdapter.notifyDataSetChanged()
         }
-        choiceMobiGroup.onCreateView(context = context!!)
-        choiceMobiAcc = SelectSinglePopup(dataMobiAcc
-        ) { index ->
+        onClickMobiAcc = { position ->
             dataMobiAcc[choiceMobiAcc.getSelectIndex()].status = false
             choiceMobiAcc.singleAdapter.notifyItemChanged(choiceMobiAcc.getSelectIndex())
-            dataMobiAcc[index].status = true
-            choiceMobiAcc.singleAdapter.notifyItemChanged(index)
+            dataMobiAcc[position].status = true
+            choiceMobiAcc.singleAdapter.notifyItemChanged(position)
             choiceMobiAcc.dismiss()
-            fragCheckContract_tvMobiAcc.text = dataMobiAcc[index].account
+            fragCheckContract_tvMobiAcc.text = dataMobiAcc[position].account
         }
-        choiceMobiAcc.onCreateView(context = context!!)
-
-        choiceMobiType = SelectSinglePopup(dataMobiType
-        ) { index ->
+        onClickMobiType = { position ->
             dataMobiType[choiceMobiType.getSelectIndex()].status = false
             choiceMobiType.singleAdapter.notifyItemChanged(choiceMobiType.getSelectIndex())
-            dataMobiType[index].status = true
-            choiceMobiType.singleAdapter.notifyItemChanged(index)
+            dataMobiType[position].status = true
+            choiceMobiType.singleAdapter.notifyItemChanged(position)
             choiceMobiType.dismiss()
-            fragCheckContract_tvMobiType.text = dataMobiType[index].account
+            fragCheckContract_tvMobiType.text = dataMobiType[position].account
         }
-        choiceMobiType.onCreateView(context = context!!)
     }
+
 
     private fun handleOnClick() {
         clickListener = View.OnClickListener { view ->

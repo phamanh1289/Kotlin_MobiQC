@@ -40,4 +40,12 @@ object DataCore {
         return list
     }
 
+    fun getMenuCheckList(context: Context?): ArrayList<SingleChoiceModel> {
+        val list = ArrayList<SingleChoiceModel>()
+        context?.let {
+            list.add(SingleChoiceModel(id = 1, account = it.getString(R.string.check_list_menu_detail)))
+            list.add(SingleChoiceModel(id = 2, account = it.getString(R.string.check_list_menu_error)))
+        }
+        return list
+    }
 }

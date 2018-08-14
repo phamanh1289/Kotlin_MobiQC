@@ -49,6 +49,8 @@ data class ContractDetailModel(
         val Init_Desc: String,
         val CableType: String,
         val DivisionDesc: String,
+        val Link1: String,
+        val Link2: String,
         val ThirtyRepeat: String,
         var MaintainID: Int = 0,
         var ODCLength: Int = 0,

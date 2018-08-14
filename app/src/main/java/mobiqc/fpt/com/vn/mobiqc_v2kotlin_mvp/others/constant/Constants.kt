@@ -5,6 +5,25 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant
  * * Copyright (c) 2018 by FPT Telecom      **
  */
 object Constants {
+
+    //Start : Params call api
+    const val PARAMS_OBJID = "ObjID"
+    const val PARAMS_USER_NAME = "UserName"
+    const val PARAMS_FROM_DATE = "FromDate"
+    const val PARAMS_FROM_MONTH = "FromMonth"
+    const val PARAMS_FROM = "From"
+    const val PARAMS_TO_MONTH = "ToMonth"
+    const val PARAMS_TO_DATE = "ToDate"
+    const val PARAMS_TO= "To"
+    const val PARAMS_KIND = "Kind"
+    const val PARAMS_SEARCH_TYPE = "SearchType"
+    const val PARAMS_TYPE = "Type"
+    const val PARAMS_SUPID = "SupID"
+    const val NO_PARAMS = 0
+
+    //End : Params call api
+
+
     const val FIRST_ITEM = 0
     const val NO_IMAGE = 0
     const val SMS_TRUE = 1
@@ -34,11 +53,14 @@ object Constants {
     const val DANG_XUAT = "dang_xuat"
     const val TIME_DATE_FORMAT = "dd/MM/yyyy"
     const val ARG_TYPE_CONTRACT = "TypeContract"
+    const val ARG_OBJID = "objId"
+    const val ARG_SUPID = "supId"
     const val ARG_MOBI_ACC = "MobiAcc"
     const val ARG_TYPE_CHECKLIST = "TypeCL"
     const val ARG_DATE_FROM = "DateFrom"
     const val ARG_DATE_TO = "DateTo"
     const val ARG_CONTRACT = "Contract"
+    const val ARG_CONTRACT_NUMBER = "ContractNumber"
     const val ARG_OBJ_CREATEDATE = "CreateDate"
     const val DEFAULT_KIND = "3"
     const val FILE_NAME_DOWNLOAD = "MobiQc_Release.apk"

@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_detail_contract.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.GroupPointDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.main.MainActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import java.text.NumberFormat
@@ -31,15 +34,19 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     private var listParams = HashMap<String, Any>()
     private lateinit var contractNumber: String
     private var createDate = ""
+    private var objId = 0
+    private var supid = ""
     private var typeContract: Int = 0
     private var typeCheckList: Int = 0
     private var typeGroupPoint = 0
     private lateinit var contractModel: ContractDetailModel
 
     companion object {
-        fun newInstance(type: Int, checkList: Int, contractName: String, contractDate: String): DetailContractFragment {
+        fun newInstance(supId: String, type: Int, objId: Int, checkList: Int, contractName: String, contractDate: String): DetailContractFragment {
             val args = Bundle()
+            args.putString(Constants.ARG_SUPID, supId)
             args.putInt(Constants.ARG_TYPE_CONTRACT, type)
+            args.putInt(Constants.ARG_OBJID, objId)
             args.putInt(Constants.ARG_TYPE_CHECKLIST, checkList)
             args.putString(Constants.ARG_CONTRACT, contractName)
             args.putString(Constants.ARG_OBJ_CREATEDATE, contractDate)
@@ -64,14 +71,17 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     private fun initView() {
         val bundle = arguments
         bundle?.let {
-            listParams = Gson().fromJson(getSharePreferences().listParams, object : TypeToken<HashMap<String, Any>>() {}.type)
             createDate = it.getString(Constants.ARG_OBJ_CREATEDATE) ?: ""
             contractNumber = it.getString(Constants.ARG_CONTRACT) ?: ""
+            supid = it.getString(Constants.ARG_SUPID) ?: ""
             typeContract = it.getInt(Constants.ARG_TYPE_CONTRACT)
             typeCheckList = it.getInt(Constants.ARG_TYPE_CHECKLIST)
+            objId = it.getInt(Constants.ARG_OBJID)
+            listParams = Gson().fromJson(getSharePreferences().listParams, object : TypeToken<HashMap<String, Any>>() {}.type)
+            listParams[Constants.PARAMS_OBJID] = objId.toString()
             handleRequestData()
         }
-        setTitle(TitleAndMenuModel(title = contractNumber, status = true, image = R.drawable.ic_warning))
+        setTitle(TitleAndMenuModel(title = contractNumber, status = supid.isBlank(), image = if (supid.isBlank()) R.drawable.ic_warning else 0))
     }
 
     //Start : Call api get data
@@ -82,10 +92,17 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
                 if (typeCheckList == Constants.DEPLOYMENT) presenter.getDeploymentContractDetail(listParams) else presenter.getMaintenanceContractDetail(listParams)
             }
             Constants.STATUS_COMPLETED -> {
-                listParams["SearchType"] = typeCheckList
-                presenter.getFinishContractDetail(listParams)
+                if (supid.isBlank()) {
+                    listParams[Constants.PARAMS_SEARCH_TYPE] = typeCheckList
+                    presenter.getFinishContractDetail(listParams)
+                } else {
+                    listParams.clear()
+                    listParams[Constants.PARAMS_SUPID] = supid
+                    listParams[Constants.PARAMS_OBJID] = objId
+                    listParams[Constants.PARAMS_SEARCH_TYPE] = typeCheckList
+                    presenter.getCheckListDetail(listParams)
+                }
             }
-            else -> presenter.getCheckListDetail(listParams)
         }
     }
 
@@ -172,7 +189,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     private fun loadContractToView(model: ContractDetailModel?) {
         model?.let {
-            fragDetailContract_tvObjID.text = it.ObjID.toBigDecimalOrNull().toString()
+            fragDetailContract_tvObjID.text = contractNumber
             fragDetailContract_tvName.text = it.Name
             fragDetailContract_tvLocalType.text = it.LocalType
             fragDetailContract_tvFullName.text = it.FullName
@@ -187,11 +204,24 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
                 Constants.DEPLOYMENT -> showDataDeployment(it)
                 Constants.MAINTENANCE -> showDataMaintenance(it)
             }
-            fragDetailContract_llFinishDate.visibility = if (typeContract == Constants.STATUS_COMPLETED) View.VISIBLE else View.GONE
-            if (typeContract == Constants.STATUS_COMPLETED)
-                fragDetailContract_tvFinishDate.text = AppUtils.toConvertTimeToString(context, it.FinishDate)
-            fragDetailContract_scMain.visibility = View.VISIBLE
+            handleUIComplete(it)
             onClickAction()
+        }
+    }
+
+    private fun handleUIComplete(model: ContractDetailModel) {
+        fragDetailContract_llFinishDate.visibility = if (typeContract == Constants.STATUS_COMPLETED) View.VISIBLE else View.GONE
+        if (typeContract == Constants.STATUS_COMPLETED)
+            fragDetailContract_tvFinishDate.text = if (model.FinishDate.isNullOrEmpty()) "N/A" else model.FinishDate
+        fragDetailContract_scMain.visibility = View.VISIBLE
+        if (supid.isNotBlank()) {
+            fragDetailContract_tvObjID.setTextColor(resources.getColor(R.color.black_text))
+            if (typeCheckList == Constants.MAINTENANCE) {
+                fragDetailContract_llCableLink_1.visibility = View.VISIBLE
+                fragDetailContract_tvCableLink_1.text = model.Link1
+                fragDetailContract_llCableLink_2.visibility = View.VISIBLE
+                fragDetailContract_tvCableLink_2.text = model.Link2
+            }
         }
     }
     //End : show UI
@@ -209,22 +239,25 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             onClickODCCableType(Constants.TYPE_ADSL)
         }
         fragDetailContract_tvCoordinate.setOnClickListener { onClickLocation() }
-//        actMain_ivNotification.setOnClickListener { onClickUpdateError() }
+        fragDetailContract_tvImage.setOnClickListener { onClickImage() }
+        (activity as MainActivity).actMain_ivNotification.setOnClickListener { onClickContractNumber() }
     }
 
     private fun onClickContractNumber() {
-        hideLoading()
-
+        if (supid.isBlank())
+            addFragment(AllCheckListFragment.newInstance(contractModel.ObjID, contractNumber), true, true)
     }
 
     private fun onClickAddress() {
-        hideLoading()
-
+        AppUtils.showAddressToMap(context, fragDetailContract_tvAddress.text.toString())
     }
 
     private fun onClickLocation() {
-        hideLoading()
+        AppUtils.showDialog(fragmentManager, content = "Show Location", confirmDialogInterface = null)
+    }
 
+    private fun onClickImage() {
+        AppUtils.showDialog(fragmentManager, content = "Show Image", confirmDialogInterface = null)
     }
 
     private fun onClickAllPhone() {
@@ -284,7 +317,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     }
 
     override fun loadCheckListDetail(response: ResponseModel) {
-        hideLoading()
+        handleDataDeployDetail(Gson().fromJson(response.Data.toString(), object : TypeToken<ArrayList<Any>>() {}.type))
     }
 
     override fun loadAllPhoneNumber(response: ResponseModel) {

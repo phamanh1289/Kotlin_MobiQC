@@ -72,6 +72,8 @@
     <string name="contract_create_date">Thời gian</string>
     <string name="contract_cable_BT">Cáp BT</string>
     <string name="contract_cable_TK">Cáp TK</string>
+    <string name="contract_cable_link_1">Mối nối 1</string>
+    <string name="contract_cable_link_2">Mối nối 2</string>
     <string name="contract_service">DV nâng cấp</string>
     <string name="contract_status">Tình trạng KH</string>
     <string name="contract_cable_indoor">Cáp Indoor</string>
@@ -102,5 +104,16 @@
     <string name="phone_number">Số điện thoại</string>
     <string name="phone_number_date">Ngày cập nhật</string>
     <string name="phone_number_sms">SMS</string>
+    <string name="deployment_check_list">Phiếu Triển Khai</string>
+    <string name="maintenance_check_list">Phiếu Bảo Trì</string>
+    <string name="check_list_id">ID</string>
+    <string name="check_list_create">Thời gian tạo</string>
+    <string name="check_list_type">Loại</string>
+    <string name="check_list_status">Tình trạng</string>
+    <string name="check_list_last">Cập nhật cuối</string>
+    <string name="check_list_user">Người cập nhật</string>
+    <string name="check_list_menu_detail">Xem chi tiết</string>
+    <string name="check_list_menu_error">Ghi nhận lỗi</string>
+    <string name="check_list_menu_title">Bạn muốn làm gì?</string>
 
 </resources>

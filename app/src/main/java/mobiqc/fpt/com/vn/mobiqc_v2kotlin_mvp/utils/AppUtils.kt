@@ -13,11 +13,12 @@ import android.text.TextUtils
 import android.widget.TextView
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.MenuCheckListDialogInterface
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.AccountGroup
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PhoneNumberModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ConfirmDialog
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.PhoneNumberDialog
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ShowDownLoadDialog
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.*
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -55,6 +56,20 @@ object AppUtils {
             dialog.setDataDialog(title = title, content = content, actionCancel = actionCancel, confirmDialogInterface = confirmDialogInterface)
             dialog.show(it, ConfirmDialog::class.java.simpleName)
         }
+    }
+
+    fun showMenuCheckListDialog(fragmentManager: FragmentManager?, confirmDialogInterface: MenuCheckListDialogInterface, index: Int) {
+        fragmentManager?.let {
+            val dialog = MenuCheckListDialog()
+            dialog.setDataDialog(confirmDialogInterface = confirmDialogInterface, index = index)
+            dialog.show(it, MenuCheckListDialog::class.java.simpleName)
+        }
+    }
+
+    fun showAddressToMap(context: Context?, address: String) {
+        val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?z=18&q=${address.replace(" ", "+")}"))
+        mapIntent.setPackage("com.google.android.apps.maps")
+        context?.startActivity(mapIntent)
     }
 
     fun showDialogDownLoadData(fragmentManager: FragmentManager?, dialog: ShowDownLoadDialog) {
@@ -123,6 +138,29 @@ object AppUtils {
             return it.getString(R.string.date_time_format, arr[2], arr[1], arr[0])
         }
         return ""
+    }
+
+    fun handleAssignDate(context: Context?, s1: String?, s2: String?, typeCheck: Boolean): String {
+        return when {
+            s1.isNullOrEmpty() -> if (typeCheck) toConvertTimeToString(context, s2!!) else s2!!
+            s2.isNullOrEmpty() -> if (typeCheck) toConvertTimeToString(context, s1!!) else s1!!
+            s1?.isNotBlank()!! -> s1
+            else -> "N/A"
+        }
+    }
+
+    fun getPopUpSingleChoice(context: Context?, listData: ArrayList<SingleChoiceModel>, onClick: (Int) -> Unit): SelectSinglePopup {
+        val popUp = SelectSinglePopup(listData
+                , onClick = onClick)
+        popUp.onCreateView(context = context!!)
+        return popUp
+    }
+
+    fun getPopUpSingleChoiceroup(context: Context?, listData: ArrayList<AccountGroup>, onClick: (Int) -> Unit): SelectSingleGroupPopup {
+        val popUp = SelectSingleGroupPopup(listData
+                , onClick = onClick)
+        popUp.onCreateView(context = context!!)
+        return popUp
     }
 
     fun handleCheckDate(context: Context?, start: String, end: String): String {
