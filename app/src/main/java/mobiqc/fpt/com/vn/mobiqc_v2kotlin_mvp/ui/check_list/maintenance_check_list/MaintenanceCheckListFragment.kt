@@ -84,6 +84,7 @@ class MaintenanceCheckListFragment : BaseFragment(), AllCheckListContract.AllChe
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
+        fragCheckListMaintenance_tvNoData.visibility = if (dataCheckList.size != 0) View.VISIBLE else View.GONE
         hideLoading()
     }
 

@@ -85,6 +85,7 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
+        fragCheckListDeployment_tvNoData.visibility = if (dataCheckList.size != 0) View.VISIBLE else View.GONE
         hideLoading()
     }
 

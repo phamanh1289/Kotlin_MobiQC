@@ -8,6 +8,16 @@
     android:focusable="true"
     tools:ignore="MissingPrefix">
 
+    <TextView
+        android:id="@+id/fragCheckListDeployment_tvNoData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:gravity="center"
+        android:padding="@dimen/_16dp"
+        android:visibility="gone"
+        android:text="@string/no_data"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragCheckListDeployment_rvMain"
         android:layout_width="match_parent"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     android:padding="@dimen/_16dp"
     tools:ignore="ContentDescription"
@@ -21,11 +22,11 @@
             android:orientation="horizontal">
 
             <TextView
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:text="@string/loai_hd"
-                fontPath="@string/Helvetica_Bold"
                 tools:ignore="MissingPrefix"/>
 
             <RadioGroup
@@ -61,11 +62,11 @@
             android:orientation="horizontal">
 
             <TextView
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:text="@string/don_vi"
-                fontPath="@string/Helvetica_Bold"
                 tools:ignore="MissingPrefix"/>
 
             <FrameLayout
@@ -106,11 +107,11 @@
             android:orientation="horizontal">
 
             <TextView
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:text="@string/to"
-                fontPath="@string/Helvetica_Bold"
                 tools:ignore="MissingPrefix"/>
 
             <FrameLayout
@@ -150,11 +151,11 @@
             android:orientation="horizontal">
 
             <TextView
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:text="@string/loai_tc"
-                fontPath="@string/Helvetica_Bold"
                 tools:ignore="MissingPrefix"/>
 
             <FrameLayout
@@ -194,11 +195,11 @@
             android:orientation="horizontal">
 
             <TextView
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:text="@string/tu_ngay"
-                fontPath="@string/Helvetica_Bold"
                 tools:ignore="MissingPrefix"/>
 
             <FrameLayout
@@ -239,11 +240,11 @@
             android:orientation="horizontal">
 
             <TextView
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:text="@string/den_ngay"
-                fontPath="@string/Helvetica_Bold"
                 tools:ignore="MissingPrefix"/>
 
             <FrameLayout
@@ -284,6 +285,7 @@
             android:orientation="horizontal">
 
             <TextView
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_16dp"
@@ -291,18 +293,18 @@
                 android:background="@drawable/selector_submit_login"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="gone"
                 android:gravity="center_horizontal|center_vertical"
                 android:paddingBottom="@dimen/_10dp"
                 android:paddingTop="@dimen/_10dp"
                 android:text="@string/lam_moi"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_19dp"
-                fontPath="@string/Helvetica_Bold"
+                android:visibility="gone"
                 tools:ignore="MissingPrefix"/>
 
             <TextView
                 android:id="@+id/fragCheckContract_tvSearch"
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16dp"
@@ -311,13 +313,12 @@
                 android:focusable="true"
                 android:gravity="center_horizontal|center_vertical"
                 android:paddingBottom="@dimen/_10dp"
-                android:paddingTop="@dimen/_10dp"
-                android:paddingStart="@dimen/_50dp"
                 android:paddingEnd="@dimen/_50dp"
+                android:paddingStart="@dimen/_50dp"
+                android:paddingTop="@dimen/_10dp"
                 android:text="@string/xem"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_19dp"
-                fontPath="@string/Helvetica_Bold"
                 tools:ignore="MissingPrefix"/>
         </LinearLayout>
     </LinearLayout>
