@@ -19,10 +19,12 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PhoneNumberModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.*
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
 
 /**
  * * Created by Anh Pham on 08/02/2018.     **
@@ -149,18 +151,33 @@ object AppUtils {
         }
     }
 
-    fun getPopUpSingleChoice(context: Context?, listData: ArrayList<SingleChoiceModel>, onClick: (Int) -> Unit): SelectSinglePopup {
-        val popUp = SelectSinglePopup(listData
-                , onClick = onClick)
-        popUp.onCreateView(context = context!!)
-        return popUp
+    fun showDialogSingChoiceGroup(fragmentManager: FragmentManager?, title: String, listData: ArrayList<AccountGroup>, view: TextView) {
+        val listSingle = ArrayList<SingleChoiceModel>()
+        listData.forEach {
+            listSingle.add(SingleChoiceModel(account = it.group, status = it.status))
+        }
+        showDialogSingChoice(fragmentManager, title, listSingle, view)
     }
 
-    fun getPopUpSingleChoiceroup(context: Context?, listData: ArrayList<AccountGroup>, onClick: (Int) -> Unit): SelectSingleGroupPopup {
-        val popUp = SelectSingleGroupPopup(listData
-                , onClick = onClick)
-        popUp.onCreateView(context = context!!)
-        return popUp
+    fun showDialogSingChoice(fragmentManager: FragmentManager?, title: String, listData: ArrayList<SingleChoiceModel>, view: TextView) {
+        val dialog = SingChoiceDialog()
+        dialog.setDataDialog(title = title, list = listData) { position ->
+            if (view.id == R.id.fragCheckContract_tvMobiGroup) {
+                val fragment = fragmentManager?.findFragmentById(android.R.id.tabcontent)
+                (fragment as? CheckContractFragment)?.let {
+                    it.dataMobiGroup[dialog.singleAdapter.indexSelect].status = false
+                    it.dataMobiGroup[position].status = true
+                    it.getDataAcc(position)
+                }
+            }else{
+                listData[dialog.singleAdapter.indexSelect].status = false
+                listData[position].status = true
+            }
+            view.text = listData[position].account
+            dialog.submitData(listData)
+            dialog.dismiss()
+        }
+        dialog.show(fragmentManager, SingChoiceDialog::class.java.simpleName)
     }
 
     fun handleCheckDate(context: Context?, start: String, end: String): String {

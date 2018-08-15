@@ -141,7 +141,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             data?.let {
                 getSharePreferences().maxDateError = it
             }
-            if (getSharePreferences().createDate.isBlank() || getSharePreferences().createDate != AppUtils.getCurrentDate(Constants.NONE_LATE_DATE)) {
+            if (!getSharePreferences().checkReLogin()) {
                 getSharePreferences().toClearSessionLogin()
                 addFragment(LoginFragment(), false, true)
             } else StartActivityUtils().toMainActivity(this@SplashScreenActivity)

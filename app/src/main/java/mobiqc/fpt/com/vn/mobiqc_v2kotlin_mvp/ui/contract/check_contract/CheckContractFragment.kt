@@ -13,8 +13,6 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceMode
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.SelectSingleGroupPopup
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.SelectSinglePopup
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.info_contract.InfoContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
@@ -30,15 +28,9 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
     @Inject
     lateinit var presenter: CheckContractPresenter
     private lateinit var clickListener: View.OnClickListener
-    private lateinit var choiceMobiAcc: SelectSinglePopup
-    private lateinit var choiceMobiType: SelectSinglePopup
-    private lateinit var choiceMobiGroup: SelectSingleGroupPopup
     private var dataMobiAcc = ArrayList<SingleChoiceModel>()
     private var dataMobiType = ArrayList<SingleChoiceModel>()
-    private var dataMobiGroup = ArrayList<AccountGroup>()
-    private lateinit var onClickMobiGroup: (Int) -> Unit
-    private lateinit var onClickMobiAcc: (Int) -> Unit
-    private lateinit var onClickMobiType: (Int) -> Unit
+    var dataMobiGroup = ArrayList<AccountGroup>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_check_contract, container, false)
@@ -55,7 +47,6 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
 
     private fun initView() {
         handleData()
-        initPopUp()
         handleOnClick()
         clickListener.let {
             fragCheckContract_tvMobiGroup.setOnClickListener(it)
@@ -83,11 +74,9 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
             }
     }
 
-    private fun getDataAcc(index: Int) {
-        if (dataMobiAcc.size != 0) {
-            dataMobiAcc[choiceMobiAcc.singleAdapter.indexSelect].status = false
-            choiceMobiAcc.singleAdapter.indexSelect = Constants.FIRST_ITEM
-        }
+    fun getDataAcc(index: Int) {
+        if (dataMobiAcc.size != 0)
+            dataMobiAcc.forEach { it.status = false }
         dataMobiAcc = dataMobiGroup[index].accounts
         dataMobiAcc[Constants.FIRST_ITEM].status = true
         fragCheckContract_tvMobiAcc.text = dataMobiAcc[Constants.FIRST_ITEM].account
@@ -104,7 +93,7 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
             else {
                 val type = if (fragCheckContract_rbProcessing.isChecked) Constants.STATUS_PROCESSING else Constants.STATUS_COMPLETED
                 val acc = fragCheckContract_tvMobiAcc.text.toString().trim()
-                val checkList = dataMobiType[choiceMobiType.getSelectIndex()].id
+                val checkList = if (fragCheckContract_tvMobiType.text.toString().equals(getString(R.string.loai_tc_1))) Constants.DEPLOYMENT else Constants.MAINTENANCE
                 val from = fragCheckContract_tvFromDate.text.toString()
                 val to = fragCheckContract_tvToDate.text.toString()
                 addFragment(InfoContractFragment.newInstance(type, acc, checkList, from, to), true, true)
@@ -112,49 +101,12 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
         }
     }
 
-    private fun initPopUp() {
-        handleListenerPopUp()
-        choiceMobiGroup = AppUtils.getPopUpSingleChoiceroup(context, dataMobiGroup, onClick = onClickMobiGroup)
-        choiceMobiAcc = AppUtils.getPopUpSingleChoice(context, dataMobiAcc, onClick = onClickMobiAcc)
-        choiceMobiType = AppUtils.getPopUpSingleChoice(context, dataMobiType, onClick = onClickMobiType)
-    }
-
-    private fun handleListenerPopUp() {
-        onClickMobiGroup = { position ->
-            dataMobiGroup[choiceMobiGroup.getSelectIndex()].status = false
-            choiceMobiGroup.singleAdapter.notifyItemChanged(choiceMobiGroup.getSelectIndex())
-            dataMobiGroup[position].status = true
-            choiceMobiGroup.singleAdapter.notifyItemChanged(position)
-            choiceMobiGroup.dismiss()
-            fragCheckContract_tvMobiGroup.text = dataMobiGroup[position].group
-            getDataAcc(position)
-            choiceMobiAcc.singleAdapter.notifyDataSetChanged()
-        }
-        onClickMobiAcc = { position ->
-            dataMobiAcc[choiceMobiAcc.getSelectIndex()].status = false
-            choiceMobiAcc.singleAdapter.notifyItemChanged(choiceMobiAcc.getSelectIndex())
-            dataMobiAcc[position].status = true
-            choiceMobiAcc.singleAdapter.notifyItemChanged(position)
-            choiceMobiAcc.dismiss()
-            fragCheckContract_tvMobiAcc.text = dataMobiAcc[position].account
-        }
-        onClickMobiType = { position ->
-            dataMobiType[choiceMobiType.getSelectIndex()].status = false
-            choiceMobiType.singleAdapter.notifyItemChanged(choiceMobiType.getSelectIndex())
-            dataMobiType[position].status = true
-            choiceMobiType.singleAdapter.notifyItemChanged(position)
-            choiceMobiType.dismiss()
-            fragCheckContract_tvMobiType.text = dataMobiType[position].account
-        }
-    }
-
-
     private fun handleOnClick() {
         clickListener = View.OnClickListener { view ->
             when (view.id) {
-                R.id.fragCheckContract_tvMobiGroup -> choiceMobiGroup.showAsDropDown(view)
-                R.id.fragCheckContract_tvMobiAcc -> choiceMobiAcc.showAsDropDown(view)
-                R.id.fragCheckContract_tvMobiType -> choiceMobiType.showAsDropDown(view)
+                R.id.fragCheckContract_tvMobiGroup -> AppUtils.showDialogSingChoiceGroup(fragmentManager, getString(R.string.don_vi), dataMobiGroup, fragCheckContract_tvMobiGroup)
+                R.id.fragCheckContract_tvMobiAcc -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiAcc, fragCheckContract_tvMobiAcc)
+                R.id.fragCheckContract_tvMobiType -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiType, fragCheckContract_tvMobiType)
                 R.id.fragCheckContract_tvFromDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvFromDate) }
 
                 R.id.fragCheckContract_tvToDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvToDate) }

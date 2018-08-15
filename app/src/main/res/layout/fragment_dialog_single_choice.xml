@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="@dimen/_60dp"
+    android:layout_marginEnd="@dimen/_20dp"
+    android:layout_marginStart="@dimen/_20dp"
+    android:layout_marginTop="@dimen/_60dp"
+    android:background="@drawable/shape_circle_dialog_while"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        android:id="@+id/fragDialogSingleChoice_tvTitle"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/_8dp"
+        android:paddingStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:text="@string/title_dialog"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/_18dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:background="@color/grey_blur"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragDialogSingleChoice_rvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
