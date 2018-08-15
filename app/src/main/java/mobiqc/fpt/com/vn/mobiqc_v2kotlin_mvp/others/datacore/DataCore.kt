@@ -4,6 +4,7 @@ import android.content.Context
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ItemMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.error.ErrorRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 
 /**
@@ -40,11 +41,35 @@ object DataCore {
         return list
     }
 
-    fun getMenuCheckList(context: Context?): ArrayList<SingleChoiceModel> {
+    fun getListTypeKS(context: Context?): ArrayList<SingleChoiceModel> {
         val list = ArrayList<SingleChoiceModel>()
         context?.let {
-            list.add(SingleChoiceModel(id = 1, account = it.getString(R.string.check_list_menu_detail)))
-            list.add(SingleChoiceModel(id = 2, account = it.getString(R.string.check_list_menu_error)))
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_KS_hot), status = true))
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_KS_cold)))
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_KS_subject)))
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_KS_swap)))
+        }
+        return list
+    }
+
+    fun getListIndoor(context: Context?): ArrayList<SingleChoiceModel> {
+        val list = ArrayList<SingleChoiceModel>()
+        context?.let {
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_indoor_yes), status = true))
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_indoor_no)))
+        }
+        return list
+    }
+
+    fun getListDepartment(context: Context?): ArrayList<SingleChoiceModel> {
+        val list = ArrayList<SingleChoiceModel>()
+        context?.let {
+            val data = ErrorRealmManager().getDistinctDepartment()
+            val data1 = ErrorRealmManager().getDistinctTypeError("CUS")
+            val data2 = ErrorRealmManager().getDistinctMainError("CUS", "Chat luong phuc vu")
+            val data3 = ErrorRealmManager().getDistinctDescription("CUS", "Chat luong phuc vu", "KH khong hai long ve CLPV")
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_indoor_yes)))
+            list.add(SingleChoiceModel(account = it.getString(R.string.type_indoor_no)))
         }
         return list
     }

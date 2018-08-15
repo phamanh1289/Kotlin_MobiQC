@@ -115,5 +115,22 @@
     <string name="check_list_menu_detail">Xem chi tiết</string>
     <string name="check_list_menu_error">Ghi nhận lỗi</string>
     <string name="check_list_menu_title">Bạn muốn làm gì?</string>
+    <string name="error_detail_number">Phiếu triển khai</string>
+    <string name="error_detail_type">Loại KS</string>
+    <string name="error_detail_user">Đối tượng KS</string>
+    <string name="error_detail_check">Cáp kiểm tra</string>
+    <string name="error_detail_money">Tiền hòa mạng</string>
+    <string name="error_detail_type_error">Nhóm lỗi</string>
+    <string name="error_detail_main_error">Lỗi chính</string>
+    <string name="error_detail_main_indoor">Indoor</string>
+    <string name="error_detail_description">Mô tả lỗi</string>
+    <string name="error_detail_note">Ghi chú</string>
+    <string name="error_detail_submit">Cập nhật</string>
+    <string name="type_KS_hot">Nóng</string>
+    <string name="type_KS_cold">Nguội</string>
+    <string name="type_KS_subject">Chuyên đề</string>
+    <string name="type_KS_swap">Swap</string>
+    <string name="type_indoor_yes">Có</string>
+    <string name="type_indoor_no">Không</string>
 
 </resources>

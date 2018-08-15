@@ -31,7 +31,6 @@ class CompletedContractAdapter(val onClick: (Int) -> Unit) : ListAdapter<Complet
                 itemView.itemCompletedContract_tvAssignDate.text = AppUtils.handleAssignDate(itemView.context, item.AssignDate, item.AppointmentDate, true)
                 itemView.itemCompletedContract_tvDate.text = AppUtils.toConvertTimeToString(itemView.context, item.Date)
                 itemView.itemCompletedContract_tvLocation.text = AppUtils.handleAssignDate(itemView.context, item.Location, item.Support_Location, false)
-                itemView.itemCompletedContract_llRootView.setBackgroundColor(if (adapterPosition % 2 != 0) itemView.context.resources.getColor(R.color.white) else itemView.context.resources.getColor(R.color.grey_blur))
                 itemView.setOnClickListener { onClick(adapterPosition) }
             }
         }

@@ -1,5 +1,6 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.adapter
 
+import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceMode
  * * Created by Anh Pham on 08/07/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class SelectionSingleAdapter(var mData: ArrayList<SingleChoiceModel>?, val onClick: (Int) -> Unit) : RecyclerView.Adapter<SelectionSingleAdapter.SelectionSingleHolder>() {
+class SelectionSingleAdapter(val onClick: (Int) -> Unit) : ListAdapter<SingleChoiceModel, SelectionSingleAdapter.SelectionSingleHolder>(SelectionSingleDiff()) {
 
     var indexSelect: Int = -1
 
@@ -20,16 +21,12 @@ class SelectionSingleAdapter(var mData: ArrayList<SingleChoiceModel>?, val onCli
         return SelectionSingleHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_selection_single, parent, false))
     }
 
-    override fun getItemCount(): Int {
-        return mData?.size ?: 0
-    }
-
     override fun onBindViewHolder(holder: SelectionSingleHolder, position: Int) {
-        mData?.let { holder.bind(it[position], onClick) }
+        holder.bindData(getItem(position), onClick)
     }
 
     inner class SelectionSingleHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(item: SingleChoiceModel, onClick: (Int) -> Unit) {
+        fun bindData(item: SingleChoiceModel, onClick: (Int) -> Unit) {
             itemView.itemSelection_tvTitle.text = item.account.trim()
             itemView.itemSelection_rbCheck.isChecked = item.status
             if (indexSelect == -1 && item.status)

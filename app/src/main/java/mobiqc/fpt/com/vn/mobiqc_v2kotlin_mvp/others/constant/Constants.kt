@@ -29,7 +29,7 @@ object Constants {
     const val SMS_TRUE = 1
     const val REQUEST_SUCCESS = 1
     const val REQUEST_UPDATE = 0
-    const val NONE_LATE_DATE = 0
+    const val CURRENT_DATE = 0
     const val LATE_DATE = -3
     const val STATUS_PROCESSING = 1
     const val STATUS_COMPLETED = 2

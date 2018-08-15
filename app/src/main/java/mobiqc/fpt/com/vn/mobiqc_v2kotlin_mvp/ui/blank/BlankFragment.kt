@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
 
@@ -37,10 +38,15 @@ class BlankFragment : BaseFragment(), BlankContract.View {
 //        getActivityComponent().inject(this)
         presenter.onAttach(this)
         activity?.let { KeyboardUtils.setupUI(view, activity = it) }
-//        initView()
+        initView()
+    }
+
+    private fun initView() {
+
     }
 
     override fun handleError(error: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        hideLoading()
+        AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }
 }

@@ -82,12 +82,15 @@ class LoginFragment : BaseFragment(), LoginContract.LoginView {
 
     override fun loadUser(response: ResponseModel) {
         if (response.Code == Constants.REQUEST_SUCCESS) {
-            getSharePreferences().createDate = AppUtils.getCurrentDate(Constants.NONE_LATE_DATE)
             val map = HashMap<String, Any>()
             val userName = fragLogin_tvUser.text.toString()
             map["UserName"] = userName
             getSharePreferences().accountName = userName
+            getSharePreferences().createDate = AppUtils.getCurrentDate(Constants.CURRENT_DATE)
             presenter.postMobiAccount(map)
+        } else {
+            hideLoading()
+            AppUtils.showDialog(fragmentManager, content = response.Description, confirmDialogInterface = null)
         }
     }
 

@@ -70,7 +70,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.BAO_CAO_SO_LIEU -> ""
             Constants.THONG_TIN -> ""
             Constants.DANG_XUAT -> {
-                getSharePreferences().accountName = ""
+                getSharePreferences().toClearSessionLogin()
                 addFragment(LoginFragment(), false, true)
             }
         }

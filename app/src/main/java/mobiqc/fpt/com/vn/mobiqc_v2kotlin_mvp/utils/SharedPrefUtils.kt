@@ -2,6 +2,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 
 /**
  * * Created by Anh Pham on 08/02/2018.     **
@@ -13,7 +14,6 @@ class SharedPrefUtils constructor(app: Context?) {
         private const val SHARED_PREF_NAME = "mobiQC"
         private const val MAX_DATE_ERROR = "maxDateError"
         private const val ACCOUNT_NAME = "accountName"
-        private const val ACCOUNT_PASS = "accountPass"
         private const val IMEI_DEVICE = "imeiDevice"
         private const val MOBI_ACCOUNT = "mobiAccount"
         private const val CREATE_DATE = "createDate"
@@ -29,9 +29,6 @@ class SharedPrefUtils constructor(app: Context?) {
     var accountName: String
         get() = sharedPreferences?.getString(ACCOUNT_NAME, "")!!
         set(value) = sharedPreferences?.put { putString(ACCOUNT_NAME, value) }!!
-    var accountPass: String
-        get() = sharedPreferences?.getString(ACCOUNT_PASS, "")!!
-        set(value) = sharedPreferences?.put { putString(ACCOUNT_PASS, value) }!!
     var mobiAccount: String
         get() = sharedPreferences?.getString(MOBI_ACCOUNT, "")!!
         set(value) = sharedPreferences?.put { putString(MOBI_ACCOUNT, value) }!!
@@ -50,6 +47,12 @@ class SharedPrefUtils constructor(app: Context?) {
 
     private val sharedPreferences by lazy(LazyThreadSafetyMode.NONE) {
         app?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+    }
+
+    fun checkReLogin() : Boolean{
+        return if (accountName.isBlank())
+            false
+        else createDate == AppUtils.getCurrentDate(Constants.CURRENT_DATE)
     }
 
     fun toClearSessionLogin() {
