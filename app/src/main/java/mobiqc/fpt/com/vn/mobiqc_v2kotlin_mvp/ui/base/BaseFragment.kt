@@ -20,6 +20,10 @@ open class BaseFragment : Fragment(), BaseView {
         }
     }
 
+    override fun getCurrentFragment(): BaseFragment {
+        return (activity as BaseActivity).getCurrentFragment()
+    }
+
     override fun hideLoading() {
         if (activity is BaseActivity) {
             (activity as BaseActivity).hideLoading()

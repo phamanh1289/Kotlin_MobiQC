@@ -40,7 +40,7 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     private val adapterComplete: CompletedContractAdapter = CompletedContractAdapter(onClick = {
         addParams()
         getSharePreferences().listParams = Gson().toJson(listParams)
-        addFragment(DetailContractFragment.newInstance("",typeContract,dataContract[it].ObjID, typeCheckList, dataContract[it].Contract, dataContract[it].Date), true, true)
+        addFragment(DetailContractFragment.newInstance("", typeContract, dataContract[it].ObjID, typeCheckList, dataContract[it].Contract, dataContract[it].Date), true, true)
     })
 
     companion object {
@@ -119,25 +119,27 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     }
 
     private fun handleDataProcessing(list: ArrayList<ProcessingContractModel>) {
-        val model: ProcessingContractModel? = list[0]
-        model?.let { it ->
-            fragInfoContract_llDataProcessing.visibility = View.VISIBLE
-            fragInfoContract_tvGroupName?.text = mobiAcc
-            fragInfoContract_tvContractAssign?.text = it.Assign.toString()
-            fragInfoContract_tvContractFinish?.text = it.Finish.toString()
-            fragInfoContract_tvContractInStock?.text = it.InStock.toString()
-            fragInfoContract_tvContractInStockHiFPT?.text = "0"
-            fragInfoContract_tvContractComing?.text = it.UpcomingSchedule.toString()
-            fragInfoContract_tvContractOverTime?.text = it.OverSchedule.toString()
-            fragInfoContract_tvLabelOvertime48.text = if (typeCheckList == Constants.DEPLOYMENT) getString(R.string.contract_over_time_48h) else getString(R.string.contract_up_coming)
-            fragInfoContract_tvLabelOvertime96.text = if (typeCheckList == Constants.DEPLOYMENT) getString(R.string.contract_over_time_96h) else getString(R.string.contract_over_time)
-            fragInfoContract_tvLabelInStockHiFPT.visibility = if (typeCheckList == Constants.DEPLOYMENT) View.GONE else View.VISIBLE
-            fragInfoContract_tvSubmit.setOnClickListener { _ ->
-                fragInfoContract_llDataProcessing.visibility = View.GONE
-                showLoading()
-                if (typeCheckList == Constants.DEPLOYMENT) presenter.getDeploymentContractList(listParams) else presenter.getMaintenanceContractList(listParams)
+        if (list.size != 0) {
+            val model: ProcessingContractModel? = list[0]
+            model?.let { it ->
+                fragInfoContract_llDataProcessing.visibility = View.VISIBLE
+                fragInfoContract_tvGroupName?.text = mobiAcc
+                fragInfoContract_tvContractAssign?.text = it.Assign.toString()
+                fragInfoContract_tvContractFinish?.text = it.Finish.toString()
+                fragInfoContract_tvContractInStock?.text = it.InStock.toString()
+                fragInfoContract_tvContractInStockHiFPT?.text = "0"
+                fragInfoContract_tvContractComing?.text = it.UpcomingSchedule.toString()
+                fragInfoContract_tvContractOverTime?.text = it.OverSchedule.toString()
+                fragInfoContract_tvLabelOvertime48.text = if (typeCheckList == Constants.DEPLOYMENT) getString(R.string.contract_over_time_48h) else getString(R.string.contract_up_coming)
+                fragInfoContract_tvLabelOvertime96.text = if (typeCheckList == Constants.DEPLOYMENT) getString(R.string.contract_over_time_96h) else getString(R.string.contract_over_time)
+                fragInfoContract_tvLabelInStockHiFPT.visibility = if (typeCheckList == Constants.DEPLOYMENT) View.GONE else View.VISIBLE
+                fragInfoContract_tvSubmit.setOnClickListener { _ ->
+                    fragInfoContract_llDataProcessing.visibility = View.GONE
+                    showLoading()
+                    if (typeCheckList == Constants.DEPLOYMENT) presenter.getDeploymentContractList(listParams) else presenter.getMaintenanceContractList(listParams)
+                }
             }
-        }
+        } else fragInfoContract_tvNoData.visibility = View.VISIBLE
         hideLoading()
     }
 

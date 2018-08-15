@@ -11,6 +11,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.maintenance_check_list.MaintenanceCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
 
@@ -18,7 +19,7 @@ import javax.inject.Inject
  * * Created by Anh Pham on 08/09/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class AllCheckListFragment : BaseFragment(){
+class AllCheckListFragment : BaseFragment() {
 
     @Inject
     lateinit var presenter: AllCheckListPresenter
@@ -27,7 +28,7 @@ class AllCheckListFragment : BaseFragment(){
     private var contractNumber = ""
 
     companion object {
-        fun newInstance(type: String, number : String): AllCheckListFragment {
+        fun newInstance(type: String, number: String): AllCheckListFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT, type)
             args.putString(Constants.ARG_CONTRACT_NUMBER, number)
@@ -51,6 +52,10 @@ class AllCheckListFragment : BaseFragment(){
         showLoading()
         handleArgument()
         setUpTabLayout()
+    }
+
+    fun showInfo(){
+        AppUtils.showDialog(fragmentManager, content = "aaa", confirmDialogInterface = null)
     }
 
     private fun setUpTabLayout() {

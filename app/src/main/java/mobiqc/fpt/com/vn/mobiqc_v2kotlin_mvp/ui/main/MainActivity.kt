@@ -15,7 +15,9 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import javax.inject.Inject
@@ -56,6 +58,17 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             setHasFixedSize(true)
         }
         handleActionMenu(mData[KT_HOP_DONG])
+        actMain_ivNotification.setOnClickListener {
+            handleActionNotify()
+        }
+    }
+
+    private fun handleActionNotify(){
+        val fragment = getCurrentFragment()
+        when(fragment){
+            is DetailContractFragment -> fragment.onClickContractNumber()
+            is AllCheckListFragment -> fragment.showInfo()
+        }
     }
 
     private fun handleActionMenu(itemMenu: ItemMenuModel) {
@@ -74,10 +87,8 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
                 addFragment(LoginFragment(), false, true)
             }
         }
-        if (itemMenu.id.isNotBlank() || itemMenu.id != Constants.DANG_XUAT) {
-//            actMain_tvTitleMain.text = itemMenu.name.replace("-", "").trim()
+        if (itemMenu.id.isNotBlank() || itemMenu.id != Constants.DANG_XUAT)
             actMain_dlMenu.closeDrawers()
-        }
     }
 
     fun handleShowMenu() {

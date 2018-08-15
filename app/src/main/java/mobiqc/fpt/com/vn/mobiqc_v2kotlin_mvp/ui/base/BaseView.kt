@@ -16,6 +16,8 @@ interface BaseView {
 
     fun getSharePreferences(): SharedPrefUtils
 
+    fun getCurrentFragment(): BaseFragment
+
     fun isNetworkConnected(): Boolean
 
     fun addFragment(fragment: BaseFragment, isAddToBackStack: Boolean, isAnimation: Boolean)

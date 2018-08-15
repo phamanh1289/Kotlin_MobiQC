@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_detail_contract.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
@@ -14,10 +13,8 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.GroupPointDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.main.MainActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
-import java.text.NumberFormat
 import java.util.*
 import javax.inject.Inject
 import kotlin.collections.HashMap
@@ -198,7 +195,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             fragDetailContract_tvPhone.text = it.Phone
             fragDetailContract_tvCreateDate.text = it.CreateDate
             fragDetailContract_tvODCCableType.text = it.ODCCableType
-            fragDetailContract_tvDeposits.text = getString(R.string.deposit_amount, NumberFormat.getNumberInstance(Locale.US).format(it.Deposits.toLong()))
+            fragDetailContract_tvDeposits.text = getString(R.string.deposit_amount, AppUtils.setFormatMoney(it.Deposits.toLong()))
             fragDetailContract_tvDescription.text = it.Description
             when (typeCheckList) {
                 Constants.DEPLOYMENT -> showDataDeployment(it)
@@ -240,12 +237,11 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         }
         fragDetailContract_tvCoordinate.setOnClickListener { onClickLocation() }
         fragDetailContract_tvImage.setOnClickListener { onClickImage() }
-        (activity as MainActivity).actMain_ivNotification.setOnClickListener { onClickContractNumber() }
     }
 
-    private fun onClickContractNumber() {
+    fun onClickContractNumber() {
         if (supid.isBlank())
-            addFragment(AllCheckListFragment.newInstance(contractModel.ObjID, contractNumber), true, true)
+            addFragment(AllCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString(), contractNumber), true, true)
     }
 
     private fun onClickAddress() {

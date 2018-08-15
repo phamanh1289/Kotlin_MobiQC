@@ -36,6 +36,11 @@ open class BaseActivity : AppCompatActivity(), BaseView {
         return sharePreferences
     }
 
+    override fun getCurrentFragment(): BaseFragment {
+        val fragment  = supportFragmentManager.findFragmentById(android.R.id.tabcontent)
+        return fragment as? BaseFragment ?: BaseFragment()
+    }
+
     fun getPermission(): RxPermissions {
         return rxPermissions
     }

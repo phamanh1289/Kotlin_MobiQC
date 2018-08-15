@@ -18,7 +18,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllChe
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListPresenter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.diff.AllCheckListAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFagment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -100,7 +100,7 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
     }
 
     override fun onClickError(index: Int) {
-        addFragment(ErrorFagment(), true, true)
+        addFragment(ErrorFragment.newInstance(dataCheckList[index].ID.toBigDecimal().toString()), true, true)
     }
 
     override fun onClickDetail(index: Int) {

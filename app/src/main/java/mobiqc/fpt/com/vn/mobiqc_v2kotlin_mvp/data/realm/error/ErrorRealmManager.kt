@@ -112,7 +112,7 @@ open class ErrorRealmManager {
             result?.let {
                 if (it.size != 0) {
                     for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$department`()))
+                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$department`(), status = i == 0))
                     }
                 }
             }
@@ -133,7 +133,7 @@ open class ErrorRealmManager {
             result?.let {
                 if (it.size != 0) {
                     for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$type`()))
+                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$type`(), status = i == 0))
                     }
                 }
             }
@@ -154,7 +154,7 @@ open class ErrorRealmManager {
             result?.let {
                 if (it.size != 0) {
                     for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$main`()))
+                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$main`(), status = i == 0))
                     }
                 }
             }
@@ -175,7 +175,7 @@ open class ErrorRealmManager {
             result?.let {
                 if (it.size != 0) {
                     for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$description`()))
+                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$description`(), status = i == 0))
                     }
                 }
             }

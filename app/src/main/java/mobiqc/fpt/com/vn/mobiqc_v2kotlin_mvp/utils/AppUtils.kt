@@ -20,7 +20,10 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceMode
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
 import java.io.File
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -151,6 +154,22 @@ object AppUtils {
         }
     }
 
+    fun setFormatMoney(value: Long): String {
+        return NumberFormat.getNumberInstance(Locale.US).format(value)
+    }
+
+    fun autoInsertDot(text:String):String{
+        var originalString = text
+        val longValue: Long?
+        if (originalString.contains(",")) {
+            originalString = originalString.replace(",".toRegex(), "")
+        }
+        longValue = java.lang.Long.parseLong(originalString)
+        val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
+        formatter.applyPattern("#,###,###,###")
+        return formatter.format(longValue)
+    }
+
     fun showDialogSingChoiceGroup(fragmentManager: FragmentManager?, title: String, listData: ArrayList<AccountGroup>, view: TextView) {
         val listSingle = ArrayList<SingleChoiceModel>()
         listData.forEach {
@@ -162,16 +181,38 @@ object AppUtils {
     fun showDialogSingChoice(fragmentManager: FragmentManager?, title: String, listData: ArrayList<SingleChoiceModel>, view: TextView) {
         val dialog = SingChoiceDialog()
         dialog.setDataDialog(title = title, list = listData) { position ->
-            if (view.id == R.id.fragCheckContract_tvMobiGroup) {
-                val fragment = fragmentManager?.findFragmentById(android.R.id.tabcontent)
-                (fragment as? CheckContractFragment)?.let {
-                    it.dataMobiGroup[dialog.singleAdapter.indexSelect].status = false
-                    it.dataMobiGroup[position].status = true
-                    it.getDataAcc(position)
+            val fragment = fragmentManager?.findFragmentById(android.R.id.tabcontent)
+            when (fragment) {
+                is CheckContractFragment -> {
+                    if (view.id == R.id.fragCheckContract_tvMobiGroup) {
+                        fragment.dataMobiGroup[dialog.singleAdapter.indexSelect].status = false
+                        fragment.dataMobiGroup[position].status = true
+                        fragment.getDataAcc(position)
+                    }
                 }
-            }else{
-                listData[dialog.singleAdapter.indexSelect].status = false
-                listData[position].status = true
+                else -> {
+                    listData[dialog.singleAdapter.indexSelect].status = false
+                    listData[position].status = true
+                    if (fragment is ErrorFragment) {
+                        when (view.id) {
+                            R.id.fragError_tvUserKS -> {
+                                fragment.positionUserKS = position
+                                fragment.setDataTypeError()
+                                fragment.setDataMainError()
+                                fragment.setDataDescription()
+                            }
+                            R.id.fragError_tvTypeError -> {
+                                fragment.positionTypeError = position
+                                fragment.setDataMainError()
+                                fragment.setDataDescription()
+                            }
+                            R.id.fragError_tvMainError -> {
+                                fragment.positionMainError = position
+                                fragment.setDataDescription()
+                            }
+                        }
+                    }
+                }
             }
             view.text = listData[position].account
             dialog.submitData(listData)
