@@ -32,6 +32,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
 
     @Inject
     lateinit var presenter: MainPresenterImp
+
     lateinit var menuAdapter: ItemMenuAdapter
     private var mData: ArrayList<ItemMenuModel> = ArrayList()
     var mCountBack = 0

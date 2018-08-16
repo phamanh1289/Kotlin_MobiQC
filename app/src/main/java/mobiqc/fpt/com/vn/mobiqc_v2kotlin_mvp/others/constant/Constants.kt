@@ -9,22 +9,43 @@ object Constants {
     //Start : Params call api
     const val PARAMS_OBJID = "ObjID"
     const val PARAMS_USER_NAME = "UserName"
+    const val PARAMS_USER_NAME_LOW = "username"
     const val PARAMS_FROM_DATE = "FromDate"
     const val PARAMS_FROM_MONTH = "FromMonth"
     const val PARAMS_FROM = "From"
     const val PARAMS_TO_MONTH = "ToMonth"
     const val PARAMS_TO_DATE = "ToDate"
-    const val PARAMS_TO= "To"
+    const val PARAMS_TO = "To"
     const val PARAMS_KIND = "Kind"
     const val PARAMS_SEARCH_TYPE = "SearchType"
     const val PARAMS_TYPE = "Type"
     const val PARAMS_SUPID = "SupID"
+    const val PARAMS_CONTRACT = "contract"
+    const val PARAMS_IMEI = "imei"
+    const val PARAMS_ERROR_TYPE = "ErrorType"
+    const val PARAMS_USER_CL = "UserCL"
+    const val PARAMS_DESCRIPTION = "Description"
+    const val PARAMS_MONEY = "Money"
+    const val PARAMS_DISTANCE = "Distance"
+    const val PARAMS_CABLE = "Cable"
+    const val PARAMS_ERROR_ID = "ErrorID"
+    const val PARAMS_COORDINATE_CUS = "CoordinateCus"
+    const val PARAMS_TYPE_CL = "TypeCL"
+    const val PARAMS_TYPE_UPDATE = "TypeUpdate"
+    const val PARAMS_ERROR_DEPARTMENT = "ErrorDepartment"
+    const val PARAMS_ERROR_DESCRIPTION = "ErrorDescription"
+    const val PARAMS_COORDINATE_USER = "CoordinateUser"
+    const val PARAMS_ERROR_MAIN = "ErrorMain"
+    const val PARAMS_INDOOR = "Indoor"
+    const val PARAMS_NAME_TD = "NameTD"
     const val NO_PARAMS = 0
 
     //End : Params call api
 
-
     const val FIRST_ITEM = 0
+    const val NO_DISTANCE_RULE = 0.0
+    const val DISTANCE_RULE = 30.0
+    const val SECOND_ITEM = 1
     const val NO_IMAGE = 0
     const val SMS_TRUE = 1
     const val REQUEST_SUCCESS = 1
@@ -62,8 +83,10 @@ object Constants {
     const val ARG_CONTRACT = "Contract"
     const val ARG_CONTRACT_NUMBER = "ContractNumber"
     const val ARG_OBJ_CREATEDATE = "CreateDate"
+    const val ARG_UPDATE_BY = "UpdateBy"
     const val DEFAULT_KIND = "3"
     const val FILE_NAME_DOWNLOAD = "MobiQc_Release.apk"
     const val PATH_FILE_DOWNLOAD = "application/vnd.android.package-archive"
     const val DOWNLOAD_SUCCESS = true
+    const val ERROR_FIRST_ITEM = "Không có"
 }

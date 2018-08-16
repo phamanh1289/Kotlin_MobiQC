@@ -49,4 +49,8 @@ class BlankFragment : BaseFragment(), BlankContract.View {
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
+    }
 }

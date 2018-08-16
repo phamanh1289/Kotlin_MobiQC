@@ -11,6 +11,7 @@ import android.os.Environment
 import android.support.v4.app.FragmentManager
 import android.text.TextUtils
 import android.widget.TextView
+import com.google.android.gms.maps.model.LatLng
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.MenuCheckListDialogInterface
@@ -158,7 +159,7 @@ object AppUtils {
         return NumberFormat.getNumberInstance(Locale.US).format(value)
     }
 
-    fun autoInsertDot(text:String):String{
+    fun autoInsertDot(text: String): String {
         var originalString = text
         val longValue: Long?
         if (originalString.contains(",")) {
@@ -194,24 +195,10 @@ object AppUtils {
                     listData[dialog.singleAdapter.indexSelect].status = false
                     listData[position].status = true
                     if (fragment is ErrorFragment) {
-                        when (view.id) {
-                            R.id.fragError_tvUserKS -> {
-                                fragment.positionUserKS = position
-                                fragment.setDataTypeError()
-                                fragment.setDataMainError()
-                                fragment.setDataDescription()
-                            }
-                            R.id.fragError_tvTypeError -> {
-                                fragment.positionTypeError = position
-                                fragment.setDataMainError()
-                                fragment.setDataDescription()
-                            }
-                            R.id.fragError_tvMainError -> {
-                                fragment.positionMainError = position
-                                fragment.setDataDescription()
-                            }
-                        }
+                        fragment.setDefaultValueIndex(view.id, position)
+                        fragment.setDefaultData(view.id)
                     }
+
                 }
             }
             view.text = listData[position].account
@@ -219,6 +206,23 @@ object AppUtils {
             dialog.dismiss()
         }
         dialog.show(fragmentManager, SingChoiceDialog::class.java.simpleName)
+    }
+
+    fun removeAddPref(text: String): String {
+        return when {
+            text.contains(".") -> text.replace(".", "")
+            text.contains(",") -> text.replace(",", "")
+            else -> "0"
+        }
+    }
+
+    fun getLocationUser(text: String): String {
+        var result = text
+        if (result.contains("("))
+            result = text.replace("(", "")
+        if (result.contains(")"))
+            result = result.replace(")", "")
+        return result
     }
 
     fun handleCheckDate(context: Context?, start: String, end: String): String {
@@ -234,5 +238,20 @@ object AppUtils {
             }
         }
         return ""
+    }
+
+    fun changeFormatDistance(distance: Double): String {
+        return when {
+            distance == 0.0 -> "0 m"
+            distance < 1 -> "${distance * 1000} mm"
+            distance > 1000 -> "${String.format("%.2f", distance/1000)} km"
+            else -> "${String.format("%.2f", distance)} m"
+        }
+    }
+
+    fun getLatLng(latLng: String): LatLng {
+        val result = getLocationUser(latLng)
+        val listArr = result.split(",")
+        return if (listArr.isNotEmpty()) LatLng(listArr[0].toDouble(), listArr[1].toDouble()) else LatLng(0.toDouble(), 0.toDouble())
     }
 }

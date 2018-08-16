@@ -134,5 +134,13 @@
     <string name="type_indoor_no">Không</string>
     <string name="enter_number">0</string>
     <string name="enter_note">…</string>
+    <string name="notify_off_GPS">GPS không hoạt động, bạn có muốn mở không?</string>
+    <string name="error_notify">Bạn có muốn cập nhật lỗi này?</string>
+    <string name="notify_no_location">Chưa có dữ liệu vị trí khách hàng. Bạn có muốn cập nhật lỗi?</string>
+    <string name="notify_update_error">Khoảng cách vị trí của bạn là %1$s - %2$s.\n\n Bạn có muốn cập nhật lỗi?</string>
+    <string name="notify_error_type_over">vượt mức cho phép</string>
+    <string name="notify_error_type_no_update">không được cập nhật</string>
+    <string name="notify_error_type_ok">trong mức cho phép</string>
+
 
 </resources>

@@ -63,6 +63,10 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     //Fonts
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    //Google map
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    //noinspection GradleDynamicVersion
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
 }
 kapt {
     generateStubs = true

@@ -41,7 +41,9 @@
         </activity>
         <activity android:name=".ui.base.BaseActivity">
         </activity>
-        <activity android:name=".ui.splash_screen.SplashScreenActivity">
+        <activity
+            android:name=".ui.splash_screen.SplashScreenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

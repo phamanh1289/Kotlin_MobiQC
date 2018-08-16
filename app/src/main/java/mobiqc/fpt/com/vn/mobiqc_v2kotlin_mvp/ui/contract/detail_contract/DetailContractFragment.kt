@@ -33,13 +33,14 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     private var createDate = ""
     private var objId = 0
     private var supid = ""
+    private var userUpdate = ""
     private var typeContract: Int = 0
     private var typeCheckList: Int = 0
     private var typeGroupPoint = 0
     private lateinit var contractModel: ContractDetailModel
 
     companion object {
-        fun newInstance(supId: String, type: Int, objId: Int, checkList: Int, contractName: String, contractDate: String): DetailContractFragment {
+        fun newInstance(supId: String, type: Int, objId: Int, checkList: Int, contractName: String, contractDate: String, userUpdate: String): DetailContractFragment {
             val args = Bundle()
             args.putString(Constants.ARG_SUPID, supId)
             args.putInt(Constants.ARG_TYPE_CONTRACT, type)
@@ -47,6 +48,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             args.putInt(Constants.ARG_TYPE_CHECKLIST, checkList)
             args.putString(Constants.ARG_CONTRACT, contractName)
             args.putString(Constants.ARG_OBJ_CREATEDATE, contractDate)
+            args.putString(Constants.ARG_UPDATE_BY, userUpdate)
             val fragment = DetailContractFragment()
             fragment.arguments = args
             return fragment
@@ -71,6 +73,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             createDate = it.getString(Constants.ARG_OBJ_CREATEDATE) ?: ""
             contractNumber = it.getString(Constants.ARG_CONTRACT) ?: ""
             supid = it.getString(Constants.ARG_SUPID) ?: ""
+            userUpdate = it.getString(Constants.ARG_UPDATE_BY) ?: ""
             typeContract = it.getInt(Constants.ARG_TYPE_CONTRACT)
             typeCheckList = it.getInt(Constants.ARG_TYPE_CHECKLIST)
             objId = it.getInt(Constants.ARG_OBJID)
@@ -107,8 +110,8 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         contractModel.Deposits = data.toDouble()
         presenter.let {
             val map = HashMap<String, Any>()
-            map["username"] = getSharePreferences().accountName
-            map["contract"] = contractNumber
+            map[Constants.PARAMS_USER_NAME_LOW] = getSharePreferences().accountName
+            map[Constants.PARAMS_CONTRACT] = contractNumber
             it.getCoordinateContract(map)
         }
     }
@@ -190,7 +193,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             fragDetailContract_tvName.text = it.Name
             fragDetailContract_tvLocalType.text = it.LocalType
             fragDetailContract_tvFullName.text = it.FullName
-            fragDetailContract_tvAddress.text = if (it.Address.isNullOrEmpty()) it.Support_Location else it.Address
+            fragDetailContract_tvAddress.text = if (it.Address.isNullOrEmpty()) AppUtils.getLocationUser(it.Support_Location) else AppUtils.getLocationUser(it.Address)
             fragDetailContract_tvCoordinate.text = it.Coordinate
             fragDetailContract_tvPhone.text = it.Phone
             fragDetailContract_tvCreateDate.text = it.CreateDate
@@ -241,7 +244,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     fun onClickContractNumber() {
         if (supid.isBlank())
-            addFragment(AllCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString(), contractNumber), true, true)
+            addFragment(AllCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString(), contractNumber, typeCheckList, userUpdate), true, true)
     }
 
     private fun onClickAddress() {
@@ -269,8 +272,8 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         typeGroupPoint = type
         presenter.let {
             val map = HashMap<String, Any>()
-            map["NameTD"] = contractModel.GroupPoint
-            map["Type"] = typeGroupPoint
+            map[Constants.PARAMS_NAME_TD] = contractModel.GroupPoint
+            map[Constants.PARAMS_TYPE] = typeGroupPoint
             it.getPortViewInfoCollection(map)
         }
     }
@@ -335,4 +338,9 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }
     //End handle data from server
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
+    }
 }

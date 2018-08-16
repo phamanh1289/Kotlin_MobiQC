@@ -18,6 +18,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllChe
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListPresenter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.diff.AllCheckListAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -30,14 +31,20 @@ class MaintenanceCheckListFragment : BaseFragment(), AllCheckListContract.AllChe
     @Inject
     lateinit var presenter: AllCheckListPresenter
     private var contractName = ""
+    private var contractNumber = ""
+    private var typeCheckList = 0
+    private var userUpdate = ""
 
     private lateinit var mAdapterAll: AllCheckListAdapter
     private var dataCheckList = ArrayList<CheckListModel>()
 
     companion object {
-        fun newInstance(type: String): MaintenanceCheckListFragment {
+        fun newInstance(type: String, contract: String, typeCheckList: Int, userUpdate: String): MaintenanceCheckListFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT, type)
+            args.putString(Constants.ARG_CONTRACT_NUMBER, contract)
+            args.putInt(Constants.ARG_TYPE_CHECKLIST, typeCheckList)
+            args.putString(Constants.ARG_UPDATE_BY, userUpdate)
             val fragment = MaintenanceCheckListFragment()
             fragment.arguments = args
             return fragment
@@ -63,7 +70,10 @@ class MaintenanceCheckListFragment : BaseFragment(), AllCheckListContract.AllChe
     private fun handleArgument() {
         val bundle = arguments
         bundle?.let { item ->
-            contractName = item.getString(Constants.ARG_CONTRACT)
+            contractName = item.getString(Constants.ARG_CONTRACT) ?: ""
+            contractNumber = item.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
+            typeCheckList = item.getInt(Constants.ARG_TYPE_CHECKLIST)
+            userUpdate = item.getString(Constants.ARG_UPDATE_BY) ?: ""
             presenter.let {
                 val map = HashMap<String, Any>()
                 map[Constants.PARAMS_OBJID] = contractName
@@ -98,11 +108,17 @@ class MaintenanceCheckListFragment : BaseFragment(), AllCheckListContract.AllChe
     }
 
     override fun onClickError(index: Int) {
-        AppUtils.showDialog(fragmentManager, content = "Error", confirmDialogInterface = null)
+        val model = dataCheckList[index]
+        addFragment(ErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), contractNumber, typeCheckList, userUpdate), true, true)
     }
 
     override fun onClickDetail(index: Int) {
         val model = dataCheckList[index]
-        addFragment(DetailContractFragment.newInstance(model.ID.toString(), Constants.STATUS_COMPLETED, model.ObjID, Constants.MAINTENANCE, model.Contract, model.Date), true, true)
+        addFragment(DetailContractFragment.newInstance(model.ID.toString(), Constants.STATUS_COMPLETED, model.ObjID, Constants.MAINTENANCE, model.Contract, model.Date, ""), true, true)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
     }
 }

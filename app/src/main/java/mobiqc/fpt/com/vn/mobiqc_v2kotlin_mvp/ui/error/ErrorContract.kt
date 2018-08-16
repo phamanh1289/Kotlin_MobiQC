@@ -1,5 +1,6 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error
 
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
 
 /**
@@ -8,9 +9,13 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
  */
 interface ErrorContract {
     interface ErrorView : BaseView {
+        fun loadCoordinateContract(response: ResponseModel)
+        fun loadUpdateError(response: ResponseModel)
         fun handleError(error : String)
     }
 
     interface ErrorPresenter {
+        fun getCoordinateContract(map: HashMap<String, Any>)
+        fun postUpdateError(map: HashMap<String, Any>)
     }
 }

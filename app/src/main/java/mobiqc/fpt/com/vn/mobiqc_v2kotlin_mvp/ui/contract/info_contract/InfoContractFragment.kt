@@ -40,7 +40,7 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     private val adapterComplete: CompletedContractAdapter = CompletedContractAdapter(onClick = {
         addParams()
         getSharePreferences().listParams = Gson().toJson(listParams)
-        addFragment(DetailContractFragment.newInstance("", typeContract, dataContract[it].ObjID, typeCheckList, dataContract[it].Contract, dataContract[it].Date), true, true)
+        addFragment(DetailContractFragment.newInstance("", typeContract, dataContract[it].ObjID, typeCheckList, dataContract[it].Contract, dataContract[it].Date, mobiAcc), true, true)
     })
 
     companion object {
@@ -184,5 +184,9 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     override fun handleError(error: String) {
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
     }
 }

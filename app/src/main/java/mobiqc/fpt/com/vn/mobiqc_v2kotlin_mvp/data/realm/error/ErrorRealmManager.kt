@@ -6,6 +6,7 @@ import io.realm.Realm
 import io.realm.RealmResults
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ErrorDataModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 
 
 /**
@@ -112,7 +113,7 @@ open class ErrorRealmManager {
             result?.let {
                 if (it.size != 0) {
                     for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$department`(), status = i == 0))
+                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$department`(), status = i == Constants.FIRST_ITEM))
                     }
                 }
             }
@@ -124,8 +125,9 @@ open class ErrorRealmManager {
 
     fun getDistinctTypeError(department: String): ArrayList<SingleChoiceModel> {
         try {
-            realm = Realm.getDefaultInstance()
             val list = ArrayList<SingleChoiceModel>()
+            list.add(SingleChoiceModel(account = Constants.ERROR_FIRST_ITEM, status = true))
+            realm = Realm.getDefaultInstance()
             var result: RealmResults<ErrorRealmModel>? = null
             realm?.executeTransaction {
                 result = it.where(ErrorRealmModel::class.java)?.equalTo(ERROR_COL_DEPARTMENT, department)?.distinct(ERROR_COL_TYPE)
@@ -133,7 +135,7 @@ open class ErrorRealmManager {
             result?.let {
                 if (it.size != 0) {
                     for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$type`(), status = i == 0))
+                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$type`()))
                     }
                 }
             }
@@ -143,42 +145,46 @@ open class ErrorRealmManager {
         }
     }
 
-    fun getDistinctMainError(department: String, type: String): ArrayList<SingleChoiceModel> {
+    fun getDistinctMainError(department: String, type: String, typeCheck: Boolean): ArrayList<SingleChoiceModel> {
         try {
-            realm = Realm.getDefaultInstance()
             val list = ArrayList<SingleChoiceModel>()
-            var result: RealmResults<ErrorRealmModel>? = null
-            realm?.executeTransaction {
-                result = it.where(ErrorRealmModel::class.java)?.equalTo(ERROR_COL_DEPARTMENT, department)?.equalTo(ERROR_COL_TYPE, type)?.distinct(ERROR_COL_MAIN)
-            }
-            result?.let {
-                if (it.size != 0) {
-                    for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$main`(), status = i == 0))
+            if (!typeCheck) {
+                realm = Realm.getDefaultInstance()
+                var result: RealmResults<ErrorRealmModel>? = null
+                realm?.executeTransaction {
+                    result = it.where(ErrorRealmModel::class.java)?.equalTo(ERROR_COL_DEPARTMENT, department)?.equalTo(ERROR_COL_TYPE, type)?.distinct(ERROR_COL_MAIN)
+                }
+                result?.let {
+                    if (it.size != 0) {
+                        for (i in 0 until it.size) {
+                            list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$main`(), status = i == 0))
+                        }
                     }
                 }
-            }
+            } else list.add(SingleChoiceModel(account = Constants.ERROR_FIRST_ITEM, status = true))
             return list
         } finally {
             realm?.close()
         }
     }
 
-    fun getDistinctDescription(department: String, type: String, main: String): ArrayList<SingleChoiceModel> {
+    fun getDistinctDescription(department: String, type: String, main: String, typeCheck: Boolean): ArrayList<SingleChoiceModel> {
         try {
-            realm = Realm.getDefaultInstance()
             val list = ArrayList<SingleChoiceModel>()
-            var result: RealmResults<ErrorRealmModel>? = null
-            realm?.executeTransaction {
-                result = it.where(ErrorRealmModel::class.java)?.equalTo(ERROR_COL_DEPARTMENT, department)?.equalTo(ERROR_COL_TYPE, type)?.equalTo(ERROR_COL_MAIN, main)?.findAll()
-            }
-            result?.let {
-                if (it.size != 0) {
-                    for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$description`(), status = i == 0))
+            if (!typeCheck) {
+                realm = Realm.getDefaultInstance()
+                var result: RealmResults<ErrorRealmModel>? = null
+                realm?.executeTransaction {
+                    result = it.where(ErrorRealmModel::class.java)?.equalTo(ERROR_COL_DEPARTMENT, department)?.equalTo(ERROR_COL_TYPE, type)?.equalTo(ERROR_COL_MAIN, main)?.findAll()
+                }
+                result?.let {
+                    if (it.size != 0) {
+                        for (i in 0 until it.size) {
+                            list.add(SingleChoiceModel(account = (it[i] as ErrorRealmModelRealmProxy).`realmGet$description`(), status = i == 0, id = (it[i] as ErrorRealmModelRealmProxy).`realmGet$id`()))
+                        }
                     }
                 }
-            }
+            } else list.add(SingleChoiceModel(account = Constants.ERROR_FIRST_ITEM, status = true))
             return list
         } finally {
             realm?.close()

@@ -108,5 +108,10 @@ class LoginFragment : BaseFragment(), LoginContract.LoginView {
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = response, confirmDialogInterface = null)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
+    }
 }
 

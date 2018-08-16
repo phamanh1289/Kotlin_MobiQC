@@ -32,14 +32,20 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
     @Inject
     lateinit var presenter: AllCheckListPresenter
     private var contractName = ""
+    private var contractNumber = ""
+    private var typeCheckList = 0
+    private var userUpdate = ""
 
     private lateinit var mAdapterAll: AllCheckListAdapter
     private var dataCheckList = ArrayList<CheckListModel>()
 
     companion object {
-        fun newInstance(type: String): DeploymentCheckListFragment {
+        fun newInstance(type: String, contract: String, typeCheckList: Int, userUpdate: String): DeploymentCheckListFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT, type)
+            args.putString(Constants.ARG_CONTRACT_NUMBER, contract)
+            args.putInt(Constants.ARG_TYPE_CHECKLIST, typeCheckList)
+            args.putString(Constants.ARG_UPDATE_BY, userUpdate)
             val fragment = DeploymentCheckListFragment()
             fragment.arguments = args
             return fragment
@@ -65,7 +71,10 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
     private fun handleArgument() {
         val bundle = arguments
         bundle?.let { item ->
-            contractName = item.getString(Constants.ARG_CONTRACT)
+            contractName = item.getString(Constants.ARG_CONTRACT) ?: ""
+            contractNumber = item.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
+            typeCheckList = item.getInt(Constants.ARG_TYPE_CHECKLIST)
+            userUpdate = item.getString(Constants.ARG_UPDATE_BY) ?: ""
             presenter.let {
                 val map = HashMap<String, Any>()
                 map[Constants.PARAMS_OBJID] = contractName
@@ -100,11 +109,17 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
     }
 
     override fun onClickError(index: Int) {
-        addFragment(ErrorFragment.newInstance(dataCheckList[index].ID.toBigDecimal().toString()), true, true)
+        val model = dataCheckList[index]
+        addFragment(ErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), contractNumber, typeCheckList, userUpdate), true, true)
     }
 
     override fun onClickDetail(index: Int) {
         val model = dataCheckList[index]
-        addFragment(DetailContractFragment.newInstance(model.ID.toString(), Constants.STATUS_COMPLETED, model.ObjID, Constants.DEPLOYMENT, model.Contract, model.Date), true, true)
+        addFragment(DetailContractFragment.newInstance(model.ID.toString(), Constants.STATUS_COMPLETED, model.ObjID, Constants.DEPLOYMENT, model.Contract, model.Date, ""), true, true)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
     }
 }

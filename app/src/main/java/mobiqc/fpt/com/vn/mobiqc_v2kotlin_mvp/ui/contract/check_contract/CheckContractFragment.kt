@@ -115,4 +115,8 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
             }
         }
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
+    }
 }
