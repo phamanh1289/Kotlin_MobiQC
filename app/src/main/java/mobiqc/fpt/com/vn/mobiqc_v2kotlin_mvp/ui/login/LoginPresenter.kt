@@ -28,7 +28,7 @@ class LoginPresenter @Inject constructor(val apiService: ApiService) : BasePrese
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    view?.loadUser(it)
+                    view?.loadLogin(it)
                 }, {
                     view?.handleError(it.message.toString())
                 }))

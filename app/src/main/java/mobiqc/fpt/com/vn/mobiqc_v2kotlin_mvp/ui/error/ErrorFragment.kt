@@ -17,11 +17,13 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.error.ErrorRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.service.LocationService
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import java.util.*
@@ -56,23 +58,25 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
     var positionDescription = 0
     var distanceBetween: Double = 0.0
     private var typeCheckList = 0
-    private var objName = ""
+    private var objId = ""
     private var contractNumber = ""
     private var coordinateUser = ""
     private var coordinateGuest = ""
     private var supId = ""
     private var userUpdate = ""
+    private var contractDate = ""
     //False : lần đầu mở tab -> Nhóm lỗi : không có, True : lấy item thứ 2 Nhóm lỗi
     private var checkFirstChoice = false
 
     companion object {
-        fun newInstance(supId: String, type: String, contract: String, typeCheckList: Int, userUpdate: String): ErrorFragment {
+        fun newInstance(supId: String, type: String, contract: String, typeCheckList: Int, userUpdate: String, contractDate: String): ErrorFragment {
             val args = Bundle()
             args.putString(Constants.ARG_SUPID, supId)
             args.putString(Constants.ARG_OBJID, type)
             args.putString(Constants.ARG_CONTRACT_NUMBER, contract)
             args.putInt(Constants.ARG_TYPE_CHECKLIST, typeCheckList)
             args.putString(Constants.ARG_UPDATE_BY, userUpdate)
+            args.putString(Constants.ARG_OBJ_CREATEDATE, contractDate)
             val fragment = ErrorFragment()
             fragment.arguments = args
             return fragment
@@ -103,13 +107,15 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
 
     private fun getDataBundle(arguments: Bundle?) {
         arguments?.let {
-            objName = it.getString(Constants.ARG_OBJID)
+            objId = it.getString(Constants.ARG_OBJID)
             contractNumber = it.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
             supId = it.getString(Constants.ARG_SUPID) ?: ""
             typeCheckList = it.getInt(Constants.ARG_TYPE_CHECKLIST)
             userUpdate = it.getString(Constants.ARG_UPDATE_BY) ?: ""
-            fragError_tvNumber.text = objName
+            contractDate = it.getString(Constants.ARG_OBJ_CREATEDATE) ?: ""
+            fragError_tvNumber.text = objId
         }
+        setTitle(TitleAndMenuModel(title = contractNumber, status = true, image = R.drawable.ic_info))
     }
 
     //Start : Lấy dữ liệu từ database lên
@@ -185,6 +191,10 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
         }
     }
 
+    fun showDetailContract() {
+        addFragment(DetailContractFragment.newInstance(supId, Constants.STATUS_COMPLETED, objId.toInt(), typeCheckList, contractNumber, contractDate), true, true)
+    }
+
     private fun initOnClick() {
         fragError_tvTypeKS.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_type), listTypeKS, fragError_tvTypeKS) }
         fragError_tvIndoor.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_main_indoor), listIndoor, fragError_tvIndoor) }
@@ -236,17 +246,17 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
             mapContract[Constants.PARAMS_ERROR_DESCRIPTION] = fragError_tvDescription.text.toString()
             mapContract[Constants.PARAMS_DESCRIPTION] = fragError_tvNote.text.toString()
             mapContract[Constants.PARAMS_USER_CL] = userUpdate
-            mapContract[Constants.PARAMS_DISTANCE] = distanceBetween
+            mapContract[Constants.PARAMS_DISTANCE] = AppUtils.getTwoDecimal(distanceBetween)
             mapContract[Constants.PARAMS_COORDINATE_CUS] = coordinateGuest
             mapContract[Constants.PARAMS_COORDINATE_USER] = coordinateUser
             mapContract[Constants.PARAMS_TYPE_CL] = typeCheckList
-            mapContract[Constants.PARAMS_OBJID] = objName
+            mapContract[Constants.PARAMS_OBJID] = objId
             mapContract[Constants.PARAMS_ERROR_ID] = listDescription[positionDescription].id
             mapContract[Constants.PARAMS_SUPID] = supId
             //init data call api
             val map = HashMap<String, Any>()
             map[Constants.PARAMS_USER_NAME] = getSharePreferences().accountName
-            map[Constants.PARAMS_IMEI] = getSharePreferences().imeiDevice
+            map[Constants.PARAMS_IMEI_LOW] = getSharePreferences().imeiDevice
             map[Constants.PARAMS_CONTRACT] = mapContract
             //call api
             it.postUpdateError(map)

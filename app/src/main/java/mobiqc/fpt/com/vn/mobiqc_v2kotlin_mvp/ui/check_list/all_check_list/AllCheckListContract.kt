@@ -9,11 +9,17 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
  */
 interface AllCheckListContract {
     interface AllCheckListView : BaseView {
-        fun loadAllCheckList(response: ResponseModel)
+        fun loadDepositsContract(response: ResponseModel)
+        fun loadCoordinateContract(response: ResponseModel)
+        fun loadPortViewInfoCollection(response: ResponseModel)
+        fun loadAllPhoneNumber(response: ResponseModel)
         fun handleError(error: String)
     }
 
     interface AllCheckListPresenter {
-        fun getAllCheckList(map: HashMap<String, Any>)
+        fun getDepositsContract(map: HashMap<String, Any>)
+        fun getCoordinateContract(map: HashMap<String, Any>)
+        fun getPortViewInfoCollection(map: HashMap<String, Any>)
+        fun getAllPhoneNumber(map: HashMap<String, Any>)
     }
 }

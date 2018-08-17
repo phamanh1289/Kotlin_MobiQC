@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MobiQC</string>
+    <string name="version_app_name">MobiQC v%1$s</string>
     <string name="Helvetica">fonts/Helvetica.ttf</string>
     <string name="Helvetica_Bold">fonts/Helvetica-Bold.ttf</string>
     <string name="Helvetica_light">fonts/Helvetica-light.ttf</string>
@@ -141,6 +142,15 @@
     <string name="notify_error_type_over">vượt mức cho phép</string>
     <string name="notify_error_type_no_update">không được cập nhật</string>
     <string name="notify_error_type_ok">trong mức cho phép</string>
-
+    <string name="search_location">Vùng</string>
+    <string name="search_branch">Chi Nhánh</string>
+    <string name="search_title">Tìm kiếm</string>
+    <string name="search_keyword">Nhập từ khóa chính xác</string>
+    <string name="data_search_contract_number">Số hợp đồng</string>
+    <string name="data_search_user_name">Tên khách hàng</string>
+    <string name="data_search_phone">Số điện thoại</string>
+    <string name="data_search_address_mac">Địa chỉ MAC</string>
+    <string name="data_search_id">Số CMND</string>
+    <string name="validate_key_search">Từ khóa không được bỏ trống!</string>
 
 </resources>

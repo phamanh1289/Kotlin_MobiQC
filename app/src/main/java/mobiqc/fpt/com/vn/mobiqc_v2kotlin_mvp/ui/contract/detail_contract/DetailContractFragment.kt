@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_detail_contract.*
+import kotlinx.android.synthetic.main.item_default_detail_contract.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
@@ -33,14 +34,13 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     private var createDate = ""
     private var objId = 0
     private var supid = ""
-    private var userUpdate = ""
     private var typeContract: Int = 0
     private var typeCheckList: Int = 0
     private var typeGroupPoint = 0
     private lateinit var contractModel: ContractDetailModel
 
     companion object {
-        fun newInstance(supId: String, type: Int, objId: Int, checkList: Int, contractName: String, contractDate: String, userUpdate: String): DetailContractFragment {
+        fun newInstance(supId: String, type: Int, objId: Int, checkList: Int, contractName: String, contractDate: String): DetailContractFragment {
             val args = Bundle()
             args.putString(Constants.ARG_SUPID, supId)
             args.putInt(Constants.ARG_TYPE_CONTRACT, type)
@@ -48,7 +48,6 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             args.putInt(Constants.ARG_TYPE_CHECKLIST, checkList)
             args.putString(Constants.ARG_CONTRACT, contractName)
             args.putString(Constants.ARG_OBJ_CREATEDATE, contractDate)
-            args.putString(Constants.ARG_UPDATE_BY, userUpdate)
             val fragment = DetailContractFragment()
             fragment.arguments = args
             return fragment
@@ -73,7 +72,6 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             createDate = it.getString(Constants.ARG_OBJ_CREATEDATE) ?: ""
             contractNumber = it.getString(Constants.ARG_CONTRACT) ?: ""
             supid = it.getString(Constants.ARG_SUPID) ?: ""
-            userUpdate = it.getString(Constants.ARG_UPDATE_BY) ?: ""
             typeContract = it.getInt(Constants.ARG_TYPE_CONTRACT)
             typeCheckList = it.getInt(Constants.ARG_TYPE_CHECKLIST)
             objId = it.getInt(Constants.ARG_OBJID)
@@ -81,7 +79,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             listParams[Constants.PARAMS_OBJID] = objId.toString()
             handleRequestData()
         }
-        setTitle(TitleAndMenuModel(title = contractNumber, status = supid.isBlank(), image = if (supid.isBlank()) R.drawable.ic_warning else 0))
+        setTitle(TitleAndMenuModel(title = contractNumber, status = supid.isBlank(), image = R.drawable.ic_warning))
     }
 
     //Start : Call api get data
@@ -129,7 +127,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         }
         presenter.let {
             val map = HashMap<String, Any>()
-            map["contract"] = contractNumber
+            map[Constants.PARAMS_CONTRACT] = contractNumber
             it.getDepositsContract(map)
         }
     }
@@ -193,8 +191,8 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             fragDetailContract_tvName.text = it.Name
             fragDetailContract_tvLocalType.text = it.LocalType
             fragDetailContract_tvFullName.text = it.FullName
-            fragDetailContract_tvAddress.text = if (it.Address.isNullOrEmpty()) AppUtils.getLocationUser(it.Support_Location) else AppUtils.getLocationUser(it.Address)
-            fragDetailContract_tvCoordinate.text = it.Coordinate
+            fragDetailContract_tvAddress.text = if (it.Address.isNullOrEmpty()) it.Support_Location else it.Address
+            fragDetailContract_tvCoordinate.text = AppUtils.getLocationUser(it.Coordinate)
             fragDetailContract_tvPhone.text = it.Phone
             fragDetailContract_tvCreateDate.text = it.CreateDate
             fragDetailContract_tvODCCableType.text = it.ODCCableType
@@ -244,7 +242,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     fun onClickContractNumber() {
         if (supid.isBlank())
-            addFragment(AllCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString(), contractNumber, typeCheckList, userUpdate), true, true)
+            addFragment(AllCheckListFragment.newInstance(Gson().toJson(contractModel), contractNumber, typeCheckList), true, true)
     }
 
     private fun onClickAddress() {
@@ -263,7 +261,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         presenter.let {
             showLoading()
             val map = HashMap<String, Any>()
-            map["ObjID"] = contractModel.ObjID
+            map[Constants.PARAMS_OBJID] = contractModel.ObjID
             it.getAllPhoneNumber(map)
         }
     }

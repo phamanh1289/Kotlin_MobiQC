@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_circle_dialog_while_5dp"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_number"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvObjID"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_blur"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_user_name"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvFullName"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_address"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvAddress"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/button"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_blur"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_location"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvCoordinate"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/button"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_phone_number"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvPhone"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:paddingEnd="@dimen/_6dp"
+            android:paddingStart="@dimen/_6dp"
+            android:textColor="@color/button"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvAllPhone"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:text="@string/contract_all_phone"
+            android:textColor="@color/button"
+            android:textSize="@dimen/_15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_blur"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_cable_type"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvODCCableType"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/button"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="@string/contract_deposit"
+            android:textSize="@dimen/_15dp"/>
+
+        <TextView
+            android:id="@+id/fragDialogDetailContract_tvDeposit"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_15dp"/>
+
+    </LinearLayout>
+</LinearLayout>

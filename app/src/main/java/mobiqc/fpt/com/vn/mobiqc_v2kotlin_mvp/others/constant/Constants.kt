@@ -9,6 +9,8 @@ object Constants {
     //Start : Params call api
     const val PARAMS_OBJID = "ObjID"
     const val PARAMS_USER_NAME = "UserName"
+    const val PARAMS_USER_NAME_NON_CAPWORD = "Username"
+    const val PARAMS_PASSWORD = "Password"
     const val PARAMS_USER_NAME_LOW = "username"
     const val PARAMS_FROM_DATE = "FromDate"
     const val PARAMS_FROM_MONTH = "FromMonth"
@@ -21,7 +23,8 @@ object Constants {
     const val PARAMS_TYPE = "Type"
     const val PARAMS_SUPID = "SupID"
     const val PARAMS_CONTRACT = "contract"
-    const val PARAMS_IMEI = "imei"
+    const val PARAMS_IMEI_LOW = "imei"
+    const val PARAMS_IMEI = "Imei"
     const val PARAMS_ERROR_TYPE = "ErrorType"
     const val PARAMS_USER_CL = "UserCL"
     const val PARAMS_DESCRIPTION = "Description"

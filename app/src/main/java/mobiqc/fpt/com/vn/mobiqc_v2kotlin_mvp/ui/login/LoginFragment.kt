@@ -44,9 +44,9 @@ class LoginFragment : BaseFragment(), LoginContract.LoginView {
             if (isValidate()) {
                 showLoading()
                 val map = HashMap<String, Any>()
-                map["Username"] = fragLogin_tvUser.text.toString()
-                map["Password"] = fragLogin_tvPass.text.toString()
-                map["Imei"] = "358548066496528"
+                map[Constants.PARAMS_USER_NAME_NON_CAPWORD] = fragLogin_tvUser.text.toString()
+                map[Constants.PARAMS_PASSWORD] = fragLogin_tvPass.text.toString()
+                map[Constants.PARAMS_IMEI] = "358548066496528"
 //                map["Imei"] = "352111083547090"
                 presenter.postLogin(map)
             }
@@ -80,13 +80,14 @@ class LoginFragment : BaseFragment(), LoginContract.LoginView {
         presenter.onDetach()
     }
 
-    override fun loadUser(response: ResponseModel) {
+    override fun loadLogin(response: ResponseModel) {
         if (response.Code == Constants.REQUEST_SUCCESS) {
             val map = HashMap<String, Any>()
             val userName = fragLogin_tvUser.text.toString()
-            map["UserName"] = userName
+            map[Constants.PARAMS_USER_NAME] = userName
             getSharePreferences().accountName = userName
             getSharePreferences().createDate = AppUtils.getCurrentDate(Constants.CURRENT_DATE)
+            getSharePreferences().listLocationUser = response.Data.toString()
             presenter.postMobiAccount(map)
         } else {
             hideLoading()

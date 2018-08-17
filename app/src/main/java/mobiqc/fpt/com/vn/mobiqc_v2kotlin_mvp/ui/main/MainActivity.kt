@@ -18,8 +18,10 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.StartActivityUtils
 import javax.inject.Inject
 
 /**
@@ -33,7 +35,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     @Inject
     lateinit var presenter: MainPresenterImp
 
-    lateinit var menuAdapter: ItemMenuAdapter
+    private lateinit var menuAdapter: ItemMenuAdapter
     private var mData: ArrayList<ItemMenuModel> = ArrayList()
     var mCountBack = 0
 
@@ -59,25 +61,27 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             setHasFixedSize(true)
         }
         handleActionMenu(mData[KT_HOP_DONG])
+        actMain_tvVersion.text = getString(R.string.version_app_name,packageManager.getPackageInfo(packageName, 0).versionName)
         actMain_ivNotification.setOnClickListener {
             handleActionNotify()
         }
     }
 
-    private fun handleActionNotify(){
+    private fun handleActionNotify() {
         val fragment = getCurrentFragment()
-        when(fragment){
+        when (fragment) {
             is DetailContractFragment -> fragment.onClickContractNumber()
-            is AllCheckListFragment -> fragment.showInfo()
+            is AllCheckListFragment -> fragment.requestDetailContract()
+            is ErrorFragment -> fragment.showDetailContract()
         }
     }
 
     private fun handleActionMenu(itemMenu: ItemMenuModel) {
         when (itemMenu.id) {
             Constants.KT_HOP_DONG -> addFragment(CheckContractFragment(), false, true)
-            Constants.CAP_NHAT_LOI -> ""
-            Constants.TAO_CHECK_LIST -> ""
-            Constants.TAO_PRE_CHECK_LIST -> ""
+            Constants.CAP_NHAT_LOI,
+            Constants.TAO_CHECK_LIST,
+            Constants.TAO_PRE_CHECK_LIST -> addFragment(SearchFragment(), false, true)
             Constants.TAO_LOI_MOI -> ""
             Constants.DANH_SACH_LOI -> ""
             Constants.KQ_XAC_MINH -> ""
@@ -85,7 +89,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.THONG_TIN -> ""
             Constants.DANG_XUAT -> {
                 getSharePreferences().toClearSessionLogin()
-                addFragment(LoginFragment(), false, true)
+                StartActivityUtils().toSplashActivity(this)
             }
         }
         if (itemMenu.id.isNotBlank() || itemMenu.id != Constants.DANG_XUAT)

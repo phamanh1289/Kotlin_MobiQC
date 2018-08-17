@@ -11,7 +11,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
 interface LoginContract {
     interface LoginView : BaseView {
         fun loadMobiAccount(response : ResponseAccountGroupModel)
-        fun loadUser(response: ResponseModel)
+        fun loadLogin(response: ResponseModel)
         fun handleError(response: String)
     }
 

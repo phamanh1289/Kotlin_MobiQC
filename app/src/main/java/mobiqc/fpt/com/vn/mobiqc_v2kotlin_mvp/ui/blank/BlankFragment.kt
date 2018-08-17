@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -20,10 +21,10 @@ class BlankFragment : BaseFragment(), BlankContract.View {
     lateinit var presenter: BlankPresenter
 
     companion object {
-        fun newInstance(type: Int): BlankFragment {
+        fun newInstance(type: Int): SearchFragment {
             val args = Bundle()
             args.putInt(Constants.ARG_TYPE_CONTRACT, type)
-            val fragment = BlankFragment()
+            val fragment = SearchFragment()
             fragment.arguments = args
             return fragment
         }

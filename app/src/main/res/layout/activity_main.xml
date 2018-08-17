@@ -33,6 +33,7 @@
 
             <TextView
                 android:id="@+id/actMain_tvTitleMain"
+                fontPath="@string/Helvetica_Bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -41,7 +42,6 @@
                 android:layout_weight="1"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_17dp"
-                fontPath="@string/Helvetica_Bold"
                 tools:text="Bao cao so lieu kiem soat"/>
 
             <ImageView
@@ -76,14 +76,30 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/actMain_rvMenuMain"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/actMain_rvMenuMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
+            </android.support.v7.widget.RecyclerView>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/actMain_tvVersion"
+            fontPath="@string/Helvetica_Bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_16dp"
-            android:layout_marginStart="@dimen/_16dp">
-
-        </android.support.v7.widget.RecyclerView>
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:padding="@dimen/_8dp"
+            android:text="@string/contract_deposit"
+            android:textColor="@color/white"/>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
 

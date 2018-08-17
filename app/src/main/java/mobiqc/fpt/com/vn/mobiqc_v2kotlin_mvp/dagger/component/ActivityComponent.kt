@@ -3,10 +3,13 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.component
 import dagger.Subcomponent
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.module.ActivityModule
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.scope.ActivityScope
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.search_contract.SearchFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.maintenance_check_list.MaintenanceCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.ContractDetailDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.info_contract.InfoContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
@@ -29,4 +32,7 @@ interface ActivityComponent {
     fun inject(deploymentCheckListFragment: DeploymentCheckListFragment)
     fun inject(maintenanceCheckListFragment: MaintenanceCheckListFragment)
     fun inject(errorFragment: ErrorFragment)
+    fun inject(allCheckListFragment: AllCheckListFragment)
+    fun inject(contractDetailDialog: ContractDetailDialog)
+    fun inject(searchFragment: SearchFragment)
 }

@@ -148,10 +148,11 @@ object AppUtils {
 
     fun handleAssignDate(context: Context?, s1: String?, s2: String?, typeCheck: Boolean): String {
         return when {
+            s1.isNullOrEmpty() && s2.isNullOrEmpty() -> "N/A"
             s1.isNullOrEmpty() -> if (typeCheck) toConvertTimeToString(context, s2!!) else s2!!
             s2.isNullOrEmpty() -> if (typeCheck) toConvertTimeToString(context, s1!!) else s1!!
             s1?.isNotBlank()!! -> s1
-            else -> "N/A"
+            else -> s2!!
         }
     }
 
@@ -212,7 +213,8 @@ object AppUtils {
         return when {
             text.contains(".") -> text.replace(".", "")
             text.contains(",") -> text.replace(",", "")
-            else -> "0"
+            text.isBlank() -> "0"
+            else -> text
         }
     }
 
@@ -223,6 +225,10 @@ object AppUtils {
         if (result.contains(")"))
             result = result.replace(")", "")
         return result
+    }
+
+    fun getTwoDecimal(num: Double): Double {
+        return Math.round(num * 100).toDouble() / 100
     }
 
     fun handleCheckDate(context: Context?, start: String, end: String): String {
@@ -244,7 +250,7 @@ object AppUtils {
         return when {
             distance == 0.0 -> "0 m"
             distance < 1 -> "${distance * 1000} mm"
-            distance > 1000 -> "${String.format("%.2f", distance/1000)} km"
+            distance > 1000 -> "${String.format("%.2f", distance / 1000)} km"
             else -> "${String.format("%.2f", distance)} m"
         }
     }

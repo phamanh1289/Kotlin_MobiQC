@@ -14,8 +14,6 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.CheckListModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListContract
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListPresenter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.diff.AllCheckListAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
@@ -27,25 +25,21 @@ import javax.inject.Inject
  * * Created by Anh Pham on 08/09/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllCheckListView, MenuCheckListDialogInterface {
+class DeploymentCheckListFragment : BaseFragment(), DeploymentCheckListContract.DeploymentCheckListView, MenuCheckListDialogInterface {
 
     @Inject
-    lateinit var presenter: AllCheckListPresenter
+    lateinit var presenter: DeploymentCheckListPresenter
     private var contractName = ""
-    private var contractNumber = ""
     private var typeCheckList = 0
-    private var userUpdate = ""
 
     private lateinit var mAdapterAll: AllCheckListAdapter
     private var dataCheckList = ArrayList<CheckListModel>()
 
     companion object {
-        fun newInstance(type: String, contract: String, typeCheckList: Int, userUpdate: String): DeploymentCheckListFragment {
+        fun newInstance(type: String, typeCheckList: Int): DeploymentCheckListFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT, type)
-            args.putString(Constants.ARG_CONTRACT_NUMBER, contract)
             args.putInt(Constants.ARG_TYPE_CHECKLIST, typeCheckList)
-            args.putString(Constants.ARG_UPDATE_BY, userUpdate)
             val fragment = DeploymentCheckListFragment()
             fragment.arguments = args
             return fragment
@@ -61,10 +55,6 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
         getActivityComponent().inject(this)
         presenter.onAttach(this)
         activity?.let { KeyboardUtils.setupUI(view, activity = it) }
-        initView()
-    }
-
-    private fun initView() {
         handleArgument()
     }
 
@@ -72,9 +62,7 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
         val bundle = arguments
         bundle?.let { item ->
             contractName = item.getString(Constants.ARG_CONTRACT) ?: ""
-            contractNumber = item.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
             typeCheckList = item.getInt(Constants.ARG_TYPE_CHECKLIST)
-            userUpdate = item.getString(Constants.ARG_UPDATE_BY) ?: ""
             presenter.let {
                 val map = HashMap<String, Any>()
                 map[Constants.PARAMS_OBJID] = contractName
@@ -110,12 +98,12 @@ class DeploymentCheckListFragment : BaseFragment(), AllCheckListContract.AllChec
 
     override fun onClickError(index: Int) {
         val model = dataCheckList[index]
-        addFragment(ErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), contractNumber, typeCheckList, userUpdate), true, true)
+        addFragment(ErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), model.Contract, typeCheckList, model.UpdateBy,model.Date), true, true)
     }
 
     override fun onClickDetail(index: Int) {
         val model = dataCheckList[index]
-        addFragment(DetailContractFragment.newInstance(model.ID.toString(), Constants.STATUS_COMPLETED, model.ObjID, Constants.DEPLOYMENT, model.Contract, model.Date, ""), true, true)
+        addFragment(DetailContractFragment.newInstance(model.ID.toString(), Constants.STATUS_COMPLETED, model.ObjID, typeCheckList, model.Contract, model.Date), true, true)
     }
 
     override fun onDestroy() {
