@@ -128,25 +128,30 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
 
     private fun setDataTypeKS() {
         listUserKS = ErrorRealmManager().getDistinctDepartment()
-        fragError_tvUserKS.text = listUserKS[Constants.FIRST_ITEM].account
+        if (listUserKS.size != 0)
+            fragError_tvUserKS.text = listUserKS[Constants.FIRST_ITEM].account
     }
 
     private fun setDataTypeError() {
         listTypeError = ErrorRealmManager().getDistinctTypeError(listUserKS[positionUserKS].account)
-        listTypeError[Constants.FIRST_ITEM].status = false
-        positionTypeError = if (!checkFirstChoice) Constants.FIRST_ITEM else Constants.SECOND_ITEM
-        listTypeError[positionTypeError].status = true
-        fragError_tvTypeError.text = listTypeError[positionTypeError].account
+        if (listTypeError.size != 0) {
+            listTypeError[Constants.FIRST_ITEM].status = false
+            positionTypeError = if (!checkFirstChoice) Constants.FIRST_ITEM else Constants.SECOND_ITEM
+            listTypeError[positionTypeError].status = true
+            fragError_tvTypeError.text = listTypeError[positionTypeError].account
+        }
     }
 
     private fun setDataMainError() {
         listMainError = ErrorRealmManager().getDistinctMainError(listUserKS[positionUserKS].account, listTypeError[positionTypeError].account, positionTypeError == Constants.FIRST_ITEM)
-        fragError_tvMainError.text = listMainError[Constants.FIRST_ITEM].account
+        if (listMainError.size != 0)
+            fragError_tvMainError.text = listMainError[Constants.FIRST_ITEM].account
     }
 
     private fun setDataDescription() {
         listDescription = ErrorRealmManager().getDistinctDescription(listUserKS[positionUserKS].account, listTypeError[positionTypeError].account, listMainError[positionMainError].account, positionTypeError == Constants.FIRST_ITEM)
-        fragError_tvDescription.text = listDescription[Constants.FIRST_ITEM].account
+        if (listDescription.size != 0)
+            fragError_tvDescription.text = listDescription[Constants.FIRST_ITEM].account
     }
     //End :Lấy dữ liệu từ database lên
 

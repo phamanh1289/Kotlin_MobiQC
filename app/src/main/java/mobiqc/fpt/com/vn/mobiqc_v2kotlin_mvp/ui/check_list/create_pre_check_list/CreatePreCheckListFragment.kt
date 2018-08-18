@@ -16,9 +16,9 @@ import javax.inject.Inject
  * * Created by Anh Pham on 08/09/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class BlankFragment : BaseFragment(), BlankContract.View {
+class CreatePreCheckListFragment : BaseFragment(), CreatePreCheckListContract.CreatePreCheckListView {
     @Inject
-    lateinit var presenter: BlankPresenter
+    lateinit var presenter: CreatePreCheckListPresenter
 
     companion object {
         fun newInstance(type: Int): SearchFragment {
@@ -36,7 +36,7 @@ class BlankFragment : BaseFragment(), BlankContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        getActivityComponent().inject(this)
+        getActivityComponent().inject(this)
         presenter.onAttach(this)
         activity?.let { KeyboardUtils.setupUI(view, activity = it) }
         initView()
@@ -50,7 +50,6 @@ class BlankFragment : BaseFragment(), BlankContract.View {
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }
-
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()

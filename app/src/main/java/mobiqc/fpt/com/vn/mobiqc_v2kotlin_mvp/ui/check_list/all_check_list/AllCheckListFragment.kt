@@ -34,16 +34,14 @@ class AllCheckListFragment : BaseFragment(), AllCheckListContract.AllCheckListVi
     private lateinit var mViewPagerAdapter: ViewPagerCheckListAdapter
     private lateinit var contractModel: ContractDetailModel
     private var contractNumber = ""
-    private var typeCheckList = 0
     private var typeGroupPoint = 0
     private lateinit var dialogInterface: DialogContractDetailInterface
 
     companion object {
-        fun newInstance(type: String, number: String, typeCheckList: Int): AllCheckListFragment {
+        fun newInstance(type: String, number: String): AllCheckListFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT, type)
             args.putString(Constants.ARG_CONTRACT_NUMBER, number)
-            args.putInt(Constants.ARG_TYPE_CHECKLIST, typeCheckList)
             val fragment = AllCheckListFragment()
             fragment.arguments = args
             return fragment
@@ -73,15 +71,14 @@ class AllCheckListFragment : BaseFragment(), AllCheckListContract.AllCheckListVi
             val json = it.getString(Constants.ARG_CONTRACT) ?: ""
             contractModel = Gson().fromJson(json, ContractDetailModel::class.java)
             contractNumber = it.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
-            typeCheckList = it.getInt(Constants.ARG_TYPE_CHECKLIST)
         }
         setTitle(TitleAndMenuModel(title = contractNumber, status = true, image = R.drawable.ic_info))
     }
 
     private fun setUpTabLayout() {
         mViewPagerAdapter = ViewPagerCheckListAdapter(fragmentManager)
-        mViewPagerAdapter.addTabFragment(DeploymentCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString(), typeCheckList), getString(R.string.deployment_check_list))
-        mViewPagerAdapter.addTabFragment(MaintenanceCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString(), typeCheckList), getString(R.string.maintenance_check_list))
+        mViewPagerAdapter.addTabFragment(DeploymentCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString()), getString(R.string.deployment_check_list))
+        mViewPagerAdapter.addTabFragment(MaintenanceCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString()), getString(R.string.maintenance_check_list))
         fragAllCheckList_viewPager.adapter = mViewPagerAdapter
         fragAllCheckList_tabLayout.setupWithViewPager(fragAllCheckList_viewPager)
     }

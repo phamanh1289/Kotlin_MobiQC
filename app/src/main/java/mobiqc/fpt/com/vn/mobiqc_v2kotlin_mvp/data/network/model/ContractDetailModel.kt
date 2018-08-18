@@ -14,6 +14,7 @@ data class ContractDetailModel(
         var Outdoor: Int = 0,
         val ODCCableType: String,
         val Description: String,
+        val Contract: String,
         var Eoc: Int = 0,
 
         //Deployment

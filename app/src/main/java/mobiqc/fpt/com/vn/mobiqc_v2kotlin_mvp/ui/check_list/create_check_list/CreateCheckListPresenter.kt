@@ -10,8 +10,7 @@ import javax.inject.Inject
  * * Created by Anh Pham on 08/09/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class SearchPresenter @Inject constructor(private val apiService: ApiService, private val apiMobiNet: ApiMobiNetService, private val apiWsMobiNetService: ApiWsMobiNetService): BasePresenter<SearchContract.SearchView>(), SearchContract.SearchPresenter  {
-
+class CreateCheckListPresenter @Inject constructor(private val apiService: ApiService, private val apiMobiNet: ApiMobiNetService, private val apiWsMobiNetService: ApiWsMobiNetService): BasePresenter<CreateCheckListContract.CreateCheckListView>(), CreateCheckListContract.CreateCheckListPresenter  {
 //    override fun getMaintenanceContractDetail(map: HashMap<String, Any>) {
 //        addSubscribe(apiMobiNet.getMaintenanceContractDetail(map)
 //                .subscribeOn(Schedulers.io())

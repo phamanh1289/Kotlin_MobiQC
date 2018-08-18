@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8dp"
+    android:background="@drawable/shape_border_grey_text_view"
+    android:orientation="vertical"
+    android:padding="@dimen/_12dp"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        android:id="@+id/Contract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contract_number"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemSearchCheckList_tvContract"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itemSearchCheckList_tvContract"/>
+
+    <TextView
+        android:id="@+id/itemSearchCheckList_tvContract"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Location"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="tvContract"/>
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contract_name"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemSearchCheckList_tvName"
+        app:layout_constraintStart_toStartOf="@+id/Contract"
+        app:layout_constraintTop_toTopOf="@+id/itemSearchCheckList_tvName"/>
+
+    <TextView
+        android:id="@+id/itemSearchCheckList_tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemSearchCheckList_tvContract"
+        app:layout_constraintTop_toBottomOf="@+id/itemSearchCheckList_tvContract"
+        tools:text="tvName"/>
+
+    <TextView
+        android:id="@+id/Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contract_phone_number"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemSearchCheckList_tvPhoneNumber"
+        app:layout_constraintStart_toStartOf="@+id/Name"
+        app:layout_constraintTop_toTopOf="@+id/itemSearchCheckList_tvPhoneNumber"/>
+
+    <TextView
+        android:id="@+id/itemSearchCheckList_tvPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemSearchCheckList_tvName"
+        app:layout_constraintTop_toBottomOf="@+id/itemSearchCheckList_tvName"
+        tools:text="tvPhone"/>
+
+    <TextView
+        android:id="@+id/AssignDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contract_address"
+        android:textColor="@color/gray_text"
+        app:layout_constraintBottom_toBottomOf="@+id/itemSearchCheckList_tvAddress"
+        app:layout_constraintStart_toStartOf="@+id/Location"
+        app:layout_constraintTop_toTopOf="@+id/itemSearchCheckList_tvAddress"/>
+
+    <TextView
+        android:id="@+id/itemSearchCheckList_tvAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/black_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemSearchCheckList_tvPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/itemSearchCheckList_tvPhoneNumber"
+        tools:text="tvAssignDate"/>
+
+
+</android.support.constraint.ConstraintLayout>

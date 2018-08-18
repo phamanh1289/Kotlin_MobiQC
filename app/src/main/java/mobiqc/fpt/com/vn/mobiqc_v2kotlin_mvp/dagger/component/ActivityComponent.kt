@@ -3,11 +3,12 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.component
 import dagger.Subcomponent
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.module.ActivityModule
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.scope.ActivityScope
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.search_contract.SearchFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreateCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreatePreCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.search.SearchCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.maintenance_check_list.MaintenanceCheckListFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.ContractDetailDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.info_contract.InfoContractFragment
@@ -26,7 +27,6 @@ interface ActivityComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(splashScreenActivity: SplashScreenActivity)
     fun inject(loginFragment: LoginFragment)
-    fun inject(checkContractFragment: CheckContractFragment)
     fun inject(infoContractFragment: InfoContractFragment)
     fun inject(detailContractFragment: DetailContractFragment)
     fun inject(deploymentCheckListFragment: DeploymentCheckListFragment)
@@ -34,5 +34,7 @@ interface ActivityComponent {
     fun inject(errorFragment: ErrorFragment)
     fun inject(allCheckListFragment: AllCheckListFragment)
     fun inject(contractDetailDialog: ContractDetailDialog)
-    fun inject(searchFragment: SearchFragment)
+    fun inject(searchCheckListFragment: SearchCheckListFragment)
+    fun inject(createCheckListFragment: CreateCheckListFragment)
+    fun inject(createPreCheckListFragment: CreatePreCheckListFragment)
 }

@@ -119,7 +119,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
         if (response.Code == Constants.REQUEST_SUCCESS)
             presenter.let { it ->
                 val map = HashMap<String, Any>()
-                map["date"] = getSharePreferences().maxDateError
+                map[Constants.PARAMS_DATE_LOW] = getSharePreferences().maxDateError
                 if (ErrorRealmManager().getCountError() == 0) {
                     hideLoading()
                     AppUtils.showDialogDownLoadData(supportFragmentManager, mDialogDownload)

@@ -9,7 +9,4 @@ import javax.inject.Inject
  */
 class MainPresenterImp @Inject constructor() : BasePresenter<MainContract.MainView>(), MainContract.MainPresenter {
 
-    override fun getListStories() {
-
-    }
 }

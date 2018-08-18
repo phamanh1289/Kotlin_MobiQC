@@ -63,11 +63,11 @@ object DataCore {
     fun getListSearch(context: Context?): ArrayList<SingleChoiceModel> {
         val list = ArrayList<SingleChoiceModel>()
         context?.let {
-            list.add(SingleChoiceModel(id = 0, account = it.getString(R.string.data_search_contract_number), status = true))
-            list.add(SingleChoiceModel(id = 1, account = it.getString(R.string.data_search_user_name)))
-            list.add(SingleChoiceModel(id = 2, account = it.getString(R.string.data_search_phone)))
-            list.add(SingleChoiceModel(id = 3, account = it.getString(R.string.data_search_address_mac)))
-            list.add(SingleChoiceModel(id = 4, account = it.getString(R.string.data_search_id)))
+            list.add(SingleChoiceModel(id = 1, account = it.getString(R.string.data_search_contract_number), status = true))
+            list.add(SingleChoiceModel(id = 2, account = it.getString(R.string.data_search_user_name)))
+            list.add(SingleChoiceModel(id = 3, account = it.getString(R.string.data_search_phone)))
+            list.add(SingleChoiceModel(id = 4, account = it.getString(R.string.data_search_address_mac)))
+            list.add(SingleChoiceModel(id = 5, account = it.getString(R.string.data_search_id)))
         }
         return list
     }

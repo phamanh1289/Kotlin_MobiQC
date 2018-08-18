@@ -151,6 +151,10 @@
     <string name="data_search_phone">Số điện thoại</string>
     <string name="data_search_address_mac">Địa chỉ MAC</string>
     <string name="data_search_id">Số CMND</string>
+    <string name="list_contract">Danh sách hợp đồng</string>
+    <string name="result_search">Kết quả tìm kiếm</string>
     <string name="validate_key_search">Từ khóa không được bỏ trống!</string>
+    <string name="mobi_acc_no_data">"Chưa có đơn vị quản lý, vui lòng liên hệ quản trị hệ thống để được cấp quyền."</string>
+    <string name="name_check_list">"%1$s | %2$s"</string>
 
 </resources>

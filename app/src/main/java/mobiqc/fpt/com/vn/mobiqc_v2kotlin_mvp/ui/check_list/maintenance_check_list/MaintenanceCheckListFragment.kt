@@ -32,16 +32,14 @@ class MaintenanceCheckListFragment : BaseFragment(), DeploymentCheckListContract
     @Inject
     lateinit var presenter: DeploymentCheckListPresenter
     private var contractName = ""
-    private var typeCheckList = 0
 
     private lateinit var mAdapterAll: AllCheckListAdapter
     private var dataCheckList = ArrayList<CheckListModel>()
 
     companion object {
-        fun newInstance(type: String, typeCheckList: Int): MaintenanceCheckListFragment {
+        fun newInstance(type: String): MaintenanceCheckListFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT, type)
-            args.putInt(Constants.ARG_TYPE_CHECKLIST, typeCheckList)
             val fragment = MaintenanceCheckListFragment()
             fragment.arguments = args
             return fragment
@@ -64,7 +62,6 @@ class MaintenanceCheckListFragment : BaseFragment(), DeploymentCheckListContract
         val bundle = arguments
         bundle?.let { item ->
             contractName = item.getString(Constants.ARG_CONTRACT) ?: ""
-            typeCheckList = item.getInt(Constants.ARG_TYPE_CHECKLIST)
             presenter.let {
                 val map = HashMap<String, Any>()
                 map[Constants.PARAMS_OBJID] = contractName
@@ -100,7 +97,7 @@ class MaintenanceCheckListFragment : BaseFragment(), DeploymentCheckListContract
 
     override fun onClickError(index: Int) {
         val model = dataCheckList[index]
-        addFragment(ErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), model.Contract, typeCheckList, model.UpdateBy, model.Date), true, true)
+        addFragment(ErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), model.Contract, Constants.MAINTENANCE, model.UpdateBy, model.Date), true, true)
     }
 
     override fun onClickDetail(index: Int) {

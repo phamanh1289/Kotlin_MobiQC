@@ -10,6 +10,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ItemMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.location.LocationRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.adapter.ItemMenuAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
@@ -18,8 +19,8 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.StartActivityUtils
 import javax.inject.Inject
@@ -61,7 +62,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             setHasFixedSize(true)
         }
         handleActionMenu(mData[KT_HOP_DONG])
-        actMain_tvVersion.text = getString(R.string.version_app_name,packageManager.getPackageInfo(packageName, 0).versionName)
+        actMain_tvVersion.text = getString(R.string.version_app_name, packageManager.getPackageInfo(packageName, 0).versionName)
         actMain_ivNotification.setOnClickListener {
             handleActionNotify()
         }
@@ -79,9 +80,9 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     private fun handleActionMenu(itemMenu: ItemMenuModel) {
         when (itemMenu.id) {
             Constants.KT_HOP_DONG -> addFragment(CheckContractFragment(), false, true)
-            Constants.CAP_NHAT_LOI,
-            Constants.TAO_CHECK_LIST,
-            Constants.TAO_PRE_CHECK_LIST -> addFragment(SearchFragment(), false, true)
+            Constants.CAP_NHAT_LOI -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CNL, itemMenu.name), false, true)
+            Constants.TAO_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CL, itemMenu.name), false, true)
+            Constants.TAO_PRE_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_PCL, itemMenu.name), false, true)
             Constants.TAO_LOI_MOI -> ""
             Constants.DANH_SACH_LOI -> ""
             Constants.KQ_XAC_MINH -> ""
@@ -89,6 +90,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.THONG_TIN -> ""
             Constants.DANG_XUAT -> {
                 getSharePreferences().toClearSessionLogin()
+                LocationRealmManager().deleteAllLocation()
                 StartActivityUtils().toSplashActivity(this)
             }
         }

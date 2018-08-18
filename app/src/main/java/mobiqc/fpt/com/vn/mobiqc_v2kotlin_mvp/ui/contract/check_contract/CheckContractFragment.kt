@@ -17,16 +17,13 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.info_contract.InfoContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
-import javax.inject.Inject
 
 /**
  * * Created by Anh Pham on 08/07/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
+class CheckContractFragment : BaseFragment() {
 
-    @Inject
-    lateinit var presenter: CheckContractPresenter
     private lateinit var clickListener: View.OnClickListener
     private var dataMobiAcc = ArrayList<SingleChoiceModel>()
     private var dataMobiType = ArrayList<SingleChoiceModel>()
@@ -38,8 +35,6 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getActivityComponent().inject(this)
-        presenter.onAttach(this)
         setTitle(TitleAndMenuModel(title = getString(R.string.menu_kt_hop_dong), status = true, image = R.drawable.ic_notifications))
         activity?.let { KeyboardUtils.setupUI(view, activity = it) }
         initView()
@@ -78,8 +73,11 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
         if (dataMobiAcc.size != 0)
             dataMobiAcc.forEach { it.status = false }
         dataMobiAcc = dataMobiGroup[index].accounts
-        dataMobiAcc[Constants.FIRST_ITEM].status = true
-        fragCheckContract_tvMobiAcc.text = dataMobiAcc[Constants.FIRST_ITEM].account
+        if (dataMobiAcc.size != 0) {
+            dataMobiAcc[Constants.FIRST_ITEM].status = true
+            fragCheckContract_tvMobiAcc.text = dataMobiAcc[Constants.FIRST_ITEM].account
+        } else
+            AppUtils.showDialog(fragmentManager, confirmDialogInterface = null, content = getString(R.string.mobi_acc_no_data))
     }
 
     private fun handleErrorSearch() {
@@ -93,7 +91,7 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
             else {
                 val type = if (fragCheckContract_rbProcessing.isChecked) Constants.STATUS_PROCESSING else Constants.STATUS_COMPLETED
                 val acc = fragCheckContract_tvMobiAcc.text.toString().trim()
-                val checkList = if (fragCheckContract_tvMobiType.text.toString().equals(getString(R.string.loai_tc_1))) Constants.DEPLOYMENT else Constants.MAINTENANCE
+                val checkList = if (fragCheckContract_tvMobiType.text.toString() == getString(R.string.loai_tc_1)) Constants.DEPLOYMENT else Constants.MAINTENANCE
                 val from = fragCheckContract_tvFromDate.text.toString()
                 val to = fragCheckContract_tvToDate.text.toString()
                 addFragment(InfoContractFragment.newInstance(type, acc, checkList, from, to), true, true)
@@ -114,9 +112,5 @@ class CheckContractFragment : BaseFragment(), CheckContract.CheckContractView {
                 R.id.fragCheckContract_tvSearch -> handleErrorSearch()
             }
         }
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        presenter.onDetach()
     }
 }

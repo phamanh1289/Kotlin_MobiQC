@@ -87,7 +87,6 @@ class LoginFragment : BaseFragment(), LoginContract.LoginView {
             map[Constants.PARAMS_USER_NAME] = userName
             getSharePreferences().accountName = userName
             getSharePreferences().createDate = AppUtils.getCurrentDate(Constants.CURRENT_DATE)
-            getSharePreferences().listLocationUser = response.Data.toString()
             presenter.postMobiAccount(map)
         } else {
             hideLoading()

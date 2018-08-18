@@ -11,6 +11,5 @@ interface MainContract {
     }
 
     interface MainPresenter {
-        fun getListStories()
     }
 }

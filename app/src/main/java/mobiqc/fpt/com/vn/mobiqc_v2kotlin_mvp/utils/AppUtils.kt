@@ -21,6 +21,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceMode
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
 import java.io.File
 import java.text.DecimalFormat
@@ -198,8 +199,9 @@ object AppUtils {
                     if (fragment is ErrorFragment) {
                         fragment.setDefaultValueIndex(view.id, position)
                         fragment.setDefaultData(view.id)
+                    } else if (fragment is SearchFragment) {
+                        fragment.setDefaultValueIndex(view.id, position)
                     }
-
                 }
             }
             view.text = listData[position].account
@@ -259,5 +261,23 @@ object AppUtils {
         val result = getLocationUser(latLng)
         val listArr = result.split(",")
         return if (listArr.isNotEmpty()) LatLng(listArr[0].toDouble(), listArr[1].toDouble()) else LatLng(0.toDouble(), 0.toDouble())
+    }
+
+    fun convertStringToMacAddress(text: String): String {
+        return when {
+            text.contains(":") -> text
+            text.contains("-") -> text.replace("-", ":")
+            else -> {
+                var result = text
+                var countLoop = text.length / 2
+                var firstIndex = 2
+                while (countLoop > 1) {
+                    result = StringBuffer(result).insert(firstIndex, ":").toString()
+                    firstIndex += 3
+                    countLoop--
+                }
+                result
+            }
+        }
     }
 }

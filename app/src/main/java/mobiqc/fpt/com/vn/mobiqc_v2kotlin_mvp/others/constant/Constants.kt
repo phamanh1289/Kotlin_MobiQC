@@ -14,12 +14,15 @@ object Constants {
     const val PARAMS_USER_NAME_LOW = "username"
     const val PARAMS_FROM_DATE = "FromDate"
     const val PARAMS_FROM_MONTH = "FromMonth"
+    const val PARAMS_DATE_LOW = "date"
     const val PARAMS_FROM = "From"
     const val PARAMS_TO_MONTH = "ToMonth"
     const val PARAMS_TO_DATE = "ToDate"
     const val PARAMS_TO = "To"
     const val PARAMS_KIND = "Kind"
     const val PARAMS_SEARCH_TYPE = "SearchType"
+    const val PARAMS_INFO = "Info"
+    const val PARAMS_LOCATION_ID = "LocationID"
     const val PARAMS_TYPE = "Type"
     const val PARAMS_SUPID = "SupID"
     const val PARAMS_CONTRACT = "contract"
@@ -45,6 +48,9 @@ object Constants {
 
     //End : Params call api
 
+    const val ARG_MENU_CNL = 2
+    const val ARG_MENU_PCL = 3
+    const val ARG_MENU_CL = 4
     const val FIRST_ITEM = 0
     const val NO_DISTANCE_RULE = 0.0
     const val DISTANCE_RULE = 30.0
@@ -77,6 +83,13 @@ object Constants {
     const val DANG_XUAT = "dang_xuat"
     const val TIME_DATE_FORMAT = "dd/MM/yyyy"
     const val ARG_TYPE_CONTRACT = "TypeContract"
+    const val ARG_MENU_TYPE = "menuType"
+    const val ARG_SEARCH_TYPE = "searchType"
+    const val ARG_SEARCH_KEY = "searchKey"
+    const val ARG_LOCATION = "location"
+    const val ARG_IS_REPORT = "isReport"
+    const val ARG_TYPE_MENU = "TypeMenu"
+    const val ARG_TITLE = "Title"
     const val ARG_OBJID = "objId"
     const val ARG_SUPID = "supId"
     const val ARG_MOBI_ACC = "MobiAcc"

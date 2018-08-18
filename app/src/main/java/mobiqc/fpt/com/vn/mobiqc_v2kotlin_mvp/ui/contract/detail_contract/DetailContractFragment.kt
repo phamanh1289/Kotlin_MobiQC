@@ -242,7 +242,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     fun onClickContractNumber() {
         if (supid.isBlank())
-            addFragment(AllCheckListFragment.newInstance(Gson().toJson(contractModel), contractNumber, typeCheckList), true, true)
+            addFragment(AllCheckListFragment.newInstance(Gson().toJson(contractModel), contractNumber), true, true)
     }
 
     private fun onClickAddress() {

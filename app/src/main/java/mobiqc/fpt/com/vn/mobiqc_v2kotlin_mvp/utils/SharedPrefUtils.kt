@@ -18,7 +18,6 @@ class SharedPrefUtils constructor(app: Context?) {
         private const val MOBI_ACCOUNT = "mobiAccount"
         private const val CREATE_DATE = "createDate"
         private const val LIST_PARAMS = "list_params"
-        private const val LIST_LOCATION_USER = "list_location_user"
     }
 
     var imeiDevice: String
@@ -39,9 +38,6 @@ class SharedPrefUtils constructor(app: Context?) {
     var listParams: String
         get() = sharedPreferences?.getString(LIST_PARAMS, "")!!
         set(value) = sharedPreferences?.put { putString(LIST_PARAMS, value) }!!
-    var listLocationUser: String
-        get() = sharedPreferences?.getString(LIST_LOCATION_USER, "")!!
-        set(value) = sharedPreferences?.put { putString(LIST_LOCATION_USER, value) }!!
 
     private inline fun SharedPreferences.put(body: SharedPreferences.Editor.() -> Unit) {
         val editor = this.edit()

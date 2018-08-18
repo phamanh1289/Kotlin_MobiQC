@@ -53,6 +53,9 @@ interface ApiService {
     @POST("UpdateErrorContract")
     fun postUpdateError(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
+    @POST("GetListContract")
+    fun getListContract(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
     @GET
     @Streaming
     fun getFileNewVersion(@Url fileUrl: String): Call<ResponseBody>

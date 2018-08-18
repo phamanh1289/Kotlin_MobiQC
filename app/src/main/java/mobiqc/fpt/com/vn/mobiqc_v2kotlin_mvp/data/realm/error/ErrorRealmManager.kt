@@ -1,6 +1,5 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.error
 
-import io.reactivex.Observable
 import io.realm.ErrorRealmModelRealmProxy
 import io.realm.Realm
 import io.realm.RealmResults
@@ -16,17 +15,10 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 open class ErrorRealmManager {
 
     companion object {
-        val ERROR_TABLE = "errors"
-        val ERROR_COL_ID = "id"
-        val ERROR_COL_DEPARTMENT = "department"
-        val ERROR_COL_TYPE = "type"
-        val ERROR_COL_MAIN = "main"
-        val ERROR_COL_DESC = "description"
-        val ERROR_COL_CREATEDATE = "createdate"
-//        val LOCATION_TABLE = "locations"
-//        val LOCATION_COL_ID = "id"
-//        val LOCATION_COL_NAME = "namedesc"
-//        val LOCATION_COL_PARENT = "parentdesc"
+        const val ERROR_COL_ID = "id"
+        const val ERROR_COL_DEPARTMENT = "department"
+        const val ERROR_COL_TYPE = "type"
+        const val ERROR_COL_MAIN = "main"
 //        val ERROR_INF_TABLE = "error_infrastructure"
 //        val ERROR_INF_COL_ID = "id"
 //        val ERROR_INF_COL_TYPE = "type"
@@ -189,21 +181,6 @@ open class ErrorRealmManager {
         } finally {
             realm?.close()
         }
-    }
-
-    fun getAllError(): Observable<MutableList<ErrorDataModel>> {
-        val list: MutableList<ErrorDataModel> = ArrayList()
-        try {
-            realm = Realm.getDefaultInstance()
-            realm?.executeTransaction {
-                it.where(ErrorRealmModel::class.java)?.findAll()?.forEach { item ->
-                    list.add(ErrorDataModel(id = item.id, date = item.date, department = item.department, description = item.description, main = item.main, type = item.type))
-                }
-            }
-        } finally {
-            realm?.close()
-        }
-        return Observable.just(list)
     }
 
 }

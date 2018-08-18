@@ -154,23 +154,40 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_20dp"
             android:text="@string/search_keyword"
-            android:textColor="@color/button"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_17dp"
             tools:ignore="MissingPrefix"/>
 
-        <EditText
-            android:id="@+id/fragSearch_etKeyWord"
-            fontPath="@string/Helvetica_Bold"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20dp"
-            android:background="@drawable/shape_border_grey_text_view"
-            android:gravity="center"
-            android:inputType="textCapWords"
-            android:padding="@dimen/_8dp"
-            android:textColor="@color/black_text"
-            android:textSize="@dimen/_17dp"
-            tools:ignore="MissingPrefix"/>
+            android:background="@drawable/shape_border_grey_text_view">
+
+            <EditText
+                android:id="@+id/fragSearch_etKeyWord"
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_40dp"
+                android:layout_marginStart="@dimen/_40dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:padding="@dimen/_8dp"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_17dp"
+                tools:ignore="LabelFor,MissingPrefix,TextFields"/>
+
+            <ImageView
+                android:id="@+id/fragSearch_imgClearText"
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="@dimen/_8dp"
+                android:layout_marginStart="@dimen/_8dp"
+                android:src="@drawable/ic_close_clear"
+                android:visibility="gone"/>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/fragSearch_tvSubmit"
