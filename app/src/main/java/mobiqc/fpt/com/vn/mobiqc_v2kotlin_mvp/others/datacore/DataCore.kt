@@ -71,4 +71,44 @@ object DataCore {
         }
         return list
     }
+
+    fun getListFirstStatus(context: Context?): ArrayList<SingleChoiceModel> {
+        val list = ArrayList<SingleChoiceModel>()
+        context?.let {
+            list.add(SingleChoiceModel(id = 4, account = it.getString(R.string.first_status_1), status = true))
+            list.add(SingleChoiceModel(id = 23, account = it.getString(R.string.first_status_2)))
+            list.add(SingleChoiceModel(id = 50, account = it.getString(R.string.first_status_3)))
+            list.add(SingleChoiceModel(id = 46, account = it.getString(R.string.first_status_4)))
+            list.add(SingleChoiceModel(id = 47, account = it.getString(R.string.first_status_5)))
+            list.add(SingleChoiceModel(id = 45, account = it.getString(R.string.first_status_6)))
+            list.add(SingleChoiceModel(id = 49, account = it.getString(R.string.first_status_7)))
+            list.add(SingleChoiceModel(id = 53, account = it.getString(R.string.first_status_8)))
+            list.add(SingleChoiceModel(id = 8, account = it.getString(R.string.first_status_9)))
+            list.add(SingleChoiceModel(id = 9, account = it.getString(R.string.first_status_10)))
+            list.add(SingleChoiceModel(id = 51, account = it.getString(R.string.first_status_11)))
+            list.add(SingleChoiceModel(id = 52, account = it.getString(R.string.first_status_12)))
+            list.add(SingleChoiceModel(id = 12, account = it.getString(R.string.first_status_13)))
+            list.add(SingleChoiceModel(id = 21, account = it.getString(R.string.first_status_14)))
+            list.add(SingleChoiceModel(id = 48, account = it.getString(R.string.first_status_15)))
+            list.add(SingleChoiceModel(id = 5, account = it.getString(R.string.first_status_16)))
+            list.add(SingleChoiceModel(id = 55, account = it.getString(R.string.first_status_17)))
+            list.add(SingleChoiceModel(id = 58, account = it.getString(R.string.first_status_18)))
+            list.add(SingleChoiceModel(id = 103, account = it.getString(R.string.first_status_19)))
+            list.add(SingleChoiceModel(id = 104, account = it.getString(R.string.first_status_20)))
+            list.add(SingleChoiceModel(id = 18, account = it.getString(R.string.first_status_21)))
+            list.add(SingleChoiceModel(id = 38, account = it.getString(R.string.first_status_22)))
+            list.add(SingleChoiceModel(id = 33, account = it.getString(R.string.first_status_23)))
+            list.add(SingleChoiceModel(id = 40, account = it.getString(R.string.first_status_24)))
+            list.add(SingleChoiceModel(id = 29, account = it.getString(R.string.first_status_25)))
+            list.add(SingleChoiceModel(id = 31, account = it.getString(R.string.first_status_26)))
+            list.add(SingleChoiceModel(id = 36, account = it.getString(R.string.first_status_27)))
+            list.add(SingleChoiceModel(id = 37, account = it.getString(R.string.first_status_28)))
+            list.add(SingleChoiceModel(id = 68, account = it.getString(R.string.first_status_29)))
+            list.add(SingleChoiceModel(id = 69, account = it.getString(R.string.first_status_30)))
+            list.add(SingleChoiceModel(id = 70, account = it.getString(R.string.first_status_31)))
+            list.add(SingleChoiceModel(id = 71, account = it.getString(R.string.first_status_32)))
+            list.add(SingleChoiceModel(id = 0, account = it.getString(R.string.first_status_33)))
+        }
+        return list
+    }
 }

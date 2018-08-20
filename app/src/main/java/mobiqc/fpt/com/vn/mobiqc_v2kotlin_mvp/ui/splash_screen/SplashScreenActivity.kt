@@ -16,6 +16,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterf
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDataModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.error.ErrorRealmManager
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.location.LocationRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ShowDownLoadDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseActivity
@@ -143,6 +144,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             }
             if (!getSharePreferences().checkReLogin()) {
                 getSharePreferences().toClearSessionLogin()
+                LocationRealmManager().deleteAllLocation()
                 addFragment(LoginFragment(), false, true)
             } else StartActivityUtils().toMainActivity(this@SplashScreenActivity)
         } else

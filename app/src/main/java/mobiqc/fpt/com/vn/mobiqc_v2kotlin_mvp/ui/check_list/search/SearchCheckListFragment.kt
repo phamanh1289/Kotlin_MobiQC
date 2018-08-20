@@ -14,6 +14,8 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreateCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.SearchCheckListContract
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.SearchCheckListPresenter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
@@ -96,11 +98,25 @@ class SearchCheckListFragment : BaseFragment(), SearchCheckListContract.SearchCh
         listDataCheckList = list
         if (listDataCheckList.size != 0) {
             adapterCheckList = SearchCheckListAdapter {
-                addFragment(AllCheckListFragment.newInstance(Gson().toJson(listDataCheckList[it]), listDataCheckList[it].Contract), true, true)
+                val model = Gson().toJson(listDataCheckList[it])
+                when (menuType) {
+                    Constants.ARG_MENU_CNL -> {
+                        addFragment(AllCheckListFragment.newInstance(model, listDataCheckList[it].Contract), true, true)
+                    }
+                    Constants.ARG_MENU_PCL -> {
+                        addFragment(CreatePreCheckListFragment.newInstance(model), true, true)
+                    }
+                    Constants.ARG_MENU_CL -> {
+                        addFragment(CreateCheckListFragment.newInstance(model), true, true)
+                    }
+                }
+
             }
             adapterCheckList.submitList(listDataCheckList)
             fragSearchCheckList_rvMain.apply {
-                layoutManager = LinearLayoutManager(context)
+                val layout = LinearLayoutManager(context)
+                layout.orientation = LinearLayoutManager.VERTICAL
+                layoutManager = layout
                 setHasFixedSize(true)
                 adapter = adapterCheckList
             }

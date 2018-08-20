@@ -41,7 +41,9 @@ class SingChoiceDialog : DialogFragment() {
         singleAdapter = SelectionSingleAdapter(onClick)
         submitData(list)
         fragDialogSingleChoice_rvMain.apply {
-            layoutManager = LinearLayoutManager(context)
+            val layout = LinearLayoutManager(context)
+            layout.orientation = LinearLayoutManager.VERTICAL
+            layoutManager = layout
             adapter = singleAdapter
             setHasFixedSize(true)
         }

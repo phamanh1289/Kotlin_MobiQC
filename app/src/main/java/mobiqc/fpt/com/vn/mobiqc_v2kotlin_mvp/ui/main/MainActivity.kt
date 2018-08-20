@@ -58,7 +58,9 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
         menuAdapter = ItemMenuAdapter(mData) { handleActionMenu(mData[it]) }
         actMain_rvMenuMain.apply {
             adapter = menuAdapter
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            val layout = LinearLayoutManager(this@MainActivity)
+            layout.orientation = LinearLayoutManager.VERTICAL
+            layoutManager = layout
             setHasFixedSize(true)
         }
         handleActionMenu(mData[KT_HOP_DONG])

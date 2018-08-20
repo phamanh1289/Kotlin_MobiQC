@@ -74,9 +74,9 @@ class SearchFragment : BaseFragment() {
     private fun initOnClick() {
         fragSearch_etKeyWord.onChange { it }
         fragSearch_imgClearText.setOnClickListener { fragSearch_etKeyWord.setText("") }
-        fragSearch_tvLocation.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_location), listParent, fragSearch_tvLocation) }
-        fragSearch_tvBranch.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_branch), listName, fragSearch_tvBranch) }
-        fragSearch_tvTypeSearch.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_title), listTypeSearch, fragSearch_tvTypeSearch) }
+        fragSearch_tvLocation.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_location), listParent, fragSearch_tvLocation, positionParent) }
+        fragSearch_tvBranch.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_branch), listName, fragSearch_tvBranch, positionName) }
+        fragSearch_tvTypeSearch.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_title), listTypeSearch, fragSearch_tvTypeSearch, positionTypeSearch) }
         fragSearch_tvSubmit.setOnClickListener { handleActionSubmit() }
     }
 

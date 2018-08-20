@@ -1,5 +1,6 @@
-package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank
+package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list
 
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseLowCaseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
 
 /**
@@ -8,9 +9,16 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
  */
 interface CreateCheckListContract {
     interface CreateCheckListView : BaseView {
-        fun handleError(error : String)
+        fun loadSubTeamID(response: ResponseLowCaseModel)
+        fun loadOwnerType(response: ResponseLowCaseModel)
+        fun loadPartnerTimezoneAbilityList(response: ResponseLowCaseModel)
+        fun handleError(error: String)
     }
 
     interface CreateCheckListPresenter {
+        fun getOwnerTypeByInitStatus(map: HashMap<String, Any>)
+        fun getSubTeamID(map: HashMap<String, Any>)
+        fun getOwnerTypeByPopManage(map: HashMap<String, Any>)
+        fun getPartnerTimezoneAbilityList(map: HashMap<String, Any>)
     }
 }

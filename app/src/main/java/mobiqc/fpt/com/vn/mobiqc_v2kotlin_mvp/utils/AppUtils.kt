@@ -20,6 +20,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PhoneNumberModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.*
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreateCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
@@ -106,12 +107,16 @@ object AppUtils {
         context?.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("tel:$number")))
     }
 
-    fun showPickTime(context: Context?, tvDate: TextView) {
+    fun showPickTime(context: Context?, tvDate: TextView, typeDate: Boolean) {
         val calendar = Calendar.getInstance()
         context?.let {
-            val datePickerDialog = DatePickerDialog(it,
-                    { view, year, monthOfYear, dayOfMonth -> tvDate.text = it.resources.getString(R.string.date_time_format, toConvertMonth(dayOfMonth), toConvertMonth(monthOfYear + 1), year.toString()) }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
-            datePickerDialog.datePicker.maxDate = System.currentTimeMillis() - 1000
+            val datePickerDialog = DatePickerDialog(it, { _, year, monthOfYear, dayOfMonth ->
+                tvDate.text = it.resources.getString(R.string.date_time_format, toConvertMonth(dayOfMonth), toConvertMonth(monthOfYear + 1), year.toString())
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+            if (typeDate)
+                datePickerDialog.datePicker.maxDate = System.currentTimeMillis() - 1000
+            else
+                datePickerDialog.datePicker.minDate = System.currentTimeMillis() - 1000
             datePickerDialog.show()
         }
     }
@@ -173,35 +178,41 @@ object AppUtils {
         return formatter.format(longValue)
     }
 
-    fun showDialogSingChoiceGroup(fragmentManager: FragmentManager?, title: String, listData: ArrayList<AccountGroup>, view: TextView) {
+    fun showDialogSingChoiceGroup(fragmentManager: FragmentManager?, title: String, listData: ArrayList<AccountGroup>, view: TextView, itemSelected: Int) {
         val listSingle = ArrayList<SingleChoiceModel>()
         listData.forEach {
             listSingle.add(SingleChoiceModel(account = it.group, status = it.status))
         }
-        showDialogSingChoice(fragmentManager, title, listSingle, view)
+        showDialogSingChoice(fragmentManager, title, listSingle, view, itemSelected)
     }
 
-    fun showDialogSingChoice(fragmentManager: FragmentManager?, title: String, listData: ArrayList<SingleChoiceModel>, view: TextView) {
+    fun showDialogSingChoice(fragmentManager: FragmentManager?, title: String, listData: ArrayList<SingleChoiceModel>, view: TextView, itemSelected: Int) {
         val dialog = SingChoiceDialog()
         dialog.setDataDialog(title = title, list = listData) { position ->
+            listData[itemSelected].status = false
+            listData[position].status = true
             val fragment = fragmentManager?.findFragmentById(android.R.id.tabcontent)
             when (fragment) {
                 is CheckContractFragment -> {
-                    if (view.id == R.id.fragCheckContract_tvMobiGroup) {
-                        fragment.dataMobiGroup[dialog.singleAdapter.indexSelect].status = false
-                        fragment.dataMobiGroup[position].status = true
-                        fragment.getDataAcc(position)
+                    when (view.id) {
+                        R.id.fragCheckContract_tvMobiGroup -> {
+                            fragment.dataMobiGroup[itemSelected].status = false
+                            fragment.dataMobiGroup[position].status = true
+                            fragment.positionMobiGroup = position
+                            fragment.getDataAcc(position)
+                        }
+                        R.id.fragCheckContract_tvMobiAcc -> fragment.positionMobiAcc = position
+                        R.id.fragCheckContract_tvMobiType -> fragment.positionMobiType = position
                     }
                 }
-                else -> {
-                    listData[dialog.singleAdapter.indexSelect].status = false
-                    listData[position].status = true
-                    if (fragment is ErrorFragment) {
-                        fragment.setDefaultValueIndex(view.id, position)
-                        fragment.setDefaultData(view.id)
-                    } else if (fragment is SearchFragment) {
-                        fragment.setDefaultValueIndex(view.id, position)
-                    }
+                is ErrorFragment -> {
+                    fragment.setDefaultValueIndex(view.id, position)
+                    fragment.setDefaultData(view.id)
+                }
+                is SearchFragment -> fragment.setDefaultValueIndex(view.id, position)
+                is CreateCheckListFragment -> {
+                    fragment.positionFirstStatus = position
+                    fragment.initParamGetOwner(fragment.isCheckOwner)
                 }
             }
             view.text = listData[position].account

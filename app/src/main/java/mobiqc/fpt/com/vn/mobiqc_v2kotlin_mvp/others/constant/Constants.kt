@@ -44,7 +44,16 @@ object Constants {
     const val PARAMS_ERROR_MAIN = "ErrorMain"
     const val PARAMS_INDOOR = "Indoor"
     const val PARAMS_NAME_TD = "NameTD"
-    const val NO_PARAMS = 0
+    const val PARAMS_SUPPORTER = "Supporter"
+    const val PARAMS_SUB_ID = "SubID"
+    const val PARAMS_APPOINTMENT_DATE = "AppointmentDate"
+    const val PARAMS_DATE = "Date"
+    const val PARAMS_OWNER_TYPE = "OwnerType"
+    const val PARAMS_INIT_STATUS = "InitStatus"
+    const val PARAMS_LOCATON_ID_LOW = "LocationId"
+    const val PARAMS_LOCAL_TYPE_ID = "LocaltypeID"
+    const val PARAMS_REASON_ID = "ReasonID"
+    const val PARAMS_NO_VALUE_INT = 0
 
     //End : Params call api
 
@@ -68,6 +77,7 @@ object Constants {
     const val TYPE_ADSL = 1
     const val TYPE_FTTH = 2
     const val TYPE_PON = 3
+    const val DONT_BOOK_DATE =-1
     const val SUCCESSFUL = "Successful"
     const val ERROR_NETWORK = "Không có kết nối internet!"
     const val TITLE_DIALOG = "Thông báo"
@@ -97,6 +107,7 @@ object Constants {
     const val ARG_DATE_FROM = "DateFrom"
     const val ARG_DATE_TO = "DateTo"
     const val ARG_CONTRACT = "Contract"
+    const val ARG_CONTRACT_DETAIL = "ContractDetail"
     const val ARG_CONTRACT_NUMBER = "ContractNumber"
     const val ARG_OBJ_CREATEDATE = "CreateDate"
     const val ARG_UPDATE_BY = "UpdateBy"

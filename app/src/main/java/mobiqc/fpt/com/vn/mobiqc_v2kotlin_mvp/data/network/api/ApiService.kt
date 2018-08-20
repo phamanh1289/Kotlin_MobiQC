@@ -3,6 +3,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api
 import io.reactivex.Observable
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseAccountGroupModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDataModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseLowCaseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -55,6 +56,18 @@ interface ApiService {
 
     @POST("GetListContract")
     fun getListContract(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
+    @POST("PartnerTimezoneAbilityList")
+    fun getPartnerTimezoneAbilityList(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
+
+    @POST("GetOwnerTypeByPopManage")
+    fun getOwnerTypeByPopManage(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
+
+    @POST("GetSubTeamID")
+    fun getSubTeamID(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
+
+    @POST("GetOwnerTypeByInitStatus")
+    fun getOwnerTypeByInitStatus(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
 
     @GET
     @Streaming

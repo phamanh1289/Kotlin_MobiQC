@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -21,17 +20,17 @@ class CreatePreCheckListFragment : BaseFragment(), CreatePreCheckListContract.Cr
     lateinit var presenter: CreatePreCheckListPresenter
 
     companion object {
-        fun newInstance(type: Int): SearchFragment {
+        fun newInstance(model: String): CreatePreCheckListFragment {
             val args = Bundle()
-            args.putInt(Constants.ARG_TYPE_CONTRACT, type)
-            val fragment = SearchFragment()
+            args.putString(Constants.ARG_CONTRACT_DETAIL, model)
+            val fragment = CreatePreCheckListFragment()
             fragment.arguments = args
             return fragment
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_detail_contract, container, false)
+        return inflater.inflate(R.layout.fragment_create_pre_check_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,6 +49,7 @@ class CreatePreCheckListFragment : BaseFragment(), CreatePreCheckListContract.Cr
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }
+
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()

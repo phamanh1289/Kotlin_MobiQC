@@ -79,7 +79,9 @@ class MaintenanceCheckListFragment : BaseFragment(), DeploymentCheckListContract
         mAdapterAll.submitList(dataCheckList)
         fragCheckListMaintenance_rvMain.apply {
             adapter = mAdapterAll
-            layoutManager = LinearLayoutManager(context)
+            val layout = LinearLayoutManager(context)
+            layout.orientation = LinearLayoutManager.VERTICAL
+            layoutManager = layout
             setHasFixedSize(true)
         }
         fragCheckListMaintenance_tvNoData.visibility = if (dataCheckList.size == 0) View.VISIBLE else View.GONE

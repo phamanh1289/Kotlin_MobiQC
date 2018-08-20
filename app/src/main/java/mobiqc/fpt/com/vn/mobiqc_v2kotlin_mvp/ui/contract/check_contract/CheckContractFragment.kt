@@ -29,6 +29,10 @@ class CheckContractFragment : BaseFragment() {
     private var dataMobiType = ArrayList<SingleChoiceModel>()
     var dataMobiGroup = ArrayList<AccountGroup>()
 
+    var positionMobiGroup = 0
+    var positionMobiAcc = 0
+    var positionMobiType = 0
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_check_contract, container, false)
     }
@@ -102,13 +106,11 @@ class CheckContractFragment : BaseFragment() {
     private fun handleOnClick() {
         clickListener = View.OnClickListener { view ->
             when (view.id) {
-                R.id.fragCheckContract_tvMobiGroup -> AppUtils.showDialogSingChoiceGroup(fragmentManager, getString(R.string.don_vi), dataMobiGroup, fragCheckContract_tvMobiGroup)
-                R.id.fragCheckContract_tvMobiAcc -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiAcc, fragCheckContract_tvMobiAcc)
-                R.id.fragCheckContract_tvMobiType -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiType, fragCheckContract_tvMobiType)
-                R.id.fragCheckContract_tvFromDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvFromDate) }
-
-                R.id.fragCheckContract_tvToDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvToDate) }
-
+                R.id.fragCheckContract_tvMobiGroup -> AppUtils.showDialogSingChoiceGroup(fragmentManager, getString(R.string.don_vi), dataMobiGroup, fragCheckContract_tvMobiGroup, positionMobiGroup)
+                R.id.fragCheckContract_tvMobiAcc -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiAcc, fragCheckContract_tvMobiAcc, positionMobiAcc)
+                R.id.fragCheckContract_tvMobiType -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiType, fragCheckContract_tvMobiType, positionMobiType)
+                R.id.fragCheckContract_tvFromDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvFromDate, true) }
+                R.id.fragCheckContract_tvToDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvToDate, true) }
                 R.id.fragCheckContract_tvSearch -> handleErrorSearch()
             }
         }

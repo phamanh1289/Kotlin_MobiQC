@@ -201,19 +201,19 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
     }
 
     private fun initOnClick() {
-        fragError_tvTypeKS.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_type), listTypeKS, fragError_tvTypeKS) }
-        fragError_tvIndoor.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_main_indoor), listIndoor, fragError_tvIndoor) }
+        fragError_tvTypeKS.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_type), listTypeKS, fragError_tvTypeKS,positionTypeKS) }
+        fragError_tvIndoor.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_main_indoor), listIndoor, fragError_tvIndoor,positionIndoor) }
         fragError_tvUserKS.setOnClickListener {
-            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_user), listUserKS, fragError_tvUserKS)
+            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_user), listUserKS, fragError_tvUserKS, positionUserKS)
         }
         fragError_tvTypeError.setOnClickListener {
-            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_type_error), listTypeError, fragError_tvTypeError)
+            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_type_error), listTypeError, fragError_tvTypeError, positionTypeError)
         }
         fragError_tvMainError.setOnClickListener {
-            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_main_error), listMainError, fragError_tvMainError)
+            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_main_error), listMainError, fragError_tvMainError, positionMainError)
         }
         fragError_tvDescription.setOnClickListener {
-            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_description), listDescription, fragError_tvDescription)
+            AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_description), listDescription, fragError_tvDescription, positionDescription)
         }
         fragError_tvMoney.onChange { }
         fragError_tvSubmit.setOnClickListener { AppUtils.showDialog(fragmentManager, content = getString(R.string.error_notify), actionCancel = true, confirmDialogInterface = this) }

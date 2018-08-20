@@ -38,9 +38,9 @@ class AllCheckListFragment : BaseFragment(), AllCheckListContract.AllCheckListVi
     private lateinit var dialogInterface: DialogContractDetailInterface
 
     companion object {
-        fun newInstance(type: String, number: String): AllCheckListFragment {
+        fun newInstance(model: String, number: String): AllCheckListFragment {
             val args = Bundle()
-            args.putString(Constants.ARG_CONTRACT, type)
+            args.putString(Constants.ARG_CONTRACT_DETAIL, model)
             args.putString(Constants.ARG_CONTRACT_NUMBER, number)
             val fragment = AllCheckListFragment()
             fragment.arguments = args
@@ -68,7 +68,7 @@ class AllCheckListFragment : BaseFragment(), AllCheckListContract.AllCheckListVi
 
     private fun handleArgument() {
         arguments?.let {
-            val json = it.getString(Constants.ARG_CONTRACT) ?: ""
+            val json = it.getString(Constants.ARG_CONTRACT_DETAIL) ?: ""
             contractModel = Gson().fromJson(json, ContractDetailModel::class.java)
             contractNumber = it.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
         }

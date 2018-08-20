@@ -15,7 +15,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceMode
  */
 class SelectionSingleAdapter(val onClick: (Int) -> Unit) : ListAdapter<SingleChoiceModel, SelectionSingleAdapter.SelectionSingleHolder>(SelectionSingleDiff()) {
 
-    var indexSelect: Int = -1
+//    var indexSelect: Int = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectionSingleAdapter.SelectionSingleHolder {
         return SelectionSingleHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_selection_single, parent, false))
@@ -29,11 +29,11 @@ class SelectionSingleAdapter(val onClick: (Int) -> Unit) : ListAdapter<SingleCho
         fun bindData(item: SingleChoiceModel, onClick: (Int) -> Unit) {
             itemView.itemSelection_tvTitle.text = item.account.trim()
             itemView.itemSelection_rbCheck.isChecked = item.status
-            if (indexSelect == -1 && item.status)
-                indexSelect = adapterPosition
+//            if (indexSelect == -1 && item.status)
+//                indexSelect = adapterPosition
             itemView.setOnClickListener {
                 onClick(adapterPosition)
-                indexSelect = adapterPosition
+//                indexSelect = adapterPosition
             }
         }
     }

@@ -151,8 +151,10 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
             adapterComplete.submitList(dataContract)
             fragInfoContract_rvMain?.let {
                 it.apply {
+                    val layout = LinearLayoutManager(context)
+                    layout.orientation = LinearLayoutManager.VERTICAL
+                    layoutManager = layout
                     visibility = View.VISIBLE
-                    layoutManager = LinearLayoutManager(context)
                     setHasFixedSize(true)
                     adapter = adapterComplete
                 }

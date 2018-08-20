@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/_16dp"
+    android:scrollbars="none"
+    tools:ignore="MissingPrefix"
+    tools:targetApi="lollipop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/create_check_list_status"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"
+                    tools:ignore="ContentDescription"/>
+
+                <TextView
+                    android:id="@+id/fragCreateCheckList_tvStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_border_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_27dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/error_detail_note"/>
+
+            <EditText
+                android:id="@+id/fragCreateCheckList_tvNote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.65"
+                android:background="@drawable/shape_border_grey_text_view"
+                android:gravity="center_vertical"
+                android:hint="@string/enter_note"
+                android:paddingBottom="@dimen/_4dp"
+                android:paddingEnd="@dimen/_10dp"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingTop="@dimen/_4dp"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_14dp"
+                tools:ignore="TextFields"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/create_check_list_partner"/>
+
+            <TextView
+                android:id="@+id/fragCreateCheckList_tvPartner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.65"
+                android:background="@drawable/shape_border_grey_text_view"
+                android:gravity="center_vertical"
+                android:hint="@string/enter_note"
+                android:paddingBottom="@dimen/_4dp"
+                android:paddingEnd="@dimen/_10dp"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingTop="@dimen/_4dp"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_14dp"
+                tools:ignore="TextFields"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/create_check_list_sub"/>
+
+            <TextView
+                android:id="@+id/fragCreateCheckList_tvSub"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.65"
+                android:background="@drawable/shape_border_grey_text_view"
+                android:gravity="center_vertical"
+                android:hint="@string/enter_note"
+                android:paddingBottom="@dimen/_4dp"
+                android:paddingEnd="@dimen/_10dp"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingTop="@dimen/_4dp"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_14dp"
+                tools:ignore="TextFields"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/create_check_list_date"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65"
+                android:background="@drawable/shape_border_grey_text_view"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/fragCreateCheckList_tvDate"
+                    fontPath="@string/Helvetica_Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:focusable="false"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"
+                    tools:ignore="LabelFor,MissingPrefix,NestedWeights,TextFields"/>
+
+                <ImageView
+                    android:id="@+id/fragCreateCheckList_imgClear"
+                    android:layout_width="@dimen/_18dp"
+                    android:layout_height="@dimen/_18dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="@dimen/_8dp"
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:src="@drawable/ic_close_clear"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/create_check_list_guest_date"/>
+
+            <CheckBox
+                android:id="@+id/fragCreateCheckList_cbGuestDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65"
+                android:buttonTint="@color/colorPrimary"
+                android:enabled="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragCreateCheckList_llTimeZone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/button"
+                android:orientation="horizontal"
+                android:padding="@dimen/_6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:gravity="center_vertical"
+                    android:text="@string/time_zone"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="@string/time_zone_contract"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="@string/time_zone_ability"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragCreateCheckList_rvMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/fragCreateCheckList_cbRush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_16dp"
+            android:buttonTint="@color/colorPrimary"
+            android:text="@string/create_check_list_rush"/>
+
+        <TextView
+            android:id="@+id/fragCreateCheckList_tvSubmit"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_30dp"
+            android:background="@drawable/selector_submit_login"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingEnd="@dimen/_50dp"
+            android:paddingStart="@dimen/_50dp"
+            android:paddingTop="@dimen/_10dp"
+            android:text="@string/create_check_list"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_19dp"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

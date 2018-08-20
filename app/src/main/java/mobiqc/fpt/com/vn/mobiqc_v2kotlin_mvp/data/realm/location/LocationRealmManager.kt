@@ -38,7 +38,8 @@ open class LocationRealmManager {
         try {
             realm = Realm.getDefaultInstance()
             realm?.executeTransaction {
-                it.where(LocationRealmModel::class.java).findAll().clear()
+                val result = it.where(LocationRealmModel::class.java).findAll()
+                result.deleteAllFromRealm()
             }
         } finally {
             realm?.close()
@@ -77,7 +78,7 @@ open class LocationRealmManager {
             result?.let {
                 if (it.size != 0) {
                     for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as LocationRealmModelRealmProxy).`realmGet$parentdesc`(), status = i == Constants.FIRST_ITEM,id = (it[i] as LocationRealmModelRealmProxy).`realmGet$id`()))
+                        list.add(SingleChoiceModel(account = (it[i] as LocationRealmModelRealmProxy).`realmGet$parentdesc`(), status = i == Constants.FIRST_ITEM, id = (it[i] as LocationRealmModelRealmProxy).`realmGet$id`()))
                     }
                 }
             }

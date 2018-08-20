@@ -52,7 +52,9 @@ class PhoneNumberDialog : DialogFragment() {
         adapterPhone.submitList(list)
         fragDialogPhoneNumber_rvMain.apply {
             adapter = adapterPhone
-            layoutManager = LinearLayoutManager(context)
+            val layout = LinearLayoutManager(context)
+            layout.orientation = LinearLayoutManager.VERTICAL
+            layoutManager = layout
             setHasFixedSize(true)
         }
     }
