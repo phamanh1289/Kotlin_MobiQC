@@ -37,7 +37,7 @@ open class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     override fun getCurrentFragment(): BaseFragment {
-        val fragment  = supportFragmentManager.findFragmentById(android.R.id.tabcontent)
+        val fragment = supportFragmentManager.findFragmentById(android.R.id.tabcontent)
         return fragment as? BaseFragment ?: BaseFragment()
     }
 
@@ -108,7 +108,7 @@ open class BaseActivity : AppCompatActivity(), BaseView {
         val count = fm?.backStackEntryCount
         count?.let {
             for (i in 0 until it) {
-                fm.popBackStack()
+                onBackPressed()
             }
         }
     }

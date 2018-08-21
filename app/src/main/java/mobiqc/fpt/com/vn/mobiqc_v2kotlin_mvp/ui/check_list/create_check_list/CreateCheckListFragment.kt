@@ -1,4 +1,4 @@
-package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank
+package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -12,12 +12,11 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_create_check_list.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.CreateCheckListContract
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.CreateCheckListPresenter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.diff.CreateCheckListAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
@@ -35,12 +34,23 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
     private lateinit var adapterTimeZone: CreateCheckListAdapter
     private lateinit var contractModel: ContractDetailModel
     private var listTimeZone = ArrayList<PartnerTimeZoneModel>()
+    private var listFirstStatus = ArrayList<SingleChoiceModel>()
+    private var listParams = HashMap<String, Any>()
     var positionFirstStatus = 0
     private var ownerType = 0
+    private var pDepID = 0
     //True -> yêu cầu khẩn cấp, False : không
     var isCheckOwner = false
+    private var isCheckGuestDate = false
+    private val onClickSuccess = object : ConfirmDialogInterface {
+        override fun onClickOk() {
+            clearAllBackStack()
+        }
 
-    private var listFirstStatus = ArrayList<SingleChoiceModel>()
+        override fun onClickCancel() {
+
+        }
+    }
 
     companion object {
         fun newInstance(model: String): CreateCheckListFragment {
@@ -78,6 +88,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
             listTimeZone[it].status = true
             adapterTimeZone.notifyItemChanged(it)
         }
+        adapterTimeZone.reasonId = listFirstStatus[positionFirstStatus].id
         adapterTimeZone.submitList(listTimeZone)
         fragCreateCheckList_rvMain.apply {
             val layout = LinearLayoutManager(context)
@@ -101,14 +112,38 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
                 fragCreateCheckList_cbGuestDate.isChecked = false
         }
         fragCreateCheckList_cbGuestDate.setOnCheckedChangeListener { _, isCheck ->
+            isCheckGuestDate = isCheck
             fragCreateCheckList_llTimeZone.visibility = if (isCheck) View.VISIBLE else View.GONE
             if (isCheck)
                 initParamGetTimeZone()
         }
-
         fragCreateCheckList_cbRush.setOnCheckedChangeListener { _, isCheck ->
             isCheckOwner = isCheck
             initParamGetOwner(isCheckOwner)
+        }
+        fragCreateCheckList_tvSubmit.setOnClickListener { initActionSubmit() }
+    }
+
+    private fun initActionSubmit() {
+        if (fragCreateCheckList_tvPartner.text.isBlank() || fragCreateCheckList_tvSub.text.isBlank())
+            AppUtils.showDialog(fragmentManager, confirmDialogInterface = null, content = getString(R.string.alert_create_check_list))
+        else if (fragCreateCheckList_cbGuestDate.isChecked && adapterTimeZone.indexSelect == Constants.DONT_BOOK_DATE)
+            AppUtils.showDialog(fragmentManager, content = getString(R.string.time_zone_error_mes), confirmDialogInterface = null)
+        else {
+            AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_mess), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                override fun onClickOk() {
+                    presenter.let {
+                        showLoading()
+                        val map = HashMap<String, Any>()
+                        map[Constants.PARAMS_OBJID] = contractModel.ObjID
+                        it.postSupportListRemainCheck(map)
+                    }
+                }
+
+                override fun onClickCancel() {
+
+                }
+            })
         }
     }
 
@@ -177,16 +212,116 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
             model.let {
                 fragCreateCheckList_tvSub.text = it.ResultSubID
                 fragCreateCheckList_tvPartner.text = it.ResultDepID
+                pDepID = it.ResultCode
             }
-        } else
-            AppUtils.showDialog(fragmentManager, content = getString(R.string.alert_create_check_list), confirmDialogInterface = null)
+        }
         hideLoading()
+        if (isCheckGuestDate)
+            initParamGetTimeZone()
     }
 
     private fun handleDataTimeZone(list: ArrayList<PartnerTimeZoneModel>) {
         listTimeZone = list
         if (listTimeZone.size != 0) {
             initViewTimeZone()
+        }
+        hideLoading()
+    }
+
+    private fun handleRemainCheck(list: ArrayList<StatusCheckListModel>) {
+        if (list.size != 0) {
+            val item = list[Constants.FIRST_ITEM]
+            if (item.StatusCL == Constants.CREATE_CHECK_LIST_SUCCESS)
+                presenter.let {
+                    val map = HashMap<String, Any>()
+                    map[Constants.PARAMS_OBJID] = contractModel.ObjID.toBigDecimal()
+                    it.postCheckRemainPTC(map)
+                }
+            else {
+                hideLoading()
+                AppUtils.showDialog(fragmentManager, content = getString(R.string.check_list_error_mes), confirmDialogInterface = null)
+            }
+        } else hideLoading()
+    }
+
+    private fun handleRemainPTC(list: ArrayList<StatusCheckListModel>) {
+        if (list.size != 0) {
+            val item = list[Constants.FIRST_ITEM]
+            when (item.Statusinf) {
+                Constants.CREATE_CHECK_LIST_FAIL -> {
+                    hideLoading()
+                    AppUtils.showDialog(fragmentManager, content = getString(R.string.mess_error_check_ptc), confirmDialogInterface = null)
+                }
+                else -> {
+                    listParams[Constants.PARAMS_OBJID] = contractModel.ObjID.toBigDecimal()
+                    listParams[Constants.PARAMS_CREATE_BY] = getSharePreferences().accountName
+                    listParams[Constants.PARAMS_INIT_STATUS] = listFirstStatus[positionFirstStatus].id
+                    listParams[Constants.PARAMS_DESCRIPTION] = fragCreateCheckList_tvNote.text.toString()
+                    listParams[Constants.PARAMS_SUPPORTER] = fragCreateCheckList_tvPartner.text.toString()
+                    listParams[Constants.PARAMS_SUB_SUPPORTER] = fragCreateCheckList_tvSub.text.toString()
+                    listParams[Constants.PARAMS_DEP_ID] = pDepID
+                    listParams[Constants.PARAMS_REQUEST_FROM] = Constants.DEFAULT_REQUEST_FROM_MOBI_QC
+                    listParams[Constants.PARAMS_OWNER_TYPE] = ownerType
+                    if (item.Statusinf == Constants.CREATE_CHECK_LIST_SUCCESS)
+                        presenter.postCreateChecklist(listParams)
+                    else {
+                        hideLoading()
+                        AppUtils.showDialog(fragmentManager, content = getString(R.string.mess_error_check_ptc), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                            override fun onClickOk() {
+                                showLoading()
+                                presenter.postCreateChecklist(listParams)
+                            }
+
+                            override fun onClickCancel() {
+
+                            }
+                        })
+                    }
+                }
+            }
+        } else hideLoading()
+    }
+
+    private fun handleCreateCheck(data: String) {
+        if (data.isNotBlank()) {
+            val result = if (data.contains("."))
+                data.split(".")[Constants.FIRST_ITEM] else data
+            when {
+                result.toInt() != 0 -> {
+                    if (!fragCreateCheckList_cbGuestDate.isChecked) {
+                        hideLoading()
+                        AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_success), confirmDialogInterface = onClickSuccess)
+                    } else {
+                        presenter.let {
+                            val map = HashMap<String, Any>()
+                            map[Constants.PARAMS_USER_NAME_NON_CAPWORD] = getSharePreferences().accountName
+                            map[Constants.PARAMS_SUPID] = data.toBigDecimal()
+                            map[Constants.PARAMS_SUPPORTER] = fragCreateCheckList_tvPartner.text.toString()
+                            map[Constants.PARAMS_SUB_ID] = fragCreateCheckList_tvSub.text.toString()
+                            map[Constants.PARAMS_APPOINTMENT_DATE] = AppUtils.toConvertDateFormat(context, fragCreateCheckList_tvDate.text.toString())
+                            map[Constants.PARAMS_TIME_ZONE] = listTimeZone[adapterTimeZone.indexSelect].Timezone
+                            it.postSupportListAssignInsert(map)
+                        }
+                    }
+                }
+                else -> {
+                    hideLoading()
+                    AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_fail), confirmDialogInterface = null)
+                }
+            }
+        }
+    }
+
+    private fun handleDataListAssignInsert(data: String) {
+        if (data.isNotBlank()) {
+            val result = if (data.contains("."))
+                data.split(".")[Constants.FIRST_ITEM] else data
+            when (result.toInt()) {
+                Constants.REQUEST_SUCCESS ->
+                    AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_success), confirmDialogInterface = onClickSuccess)
+                else ->
+                    AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_fail), confirmDialogInterface = null)
+            }
         }
         hideLoading()
     }
@@ -201,6 +336,22 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
 
     override fun loadPartnerTimezoneAbilityList(response: ResponseLowCaseModel) {
         handleDataTimeZone(Gson().fromJson(Gson().toJson(response.data), object : TypeToken<ArrayList<PartnerTimeZoneModel>>() {}.type))
+    }
+
+    override fun loadSupportListRemainCheck(response: ResponseLowCaseModel) {
+        handleRemainCheck(Gson().fromJson(Gson().toJson(response.data), object : TypeToken<ArrayList<StatusCheckListModel>>() {}.type))
+    }
+
+    override fun loadCheckRemainPTC(response: ResponseLowCaseModel) {
+        handleRemainPTC(Gson().fromJson(Gson().toJson(response.data), object : TypeToken<ArrayList<StatusCheckListModel>>() {}.type))
+    }
+
+    override fun loadCreateChecklist(response: ResponseLowCaseModel) {
+        handleCreateCheck(response.data.toString())
+    }
+
+    override fun loadSupportListAssignInsert(response: ResponseLowCaseModel) {
+        handleDataListAssignInsert(response.data.toString())
     }
 
     override fun handleError(error: String) {
@@ -218,6 +369,8 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
             override fun afterTextChanged(s: Editable?) {
                 fragCreateCheckList_imgClear.visibility = if (s?.length != 0) View.VISIBLE else View.GONE
                 fragCreateCheckList_cbGuestDate.isEnabled = s?.length != 0
+                if (s?.length != 0 && fragCreateCheckList_cbGuestDate.isChecked)
+                    initParamGetTimeZone()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

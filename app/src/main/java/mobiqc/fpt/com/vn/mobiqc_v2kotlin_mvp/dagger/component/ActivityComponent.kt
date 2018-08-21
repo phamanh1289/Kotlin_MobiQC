@@ -3,8 +3,8 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.component
 import dagger.Subcomponent
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.module.ActivityModule
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.scope.ActivityScope
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreateCheckListFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreatePreCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.CreateCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_pre_check_list.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.search.SearchCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListFragment

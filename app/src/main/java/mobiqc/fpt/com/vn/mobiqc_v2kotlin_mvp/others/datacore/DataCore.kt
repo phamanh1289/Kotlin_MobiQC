@@ -111,4 +111,18 @@ object DataCore {
         }
         return list
     }
+
+    fun getPreFirstStatus(context: Context?): ArrayList<SingleChoiceModel> {
+        val list = ArrayList<SingleChoiceModel>()
+        context?.let {
+            list.add(SingleChoiceModel(id = 5, account = it.getString(R.string.pre_first_status_1), status = true))
+            list.add(SingleChoiceModel(id = 1, account = it.getString(R.string.pre_first_status_2)))
+            list.add(SingleChoiceModel(id = 6, account = it.getString(R.string.pre_first_status_3)))
+            list.add(SingleChoiceModel(id = 7, account = it.getString(R.string.pre_first_status_4)))
+            list.add(SingleChoiceModel(id = 2, account = it.getString(R.string.pre_first_status_5)))
+            list.add(SingleChoiceModel(id = 3, account = it.getString(R.string.pre_first_status_6)))
+            list.add(SingleChoiceModel(id = 4, account = it.getString(R.string.pre_first_status_7)))
+        }
+        return list
+    }
 }

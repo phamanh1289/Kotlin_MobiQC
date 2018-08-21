@@ -69,6 +69,22 @@ interface ApiService {
     @POST("GetOwnerTypeByInitStatus")
     fun getOwnerTypeByInitStatus(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
 
+    @POST("SupportListRemainCheck")
+    fun postSupportListRemainCheck(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
+
+    @POST("CheckRemainPTC")
+    fun postCheckRemainPTC(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
+
+    @POST("CreateChecklist")
+    fun postCreateChecklist(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
+
+    @POST("SupportListAssignInsert")
+    fun postSupportListAssignInsert(@Body map: HashMap<String, Any>): Observable<ResponseLowCaseModel>
+
+    @POST("CreatePreChecklist")
+    fun postCreatePreChecklist(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
+
     @GET
     @Streaming
     fun getFileNewVersion(@Url fileUrl: String): Call<ResponseBody>

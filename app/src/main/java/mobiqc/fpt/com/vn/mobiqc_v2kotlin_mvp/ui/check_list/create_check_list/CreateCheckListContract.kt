@@ -9,6 +9,10 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
  */
 interface CreateCheckListContract {
     interface CreateCheckListView : BaseView {
+        fun loadSupportListRemainCheck(response: ResponseLowCaseModel)
+        fun loadCheckRemainPTC(response: ResponseLowCaseModel)
+        fun loadCreateChecklist(response: ResponseLowCaseModel)
+        fun loadSupportListAssignInsert(response: ResponseLowCaseModel)
         fun loadSubTeamID(response: ResponseLowCaseModel)
         fun loadOwnerType(response: ResponseLowCaseModel)
         fun loadPartnerTimezoneAbilityList(response: ResponseLowCaseModel)
@@ -16,6 +20,10 @@ interface CreateCheckListContract {
     }
 
     interface CreateCheckListPresenter {
+        fun postSupportListRemainCheck(map: HashMap<String, Any>)
+        fun postCheckRemainPTC(map: HashMap<String, Any>)
+        fun postCreateChecklist(map: HashMap<String, Any>)
+        fun postSupportListAssignInsert(map: HashMap<String, Any>)
         fun getOwnerTypeByInitStatus(map: HashMap<String, Any>)
         fun getSubTeamID(map: HashMap<String, Any>)
         fun getOwnerTypeByPopManage(map: HashMap<String, Any>)

@@ -17,6 +17,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 class CreateCheckListAdapter(val onClick: (Int) -> Unit) : ListAdapter<PartnerTimeZoneModel, CreateCheckListAdapter.CreateCheckListHolder>(CreateCheckListDiff()) {
 
     var indexSelect = -1
+    var reasonId = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreateCheckListAdapter.CreateCheckListHolder {
         return CreateCheckListHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_time_zone, parent, false))
@@ -34,12 +35,14 @@ class CreateCheckListAdapter(val onClick: (Int) -> Unit) : ListAdapter<PartnerTi
                 itemView.itemTimeZone_tvContractNumber.text = item.TimeCount.toString()
                 itemView.itemTimeZone_tvAbility.text = item.TimezoneAbility.toString()
                 itemView.itemTimeZone_imgChecked.isSelected = item.status
-                if (item.TimezoneCode != Constants.DONT_BOOK_DATE && (item.TimezoneCode18 != Constants.CURRENT_DATE || item.TimezoneCode18 != Constants.CURRENT_DATE))
-                    itemView.setOnClickListener {
+                val resultTimeZone = reasonId == Constants.TYPE_NO_CONNECT && (item.TimezoneCode18 == Constants.TIME_ZONE_19 || item.TimezoneCode18 == Constants.TIME_ZONE_21)
+                when {
+                    item.TimezoneCode == Constants.DONT_BOOK_DATE || resultTimeZone -> itemView.itemTimeZone_llRootView.setBackgroundColor(itemView.resources.getColor(R.color.grey_blur))
+                    else -> itemView.setOnClickListener {
                         onClick(adapterPosition)
                         indexSelect = adapterPosition
                     }
-                else itemView.itemTimeZone_llRootView.setBackgroundColor(itemView.resources.getColor(R.color.grey_blur))
+                }
             }
         }
     }

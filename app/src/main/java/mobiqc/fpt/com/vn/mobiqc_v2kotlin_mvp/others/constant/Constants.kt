@@ -47,16 +47,26 @@ object Constants {
     const val PARAMS_SUPPORTER = "Supporter"
     const val PARAMS_SUB_ID = "SubID"
     const val PARAMS_APPOINTMENT_DATE = "AppointmentDate"
+    const val PARAMS_TIME_ZONE = "Timezone"
     const val PARAMS_DATE = "Date"
     const val PARAMS_OWNER_TYPE = "OwnerType"
     const val PARAMS_INIT_STATUS = "InitStatus"
     const val PARAMS_LOCATON_ID_LOW = "LocationId"
     const val PARAMS_LOCAL_TYPE_ID = "LocaltypeID"
     const val PARAMS_REASON_ID = "ReasonID"
+    const val PARAMS_CREATE_BY = "CreateBy"
+    const val PARAMS_SUB_SUPPORTER = "SubSupporter"
+    const val PARAMS_DEP_ID = "DepID"
+    const val PARAMS_REQUEST_FROM = "RequestFrom"
+    const val PARAMS_LOCATION_NAME = "LocationName"
+    const val PARAMS_LOCATION_PHONE = "LocationPhone"
+    const val PARAMS_FIRST_STATUS = "FirstStatus"
+    const val PARAMS_PRE_CL = "preCL"
     const val PARAMS_NO_VALUE_INT = 0
 
     //End : Params call api
 
+    const val DEFAULT_REQUEST_FROM_MOBI_QC = 8
     const val ARG_MENU_CNL = 2
     const val ARG_MENU_PCL = 3
     const val ARG_MENU_CL = 4
@@ -67,8 +77,14 @@ object Constants {
     const val NO_IMAGE = 0
     const val SMS_TRUE = 1
     const val REQUEST_SUCCESS = 1
+    const val CREATE_CHECK_LIST_SUCCESS = 0
+    const val CREATE_CHECK_LIST_FAIL = 1
+    const val WARNING_CHECK_LIST = 2
     const val REQUEST_UPDATE = 0
     const val CURRENT_DATE = 0
+    const val TIME_ZONE_19 = 19
+    const val TIME_ZONE_21 = 21
+    const val TYPE_NO_CONNECT = 4
     const val LATE_DATE = -3
     const val STATUS_PROCESSING = 1
     const val STATUS_COMPLETED = 2
@@ -77,7 +93,7 @@ object Constants {
     const val TYPE_ADSL = 1
     const val TYPE_FTTH = 2
     const val TYPE_PON = 3
-    const val DONT_BOOK_DATE =-1
+    const val DONT_BOOK_DATE = -1
     const val SUCCESSFUL = "Successful"
     const val ERROR_NETWORK = "Không có kết nối internet!"
     const val TITLE_DIALOG = "Thông báo"

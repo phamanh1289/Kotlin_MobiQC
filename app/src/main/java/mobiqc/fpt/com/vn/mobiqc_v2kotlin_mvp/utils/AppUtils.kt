@@ -20,7 +20,8 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PhoneNumberModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.*
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreateCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.CreateCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_pre_check_list.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
@@ -113,6 +114,11 @@ object AppUtils {
             val datePickerDialog = DatePickerDialog(it, { _, year, monthOfYear, dayOfMonth ->
                 tvDate.text = it.resources.getString(R.string.date_time_format, toConvertMonth(dayOfMonth), toConvertMonth(monthOfYear + 1), year.toString())
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+            val arrDate = tvDate.text.toString()
+            if (arrDate.isNotBlank()) {
+                val list = if (arrDate.contains("-")) arrDate.split("-") else arrDate.split("/")
+                datePickerDialog.updateDate(list[2].toInt(), list[1].toInt() - 1, list[0].toInt())
+            }
             if (typeDate)
                 datePickerDialog.datePicker.maxDate = System.currentTimeMillis() - 1000
             else
@@ -210,6 +216,7 @@ object AppUtils {
                     fragment.setDefaultData(view.id)
                 }
                 is SearchFragment -> fragment.setDefaultValueIndex(view.id, position)
+                is CreatePreCheckListFragment -> fragment.positionFirstStatus = position
                 is CreateCheckListFragment -> {
                     fragment.positionFirstStatus = position
                     fragment.initParamGetOwner(fragment.isCheckOwner)

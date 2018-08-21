@@ -167,11 +167,20 @@
     <string name="create_pre_check_list_contract">Hợp đồng</string>
     <string name="create_pre_check_list_user">Người liên hệ</string>
     <string name="create_check_list_mess">Bạn muốn tạo Checklist này?</string>
+    <string name="pre_check_list_mess">Bạn muốn tạo Pre-Checklist này?</string>
     <string name="time_zone">Múi giờ</string>
     <string name="time_zone_contract">Số HĐ</string>
     <string name="time_zone_ability">Năng lực</string>
-    <string name="alert_create_check_list">Không tìm thấy dữ liều "Đối tác" &amp; "Tổ con"</string>
+    <string name="create_check_list_success">Tạo Checklist thành công</string>
+    <string name="time_zone_error_mes">Bạn chưa chọn múi giờ</string>
+    <string name="create_check_list_fail">Tạo Checklist thất bại</string>
+    <string name="check_list_error_mes">Đã có checklist, không được tạo.</string>
+    <string name="pre_check_list_error_mes">Không được tạo thêm Checklist.</string>
+    <string name="mess_demo">isc test - vui long bo qua</string>
+    <string name="alert_create_check_list">Không tìm thấy dữ liệu Đối tác/Tổ con</string>
+    <string name="mess_error_check_ptc">Hợp đồng đang có PTCCDD, vui lòng kiểm tra thông tin trước khi tạo Checklist"</string>
 
+    <!--===========Data Check List=============-->
     <string name="first_status_1">Không có tín hiệu</string>
     <string name="first_status_2">Bảo trì theo yêu cầu Khách Hàng</string>
     <string name="first_status_3">Suy hao không đạt chuẩn</string>
@@ -206,4 +215,12 @@
     <string name="first_status_32">KH làm gãy FC/đứt dây tín hiệu</string>
     <string name="first_status_33">Tình trạng khác</string>
 
+    <!--=========Data Pre-Check List=========-->
+    <string name="pre_first_status_1">Yêu cầu nhập Checklist</string>
+    <string name="pre_first_status_2">Mất kết nối</string>
+    <string name="pre_first_status_3">IPTV</string>
+    <string name="pre_first_status_4">Wifi</string>
+    <string name="pre_first_status_5">Mạng chậm</string>
+    <string name="pre_first_status_6">Mạng chập chờn</string>
+    <string name="pre_first_status_7">Tình trạng khác</string>
 </resources>

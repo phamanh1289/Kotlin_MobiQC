@@ -83,6 +83,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.65"
                 android:background="@drawable/shape_border_grey_text_view"
+                android:text="@string/mess_demo"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_note"
                 android:paddingBottom="@dimen/_4dp"
@@ -308,6 +309,6 @@
             android:paddingTop="@dimen/_10dp"
             android:text="@string/create_check_list"
             android:textColor="@color/white"
-            android:textSize="@dimen/_19dp"/>
+            android:textSize="@dimen/_17dp"/>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
