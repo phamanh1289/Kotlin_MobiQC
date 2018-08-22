@@ -24,7 +24,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.Cre
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_pre_check_list.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
 import java.io.File
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -211,7 +211,7 @@ object AppUtils {
                         R.id.fragCheckContract_tvMobiType -> fragment.positionMobiType = position
                     }
                 }
-                is ErrorFragment -> {
+                is UpdateErrorFragment -> {
                     fragment.setDefaultValueIndex(view.id, position)
                     fragment.setDefaultData(view.id)
                 }

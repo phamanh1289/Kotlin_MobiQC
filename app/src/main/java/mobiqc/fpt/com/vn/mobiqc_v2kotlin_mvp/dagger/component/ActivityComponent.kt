@@ -12,7 +12,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.maintenance_check_lis
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.ContractDetailDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.info_contract.InfoContractFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.main.MainActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.splash_screen.SplashScreenActivity
@@ -31,7 +31,7 @@ interface ActivityComponent {
     fun inject(detailContractFragment: DetailContractFragment)
     fun inject(deploymentCheckListFragment: DeploymentCheckListFragment)
     fun inject(maintenanceCheckListFragment: MaintenanceCheckListFragment)
-    fun inject(errorFragment: ErrorFragment)
+    fun inject(updateErrorFragment: UpdateErrorFragment)
     fun inject(allCheckListFragment: AllCheckListFragment)
     fun inject(contractDetailDialog: ContractDetailDialog)
     fun inject(searchCheckListFragment: SearchCheckListFragment)

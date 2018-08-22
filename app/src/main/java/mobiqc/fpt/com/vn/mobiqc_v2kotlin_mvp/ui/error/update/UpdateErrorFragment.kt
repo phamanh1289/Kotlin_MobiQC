@@ -1,4 +1,4 @@
-package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error
+package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update
 
 import android.content.Intent
 import android.location.Location
@@ -35,7 +35,7 @@ import kotlin.collections.HashMap
  * * Created by Anh Pham on 08/09/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInterface {
+class UpdateErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInterface {
 
     @Inject
     lateinit var presenter: ErrorPresenter
@@ -69,7 +69,7 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
     private var checkFirstChoice = false
 
     companion object {
-        fun newInstance(supId: String, type: String, contract: String, typeCheckList: Int, userUpdate: String, contractDate: String): ErrorFragment {
+        fun newInstance(supId: String, type: String, contract: String, typeCheckList: Int, userUpdate: String, contractDate: String): UpdateErrorFragment {
             val args = Bundle()
             args.putString(Constants.ARG_SUPID, supId)
             args.putString(Constants.ARG_OBJID, type)
@@ -77,7 +77,7 @@ class ErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDialogInte
             args.putInt(Constants.ARG_TYPE_CHECKLIST, typeCheckList)
             args.putString(Constants.ARG_UPDATE_BY, userUpdate)
             args.putString(Constants.ARG_OBJ_CREATEDATE, contractDate)
-            val fragment = ErrorFragment()
+            val fragment = UpdateErrorFragment()
             fragment.arguments = args
             return fragment
         }

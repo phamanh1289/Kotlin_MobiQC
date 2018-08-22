@@ -1,4 +1,4 @@
-package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error
+package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update
 
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView

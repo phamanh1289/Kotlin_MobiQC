@@ -18,7 +18,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.diff.A
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListContract
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListPresenter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -99,7 +99,7 @@ class MaintenanceCheckListFragment : BaseFragment(), DeploymentCheckListContract
 
     override fun onClickError(index: Int) {
         val model = dataCheckList[index]
-        addFragment(ErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), model.Contract, Constants.MAINTENANCE, model.UpdateBy, model.Date), true, true)
+        addFragment(UpdateErrorFragment.newInstance(model.ID.toBigDecimal().toString(), model.ObjID.toBigDecimal().toString(), model.Contract, Constants.MAINTENANCE, model.UpdateBy, model.Date), true, true)
     }
 
     override fun onClickDetail(index: Int) {

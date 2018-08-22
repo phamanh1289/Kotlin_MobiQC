@@ -16,13 +16,16 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_pre_check_list.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.CreateCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_pre_check_list.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.ErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list.ListErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.infomation.InformationFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.StartActivityUtils
 import javax.inject.Inject
@@ -77,9 +80,11 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
         when (fragment) {
             is DetailContractFragment -> fragment.onClickContractNumber()
             is AllCheckListFragment -> fragment.requestDetailContract()
-            is ErrorFragment -> fragment.showDetailContract()
-            is CreatePreCheckListFragment ->{}
-            is CreateCheckListFragment ->{}
+            is UpdateErrorFragment -> fragment.showDetailContract()
+            is CreatePreCheckListFragment -> {
+            }
+            is CreateCheckListFragment -> {
+            }
         }
     }
 
@@ -89,11 +94,12 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.CAP_NHAT_LOI -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CNL, itemMenu.name), false, true)
             Constants.TAO_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CL, itemMenu.name), false, true)
             Constants.TAO_PRE_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_PCL, itemMenu.name), false, true)
-            Constants.TAO_LOI_MOI -> ""
-            Constants.DANH_SACH_LOI -> ""
-            Constants.KQ_XAC_MINH -> ""
+            Constants.TAO_LOI_MOI -> addFragment(CreateErrorFragment.newInstance(itemMenu.name), false, true)
+            Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
+            Constants.KQ_XAC_MINH ->
+                AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
             Constants.BAO_CAO_SO_LIEU -> ""
-            Constants.THONG_TIN -> ""
+            Constants.THONG_TIN -> addFragment(InformationFragment.newInstance(itemMenu.name), false, true)
             Constants.DANG_XUAT -> {
                 getSharePreferences().toClearSessionLogin()
                 LocationRealmManager().deleteAllLocation()

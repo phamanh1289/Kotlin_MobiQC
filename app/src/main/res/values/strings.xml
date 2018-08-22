@@ -171,6 +171,7 @@
     <string name="time_zone">Múi giờ</string>
     <string name="time_zone_contract">Số HĐ</string>
     <string name="time_zone_ability">Năng lực</string>
+    <string name="action_feature">Chức năng đang được xây dựng</string>
     <string name="create_check_list_success">Tạo Checklist thành công</string>
     <string name="time_zone_error_mes">Bạn chưa chọn múi giờ</string>
     <string name="create_check_list_fail">Tạo Checklist thất bại</string>
@@ -179,6 +180,17 @@
     <string name="mess_demo">isc test - vui long bo qua</string>
     <string name="alert_create_check_list">Không tìm thấy dữ liệu Đối tác/Tổ con</string>
     <string name="mess_error_check_ptc">Hợp đồng đang có PTCCDD, vui lòng kiểm tra thông tin trước khi tạo Checklist"</string>
+    <string name="info_app_name">Tên ứng dụng</string>
+    <string name="info_version">Phiên bản</string>
+    <string name="info_account_name">Tên đăng nhập</string>
+    <string name="info_imei">IMEI thiết bị</string>
+    <string name="info_ip_lan">IP Lan</string>
+    <string name="info_ip_wan">IP Wan</string>
+    <string name="info_contact">Liên hệ</string>
+    <string name="email_haint">haint4@fpt.com.vn</string>
+    <string name="no_action_mail">Không tìm thấy ứng dụng email.</string>
+    <string name="mess_no_connection">Không có kết nối.</string>
+    <string name="url_check_ip">http://checkip.amazonaws.com/</string>
 
     <!--===========Data Check List=============-->
     <string name="first_status_1">Không có tín hiệu</string>
