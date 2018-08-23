@@ -5,6 +5,8 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
@@ -24,7 +26,9 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.Cre
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_pre_check_list.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -32,6 +36,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
+
 
 /**
  * * Created by Anh Pham on 08/02/2018.     **
@@ -93,6 +98,12 @@ object AppUtils {
             dialog.setData(name = name, list = list)
             dialog.show(it, PhoneNumberDialog::class.java.simpleName)
         }
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    fun generateImageCode(code: String): String {
+        val format = SimpleDateFormat("yyMMddHHmmss")
+        return "$code${format.format(Calendar.getInstance().time)}"
     }
 
     fun getFileDownload(): File {
@@ -221,6 +232,8 @@ object AppUtils {
                     fragment.positionFirstStatus = position
                     fragment.initParamGetOwner(fragment.isCheckOwner)
                 }
+                is CreateErrorFragment ->
+                    fragment.setDefaultValueIndex(view.id, position)
             }
             view.text = listData[position].account
             dialog.submitData(listData)
@@ -297,5 +310,20 @@ object AppUtils {
                 result
             }
         }
+    }
+
+    fun convertBitmapToByte(bitmap: Bitmap): ByteArray {
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+        return stream.toByteArray()
+    }
+
+    fun getBitmapFromData(context: Context?, data: Intent): Bitmap? {
+        var photo: Bitmap? = null
+        val photoUri = data.data
+        photoUri?.let {
+            photo = BitmapFactory.decodeStream(context?.contentResolver?.openInputStream(it))
+        }
+        return photo
     }
 }

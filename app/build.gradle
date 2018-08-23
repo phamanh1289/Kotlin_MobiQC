@@ -65,8 +65,10 @@ dependencies {
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     //Google map
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
-    //noinspection GradleDynamicVersion
-    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    //glide load image
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
 }
 kapt {
     generateStubs = true

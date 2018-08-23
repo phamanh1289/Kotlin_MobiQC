@@ -15,7 +15,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.GroupPointDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.maintenance_check_list.MaintenanceCheckListFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.ContractDetailDialog
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.DetailContractDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import java.util.ArrayList
@@ -93,10 +93,10 @@ class AllCheckListFragment : BaseFragment(), AllCheckListContract.AllCheckListVi
     }
 
     private fun showDialogDetailContract() {
-        val dialogContract = ContractDetailDialog()
+        val dialogContract = DetailContractDialog()
         initInterface()
         dialogContract.setData(contractModel, contractNumber, dialogInterface)
-        dialogContract.show(fragmentManager, ContractDetailDialog::class.java.simpleName)
+        dialogContract.show(fragmentManager, DetailContractDialog::class.java.simpleName)
     }
 
     private fun initInterface() {

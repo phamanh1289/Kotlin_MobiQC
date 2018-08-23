@@ -1,0 +1,5434 @@
+[
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "co hanh vi loi noi thieu ton trong KH",
+        "id": "2",
+        "main": "KH khong hai long ve CLPV",
+        "type": "Chat luong phuc vu"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "co hanh vi loi noi thieu ton trong KH",
+        "id": "12",
+        "main": "KH khong hai long ve CLPV",
+        "type": "Chat luong phuc vu"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Chiếm dụng thời gian, tiền bạc, tài sản của Công ty vì mục đích cá nhân",
+        "id": "22",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Nhận tiền hoa hồng bồi dưỡng của đối tác",
+        "id": "32",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Sử dụng chức năng inside thuộc quyền quản lý của bộ phận để làm sai lệch thông tin, sai quy trình nhằm trục lợi cá nhân",
+        "id": "42",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thu thiết bị KH không nộp về công ty",
+        "id": "52",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "62",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Có hành vi, lời nói thiếu tôn trọng KH",
+        "id": "72",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Sai hẹn với KH, không hẹn lại thời gian xử lý cho KH",
+        "id": "82",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "92",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không hỗ trợ hết các yêu cầu KH",
+        "id": "102",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Duyệt trùng HĐ quá thời gian quy định",
+        "id": "112",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không hoàn thành công việc được giao không có lý do chính đáng",
+        "id": "122",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không tạo Pre CL khi KH yêu cầu hỗ trợ",
+        "id": "132",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thiếu tinh thần trách nhiệm làm ảnh hưởng công việc chung",
+        "id": "142",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Tạo CL sai thông tin",
+        "id": "152",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không chào hỏi KH",
+        "id": "162",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Cập nhật sai thông tin KH lên hệ thống",
+        "id": "172",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không kiểm tra hồ sơ HĐ, duyệt trùng sai thông tin",
+        "id": "182",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Nhập sai câu lệnh KM làm sai cước của KH",
+        "id": "192",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thao tác sai cập nhật sai câu lệnh link sai thiết bị",
+        "id": "202",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không đeo thẻ nhân viên khi tiếp xúc KH",
+        "id": "212",
+        "main": "Lỗi tác phong",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không mặc đồng phục, quần áo lượm thượm",
+        "id": "222",
+        "main": "Lỗi tác phong",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Hồ sơ, vật dụng làm việc không ngăn nắp",
+        "id": "232",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Hút thuốc ở nơi làm việc, ở những nơi cấm hút thuốc trong công ty",
+        "id": "242",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Mang thức ăn, nước uống có mùi vào nơi làm việc",
+        "id": "252",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Vi phạm quy định an toàn, vệ sinh, phòng chống cháy nổ",
+        "id": "262",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Vứt rác lung tung nơi làm việc",
+        "id": "272",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Làm hồ sơ cho KH chuyển địa chỉ, sở hữu không đúng người",
+        "id": "282",
+        "main": "Thực hiện giao dịch không đúng người sử dụng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Cập nhật bồi hoàn không đúng nguyên nhân",
+        "id": "292",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Khóa, mở dịch vụ, chuyển tình trạng HĐ sai quy định",
+        "id": "302",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không có hồ sơ bồi hoàn cho KH",
+        "id": "312",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không nhập cọc lên hệ thống, chạy chỉ tiêu rời mạng",
+        "id": "322",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không tạo case CSKH lên hệ thống",
+        "id": "332",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không tạo CL CDD, nâng cấp cho KH",
+        "id": "342",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không tạo CL thu hồi thiết bị KH rời mạng",
+        "id": "352",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không thu phí KH chuyển ĐC",
+        "id": "362",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không xuất hóa đơn thu cước phát sinh, tiền đền bù HĐ",
+        "id": "372",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Nhập cọc chậm trể quá thời gian quy định",
+        "id": "382",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Nộp tiền về công ty quá thời gian quy định",
+        "id": "392",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thu cước KH sai chính sách",
+        "id": "402",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thu phí chuyển địa chỉ, phí nâng cấp DV không đúng chính sách công ty",
+        "id": "412",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Xuất hóa đơn, PT sai thông tin",
+        "id": "422",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Dùng acc nghiệp vụ, acc KH để sử dụng cho mục đích cá nhân",
+        "id": "432",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Đưa sai thông tin nội bộ lên trang mạng xã hội (facbook, zalo,…)",
+        "id": "442",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không bàn giao công việc trước khi nghỉ phép, nghỉ theo chế độ",
+        "id": "452",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không báo cáo, báo cáo không đầy đủ, thiếu trung thực",
+        "id": "462",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không gửi đề nghị xoá account mail /phân quyền inside đối với nhân viên nghỉ việc sau 36h kể từ có thông tin chính thức",
+        "id": "472",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không hoàn thành công việc không có lý do chính đáng",
+        "id": "482",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Sử dụng biểu mẫu không phù hợp, không đúng quy định",
+        "id": "492",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thu tiền cước KH nộp về công ty quá thời gian quy định",
+        "id": "502",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thực hiện sai quy trình, quy định ảnh hưởng đến các đơn vị liên quan",
+        "id": "512",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Tự ý cung cấp các số nội bộ của phòng ban/cá nhân cho khách hàng",
+        "id": "522",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thiếu BB bảo trì đài trạm",
+        "id": "532",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Đi làm không đúng giờ, đi trể, về sớm",
+        "id": "542",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Làm việc riêng trong giờ làm việc",
+        "id": "552",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Tự ý nghỉ phép khi chưa được sự đồng ý của CBQL",
+        "id": "562",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Tự ý rời vị trí làm việc khi chưa xin phép CBQL",
+        "id": "572",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Cho người ngoài mượn tài khoản của mình để truy cập vào mạng nội bộ của công ty",
+        "id": "582",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Cố tình để lộ mật khẩu acc mail, inside,…",
+        "id": "592",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thực hiện thay đổi nội dung, xóa dữ liệu trên mạng máy tính nội bộ khi chưa được phép",
+        "id": "602",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Tiết lộ thông tin, tài liệu được coi là bí mật kinh doanh của công ty ",
+        "id": "612",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Truy cập vào mạng máy tính nội bộ để lấy hoặc lưu trữ thông tin mà không được phép",
+        "id": "622",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không báo cáo đầy đủ sự mất mát, hư hại tài sản của Công ty dù cố ý hay vô ý",
+        "id": "632",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Làm mất thiết bị, công cụ công ty cấp phát phục vụ cho công việc",
+        "id": "642",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Sử dụng thiết bị Công ty cho mục đích riêng",
+        "id": "652",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Giả mạo chữ ký khách hàng",
+        "id": "662",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "HĐ giao cho IBB không cập nhật lên hệ thống",
+        "id": "672",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không có hồ sơ KH thanh lý HĐ",
+        "id": "682",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Giao PT cho NV thu cước quá định mức",
+        "id": "692",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Hủy PT sai quy định",
+        "id": "702",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không kiểm soát hóa đơn tồn của NV thu ngân",
+        "id": "712",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không xuất hóa đơn sau khi thu tiền từ KH",
+        "id": "722",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Xuất PT không đúng NV lên HĐ",
+        "id": "732",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thu tiền KH sai quy định, chính sách bán hàng",
+        "id": "742",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Thu tiền trả trước của KH không nộp về công ty",
+        "id": "752",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Cập nhật sai CLKM làm sai cước KH",
+        "id": "762",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Dùng PT ngoài thu tiền KH",
+        "id": "772",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Cho người khác mượn thẻ của mình để ra vào nơi làm việc",
+        "id": "782",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Có hành vi, lời lẽ lăng mạ, xúc phạm nhân phẩm đồng nghiệp",
+        "id": "792",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Đùa giỡn, gây ồn ào nơi làm việc",
+        "id": "802",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Đưa người lạ không phận sự, nhiệm vụ vào nơi làm việc",
+        "id": "812",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Gây gỗ, đánh nhau trong công ty",
+        "id": "822",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Gây mất trật tự, cản trở công việc người khác",
+        "id": "832",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Không đeo thẻ nhân viên tại nơi làm việc",
+        "id": "842",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Mang, tàng trữ chất cấm, chất dễ cháy nổ vào trong công ty",
+        "id": "852",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Sử dụng phương tiện truyền thông để tố cáo, nói xấu lãnh đạo, đồng nghiệp sai sự thật",
+        "id": "862",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Sử dụng tài sản công ty (Email, ĐT,…) làm phiền KH trên danh nghĩa công ty ",
+        "id": "872",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Sử dụng, phát tán tài liệu trái quy định công ty",
+        "id": "882",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Tự ý truy cập, xem hồ sơ, tài liệu không thuộc trách nhiệm của mình",
+        "id": "892",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Uống rựu, bia trong giờ làm việc",
+        "id": "902",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CUS",
+        "description": "Xúi dục, uy hiếp người khác lãn công, bãi công",
+        "id": "912",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Có hành vi, lời nói thiếu tôn trọng KH",
+        "id": "922",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không nghe điện thoại KH",
+        "id": "932",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Sai hẹn với KH, không hẹn lại thời gian xử lý cho KH",
+        "id": "942",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Đùa giỡn, nói lớn tiếng khi đang tác nghiệp tại nhà KH",
+        "id": "952",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Dùng mạng XH khi đang tác nghiệp tại nhà KH",
+        "id": "962",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "972",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không hỗ trợ hết các yêu cầu KH",
+        "id": "982",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tự ý tác nghiệp ở những nơi không có sự giám sát của KH",
+        "id": "992",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "BBKS thiếu thông tin, không vẽ tuyến cáp,..",
+        "id": "1002",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Khảo sát sai, không tối ưu",
+        "id": "1012",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thiếu tinh thần trách nhiệm làm ảnh hưởng công việc chung",
+        "id": "1022",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Xử lý thông tin chậm làm ảnh hưởng đến các đơn vị liên quan",
+        "id": "1032",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không hoàn thành công việc được giao không có lý do chính đáng",
+        "id": "1042",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không tạo Pre CL khi KH yêu cầu hỗ trợ",
+        "id": "1052",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không chào hỏi KH",
+        "id": "1062",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Sử dụng đồ đạt trong nhà KH không xin phép",
+        "id": "1072",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Cập nhật sai thông tin KH lên hệ thống",
+        "id": "1082",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Nhập sai câu lệnh KM làm sai cước của KH",
+        "id": "1092",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không đeo bảng tên",
+        "id": "1102",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Râu, tóc không gọn gàng",
+        "id": "1112",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không đeo thẻ nhân viên khi tiếp xúc KH",
+        "id": "1122",
+        "main": "Lỗi tác phong",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không mặc đồng phục, quần áo lượm thượm",
+        "id": "1132",
+        "main": "Lỗi tác phong",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Hồ sơ, vật dụng làm việc không ngăn nắp",
+        "id": "1142",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Hút thuốc ở nơi làm việc, ở những nơi cấm hút thuốc trong công ty",
+        "id": "1152",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Mang thức ăn, nước uống có mùi vào nơi làm việc",
+        "id": "1162",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Vi phạm quy định an toàn, vệ sinh, phòng chống cháy nổ",
+        "id": "1172",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Vứt rác lung tung nơi làm việc",
+        "id": "1182",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "KH chưa có máy tính, ti vi",
+        "id": "1192",
+        "main": "Thực hiện giao dịch khi KH chưa đủ điều kiện",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Lên HĐ khu vực không có hạ tầng",
+        "id": "1202",
+        "main": "Thực hiện giao dịch khi KH chưa đủ điều kiện",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Lên HĐ Nhà KH đang sửa chữa",
+        "id": "1212",
+        "main": "Thực hiện giao dịch khi KH chưa đủ điều kiện",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Lên HĐ KH chưa có máy tính, ti vi",
+        "id": "1222",
+        "main": "Thực hiện giao dịch khi KH chưa đủ điều kiện",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Làm hồ sơ cho KH chuyển địa chỉ, sở hữu không đúng người",
+        "id": "1232",
+        "main": "Thực hiện giao dịch không đúng người sử dụng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Đưa sai thông tin nội bộ lên trang mạng xã hội (facbook, zalo,…)",
+        "id": "1242",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Bao che, che giấu vi phạm của đồng nghiệp, NV cấp dưới",
+        "id": "1252",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Cập nhật bồi hoàn không đúng nguyên nhân",
+        "id": "1262",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "CBQL không kiểm tra công việc bàn giao của nhân viên nghỉ việc",
+        "id": "1272",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Nộp tiền về công ty quá thời gian quy định",
+        "id": "1282",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Sử dụng biểu mẫu không phù hợp, không đúng quy định",
+        "id": "1292",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thực hiện sai quy trình, quy định ảnh hưởng đến các đơn vị liên quan",
+        "id": "1302",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tự ý cung cấp các số nội bộ của phòng ban/cá nhân cho khách hàng",
+        "id": "1312",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tích hẹn TK/BT sai quy trình",
+        "id": "1322",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không tắt đèn, máy lạnh, quạt,… khi ra khỏi phòng",
+        "id": "1332",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Đi làm không đúng giờ, đi trể, về sớm",
+        "id": "1342",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Làm việc riêng trong giờ làm việc",
+        "id": "1352",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tự ý nghỉ phép khi chưa được sự đồng ý của CBQL",
+        "id": "1362",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tự ý rời vị trí làm việc khi chưa xin phép CBQL",
+        "id": "1372",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Cung cấp sai thông tin KH (Tên, ĐC, ĐT,…)",
+        "id": "1382",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không tư vấn KH đóng tiền cọc theo quy định",
+        "id": "1392",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thiếu hoặc bổ sung hồ sơ lên HĐ quá thời gian quy định",
+        "id": "1402",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thực hiện giao dịch không đúng chủ HĐ",
+        "id": "1412",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giao HĐ cho KH sai số SBI",
+        "id": "1422",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giao HĐ, PL không điền đầy đủ thông tin",
+        "id": "1432",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giữ HĐ, PL, PT quá thời gian quy định",
+        "id": "1442",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "HĐ, PL, PT thiếu chữ ký KH",
+        "id": "1452",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không giao HĐ, PT, PL đầy đủ cho KH",
+        "id": "1462",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không ký nhận sổ giao nhận HĐ, PL, PT",
+        "id": "1472",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Làm mất mẫu HĐ, PL, PT",
+        "id": "1482",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tấy xóa, sửa thông tin KH trên HĐ, PL, PT",
+        "id": "1492",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "HĐ giao cho IBB không cập nhật lên hệ thống",
+        "id": "1502",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tẩy xóa, sửa thông tin KH trên HĐ, PL, PT",
+        "id": "1512",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Cập nhật sai CLKM làm sai cước KH",
+        "id": "1522",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Dùng PT ngoài thu tiền KH",
+        "id": "1532",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giảm chiều dài cáp lastmile để lên HĐ",
+        "id": "1542",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "KH không nhận được tin nhắn thu tiền tại thời điểm thực hiện giao dịch",
+        "id": "1552",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không tư vấn thời gian cam kết, bồi thường HĐ",
+        "id": "1562",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Ký HĐ với KH chưa đủ tuổi ",
+        "id": "1572",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Lên HĐ KH chưa có nhu cầu lắp đặt",
+        "id": "1582",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Lên HĐ thiếu hoặc hồ sơ không hợp lệ dẫn đến hủy TSD",
+        "id": "1592",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Nộp hồ sơ, tiền lên HĐ quá thời gian quy định",
+        "id": "1602",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tạo PĐK, bấm thu tiền khi KH chưa đồng ý ký HĐ",
+        "id": "1612",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thực hiện giao dịch làm giảm tổng cước DV",
+        "id": "1622",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tư vấn sai, không đầy đủ CSDV công ty",
+        "id": "1632",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Cho người khác mượn thẻ của mình để ra vào nơi làm việc",
+        "id": "1642",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Có hành vi, lời lẽ lăng mạ, xúc phạm nhân phẩm đồng nghiệp",
+        "id": "1652",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Đùa giỡn, gây ồn ào nơi làm việc",
+        "id": "1662",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Đưa người lạ không phận sự, nhiệm vụ vào nơi làm việc",
+        "id": "1672",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Gây gỗ, đánh nhau trong công ty",
+        "id": "1682",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Gây mất trật tự, cản trở công việc người khác",
+        "id": "1692",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không đeo thẻ nhân viên tại nơi làm việc",
+        "id": "1702",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Mang, tàng trữ chất cấm, chất dễ cháy nổ vào trong công ty",
+        "id": "1712",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Sử dụng phương tiện truyền thông để tố cáo, nói xấu lãnh đạo, đồng nghiệp sai sự thật",
+        "id": "1722",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Sử dụng tài sản công ty (Email, ĐT,…) làm phiền KH trên danh nghĩa công ty ",
+        "id": "1732",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Sử dụng, phát tán tài liệu trái quy định công ty",
+        "id": "1742",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tự ý truy cập, xem hồ sơ, tài liệu không thuộc trách nhiệm của mình",
+        "id": "1752",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Uống rựu, bia trong giờ làm việc",
+        "id": "1762",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Xúi dục, uy hiếp người khác lãn công, bãi công",
+        "id": "1772",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Dán sticker che mất chổ ghi số HĐ",
+        "id": "1782",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Dao phập cáp hỏng không dùng được",
+        "id": "1792",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đồng hồ VOM bị hỏng, không có VOM",
+        "id": "1802",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có bộ tool quang",
+        "id": "1812",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có bút thử điện, bút thử điện hỏng",
+        "id": "1822",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có cây sào xỏ gông",
+        "id": "1832",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có cồn, bông, giấy vệ sinh core quang",
+        "id": "1842",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có dao cắt sợi quang hoặc có nhưng không sử dụng được",
+        "id": "1852",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có dao phập cáp",
+        "id": "1862",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có dây đai an toàn",
+        "id": "1872",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có hoặc máy đo công suất hỏng không sử dụng được",
+        "id": "1882",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có kìm bấm cáp LAN",
+        "id": "1892",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có kìm cắt",
+        "id": "1902",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có kìm tuốt sợi quang hoặc có nhưng không sử dụng được",
+        "id": "1912",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có thang, hoặc thang bị hỏng",
+        "id": "1922",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có tuốc nơ vít",
+        "id": "1932",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Dây nhảy quang của máy đo bị hỏng, mất nắp bảo vệ",
+        "id": "1942",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Chiếm dụng thời gian, tiền bạc, tài sản của Công ty vì mục đích cá nhân",
+        "id": "1952",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng chức năng inside thuộc quyền quản lý của bộ phận để làm sai lệch thông tin, sai quy trình nhằm trục lợi cá nhân",
+        "id": "1962",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Bán thiết bị của công ty cho KH",
+        "id": "1972",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Hoàn ứng cáp LAN sai so với thực tế",
+        "id": "1982",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Hoàn ứng sai cáp TC/BT so với thực tế",
+        "id": "1992",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thu thiết bị KH không nộp về công ty",
+        "id": "2002",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Có hành vi, lời nói thiếu tôn trọng KH",
+        "id": "2012",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đùa giỡn, nói lớn tiếng khi đang tác nghiệp tại nhà KH",
+        "id": "2022",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Dùng mạng XH khi đang tác nghiệp tại nhà KH",
+        "id": "2032",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "2042",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không dọn dẹp vệ sinh trước khi rời khỏi nhà KH",
+        "id": "2052",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không giải thích  nguyên nhân lỗi dịch vụ cho KH",
+        "id": "2062",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không hỗ trợ hết các yêu cầu KH",
+        "id": "2072",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không nghe điện thoại KH",
+        "id": "2082",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sai hẹn với KH, không hẹn lại thời gian xử lý cho KH",
+        "id": "2092",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tự ý tác nghiệp ở những nơi không có sự giám sát của KH",
+        "id": "2102",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Xử lý không triệt để lỗi dịch vụ cho KH",
+        "id": "2112",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cập nhật, đóng member sai thông tin",
+        "id": "2122",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Dán tem modem không ghi số HĐ",
+        "id": "2132",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Ghi thiếu, sai thông tin trên BBNT",
+        "id": "2142",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Khảo sát sai, không tối ưu",
+        "id": "2152",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không cập nhật vật tư, thiết bị thu hồi lên hệ thống",
+        "id": "2162",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không cập nhật, cập nhật sai số mét cáp trên BBNT",
+        "id": "2172",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không dán hoặc ghi sai số HĐ trên ticker",
+        "id": "2182",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không dán tem trên modem",
+        "id": "2192",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không giao BBNT cho KH",
+        "id": "2202",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không giao PL truyền hình cho KH nâng cấp box",
+        "id": "2212",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không hoàn thành công việc được giao không có lý do chính đáng",
+        "id": "2222",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không KS lại tuyến cáp trước khi TC",
+        "id": "2232",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không thu hồi cáp thuê bao, đầu FC không sử dụng trong tập điểm",
+        "id": "2242",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không thực hiện giám sát, xử lý cảnh báo lỗi hạ tầng dẫn đến sự cố",
+        "id": "2252",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không tư vấn cho KH vị trí đặt modem tối ưu sóng wifi",
+        "id": "2262",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tạo CL sai thông tin",
+        "id": "2272",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "TC vào nhà đã có line FPT không trả phiếu",
+        "id": "2282",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tem dán thiết bị bị bẩn, rách",
+        "id": "2292",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thiết bị HD box, modem không được bảo quản đúng cách",
+        "id": "2302",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thiếu tinh thần trách nhiệm làm ảnh hưởng công việc chung",
+        "id": "2312",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Trả phiếu sai thông tin",
+        "id": "2322",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Xử lý thông tin chậm làm ảnh hưởng đến các đơn vị liên quan",
+        "id": "2332",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không chào hỏi KH",
+        "id": "2342",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng đồ đạt trong nhà KH không xin phép",
+        "id": "2352",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Active sai user",
+        "id": "2362",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đo công suất tại tập điểm, nhà KH",
+        "id": "2372",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đo kiểm profile",
+        "id": "2382",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không kiểm tra, xác định lỗi cần khắc phục",
+        "id": "2392",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không thực hiện đo kiểm wifi tại nhà KH",
+        "id": "2402",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thi công không đúng kỹ thuật gây sự cố dài trạm",
+        "id": "2412",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Coupler thiếu nắp chụp",
+        "id": "2422",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Măng xông không cố định",
+        "id": "2432",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Mất nắp Casset quấn dây quang",
+        "id": "2442",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Phiến đấu nối gãy móc lưu dây",
+        "id": "2452",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm bung đai, mất đai inox",
+        "id": "2462",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm bung ốc khay coupler",
+        "id": "2472",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm bung ống nhựa luồn cáp",
+        "id": "2482",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm bung, mất ốc bắt nắp casset",
+        "id": "2492",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm bung, mất ốc PG luồn cáp",
+        "id": "2502",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm dán sai tên, không đúng chuẩn quy định",
+        "id": "2512",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm hư chốt, bản lề",
+        "id": "2522",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm hư, mất chốt gài bộ chia quang",
+        "id": "2532",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm không cố định cáp hạ tầng",
+        "id": "2542",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm không dán tên hoặc mất tên",
+        "id": "2552",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm không gài chốt đầy đủ",
+        "id": "2562",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm mất nắp",
+        "id": "2572",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm mở nắp",
+        "id": "2582",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm thiếu ống nhựa luồn cáp",
+        "id": "2592",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm treo lơ lững",
+        "id": "2602",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đeo bảng tên",
+        "id": "2612",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đeo thẻ nhân viên khi tiếp xúc KH",
+        "id": "2622",
+        "main": "Lỗi tác phong",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không mặc đồng phục, quần áo lượm thượm",
+        "id": "2632",
+        "main": "Lỗi tác phong",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Râu, tóc không gọn gàng",
+        "id": "2642",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Hồ sơ, vật dụng làm việc không ngăn nắp",
+        "id": "2652",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Hút thuốc ở nơi làm việc, ở những nơi cấm hút thuốc trong công ty",
+        "id": "2662",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Mang thức ăn, nước uống có mùi vào nơi làm việc",
+        "id": "2672",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Vi phạm quy định an toàn, vệ sinh, phòng chống cháy nổ",
+        "id": "2682",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Vứt rác lung tung nơi làm việc",
+        "id": "2692",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Vòi vĩnh tiền bồi dưỡng của KH",
+        "id": "2702",
+        "main": "Nhận tiền bồi dưỡng của KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Bu cáp thuê bao căng, không đánh võng đúng quy định",
+        "id": "2712",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Bu cáp trong tủ không gọn",
+        "id": "2722",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cáp thuê bao đi ngoài ống nhựa",
+        "id": "2732",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cáp thuê bao luồn vào ống cáp hạ tầng",
+        "id": "2742",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Coupler không bắt vít",
+        "id": "2752",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đấu cáp thuê bao vào cáp gốc",
+        "id": "2762",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Dùng FC nối cáp sai kỹ thuật",
+        "id": "2772",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không bấm đầu RJ11",
+        "id": "2782",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không cắt giây gia cường tại vị trí chốt cáp trước nhà KH",
+        "id": "2792",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đánh bu cáp trước nhà KH",
+        "id": "2802",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không dùng dao phập bắn cáp vào port",
+        "id": "2812",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không vệ sinh core quang",
+        "id": "2822",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không xỏ cáp vào gông",
+        "id": "2832",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Mối nối không đúng kỹ thuật",
+        "id": "2842",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Ra cáp không đúng kỹ thuật, để xe cán qua",
+        "id": "2852",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng đầu FC không đúng chuẩn",
+        "id": "2862",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng không đúng chức năng CCDC",
+        "id": "2872",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm thiếu Casset quấn dây",
+        "id": "2882",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Hạ tầng ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tập điểm treo thấp không đảm bảo độ cao",
+        "id": "2892",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "TC cáp trong nhà KH không gọn gàng",
+        "id": "2902",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Triển khai cáp trong nhà KH không gọn gàng",
+        "id": "2912",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Bán thiết bị ngoài cho KH trên danh nghĩa công ty",
+        "id": "2922",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Bao che, che giấu vi phạm của đồng nghiệp, NV cấp dưới",
+        "id": "2932",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "CBQL không kiểm tra công việc bàn giao của nhân viên nghỉ việc",
+        "id": "2942",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Chừa bu cáp ngoài tập điểm sai quy định",
+        "id": "2952",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Chừa bu cáp trong nhà KH sai quy định",
+        "id": "2962",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cung cấp số ĐT cá nhân cho KH",
+        "id": "2972",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đóng CL, Ticket khi chưa xử lý hoàn tất, chạy chỉ tiêu",
+        "id": "2982",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đóng dấu sai hoặc không đúng quy định đã ban hành",
+        "id": "2992",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đưa sai thông tin nội bộ lên trang mạng xã hội (facbook, zalo,…)",
+        "id": "3002",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Dùng acc nghiệp vụ, acc KH để sử dụng cho mục đích cá nhân",
+        "id": "3012",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không bàn giao công việc trước khi nghỉ phép, nghỉ theo chế độ",
+        "id": "3022",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không báo cáo, báo cáo không đầy đủ, thiếu trung thực",
+        "id": "3032",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không cập nhật, cập nhật sai TSTC",
+        "id": "3042",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không cập nhật, cập nhật thiếu vị trí mối nối",
+        "id": "3052",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không cố định cáp tại ăng ten modem",
+        "id": "3062",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không hướng dẫn KH kiểm tra, sử dụng member",
+        "id": "3072",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không tạo tichket, tạo sai, tạo trể quá thời gian quy định",
+        "id": "3082",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không tắt đèn, máy lạnh, quạt,… khi ra khỏi phòng",
+        "id": "3092",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Kích online chạy chỉ tiêu",
+        "id": "3102",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tạo ticket xử lý sự cố sai quy trình",
+        "id": "3112",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thu cước KH sai chính sách",
+        "id": "3122",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thu tiền cước KH nộp về công ty quá thời gian quy định",
+        "id": "3132",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thực hiện sai quy trình, quy định ảnh hưởng đến các đơn vị liên quan",
+        "id": "3142",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tích hẹn TK/BT sai quy trình",
+        "id": "3152",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Triển khai vượt chuẩn lastmile không trả phiếu",
+        "id": "3162",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tự ý cung cấp các số nội bộ của phòng ban/cá nhân cho khách hàng",
+        "id": "3172",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cán sào xỏ gông không cách điện",
+        "id": "3182",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Kéo cáp băng đường không đảm bảo an toàn",
+        "id": "3192",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không có người cảnh giới thang",
+        "id": "3202",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đeo đai, đội mũ bảo hiểm",
+        "id": "3212",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không mang giày, mang không đúng quy cách",
+        "id": "3222",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Quăng cáp qua cây, mái nhà dân,..",
+        "id": "3232",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Xắn tay áo trong lúc tác nghiệp",
+        "id": "3242",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đi làm không đúng giờ, đi trể, về sớm",
+        "id": "3252",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Làm việc riêng trong giờ làm việc",
+        "id": "3262",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tự ý nghỉ phép khi chưa được sự đồng ý của CBQL",
+        "id": "3272",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tự ý rời vị trí làm việc khi chưa xin phép CBQL",
+        "id": "3282",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cho người ngoài mượn tài khoản của mình để truy cập vào mạng nội bộ của công ty",
+        "id": "3292",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cố tình để lộ mật khẩu acc mail, inside,…",
+        "id": "3302",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tiết lộ thông tin, tài liệu được coi là bí mật kinh doanh của công ty ",
+        "id": "3312",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Truy cập vào mạng máy tính nội bộ để lấy hoặc lưu trữ thông tin mà không được phép",
+        "id": "3322",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không báo cáo đầy đủ sự mất mát, hư hại tài sản của Công ty dù cố ý hay vô ý",
+        "id": "3332",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Làm mất thiết bị, công cụ công ty cấp phát phục vụ cho công việc",
+        "id": "3342",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng thiết bị Công ty cho mục đích riêng",
+        "id": "3352",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cho người khác mượn thẻ của mình để ra vào nơi làm việc",
+        "id": "3362",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Có hành vi, lời lẽ lăng mạ, xúc phạm nhân phẩm đồng nghiệp",
+        "id": "3372",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đùa giỡn, gây ồn ào nơi làm việc",
+        "id": "3382",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Đưa người lạ không phận sự, nhiệm vụ vào nơi làm việc",
+        "id": "3392",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Gây gỗ, đánh nhau trong công ty",
+        "id": "3402",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Gây mất trật tự, cản trở công việc người khác",
+        "id": "3412",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đeo thẻ nhân viên tại nơi làm việc",
+        "id": "3422",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Mang, tàng trữ chất cấm, chất dễ cháy nổ vào trong công ty",
+        "id": "3432",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng phương tiện truyền thông để tố cáo, nói xấu lãnh đạo, đồng nghiệp sai sự thật",
+        "id": "3442",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng tài sản công ty (Email, ĐT,…) làm phiền KH trên danh nghĩa công ty ",
+        "id": "3452",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Sử dụng, phát tán tài liệu trái quy định công ty",
+        "id": "3462",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Tự ý truy cập, xem hồ sơ, tài liệu không thuộc trách nhiệm của mình",
+        "id": "3472",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Uống rựu, bia trong giờ làm việc",
+        "id": "3482",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Xúi dục, uy hiếp người khác lãn công, bãi công",
+        "id": "3492",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Cáp thuê bao đi vào tủ, tập điểm không đúng kỹ thuật",
+        "id": "3502",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Bấm FC sai kỹ thuật",
+        "id": "3512",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "TC không chốt dây, chốt dây sai kỹ thuật",
+        "id": "3522",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Không đổi mật khẩu modem",
+        "id": "3532",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "TIN/PNC",
+        "description": "Thi công sai địa chỉ, không đúng địa chỉ đăng ký của KH",
+        "id": "3542",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Đồng hồ VOM bị hỏng, không có VOM",
+        "id": "3552",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không có bút thử điện, bút thử điện hỏng",
+        "id": "3562",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không có kìm bấm cáp LAN",
+        "id": "3572",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không có kìm cắt",
+        "id": "3582",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không có tuốc nơ vít",
+        "id": "3592",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Chiếm dụng thời gian, tiền bạc, tài sản của Công ty vì mục đích cá nhân",
+        "id": "3602",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Sử dụng chức năng inside thuộc quyền quản lý của bộ phận để làm sai lệch thông tin, sai quy trình nhằm trục lợi cá nhân",
+        "id": "3612",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Bán thiết bị của công ty cho KH",
+        "id": "3622",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Thu thiết bị KH không nộp về công ty",
+        "id": "3632",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Có hành vi, lời nói thiếu tôn trọng KH",
+        "id": "3642",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Đùa giỡn, nói lớn tiếng khi đang tác nghiệp tại nhà KH",
+        "id": "3652",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Dùng mạng XH khi đang tác nghiệp tại nhà KH",
+        "id": "3662",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "3672",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không dọn dẹp vệ sinh trước khi rời khỏi nhà KH",
+        "id": "3682",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không giải thích  nguyên nhân lỗi dịch vụ cho KH",
+        "id": "3692",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không hỗ trợ hết các yêu cầu KH",
+        "id": "3702",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không nghe điện thoại KH",
+        "id": "3712",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Sai hẹn với KH, không hẹn lại thời gian xử lý cho KH",
+        "id": "3722",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Tự ý tác nghiệp ở những nơi không có sự giám sát của KH",
+        "id": "3732",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Xử lý không triệt để lỗi dịch vụ cho KH",
+        "id": "3742",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Cập nhật, đóng member sai thông tin",
+        "id": "3752",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Dán tem modem không ghi số HĐ",
+        "id": "3762",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Ghi thiếu, sai thông tin trên BBNT",
+        "id": "3772",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không dán tem trên modem",
+        "id": "3782",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không giao BBNT cho KH",
+        "id": "3792",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không hoàn thành công việc được giao không có lý do chính đáng",
+        "id": "3802",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không tư vấn cho KH vị trí đặt modem tối ưu sóng wifi",
+        "id": "3812",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Thiết bị HD box, modem không được bảo quản đúng cách",
+        "id": "3822",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Thiếu tinh thần trách nhiệm làm ảnh hưởng công việc chung",
+        "id": "3832",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Trả phiếu sai thông tin",
+        "id": "3842",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Xử lý thông tin chậm làm ảnh hưởng đến các đơn vị liên quan",
+        "id": "3852",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không chào hỏi KH",
+        "id": "3862",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Sử dụng đồ đạt trong nhà KH không xin phép",
+        "id": "3872",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Active sai user",
+        "id": "3882",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không đo công suất tại tập điểm, nhà KH",
+        "id": "3892",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không đo kiểm profile",
+        "id": "3902",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không kiểm tra, xác định lỗi cần khắc phục",
+        "id": "3912",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không thực hiện đo kiểm wifi tại nhà KH",
+        "id": "3922",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không đeo bảng tên",
+        "id": "3932",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không đeo thẻ nhân viên khi tiếp xúc KH",
+        "id": "3942",
+        "main": "Lỗi tác phong",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không mặc đồng phục, quần áo lượm thượm",
+        "id": "3952",
+        "main": "Lỗi tác phong",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Râu, tóc không gọn gàng",
+        "id": "3962",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Hồ sơ, vật dụng làm việc không ngăn nắp",
+        "id": "3972",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Hút thuốc ở nơi làm việc, ở những nơi cấm hút thuốc trong công ty",
+        "id": "3982",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Mang thức ăn, nước uống có mùi vào nơi làm việc",
+        "id": "3992",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Vi phạm quy định an toàn, vệ sinh, phòng chống cháy nổ",
+        "id": "4002",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Vứt rác lung tung nơi làm việc",
+        "id": "4012",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Vòi vĩnh tiền bồi dưỡng của KH",
+        "id": "4022",
+        "main": "Nhận tiền bồi dưỡng của KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không bấm đầu RJ11",
+        "id": "4032",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Triển khai cáp trong nhà KH không gọn gàng",
+        "id": "4042",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Bán thiết bị ngoài cho KH trên danh nghĩa công ty",
+        "id": "4052",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Bao che, che giấu vi phạm của đồng nghiệp, NV cấp dưới",
+        "id": "4062",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "CBQL không kiểm tra công việc bàn giao của nhân viên nghỉ việc",
+        "id": "4072",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Cung cấp số ĐT cá nhân cho KH",
+        "id": "4082",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Đóng CL, Ticket khi chưa xử lý hoàn tất, chạy chỉ tiêu",
+        "id": "4092",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Đưa sai thông tin nội bộ lên trang mạng xã hội (facbook, zalo,…)",
+        "id": "4102",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Dùng acc nghiệp vụ, acc KH để sử dụng cho mục đích cá nhân",
+        "id": "4112",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không bàn giao công việc trước khi nghỉ phép, nghỉ theo chế độ",
+        "id": "4122",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không báo cáo, báo cáo không đầy đủ, thiếu trung thực",
+        "id": "4132",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không cố định cáp tại ăng ten modem",
+        "id": "4142",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không hướng dẫn KH kiểm tra, sử dụng member",
+        "id": "4152",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không tắt đèn, máy lạnh, quạt,… khi ra khỏi phòng",
+        "id": "4162",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Thực hiện sai quy trình, quy định ảnh hưởng đến các đơn vị liên quan",
+        "id": "4172",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Tích hẹn TK/BT sai quy trình",
+        "id": "4182",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Tự ý cung cấp các số nội bộ của phòng ban/cá nhân cho khách hàng",
+        "id": "4192",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không mang giày, mang không đúng quy cách",
+        "id": "4202",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Xắn tay áo trong lúc tác nghiệp",
+        "id": "4212",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Đi làm không đúng giờ, đi trể, về sớm",
+        "id": "4222",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Làm việc riêng trong giờ làm việc",
+        "id": "4232",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Tự ý nghỉ phép khi chưa được sự đồng ý của CBQL",
+        "id": "4242",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Tự ý rời vị trí làm việc khi chưa xin phép CBQL",
+        "id": "4252",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Cho người ngoài mượn tài khoản của mình để truy cập vào mạng nội bộ của công ty",
+        "id": "4262",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Cố tình để lộ mật khẩu acc mail, inside,…",
+        "id": "4272",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Tiết lộ thông tin, tài liệu được coi là bí mật kinh doanh của công ty ",
+        "id": "4282",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Truy cập vào mạng máy tính nội bộ để lấy hoặc lưu trữ thông tin mà không được phép",
+        "id": "4292",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không báo cáo đầy đủ sự mất mát, hư hại tài sản của Công ty dù cố ý hay vô ý",
+        "id": "4302",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Làm mất thiết bị, công cụ công ty cấp phát phục vụ cho công việc",
+        "id": "4312",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Sử dụng thiết bị Công ty cho mục đích riêng",
+        "id": "4322",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Cho người khác mượn thẻ của mình để ra vào nơi làm việc",
+        "id": "4332",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Có hành vi, lời lẽ lăng mạ, xúc phạm nhân phẩm đồng nghiệp",
+        "id": "4342",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Đùa giỡn, gây ồn ào nơi làm việc",
+        "id": "4352",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Đưa người lạ không phận sự, nhiệm vụ vào nơi làm việc",
+        "id": "4362",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Gây gỗ, đánh nhau trong công ty",
+        "id": "4372",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Gây mất trật tự, cản trở công việc người khác",
+        "id": "4382",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Không đeo thẻ nhân viên tại nơi làm việc",
+        "id": "4392",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Mang, tàng trữ chất cấm, chất dễ cháy nổ vào trong công ty",
+        "id": "4402",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Sử dụng phương tiện truyền thông để tố cáo, nói xấu lãnh đạo, đồng nghiệp sai sự thật",
+        "id": "4412",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Sử dụng tài sản công ty (Email, ĐT,…) làm phiền KH trên danh nghĩa công ty ",
+        "id": "4422",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Sử dụng, phát tán tài liệu trái quy định công ty",
+        "id": "4432",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Tự ý truy cập, xem hồ sơ, tài liệu không thuộc trách nhiệm của mình",
+        "id": "4442",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Uống rựu, bia trong giờ làm việc",
+        "id": "4452",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INDO",
+        "description": "Xúi dục, uy hiếp người khác lãn công, bãi công",
+        "id": "4462",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "FTEL",
+        "description": "Sử dụng tài sản công ty (Email, ĐT,…) làm phiền KH trên danh nghĩa công ty ",
+        "id": "4472",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "FTEL",
+        "description": "Sử dụng, phát tán tài liệu trái quy định công ty",
+        "id": "4482",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "FTEL",
+        "description": "Tự ý truy cập, xem hồ sơ, tài liệu không thuộc trách nhiệm của mình",
+        "id": "4492",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "FTEL",
+        "description": "Uống rựu, bia trong giờ làm việc",
+        "id": "4502",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "FTEL",
+        "description": "Xúi dục, uy hiếp người khác lãn công, bãi công",
+        "id": "4512",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có bút thử điện, bút thử điện bị hỏng",
+        "id": "4522",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có dao cắt sợi quang hoặc có nhưng không sử dụng được",
+        "id": "4532",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có dây đai an toàn",
+        "id": "4542",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có kìm cắt",
+        "id": "4552",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có thang, hoặc thang bị hỏng",
+        "id": "4562",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có tuốc nơ vít",
+        "id": "4572",
+        "main": "CCDC thiếu, hỏng",
+        "type": "Chất lượng công cụ dụng cụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Chiếm dụng thời gian, tiền bạc, tài sản của Công ty vì mục đích cá nhân",
+        "id": "4582",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Nhận tiền của ứng viên tuyển dụng sai quy định",
+        "id": "4592",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Nhận tiền hoa hồng bồi dưỡng của đối tác",
+        "id": "4602",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Sử dụng chức năng inside thuộc quyền quản lý của bộ phận để làm sai lệch thông tin, sai quy trình nhằm trục lợi cá nhân",
+        "id": "4612",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Accu bị phù, chảy dung dịch axit",
+        "id": "4622",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Accu dung lượng thấp dưới 70%",
+        "id": "4632",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Accu thiếu nắp chụp",
+        "id": "4642",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Bệ tủ outdoor bị vỡ, không kín",
+        "id": "4652",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp hạ tầng không cố định",
+        "id": "4662",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Coupler thiếu nắp chụp",
+        "id": "4672",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Đế tủ có giá đỡ kim loại bị rỉ sét",
+        "id": "4682",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Đèn chiếu sáng trong đài trạm bị cháy",
+        "id": "4692",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có sổ nhật ký đài trạm",
+        "id": "4702",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không đậy nắp cầu dao đảo",
+        "id": "4712",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không đo kiểm Accu định kỳ",
+        "id": "4722",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không thực hiện vệ sinh theo định kỳ",
+        "id": "4732",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Măng xông không cố định",
+        "id": "4742",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Phiến đấu nối gãy móc lưu dây",
+        "id": "4752",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Phiến KH23 bị cháy ",
+        "id": "4762",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Pop thiếu bảng hiệu cảnh báo",
+        "id": "4772",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Quạt hút hỏng, không hoạt động",
+        "id": "4782",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tủ cáp thiếu ron cao su",
+        "id": "4792",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tủ outdoor ron cửa tủ bị hư",
+        "id": "4802",
+        "main": "Không thực hiện công tác BT/BD đài trạm",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Mất nắp Casset quấn dây quang",
+        "id": "4812",
+        "main": "Lỗi sử dụng bảo quản hạ tầng",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không đeo bảng tên",
+        "id": "4822",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không mặc đồng phục, quần áo lượm thượm",
+        "id": "4832",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Râu, tóc không gọn gàng",
+        "id": "4842",
+        "main": "Lỗi tác phong",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Hồ sơ, vật dụng làm việc không ngăn nắp",
+        "id": "4852",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Hút thuốc ở nơi làm việc, ở những nơi cấm hút thuốc trong công ty",
+        "id": "4862",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Mang thức ăn, nước uống có mùi vào nơi làm việc",
+        "id": "4872",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Vi phạm quy định an toàn, vệ sinh, phòng chống cháy nổ",
+        "id": "4882",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Vứt rác lung tung nơi làm việc",
+        "id": "4892",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Vòi vĩnh tiền bồi dưỡng của KH",
+        "id": "4902",
+        "main": "Nhận tiền bồi dưỡng của KH",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp hạ tầng đấu nối sai kỹ thuật",
+        "id": "4912",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp hạ tầng tại tập điểm không luồn vào ống nhựa",
+        "id": "4922",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp nguồn không ống bảo vệ",
+        "id": "4932",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp nhập đài không bó gọn",
+        "id": "4942",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp nhập đài không đấu tiếp đất",
+        "id": "4952",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp nhập đài thiếu ống bảo vệ",
+        "id": "4962",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cáp nhập đài thiếu ống bảo vệ",
+        "id": "4972",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Coupler không bắt vít",
+        "id": "4982",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Dây nhảy quang đấu nối sai kỹ thuật",
+        "id": "4992",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Dây nhảy quang không gọn gàng",
+        "id": "5002",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Dây nhảy quang thiếu ống xoắn nhựa bảo vệ",
+        "id": "5012",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Dùng dây nguồn làm dây tiếp đất",
+        "id": "5022",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Dùng dây tiếp đất làm cáp nguồn",
+        "id": "5032",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không bấm đầu cosse dây nguồn",
+        "id": "5042",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không bấm đầu cosse dây tiếp đất",
+        "id": "5052",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không cắt dây gia cường cáp nhập đài, tập điểm",
+        "id": "5062",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Sử dụng không đúng chức năng CCDC",
+        "id": "5072",
+        "main": "Thi công không đúng kỹ thuật",
+        "type": "Kỹ thuật thi công"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Accu không đánh nhãn",
+        "id": "5082",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Bao che, che giấu vi phạm của đồng nghiệp, NV cấp dưới",
+        "id": "5092",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "CBQL không kiểm tra công việc bàn giao của nhân viên nghỉ việc",
+        "id": "5102",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Đóng CL, Ticket khi chưa xử lý hoàn tất, chạy chỉ tiêu",
+        "id": "5112",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Đưa sai thông tin nội bộ lên trang mạng xã hội (facbook, zalo,…)",
+        "id": "5122",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Dùng acc nghiệp vụ, acc KH để sử dụng cho mục đích cá nhân",
+        "id": "5132",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Khóa, mở dịch vụ, chuyển tình trạng HĐ sai quy định",
+        "id": "5142",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không bàn giao công việc trước khi nghỉ phép, nghỉ theo chế độ",
+        "id": "5152",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không báo cáo, báo cáo không đầy đủ, thiếu trung thực",
+        "id": "5162",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không dán nhãn cáp nhập đài, dây nhảy quang,…",
+        "id": "5172",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không dán nhãn thiết bị",
+        "id": "5182",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không đấu dây tiếp đất võ OLT",
+        "id": "5192",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không ghi đầy đủ thông tin sổ nhật ký đài trạm",
+        "id": "5202",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không gửi đề nghị xoá account mail /phân quyền inside đối với nhân viên nghỉ việc sau 36h kể từ có thông tin chính thức",
+        "id": "5212",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không hoàn thành công việc không có lý do chính đáng",
+        "id": "5222",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không tạo tichket, tạo sai, tạo trể quá thời gian quy định",
+        "id": "5232",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không tắt đèn, máy lạnh, quạt,… khi ra khỏi phòng",
+        "id": "5242",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Máy phát điện không để chế độ auto",
+        "id": "5252",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Nguồn, switching không đấu dây tiếp đất",
+        "id": "5262",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Nguồn, switching lắp không đúng vị trí qui định",
+        "id": "5272",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "OLT, nguồn switching lắp sai quy định",
+        "id": "5282",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Ống luồn cáp không bịt kín bằng foam",
+        "id": "5292",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tạo ticket xử lý sự cố sai quy trình",
+        "id": "5302",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Thao tác sai kỹ thuật gây down POP",
+        "id": "5312",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Thiếu BB bảo trì đài trạm",
+        "id": "5322",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Thiếu sơ đồ bố trí vật tư thiết bị",
+        "id": "5332",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Thiếu sơ đồ đấu nối hệ thống nguồn",
+        "id": "5342",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Thiếu sơ đồ Ring",
+        "id": "5352",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tủ cáp thiếu bảng hiệu cảnh báo",
+        "id": "5362",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hạ tầng nội/ngoại vi"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Kéo cáp băng đường không đảm bảo an toàn",
+        "id": "5372",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không có người cảnh giới thang",
+        "id": "5382",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không đeo đai, đội mũ bảo hiểm",
+        "id": "5392",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không mang giày, mang không đúng quy cách",
+        "id": "5402",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Quăng cáp qua cây, mái nhà dân,..",
+        "id": "5412",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Xắn tay áo trong lúc tác nghiệp",
+        "id": "5422",
+        "main": "Vi phạm ATLĐ",
+        "type": "Quy định an toàn lao động"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Đi làm không đúng giờ, đi trể, về sớm",
+        "id": "5432",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Làm việc riêng trong giờ làm việc",
+        "id": "5442",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tự ý nghỉ phép khi chưa được sự đồng ý của CBQL",
+        "id": "5452",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tự ý rời vị trí làm việc khi chưa xin phép CBQL",
+        "id": "5462",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cho người ngoài mượn tài khoản của mình để truy cập vào mạng nội bộ của công ty",
+        "id": "5472",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cố tình để lộ mật khẩu acc mail, inside,…",
+        "id": "5482",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Thực hiện thay đổi nội dung, xóa dữ liệu trên mạng máy tính nội bộ khi chưa được phép",
+        "id": "5492",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tiết lộ thông tin, tài liệu được coi là bí mật kinh doanh của công ty ",
+        "id": "5502",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Truy cập vào mạng máy tính nội bộ để lấy hoặc lưu trữ thông tin mà không được phép",
+        "id": "5512",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không báo cáo đầy đủ sự mất mát, hư hại tài sản của Công ty dù cố ý hay vô ý",
+        "id": "5522",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Làm mất thiết bị, công cụ công ty cấp phát phục vụ cho công việc",
+        "id": "5532",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Sử dụng thiết bị Công ty cho mục đích riêng",
+        "id": "5542",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Cho người khác mượn thẻ của mình để ra vào nơi làm việc",
+        "id": "5552",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Có hành vi, lời lẽ lăng mạ, xúc phạm nhân phẩm đồng nghiệp",
+        "id": "5562",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Đùa giỡn, gây ồn ào nơi làm việc",
+        "id": "5572",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Đưa người lạ không phận sự, nhiệm vụ vào nơi làm việc",
+        "id": "5582",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Gây gỗ, đánh nhau trong công ty",
+        "id": "5592",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Gây mất trật tự, cản trở công việc người khác",
+        "id": "5602",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Không đeo thẻ nhân viên tại nơi làm việc",
+        "id": "5612",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Mang, tàng trữ chất cấm, chất dễ cháy nổ vào trong công ty",
+        "id": "5622",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Sử dụng phương tiện truyền thông để tố cáo, nói xấu lãnh đạo, đồng nghiệp sai sự thật",
+        "id": "5632",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Sử dụng tài sản công ty (Email, ĐT,…) làm phiền KH trên danh nghĩa công ty ",
+        "id": "5642",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Sử dụng, phát tán tài liệu trái quy định công ty",
+        "id": "5652",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Tự ý truy cập, xem hồ sơ, tài liệu không thuộc trách nhiệm của mình",
+        "id": "5662",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Uống rựu, bia trong giờ làm việc",
+        "id": "5672",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "INF/QLVH",
+        "description": "Xúi dục, uy hiếp người khác lãn công, bãi công",
+        "id": "5682",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Chiếm dụng thời gian, tiền bạc, tài sản của Công ty vì mục đích cá nhân",
+        "id": "5692",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Nhận tiền hoa hồng bồi dưỡng của đối tác",
+        "id": "5702",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Sử dụng chức năng inside thuộc quyền quản lý của bộ phận để làm sai lệch thông tin, sai quy trình nhằm trục lợi cá nhân",
+        "id": "5712",
+        "main": "Có hành vi trục lợi cá nhân",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thu thiết bị KH không nộp về công ty",
+        "id": "5722",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "5732",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Có hành vi, lời nói thiếu tôn trọng KH",
+        "id": "5742",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Sai hẹn với KH, không hẹn lại thời gian xử lý cho KH",
+        "id": "5752",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "5762",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không hỗ trợ hết các yêu cầu KH",
+        "id": "5772",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Duyệt trùng HĐ quá thời gian quy định",
+        "id": "5782",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không hoàn thành công việc được giao không có lý do chính đáng",
+        "id": "5792",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không tạo Pre CL khi KH yêu cầu hỗ trợ",
+        "id": "5802",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thiếu tinh thần trách nhiệm làm ảnh hưởng công việc chung",
+        "id": "5812",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Tạo CL sai thông tin",
+        "id": "5822",
+        "main": "Không hoàn thành nhiệm vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không chào hỏi KH",
+        "id": "5832",
+        "main": "Lỗi giao tiếp với KH",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Cập nhật sai thông tin KH lên hệ thống",
+        "id": "5842",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không kiểm tra hồ sơ HĐ, duyệt trùng sai thông tin",
+        "id": "5852",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Nhập sai câu lệnh KM làm sai cước của KH",
+        "id": "5862",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thao tác sai cập nhật sai câu lệnh link sai thiết bị",
+        "id": "5872",
+        "main": "Lỗi nghiệp vụ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không đeo thẻ nhân viên khi tiếp xúc KH",
+        "id": "5882",
+        "main": "Lỗi tác phong",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không mặc đồng phục, quần áo lượm thượm",
+        "id": "5892",
+        "main": "Lỗi tác phong",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Hồ sơ, vật dụng làm việc không ngăn nắp",
+        "id": "5902",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Hút thuốc ở nơi làm việc, ở những nơi cấm hút thuốc trong công ty",
+        "id": "5912",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Mang thức ăn, nước uống có mùi vào nơi làm việc",
+        "id": "5922",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Vi phạm quy định an toàn, vệ sinh, phòng chống cháy nổ",
+        "id": "5932",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Vứt rác lung tung nơi làm việc",
+        "id": "5942",
+        "main": "Lỗi vệ sinh, môi trường làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Làm hồ sơ cho KH chuyển địa chỉ, sở hữu không đúng người",
+        "id": "5952",
+        "main": "Thực hiện giao dịch không đúng người sử dụng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Cập nhật bồi hoàn không đúng nguyên nhân",
+        "id": "5962",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Khóa, mở dịch vụ, chuyển tình trạng HĐ sai quy định",
+        "id": "5972",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không có hồ sơ bồi hoàn cho KH",
+        "id": "5982",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không nhập cọc lên hệ thống, chạy chỉ tiêu rời mạng",
+        "id": "5992",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không tạo case CSKH lên hệ thống",
+        "id": "6002",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không tạo CL CDD, nâng cấp cho KH",
+        "id": "6012",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không tạo CL thu hồi thiết bị KH rời mạng",
+        "id": "6022",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không thu phí KH chuyển ĐC",
+        "id": "6032",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không xuất hóa đơn thu cước phát sinh, tiền đền bù HĐ",
+        "id": "6042",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Nhập cọc chậm trể quá thời gian quy định",
+        "id": "6052",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Nộp tiền về công ty quá thời gian quy định",
+        "id": "6062",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thu cước KH sai chính sách",
+        "id": "6072",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thu phí chuyển địa chỉ, phí nâng cấp DV không đúng chính sách công ty",
+        "id": "6082",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Xuất hóa đơn, PT sai thông tin",
+        "id": "6092",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Dùng acc nghiệp vụ, acc KH để sử dụng cho mục đích cá nhân",
+        "id": "6102",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Đưa sai thông tin nội bộ lên trang mạng xã hội (facbook, zalo,…)",
+        "id": "6112",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không bàn giao công việc trước khi nghỉ phép, nghỉ theo chế độ",
+        "id": "6122",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không báo cáo, báo cáo không đầy đủ, thiếu trung thực",
+        "id": "6132",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không gửi đề nghị xoá account mail /phân quyền inside đối với nhân viên nghỉ việc sau 36h kể từ có thông tin chính thức",
+        "id": "6142",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không hoàn thành công việc không có lý do chính đáng",
+        "id": "6152",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Sử dụng biểu mẫu không phù hợp, không đúng quy định",
+        "id": "6162",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thu tiền cước KH nộp về công ty quá thời gian quy định",
+        "id": "6172",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thực hiện sai quy trình, quy định ảnh hưởng đến các đơn vị liên quan",
+        "id": "6182",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Tự ý cung cấp các số nội bộ của phòng ban/cá nhân cho khách hàng",
+        "id": "6192",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thiếu BB bảo trì đài trạm",
+        "id": "6202",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Đi làm không đúng giờ, đi trể, về sớm",
+        "id": "6212",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Làm việc riêng trong giờ làm việc",
+        "id": "6222",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Tự ý nghỉ phép khi chưa được sự đồng ý của CBQL",
+        "id": "6232",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Tự ý rời vị trí làm việc khi chưa xin phép CBQL",
+        "id": "6242",
+        "main": "Vi phạm giờ giấc làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Cho người ngoài mượn tài khoản của mình để truy cập vào mạng nội bộ của công ty",
+        "id": "6252",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Cố tình để lộ mật khẩu acc mail, inside,…",
+        "id": "6262",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thực hiện thay đổi nội dung, xóa dữ liệu trên mạng máy tính nội bộ khi chưa được phép",
+        "id": "6272",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Tiết lộ thông tin, tài liệu được coi là bí mật kinh doanh của công ty ",
+        "id": "6282",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Truy cập vào mạng máy tính nội bộ để lấy hoặc lưu trữ thông tin mà không được phép",
+        "id": "6292",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không báo cáo đầy đủ sự mất mát, hư hại tài sản của Công ty dù cố ý hay vô ý",
+        "id": "6302",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Làm mất thiết bị, công cụ công ty cấp phát phục vụ cho công việc",
+        "id": "6312",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Sử dụng thiết bị Công ty cho mục đích riêng",
+        "id": "6322",
+        "main": "Vi phạm lỗi sử dụng, bảo quản tài sản công ty",
+        "type": "Hành vi phá hoại, làm thất thoát tài sản công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Giả mạo chữ ký khách hàng",
+        "id": "6332",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "HĐ giao cho IBB không cập nhật lên hệ thống",
+        "id": "6342",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không có hồ sơ KH thanh lý HĐ",
+        "id": "6352",
+        "main": "Vi phạm quy định quản lý HĐ",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Giao PT cho NV thu cước quá định mức",
+        "id": "6362",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Hủy PT sai quy định",
+        "id": "6372",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không kiểm soát hóa đơn tồn của NV thu ngân",
+        "id": "6382",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không xuất hóa đơn sau khi thu tiền từ KH",
+        "id": "6392",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Xuất PT không đúng NV lên HĐ",
+        "id": "6402",
+        "main": "Vi phạm quy định quản lý hóa đơn, PT",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thu tiền KH sai quy định, chính sách bán hàng",
+        "id": "6412",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Thu tiền trả trước của KH không nộp về công ty",
+        "id": "6422",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Cập nhật sai CLKM làm sai cước KH",
+        "id": "6432",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Dùng PT ngoài thu tiền KH",
+        "id": "6442",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Quy trình, quy định"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Cho người khác mượn thẻ của mình để ra vào nơi làm việc",
+        "id": "6452",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Có hành vi, lời lẽ lăng mạ, xúc phạm nhân phẩm đồng nghiệp",
+        "id": "6462",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Đùa giỡn, gây ồn ào nơi làm việc",
+        "id": "6472",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Đưa người lạ không phận sự, nhiệm vụ vào nơi làm việc",
+        "id": "6482",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Gây gỗ, đánh nhau trong công ty",
+        "id": "6492",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Gây mất trật tự, cản trở công việc người khác",
+        "id": "6502",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Không đeo thẻ nhân viên tại nơi làm việc",
+        "id": "6512",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Mang, tàng trữ chất cấm, chất dễ cháy nổ vào trong công ty",
+        "id": "6522",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Sử dụng phương tiện truyền thông để tố cáo, nói xấu lãnh đạo, đồng nghiệp sai sự thật",
+        "id": "6532",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Sử dụng tài sản công ty (Email, ĐT,…) làm phiền KH trên danh nghĩa công ty ",
+        "id": "6542",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Sử dụng, phát tán tài liệu trái quy định công ty",
+        "id": "6552",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Tự ý truy cập, xem hồ sơ, tài liệu không thuộc trách nhiệm của mình",
+        "id": "6562",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Uống rựu, bia trong giờ làm việc",
+        "id": "6572",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "CS",
+        "description": "Xúi dục, uy hiếp người khác lãn công, bãi công",
+        "id": "6582",
+        "main": "Vi phạm trật tự, an toàn nơi làm việc",
+        "type": "Vi phạm nội quy công ty"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Bán thiết bị của công ty cho KH",
+        "id": "6592",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Bán thiết bị ngoài cho KH trên danh nghĩa công ty",
+        "id": "6602",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Cho người ngoài mượn tài khoản của mình để truy cập vào mạng nội bộ của công ty",
+        "id": "6612",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Chuyển ĐC, sở hữu chạy T-",
+        "id": "6622",
+        "main": "Thực hiện giao dịch không đúng người sử dụng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Dùng acc nghiệp vụ, acc KH để sử dụng cho mục đích cá nhân",
+        "id": "6632",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giả KH lên quầy GD khiếu nại, yêu cầu giảm cước",
+        "id": "6642",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giả mạo chữ ký khách hàng",
+        "id": "6652",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giả mạo, làm sai lệch hồ sơ KH để lên HĐ (CMND, giấy tờ liên quan,…)",
+        "id": "6662",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Giải quyết không thỏa đáng đối với khiếu nại lần 2 của Khách hàng trong vòng 48h",
+        "id": "6672",
+        "main": "KH không hài lòng về CLPV",
+        "type": "Chất lượng phục vụ"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Hủy cũ ký mới",
+        "id": "6682",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Không nhập cọc lên hệ thống, chạy chỉ tiêu rời mạng",
+        "id": "6692",
+        "main": "Thực hiện sai quy trình, quy định",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Lên HĐ ảo chạy năng suất lao động",
+        "id": "6702",
+        "main": "Thực hiện giao dịch không đúng người sử dụng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thu thiết bị KH không nộp về công ty",
+        "id": "6712",
+        "main": "Gian lận vật tư",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thu tiền KH sai quy định, chính sách bán hàng",
+        "id": "6722",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thu tiền trả trước của KH không nộp về công ty",
+        "id": "6732",
+        "main": "Vi phạm quy trình tư vấn, bán hàng",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Thực hiện thay đổi nội dung, xóa dữ liệu trên mạng máy tính nội bộ khi chưa được phép",
+        "id": "6742",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Tiết lộ thông tin, tài liệu được coi là bí mật kinh doanh của công ty ",
+        "id": "6752",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Truy cập vào mạng máy tính nội bộ để lấy hoặc lưu trữ thông tin mà không được phép",
+        "id": "6762",
+        "main": "Vi phạm lỗi bảo mật thông tin",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Vòi vĩnh tiền bồi dưỡng của KH",
+        "id": "6772",
+        "main": "Nhận tiền bồi dưỡng của KH",
+        "type": "Hành vi không liêm chính"
+    },
+    {
+        "createdate": "2017-04-12",
+        "department": "IBB",
+        "description": "Bán vào KH cũ mới hủy dịch vụ chưa quá 3 tháng",
+        "id": "6782",
+        "main": "Vi phạm quy định lên HĐ",
+        "type": "Quy trình, quy định"
+    }
+]

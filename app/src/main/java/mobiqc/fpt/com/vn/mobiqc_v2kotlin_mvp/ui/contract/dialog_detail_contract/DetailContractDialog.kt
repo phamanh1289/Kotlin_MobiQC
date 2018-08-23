@@ -18,7 +18,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class ContractDetailDialog : DialogFragment() {
+class DetailContractDialog : DialogFragment() {
 
     private lateinit var contractModel: ContractDetailModel
     private var contractNumber = ""

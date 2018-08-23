@@ -62,6 +62,15 @@ object Constants {
     const val PARAMS_LOCATION_PHONE = "LocationPhone"
     const val PARAMS_FIRST_STATUS = "FirstStatus"
     const val PARAMS_PRE_CL = "preCL"
+    const val PARAMS_AREA = "Area"
+    const val PARAMS_BRANCH = "Branch"
+    const val PARAMS_ELEMENT = "Element"
+    const val PARAMS_PARTNER = "Partner"
+    const val PARAMS_NOTE = "Note"
+    const val PARAMS_IMAGE_CODE = "ImageCode"
+    const val PARAMS_MAIL_TO = "MailTo"
+    const val PARAMS_STATUS = "Status"
+    const val PARAMS_ERROR = "Error"
     const val PARAMS_NO_VALUE_INT = 0
 
     //End : Params call api
@@ -93,6 +102,8 @@ object Constants {
     const val TYPE_ADSL = 1
     const val TYPE_FTTH = 2
     const val TYPE_PON = 3
+    const val YET_STATUS_ERROR = 0
+    const val DONE_STATUS_ERROR = 1
     const val DONT_BOOK_DATE = -1
     const val SUCCESSFUL = "Successful"
     const val TYPE_SEND_MAIL = "message/rfc822"
@@ -117,6 +128,7 @@ object Constants {
     const val ARG_IS_REPORT = "isReport"
     const val ARG_TYPE_MENU = "TypeMenu"
     const val ARG_TITLE = "Title"
+    const val ARG_IMAGE_CODE = "imageCode"
     const val ARG_OBJID = "objId"
     const val ARG_SUPID = "supId"
     const val ARG_MOBI_ACC = "MobiAcc"

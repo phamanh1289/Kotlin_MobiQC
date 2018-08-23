@@ -47,9 +47,8 @@ class SplashScreenPresenter @Inject constructor(val apiService: ApiService) : Ba
                 .subscribe({ item ->
                     var maxDate: ErrorDataModel? = null
                     if (item.data.size != 0) {
-                        val count = ErrorRealmManager().getCountError()
                         item.data.map { it ->
-                            if (ErrorRealmManager().findIdError(it.id) && count != 0)
+                            if (ErrorRealmManager().findIdError(it.id))
                                 ErrorRealmManager().updateError(it)
                             else ErrorRealmManager().insertError(it)
                         }

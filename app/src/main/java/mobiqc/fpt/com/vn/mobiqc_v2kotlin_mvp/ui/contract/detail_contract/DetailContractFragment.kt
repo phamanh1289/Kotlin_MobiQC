@@ -75,8 +75,10 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             typeContract = it.getInt(Constants.ARG_TYPE_CONTRACT)
             typeCheckList = it.getInt(Constants.ARG_TYPE_CHECKLIST)
             objId = it.getInt(Constants.ARG_OBJID)
-            listParams = Gson().fromJson(getSharePreferences().listParams, object : TypeToken<HashMap<String, Any>>() {}.type)
-            listParams[Constants.PARAMS_OBJID] = objId.toString()
+            if (getSharePreferences().listParams.isNotBlank()) {
+                listParams = Gson().fromJson(getSharePreferences().listParams, object : TypeToken<HashMap<String, Any>>() {}.type)
+                listParams[Constants.PARAMS_OBJID] = objId.toString()
+            }
             handleRequestData()
         }
         setTitle(TitleAndMenuModel(title = contractNumber, status = supid.isBlank(), image = R.drawable.ic_warning))

@@ -85,6 +85,10 @@ interface ApiService {
     fun postCreatePreChecklist(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
 
+    @POST("InsertErrorInfrastructure")
+    fun postInsertErrorInfrastructure(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
+
     @GET
     @Streaming
     fun getFileNewVersion(@Url fileUrl: String): Call<ResponseBody>

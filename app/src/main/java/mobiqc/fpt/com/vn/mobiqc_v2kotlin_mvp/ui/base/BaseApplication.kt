@@ -19,6 +19,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 class BaseApplication : Application() {
     companion object {
         lateinit var instance: BaseApplication private set
+        val dbName = "mobi_qc.realm"
     }
 
     lateinit var baseApp: ApplicationComponent
@@ -28,7 +29,7 @@ class BaseApplication : Application() {
         instance = this
         setupInjector()
         Realm.init(this)
-        Realm.setDefaultConfiguration(RealmConfiguration.Builder().build())
+        Realm.setDefaultConfiguration(RealmConfiguration.Builder().name(dbName).build())
         CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
                 .setDefaultFontPath(getString(R.string.Helvetica))
                 .setFontAttrId(R.attr.fontPath)

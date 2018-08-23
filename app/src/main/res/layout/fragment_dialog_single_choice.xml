@@ -24,7 +24,7 @@
         android:layout_marginBottom="@dimen/_8dp"
         android:text="@string/title_dialog"
         android:gravity="center_vertical|center_horizontal"
-        android:textColor="@color/black_text"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/_18dp"/>
 
     <View

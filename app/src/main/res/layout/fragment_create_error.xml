@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/_16dp"
+    android:scrollbars="none"
+    tools:ignore="MissingPrefix,ContentDescription,UseCompoundDrawables"
+    tools:targetApi="lollipop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/search_location"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"
+                    tools:ignore="ContentDescription"/>
+
+                <TextView
+                    android:id="@+id/fragCreateError_tvZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_border_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_27dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/search_branch"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"
+                    tools:ignore="ContentDescription"/>
+
+                <TextView
+                    android:id="@+id/fragCreateError_tvBranch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_border_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_27dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/type_error"/>
+
+            <LinearLayout
+                android:id="@+id/fragCreateError_llStation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/fragCreateError_imgStation"
+                    android:layout_width="@dimen/_20dp"
+                    android:layout_height="@dimen/_20dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/selector_time_zone"/>
+
+                <TextView
+                    android:id="@+id/fragCreateError_tvStation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_8dp"
+                    android:paddingStart="@dimen/_8dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:text="@string/error_station"
+                    android:textColor="@drawable/selector_blue_text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fragCreateError_llPeripheral"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/fragCreateError_imgPeripheral"
+                    android:layout_width="@dimen/_20dp"
+                    android:layout_height="@dimen/_20dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/selector_time_zone"/>
+
+                <TextView
+                    android:id="@+id/fragCreateError_tvPeripheral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_8dp"
+                    android:paddingStart="@dimen/_8dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:text="@string/error_peripheral"
+                    android:textColor="@drawable/selector_blue_text"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/sub_error"/>
+
+
+            <EditText
+                android:id="@+id/fragCreateError_tvSubError"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.65"
+                android:background="@drawable/shape_border_grey_text_view"
+                android:gravity="center_vertical"
+                android:hint="@string/enter_number"
+                android:inputType="numberDecimal"
+                android:paddingBottom="@dimen/_4dp"
+                android:paddingEnd="@dimen/_27dp"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingTop="@dimen/_4dp"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_14dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/error_detail_description"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"
+                    tools:ignore="ContentDescription"/>
+
+                <TextView
+                    android:id="@+id/fragCreateError_tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_border_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_27dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/supporter_error"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65">
+
+                <ImageView
+                    android:layout_width="@dimen/_23dp"
+                    android:layout_height="@dimen/_23dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/_3dp"
+                    android:layout_marginStart="@dimen/_3dp"
+                    android:src="@drawable/ic_drop_down"
+                    tools:ignore="ContentDescription"/>
+
+                <TextView
+                    android:id="@+id/fragCreateError_tvPartner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_border_grey_text_view"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:paddingEnd="@dimen/_27dp"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingTop="@dimen/_4dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14dp"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/error_detail_note"/>
+
+            <EditText
+                android:id="@+id/fragCreateError_tvNote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.65"
+                android:background="@drawable/shape_border_grey_text_view"
+                android:gravity="center_vertical"
+                android:hint="@string/enter_note"
+                android:paddingBottom="@dimen/_4dp"
+                android:paddingEnd="@dimen/_10dp"
+                android:paddingStart="@dimen/_10dp"
+                android:paddingTop="@dimen/_4dp"
+                android:text="@string/mess_demo"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_14dp"
+                tools:ignore="TextFields"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragCreateError_llDoneError"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/fragCreateError_imgDoneError"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/selector_time_zone"/>
+
+            <TextView
+                android:id="@+id/fragCreateError_tvDoneError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_4dp"
+                android:paddingEnd="@dimen/_8dp"
+                android:paddingStart="@dimen/_8dp"
+                android:paddingTop="@dimen/_4dp"
+                android:text="@string/done_error"
+                android:textColor="@drawable/selector_blue_text"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fragCreateError_tvSubmit"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_30dp"
+            android:background="@drawable/selector_submit_login"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingEnd="@dimen/_50dp"
+            android:paddingStart="@dimen/_50dp"
+            android:paddingTop="@dimen/_10dp"
+            android:text="@string/create_error"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_19dp"/>
+    </LinearLayout>
+</ScrollView>

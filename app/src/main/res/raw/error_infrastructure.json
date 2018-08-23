@@ -1,0 +1,308 @@
+[
+    {
+        "createdate": "2018-03-21",
+        "description": "Không có lỗi",
+        "id": "1",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không thực hiện đo kiểm accu định kỳ",
+        "id": "2",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Accu dung lượng thấp/ dung lượng accu trong tổ không đồng đều",
+        "id": "3",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cáp nguồn không gắn vòng số / không bấm đầu cos",
+        "id": "4",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cáp nguồn không lưu vào nẹp nhựa hoặc ống ruột gà hay máng cáp",
+        "id": "5",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Dây nhảy quang, cáp trong đài không gọn",
+        "id": "6",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Để vật tư, đồ đạc trong pop",
+        "id": "7",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Thiếu đèn chiếu sáng/hư hỏng chưa thay thế",
+        "id": "8",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Thiết bị sáng đèn alarm cảnh báo lỗi chưa được xử lý",
+        "id": "9",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Coupler thiếu nắp đậy chắn bụi",
+        "id": "10",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Thiếu sơ đồ đấu nối, bố trí thiết bị, đấu điện",
+        "id": "11",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Accu thiếu nắp chụp cọc bình/thiếu nhãn đo kiểm accu",
+        "id": "12",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Thiết bị cắt lọc sét không có /hư  hỏng chưa thay thế",
+        "id": "13",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Module nguồn không lắp đặt đầy đủ/hư hỏng chưa thay thế",
+        "id": "14",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không có lỗi",
+        "id": "15",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Lỗ vào cáp không kín",
+        "id": "16",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Thiếu quạt hút/ hư hỏng chưa thay thế",
+        "id": "17",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không thực hiện bảo trì pop định kỳ/ bảo trì pop không sạch sẽ, nhiều bụi",
+        "id": "18",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Tường, vách, nền bị nứt, trần laphong hư hỏng, mưa dột, nền ngập nước",
+        "id": "19",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cầu dao đảo mất nắp/Hộp cầu dao đảo bị hư hỏng, rỉ sét",
+        "id": "20",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Phiến KH24 không có / hư hỏng chưa thay thế",
+        "id": "21",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không có ổ khóa",
+        "id": "22",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cáp nhập đài không bó gọn, trùng võng hoặc không cắt bỏ dây gia cường",
+        "id": "23",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Chưa dán nhãn/ dán nhãn không đúng quy định",
+        "id": "24",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Dây điện/ dây tiếp đất không đúng tiết diện, không đúng chủng loại",
+        "id": "25",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không có dây Ter/ cọc tiếp đất",
+        "id": "26",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Máy lạnh hư hỏng, chảy nước, không lạnh",
+        "id": "27",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Vật tư , thiết bị lắp đặt không đúng quy cách/lắp đặt không chắc chắn",
+        "id": "28",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không lắp rơ-le giám sát nhiên liệu chạy máy phát điện",
+        "id": "29",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không có bình chữa cháy",
+        "id": "30",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Máy phát điện không được kiểm tra bảo trì định kỳ",
+        "id": "31",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không thực hiện đo điện trở đất định kỳ",
+        "id": "32",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cầu dao đảo không lắp phích cắm máy phát điện",
+        "id": "33",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Lỗi khác",
+        "id": "34",
+        "type": "Đài trạm"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "TĐ Thiếu/bung đai inox",
+        "id": "35",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "MX không cố định/rơi xuống đất",
+        "id": "36",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "TĐ/TC mất nhãn, mờ nhãn",
+        "id": "37",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "TĐ Tuột/vỡ/thiếu ống luồng cáp",
+        "id": "38",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "TĐ/TC treo lơ lững không lắp vào trụ",
+        "id": "39",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "TĐ/TC xuống cấp hư hỏng móp méo, mất nắp, hư khóa, hư bản lề",
+        "id": "40",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Thiếu vật tư phụ treo cáp (gông, tam kẹp …)",
+        "id": "41",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cáp võng thấp, không đi vô gông",
+        "id": "42",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Tập điểm treo thấp",
+        "id": "43",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Bu cáp thuê bao, cáp hạ tầng không bó gọn",
+        "id": "44",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Thiếu vít nắp đậy bộ chia",
+        "id": "45",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cáp thuê bao thi công sai kỹ thuật",
+        "id": "46",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Cáp thuê bao không dán sticker/thẻ nhôm",
+        "id": "47",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "TĐ hư/không cố định phiến đấu nối ( cáp đồng)",
+        "id": "48",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-03-21",
+        "description": "Không thu hồi đầu FC",
+        "id": "49",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-06-11",
+        "description": "Coupler thiếu nắp đậy/chưa bắt vít",
+        "id": "50",
+        "type": "Ngoại vi"
+    },
+    {
+        "createdate": "2018-06-11",
+        "description": "Lỗi khác",
+        "id": "51",
+        "type": "Ngoại vi"
+    }
+]

@@ -107,6 +107,7 @@
     <string name="phone_number_sms">SMS</string>
     <string name="deployment_check_list">Phiếu Triển Khai</string>
     <string name="maintenance_check_list">Phiếu Bảo Trì</string>
+    <string name="upload_image">Upload hình ảnh</string>
     <string name="check_list_id">ID</string>
     <string name="check_list_create">Thời gian tạo</string>
     <string name="check_list_type">Loại</string>
@@ -127,6 +128,13 @@
     <string name="error_detail_description">Mô tả lỗi</string>
     <string name="error_detail_note">Ghi chú</string>
     <string name="error_detail_submit">Cập nhật</string>
+    <string name="create_error">Tạo lỗi</string>
+    <string name="type_error">Lỗi</string>
+    <string name="sub_error">Phần tử lỗi</string>
+    <string name="supporter_error">Đơn vị xử lý</string>
+    <string name="error_station">Đài trạm</string>
+    <string name="done_error">Đã xử lý khắc phục</string>
+    <string name="error_peripheral">Ngoại vi</string>
     <string name="type_KS_hot">Nóng</string>
     <string name="type_KS_cold">Nguội</string>
     <string name="type_KS_subject">Chuyên đề</string>
@@ -187,10 +195,15 @@
     <string name="info_ip_lan">IP Lan</string>
     <string name="info_ip_wan">IP Wan</string>
     <string name="info_contact">Liên hệ</string>
+    <string name="menu_infrastructure_update_error">Tạo lỗi hạ tầng</string>
+    <string name="menu_infrastructure_list_error">Danh sách lỗi hạ tầng</string>
     <string name="email_haint">haint4@fpt.com.vn</string>
     <string name="no_action_mail">Không tìm thấy ứng dụng email.</string>
     <string name="mess_no_connection">Không có kết nối.</string>
     <string name="url_check_ip">http://checkip.amazonaws.com/</string>
+    <string name="create_error_mess">Bạn có muốn tạo lỗi này?</string>
+    <string name="max_pick_image">Chỉ chọn tối đa 6 ảnh</string>
+    <string name="create_error_success">Khởi tạo lỗi thành công!\n\nBạn có muốn upload hình ảnh cho lỗi này?"</string>
 
     <!--===========Data Check List=============-->
     <string name="first_status_1">Không có tín hiệu</string>

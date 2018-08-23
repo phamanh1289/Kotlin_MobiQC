@@ -119,12 +119,10 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     override fun loadCheckImei(response: ResponseModel) {
         if (response.Code == Constants.REQUEST_SUCCESS)
             presenter.let { it ->
+                if (ErrorRealmManager().getCountError() == 0)
+                    getSharePreferences().maxDateError = ErrorRealmManager().getMaxDate(resources)
                 val map = HashMap<String, Any>()
                 map[Constants.PARAMS_DATE_LOW] = getSharePreferences().maxDateError
-                if (ErrorRealmManager().getCountError() == 0) {
-                    hideLoading()
-                    AppUtils.showDialogDownLoadData(supportFragmentManager, mDialogDownload)
-                }
                 it.getNewErrorData(map)
             }
         else {
@@ -134,8 +132,6 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     override fun loadNewErrorData(response: ResponseErrorDataModel, data: String?) {
-        if (mDialogDownload.isAdded)
-            mDialogDownload.dismiss()
         hideLoading()
         if (response.code == Constants.REQUEST_SUCCESS) {
             AppUtils.deleteFileExist()

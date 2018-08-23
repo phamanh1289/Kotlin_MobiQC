@@ -88,8 +88,10 @@ class SearchFragment : BaseFragment() {
     }
 
     private fun getDataNameDesc(position: Int) {
-        listName = LocationRealmManager().getDistinctNameDesc(listParent[position].account)
-        listName[Constants.FIRST_ITEM].let { fragSearch_tvBranch.text = it.account }
+        listParent[position].let { itemList ->
+            listName = LocationRealmManager().getDistinctNameDesc(itemList.account)
+            listName[Constants.FIRST_ITEM].let { itemSub -> fragSearch_tvBranch.text = itemSub.account }
+        }
     }
 
     fun setDefaultValueIndex(view: Int, index: Int) {

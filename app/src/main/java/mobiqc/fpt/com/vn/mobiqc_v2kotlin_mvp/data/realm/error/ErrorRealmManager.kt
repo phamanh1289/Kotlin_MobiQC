@@ -1,8 +1,10 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.error
 
+import android.content.res.Resources
 import io.realm.ErrorRealmModelRealmProxy
 import io.realm.Realm
 import io.realm.RealmResults
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ErrorDataModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
@@ -19,20 +21,28 @@ open class ErrorRealmManager {
         const val ERROR_COL_DEPARTMENT = "department"
         const val ERROR_COL_TYPE = "type"
         const val ERROR_COL_MAIN = "main"
-//        val ERROR_INF_TABLE = "error_infrastructure"
-//        val ERROR_INF_COL_ID = "id"
-//        val ERROR_INF_COL_TYPE = "type"
-//        val ERROR_INF_COL_DESC = "description"
-//        val ERROR_INF_COL_CREATEDATE = "createdate"
-//        val PARTNER_TABLE = "partner"
-//        val PARTNER_COL_ZONE = "zone"
-//        val PARTNER_COL_BRANCH = "branch"
-//        val PARTNER_COL_PARTNER = "partner"
-//        val PARTNER_COL_EMAIL = "email"
-//        val PARTNER_COL_CREATEDATE = "createdate"
     }
 
     private var realm: Realm? = null
+
+    fun getMaxDate(resources: Resources): String {
+        var maxData = ""
+        try {
+            realm = Realm.getDefaultInstance()
+            realm?.executeTransaction { realms ->
+                val inputStream = resources.openRawResource(R.raw.errors)
+                realms.createAllFromJson(ErrorRealmModel::class.java, inputStream)
+                val list = realms.where(ErrorRealmModel::class.java).findAll()
+                val model = list.maxBy { it.createdate }
+                model?.let {
+                    maxData = it.createdate
+                }
+            }
+        } finally {
+            realm?.close()
+        }
+        return maxData
+    }
 
     fun getCountError(): Int {
         var count: Int? = null
@@ -52,7 +62,7 @@ open class ErrorRealmManager {
             realm = Realm.getDefaultInstance()
             realm?.executeTransaction {
                 val item = it.createObject(ErrorRealmModel::class.java, mode.id)
-                item?.date = mode.date
+                item?.createdate = mode.date
                 item?.department = mode.department
                 item?.description = mode.description
                 item?.type = mode.type
@@ -68,13 +78,15 @@ open class ErrorRealmManager {
         try {
             realm = Realm.getDefaultInstance()
             realm?.executeTransaction {
-                val item = it.where(ErrorRealmModel::class.java)?.equalTo("id", mode.id)?.findFirst()
-                item?.date = mode.date
+                val item = it.where(ErrorRealmModel::class.java)?.equalTo(ERROR_COL_ID, mode.id)?.findFirst()
+                item?.createdate = mode.date
                 item?.department = mode.department
                 item?.description = mode.description
                 item?.type = mode.type
                 item?.main = mode.main
-                it.copyToRealmOrUpdate(item)
+                item?.let { model ->
+                    it.copyToRealmOrUpdate(model)
+                }
             }
         } finally {
             realm?.close()
@@ -86,7 +98,7 @@ open class ErrorRealmManager {
             realm = Realm.getDefaultInstance()
             var item: ErrorRealmModel? = null
             realm?.executeTransaction {
-                item = it.where(ErrorRealmModel::class.java)?.equalTo(ERROR_COL_ID, id)?.findFirst()
+                item = it.where(ErrorRealmModel::class.java)?.equalTo("id", id)?.findFirst()
             }
             return item != null
         } finally {

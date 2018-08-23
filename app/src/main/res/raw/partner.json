@@ -1,0 +1,946 @@
+[
+    {
+        "branch": "HCM",
+        "createdate": "2018-03-20",
+        "email": "ftel.ftq.pqc-sgn@fpt.com.vn",
+        "id": "1",
+        "partner": "PNC",
+        "zone": "5"
+    },
+    {
+        "branch": "HCM",
+        "createdate": "2018-03-20",
+        "email": "ftel.ftq.pqc-sgn@fpt.com.vn",
+        "id": "2",
+        "partner": "BTHT",
+        "zone": "5"
+    },
+    {
+        "branch": "HNI",
+        "createdate": "2018-03-20",
+        "email": "ftel.ftq.pqc-hni@fpt.com.vn",
+        "id": "3",
+        "partner": "TIN",
+        "zone": "1"
+    },
+    {
+        "branch": "HNI",
+        "createdate": "2018-03-20",
+        "email": "ftel.ftq.pqc-hni@fpt.com.vn",
+        "id": "4",
+        "partner": "BTHT",
+        "zone": "1"
+    },
+    {
+        "branch": "AGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.agg.tech@fpt.com.vn",
+        "id": "5",
+        "partner": "INF-AGG",
+        "zone": "7"
+    },
+    {
+        "branch": "AGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.agg.tech@fpt.com.vn",
+        "id": "6",
+        "partner": "PNC-AGG",
+        "zone": "7"
+    },
+    {
+        "branch": "BLU",
+        "createdate": "2018-03-20",
+        "email": "ftel.blu.tech@fpt.com.vn",
+        "id": "7",
+        "partner": "INF-BLU",
+        "zone": "7"
+    },
+    {
+        "branch": "BLU",
+        "createdate": "2018-03-20",
+        "email": "ftel.blu.tech@fpt.com.vn",
+        "id": "8",
+        "partner": "PNC-BLU",
+        "zone": "7"
+    },
+    {
+        "branch": "BTE",
+        "createdate": "2018-03-20",
+        "email": "ftel.bte.tech@fpt.com.vn",
+        "id": "9",
+        "partner": "INF-BTE",
+        "zone": "7"
+    },
+    {
+        "branch": "BTE",
+        "createdate": "2018-03-20",
+        "email": "ftel.bte.tech@fpt.com.vn",
+        "id": "10",
+        "partner": "PNC-BTE",
+        "zone": "7"
+    },
+    {
+        "branch": "CMU",
+        "createdate": "2018-03-20",
+        "email": "ftel.cmu.tech@fpt.com.vn",
+        "id": "11",
+        "partner": "INF-CMU",
+        "zone": "7"
+    },
+    {
+        "branch": "CMU",
+        "createdate": "2018-03-20",
+        "email": "ftel.cmu.tech@fpt.com.vn",
+        "id": "12",
+        "partner": "PNC-CMU",
+        "zone": "7"
+    },
+    {
+        "branch": "CTO",
+        "createdate": "2018-03-20",
+        "email": "ftel.cto.tech@fpt.com.vn",
+        "id": "13",
+        "partner": "INF-CTO",
+        "zone": "7"
+    },
+    {
+        "branch": "CTO",
+        "createdate": "2018-03-20",
+        "email": "ftel.cto.tech@fpt.com.vn",
+        "id": "14",
+        "partner": "PNC-CTO",
+        "zone": "7"
+    },
+    {
+        "branch": "DTP",
+        "createdate": "2018-03-20",
+        "email": "ftel.dtp.tech@fpt.com.vn",
+        "id": "15",
+        "partner": "INF-DTP",
+        "zone": "7"
+    },
+    {
+        "branch": "DTP",
+        "createdate": "2018-03-20",
+        "email": "ftel.dtp.tech@fpt.com.vn",
+        "id": "16",
+        "partner": "PNC-DTP",
+        "zone": "7"
+    },
+    {
+        "branch": "HGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.hgg.tech@fpt.com.vn",
+        "id": "17",
+        "partner": "INF-HGG",
+        "zone": "7"
+    },
+    {
+        "branch": "HGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.hgg.tech@fpt.com.vn",
+        "id": "18",
+        "partner": "PNC-HGG",
+        "zone": "7"
+    },
+    {
+        "branch": "KGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.kgg.tech@fpt.com.vn",
+        "id": "19",
+        "partner": "INF-KGG",
+        "zone": "7"
+    },
+    {
+        "branch": "KGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.kgg.tech@fpt.com.vn",
+        "id": "20",
+        "partner": "PNC-KGG",
+        "zone": "7"
+    },
+    {
+        "branch": "LAN",
+        "createdate": "2018-03-20",
+        "email": "ftel.lan.tech@fpt.com.vn",
+        "id": "21",
+        "partner": "INF-LAN",
+        "zone": "7"
+    },
+    {
+        "branch": "LAN",
+        "createdate": "2018-03-20",
+        "email": "ftel.lan.tech@fpt.com.vn",
+        "id": "22",
+        "partner": "PNC-LAN",
+        "zone": "7"
+    },
+    {
+        "branch": "STG",
+        "createdate": "2018-03-20",
+        "email": "ftel.stg.tech@fpt.com.vn",
+        "id": "23",
+        "partner": "INF-STG",
+        "zone": "7"
+    },
+    {
+        "branch": "STG",
+        "createdate": "2018-03-20",
+        "email": "ftel.stg.tech@fpt.com.vn",
+        "id": "24",
+        "partner": "PNC-STG",
+        "zone": "7"
+    },
+    {
+        "branch": "TGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.tgg.tech@fpt.com.vn",
+        "id": "25",
+        "partner": "INF-TGG",
+        "zone": "7"
+    },
+    {
+        "branch": "TGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.tgg.tech@fpt.com.vn",
+        "id": "26",
+        "partner": "PNC-TGG",
+        "zone": "7"
+    },
+    {
+        "branch": "TVH",
+        "createdate": "2018-03-20",
+        "email": "ftel.tvh.tech@fpt.com.vn",
+        "id": "27",
+        "partner": "INF-TVH",
+        "zone": "7"
+    },
+    {
+        "branch": "TVH",
+        "createdate": "2018-03-20",
+        "email": "ftel.tvh.tech@fpt.com.vn",
+        "id": "28",
+        "partner": "PNC-TVH",
+        "zone": "7"
+    },
+    {
+        "branch": "VLG",
+        "createdate": "2018-03-20",
+        "email": "ftel.vlg.tech@fpt.com.vn",
+        "id": "29",
+        "partner": "INF-VLG",
+        "zone": "7"
+    },
+    {
+        "branch": "VLG",
+        "createdate": "2018-03-20",
+        "email": "ftel.vlg.tech@fpt.com.vn",
+        "id": "30",
+        "partner": "PNC-VLG",
+        "zone": "7"
+    },
+    {
+        "branch": "BDG",
+        "createdate": "2018-03-20",
+        "email": "ftel.bdg.tech@fpt.com.vn",
+        "id": "31",
+        "partner": "INF-BDG",
+        "zone": "6"
+    },
+    {
+        "branch": "BDG",
+        "createdate": "2018-03-20",
+        "email": "ftel.bdg.tech@fpt.com.vn",
+        "id": "32",
+        "partner": "PNC-BDG",
+        "zone": "6"
+    },
+    {
+        "branch": "BPC",
+        "createdate": "2018-03-20",
+        "email": "ftel.bpc.tech@fpt.com.vn",
+        "id": "33",
+        "partner": "INF-BPC",
+        "zone": "6"
+    },
+    {
+        "branch": "BPC",
+        "createdate": "2018-03-20",
+        "email": "ftel.bpc.tech@fpt.com.vn",
+        "id": "34",
+        "partner": "PNC-BPC",
+        "zone": "6"
+    },
+    {
+        "branch": "BTN",
+        "createdate": "2018-03-20",
+        "email": "ftel.btn.tech@fpt.com.vn",
+        "id": "35",
+        "partner": "INF-BTN",
+        "zone": "6"
+    },
+    {
+        "branch": "BTN",
+        "createdate": "2018-03-20",
+        "email": "ftel.btn.tech@fpt.com.vn",
+        "id": "36",
+        "partner": "PNC-BTN",
+        "zone": "6"
+    },
+    {
+        "branch": "DNI",
+        "createdate": "2018-03-20",
+        "email": "ftel.dni.tech@fpt.com.vn",
+        "id": "37",
+        "partner": "INF-DNI",
+        "zone": "6"
+    },
+    {
+        "branch": "DNI",
+        "createdate": "2018-03-20",
+        "email": "ftel.dni.tech@fpt.com.vn",
+        "id": "38",
+        "partner": "PNC-DNI",
+        "zone": "6"
+    },
+    {
+        "branch": "LDG",
+        "createdate": "2018-03-20",
+        "email": "ftel.ldg.tech@fpt.com.vn",
+        "id": "39",
+        "partner": "INF-LDG",
+        "zone": "6"
+    },
+    {
+        "branch": "LDG",
+        "createdate": "2018-03-20",
+        "email": "ftel.ldg.tech@fpt.com.vn",
+        "id": "40",
+        "partner": "PNC-LDG",
+        "zone": "6"
+    },
+    {
+        "branch": "NTN",
+        "createdate": "2018-03-20",
+        "email": "ftel.ntn.tech@fpt.com.vn",
+        "id": "41",
+        "partner": "INF-NTN",
+        "zone": "6"
+    },
+    {
+        "branch": "NTN",
+        "createdate": "2018-03-20",
+        "email": "ftel.ntn.tech@fpt.com.vn",
+        "id": "42",
+        "partner": "PNC-NTN",
+        "zone": "6"
+    },
+    {
+        "branch": "TNH",
+        "createdate": "2018-03-20",
+        "email": "ftel.tnh.tech@fpt.com.vn",
+        "id": "43",
+        "partner": "INF-TNH",
+        "zone": "6"
+    },
+    {
+        "branch": "TNH",
+        "createdate": "2018-03-20",
+        "email": "ftel.tnh.tech@fpt.com.vn",
+        "id": "44",
+        "partner": "PNC-TNH",
+        "zone": "6"
+    },
+    {
+        "branch": "BRU",
+        "createdate": "2018-03-20",
+        "email": "ftel.vtu.tech@fpt.com.vn",
+        "id": "45",
+        "partner": "INF-BRU",
+        "zone": "6"
+    },
+    {
+        "branch": "BRU",
+        "createdate": "2018-03-20",
+        "email": "ftel.vtu.tech@fpt.com.vn",
+        "id": "46",
+        "partner": "PNC-BRU",
+        "zone": "6"
+    },
+    {
+        "branch": "BDH",
+        "createdate": "2018-03-20",
+        "email": "ftel.bdh.tech@fpt.com.vn",
+        "id": "47",
+        "partner": "INF-BDH",
+        "zone": "4"
+    },
+    {
+        "branch": "BDH",
+        "createdate": "2018-03-20",
+        "email": "ftel.bdh.tech@fpt.com.vn",
+        "id": "48",
+        "partner": "PNC-BDH",
+        "zone": "4"
+    },
+    {
+        "branch": "DNG",
+        "createdate": "2018-03-20",
+        "email": "ftel.dng.tech@fpt.com.vn",
+        "id": "49",
+        "partner": "INF-DNG",
+        "zone": "4"
+    },
+    {
+        "branch": "DNG",
+        "createdate": "2018-03-20",
+        "email": "ftel.dng.tech@fpt.com.vn",
+        "id": "50",
+        "partner": "TIN-DNG",
+        "zone": "4"
+    },
+    {
+        "branch": "DLK",
+        "createdate": "2018-03-20",
+        "email": "ftel.dlk.tech@fpt.com.vn",
+        "id": "51",
+        "partner": "INF-DLK",
+        "zone": "4"
+    },
+    {
+        "branch": "DLK",
+        "createdate": "2018-03-20",
+        "email": "ftel.dlk.tech@fpt.com.vn",
+        "id": "52",
+        "partner": "PNC-DLK",
+        "zone": "4"
+    },
+    {
+        "branch": "GLI",
+        "createdate": "2018-03-20",
+        "email": "ftel.gli.tech@fpt.com.vn",
+        "id": "53",
+        "partner": "INF-GLI",
+        "zone": "4"
+    },
+    {
+        "branch": "GLI",
+        "createdate": "2018-03-20",
+        "email": "ftel.gli.tech@fpt.com.vn",
+        "id": "54",
+        "partner": "PNC-GLI",
+        "zone": "4"
+    },
+    {
+        "branch": "HUE",
+        "createdate": "2018-03-20",
+        "email": "ftel.hue.tech@fpt.com.vn",
+        "id": "55",
+        "partner": "INF-HUE",
+        "zone": "4"
+    },
+    {
+        "branch": "HUE",
+        "createdate": "2018-03-20",
+        "email": "ftel.hue.tech@fpt.com.vn",
+        "id": "56",
+        "partner": "TIN-HUE",
+        "zone": "4"
+    },
+    {
+        "branch": "KTM",
+        "createdate": "2018-03-20",
+        "email": "ftel.ktm.tech@fpt.com.vn",
+        "id": "57",
+        "partner": "INF-KTM",
+        "zone": "4"
+    },
+    {
+        "branch": "KTM",
+        "createdate": "2018-03-20",
+        "email": "ftel.ktm.tech@fpt.com.vn",
+        "id": "58",
+        "partner": "PNC-KTM",
+        "zone": "4"
+    },
+    {
+        "branch": "NTG",
+        "createdate": "2018-03-20",
+        "email": "ftel.kha.tech@fpt.com.vn",
+        "id": "59",
+        "partner": "INF-NTG",
+        "zone": "4"
+    },
+    {
+        "branch": "NTG",
+        "createdate": "2018-03-20",
+        "email": "ftel.kha.tech@fpt.com.vn",
+        "id": "60",
+        "partner": "PNC-NTG",
+        "zone": "4"
+    },
+    {
+        "branch": "PYN",
+        "createdate": "2018-03-20",
+        "email": "ftel.pyn.tech@fpt.com.vn",
+        "id": "61",
+        "partner": "INF-PYN",
+        "zone": "4"
+    },
+    {
+        "branch": "PYN",
+        "createdate": "2018-03-20",
+        "email": "ftel.pyn.tech@fpt.com.vn",
+        "id": "62",
+        "partner": "PNC-PYN",
+        "zone": "4"
+    },
+    {
+        "branch": "QBH",
+        "createdate": "2018-03-20",
+        "email": "ftel.qbh.tech@fpt.com.vn",
+        "id": "63",
+        "partner": "INF-QBH",
+        "zone": "4"
+    },
+    {
+        "branch": "QBH",
+        "createdate": "2018-03-20",
+        "email": "ftel.qbh.tech@fpt.com.vn",
+        "id": "64",
+        "partner": "TIN-QBH",
+        "zone": "4"
+    },
+    {
+        "branch": "QNM",
+        "createdate": "2018-03-20",
+        "email": "ftel.qnm.tech@fpt.com.vn",
+        "id": "65",
+        "partner": "INF-QNM",
+        "zone": "4"
+    },
+    {
+        "branch": "QNM",
+        "createdate": "2018-03-20",
+        "email": "ftel.qnm.tech@fpt.com.vn",
+        "id": "66",
+        "partner": "PNC-QNM",
+        "zone": "4"
+    },
+    {
+        "branch": "QNI",
+        "createdate": "2018-03-20",
+        "email": "ftel.qni.tech@fpt.com.vn",
+        "id": "67",
+        "partner": "INF-QNI",
+        "zone": "4"
+    },
+    {
+        "branch": "QNI",
+        "createdate": "2018-03-20",
+        "email": "ftel.qni.tech@fpt.com.vn",
+        "id": "68",
+        "partner": "PNC-QNI",
+        "zone": "4"
+    },
+    {
+        "branch": "QTI",
+        "createdate": "2018-03-20",
+        "email": "ftel.qti.tech@fpt.com.vn",
+        "id": "69",
+        "partner": "INF-QTI",
+        "zone": "4"
+    },
+    {
+        "branch": "QTI",
+        "createdate": "2018-03-20",
+        "email": "ftel.qti.tech@fpt.com.vn",
+        "id": "70",
+        "partner": "TIN-QTI",
+        "zone": "4"
+    },
+    {
+        "branch": "BGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.bgg.tech@fpt.com.vn",
+        "id": "71",
+        "partner": "INF-BGG",
+        "zone": "2"
+    },
+    {
+        "branch": "BGG",
+        "createdate": "2018-03-20",
+        "email": "ftel.bgg.tech@fpt.com.vn",
+        "id": "72",
+        "partner": "TIN-BGG",
+        "zone": "2"
+    },
+    {
+        "branch": "BNH",
+        "createdate": "2018-03-20",
+        "email": "ftel.bnh.tech@fpt.com.vn",
+        "id": "73",
+        "partner": "INF-BNH",
+        "zone": "2"
+    },
+    {
+        "branch": "BNH",
+        "createdate": "2018-03-20",
+        "email": "ftel.bnh.tech@fpt.com.vn",
+        "id": "74",
+        "partner": "TIN-BNH",
+        "zone": "2"
+    },
+    {
+        "branch": "CBG",
+        "createdate": "2018-03-20",
+        "email": "ftel.cbg.tech@fpt.com.vn",
+        "id": "75",
+        "partner": "INF-CBG",
+        "zone": "2"
+    },
+    {
+        "branch": "CBG",
+        "createdate": "2018-03-20",
+        "email": "ftel.cbg.tech@fpt.com.vn",
+        "id": "76",
+        "partner": "TIN-CBG",
+        "zone": "2"
+    },
+    {
+        "branch": "DBN",
+        "createdate": "2018-03-20",
+        "email": "ftel.dbn.tech@fpt.com.vn",
+        "id": "77",
+        "partner": "INF-DBN",
+        "zone": "2"
+    },
+    {
+        "branch": "DBN",
+        "createdate": "2018-03-20",
+        "email": "ftel.dbn.tech@fpt.com.vn",
+        "id": "78",
+        "partner": "TIN-DBN",
+        "zone": "2"
+    },
+    {
+        "branch": "HBN",
+        "createdate": "2018-03-20",
+        "email": "ftel.hbh.tech@fpt.com.vn",
+        "id": "79",
+        "partner": "INF-HBN",
+        "zone": "2"
+    },
+    {
+        "branch": "HBN",
+        "createdate": "2018-03-20",
+        "email": "ftel.hbh.tech@fpt.com.vn",
+        "id": "80",
+        "partner": "TIN-HBN",
+        "zone": "2"
+    },
+    {
+        "branch": "LSN",
+        "createdate": "2018-03-20",
+        "email": "ftel.lsn.tech@fpt.com.vn",
+        "id": "81",
+        "partner": "INF-LSN",
+        "zone": "2"
+    },
+    {
+        "branch": "LSN",
+        "createdate": "2018-03-20",
+        "email": "ftel.lsn.tech@fpt.com.vn",
+        "id": "82",
+        "partner": "TIN-LSN",
+        "zone": "2"
+    },
+    {
+        "branch": "LCI",
+        "createdate": "2018-03-20",
+        "email": "ftel.lci.tech@fpt.com.vn",
+        "id": "83",
+        "partner": "INF-LCI",
+        "zone": "2"
+    },
+    {
+        "branch": "LCI",
+        "createdate": "2018-03-20",
+        "email": "ftel.lci.tech@fpt.com.vn",
+        "id": "84",
+        "partner": "TIN-LCI",
+        "zone": "2"
+    },
+    {
+        "branch": "PTO",
+        "createdate": "2018-03-20",
+        "email": "ftel.pto.tech@fpt.com.vn",
+        "id": "85",
+        "partner": "INF-PTO",
+        "zone": "2"
+    },
+    {
+        "branch": "PTO",
+        "createdate": "2018-03-20",
+        "email": "ftel.pto.tech@fpt.com.vn",
+        "id": "86",
+        "partner": "TIN-PTO",
+        "zone": "2"
+    },
+    {
+        "branch": "QNH",
+        "createdate": "2018-03-20",
+        "email": "ftel.qnh.tech@fpt.com.vn",
+        "id": "87",
+        "partner": "INF-QNH",
+        "zone": "2"
+    },
+    {
+        "branch": "QNH",
+        "createdate": "2018-03-20",
+        "email": "ftel.qnh.tech@fpt.com.vn",
+        "id": "88",
+        "partner": "TIN-QNH",
+        "zone": "2"
+    },
+    {
+        "branch": "SLA",
+        "createdate": "2018-03-20",
+        "email": "ftel.sla.tech@fpt.com.vn",
+        "id": "89",
+        "partner": "INF-SLA",
+        "zone": "2"
+    },
+    {
+        "branch": "SLA",
+        "createdate": "2018-03-20",
+        "email": "ftel.sla.tech@fpt.com.vn",
+        "id": "90",
+        "partner": "TIN-SLA",
+        "zone": "2"
+    },
+    {
+        "branch": "TNN",
+        "createdate": "2018-03-20",
+        "email": "ftel.tnn.tech@fpt.com.vn",
+        "id": "91",
+        "partner": "INF-TNN",
+        "zone": "2"
+    },
+    {
+        "branch": "TNN",
+        "createdate": "2018-03-20",
+        "email": "ftel.tnn.tech@fpt.com.vn",
+        "id": "92",
+        "partner": "TIN-TNN",
+        "zone": "2"
+    },
+    {
+        "branch": "TQG",
+        "createdate": "2018-03-20",
+        "email": "ftel.tqg.tech@fpt.com.vn",
+        "id": "93",
+        "partner": "INF-TQG",
+        "zone": "2"
+    },
+    {
+        "branch": "TQG",
+        "createdate": "2018-03-20",
+        "email": "ftel.tqg.tech@fpt.com.vn",
+        "id": "94",
+        "partner": "TIN-TQG",
+        "zone": "2"
+    },
+    {
+        "branch": "VPC",
+        "createdate": "2018-03-20",
+        "email": "ftel.vpc.tech@fpt.com.vn",
+        "id": "95",
+        "partner": "INF-VPC",
+        "zone": "2"
+    },
+    {
+        "branch": "VPC",
+        "createdate": "2018-03-20",
+        "email": "ftel.vpc.tech@fpt.com.vn",
+        "id": "96",
+        "partner": "TIN-VPC",
+        "zone": "2"
+    },
+    {
+        "branch": "YBI",
+        "createdate": "2018-03-20",
+        "email": "ftel.ybi.tech@fpt.com.vn",
+        "id": "97",
+        "partner": "INF-YBI",
+        "zone": "2"
+    },
+    {
+        "branch": "YBI",
+        "createdate": "2018-03-20",
+        "email": "ftel.ybi.tech@fpt.com.vn",
+        "id": "98",
+        "partner": "TIN-YBI",
+        "zone": "2"
+    },
+    {
+        "branch": "HNM",
+        "createdate": "2018-03-20",
+        "email": "ftel.hnm.tech@fpt.com.vn",
+        "id": "99",
+        "partner": "INF-HNM",
+        "zone": "3"
+    },
+    {
+        "branch": "HNM",
+        "createdate": "2018-03-20",
+        "email": "ftel.hnm.tech@fpt.com.vn",
+        "id": "100",
+        "partner": "TIN-HNM",
+        "zone": "3"
+    },
+    {
+        "branch": "HTH",
+        "createdate": "2018-03-20",
+        "email": "ftel.hth.tech@fpt.com.vn",
+        "id": "101",
+        "partner": "INF-HTH",
+        "zone": "3"
+    },
+    {
+        "branch": "HTH",
+        "createdate": "2018-03-20",
+        "email": "ftel.hth.tech@fpt.com.vn",
+        "id": "102",
+        "partner": "TIN-HTH",
+        "zone": "3"
+    },
+    {
+        "branch": "HDG",
+        "createdate": "2018-03-20",
+        "email": "ftel.hdg.tech@fpt.com.vn",
+        "id": "103",
+        "partner": "INF-HDG",
+        "zone": "3"
+    },
+    {
+        "branch": "HDG",
+        "createdate": "2018-03-20",
+        "email": "ftel.hdg.tech@fpt.com.vn",
+        "id": "104",
+        "partner": "TIN-HDG",
+        "zone": "3"
+    },
+    {
+        "branch": "HPG",
+        "createdate": "2018-03-20",
+        "email": "ftel.hpg.tech@fpt.com.vn",
+        "id": "105",
+        "partner": "INF-HPG",
+        "zone": "3"
+    },
+    {
+        "branch": "HPG",
+        "createdate": "2018-03-20",
+        "email": "ftel.hpg.tech@fpt.com.vn",
+        "id": "106",
+        "partner": "TIN-HPG",
+        "zone": "3"
+    },
+    {
+        "branch": "HYN",
+        "createdate": "2018-03-20",
+        "email": "ftel.hyn.tech@fpt.com.vn",
+        "id": "107",
+        "partner": "INF-HYN",
+        "zone": "3"
+    },
+    {
+        "branch": "HYN",
+        "createdate": "2018-03-20",
+        "email": "ftel.hyn.tech@fpt.com.vn",
+        "id": "108",
+        "partner": "TIN-HYN",
+        "zone": "3"
+    },
+    {
+        "branch": "NDH",
+        "createdate": "2018-03-20",
+        "email": "ftel.ndh.tech@fpt.com.vn",
+        "id": "109",
+        "partner": "INF-NDH",
+        "zone": "3"
+    },
+    {
+        "branch": "NDH",
+        "createdate": "2018-03-20",
+        "email": "ftel.ndh.tech@fpt.com.vn",
+        "id": "110",
+        "partner": "TIN-NDH",
+        "zone": "3"
+    },
+    {
+        "branch": "NAN",
+        "createdate": "2018-03-20",
+        "email": "ftel.nan.tech@fpt.com.vn",
+        "id": "111",
+        "partner": "INF-NAN",
+        "zone": "3"
+    },
+    {
+        "branch": "NAN",
+        "createdate": "2018-03-20",
+        "email": "ftel.nan.tech@fpt.com.vn",
+        "id": "112",
+        "partner": "TIN-NAN",
+        "zone": "3"
+    },
+    {
+        "branch": "NBH",
+        "createdate": "2018-03-20",
+        "email": "ftel.nbh.tech@fpt.com.vn",
+        "id": "113",
+        "partner": "INF-NBH",
+        "zone": "3"
+    },
+    {
+        "branch": "NBH",
+        "createdate": "2018-03-20",
+        "email": "ftel.nbh.tech@fpt.com.vn",
+        "id": "114",
+        "partner": "TIN-NBH",
+        "zone": "3"
+    },
+    {
+        "branch": "TBH",
+        "createdate": "2018-03-20",
+        "email": "ftel.tbh.tech@fpt.com.vn",
+        "id": "115",
+        "partner": "INF-TBH",
+        "zone": "3"
+    },
+    {
+        "branch": "TBH",
+        "createdate": "2018-03-20",
+        "email": "ftel.tbh.tech@fpt.com.vn",
+        "id": "116",
+        "partner": "TIN-TBH",
+        "zone": "3"
+    },
+    {
+        "branch": "THA",
+        "createdate": "2018-03-20",
+        "email": "ftel.tha.tech@fpt.com.vn",
+        "id": "117",
+        "partner": "INF-THA",
+        "zone": "3"
+    },
+    {
+        "branch": "THA",
+        "createdate": "2018-03-20",
+        "email": "ftel.tha.tech@fpt.com.vn",
+        "id": "118",
+        "partner": "TIN-THA",
+        "zone": "3"
+    }
+]

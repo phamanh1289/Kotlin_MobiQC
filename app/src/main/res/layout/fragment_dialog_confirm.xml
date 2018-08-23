@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_8dp"
         android:text="@string/title_dialog"
-        android:textColor="@color/black_text"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/_18dp"
         fontPath="@string/Helvetica_Bold"
         tools:ignore="MissingPrefix"/>
