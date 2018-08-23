@@ -3,14 +3,13 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.component
 import dagger.Subcomponent
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.module.ActivityModule
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.scope.ActivityScope
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.CreateCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_pre_check_list.CreatePreCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.deployment_check_list.DeploymentCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.maintenance_check_list.MaintenanceCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.search.SearchCheckListFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract.DetailContractFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.DetailContractDialog
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.DetailContractDialogFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.info_contract.InfoContractFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list.ListErrorFragment
@@ -35,8 +34,7 @@ interface ActivityComponent {
     fun inject(deploymentCheckListFragment: DeploymentCheckListFragment)
     fun inject(maintenanceCheckListFragment: MaintenanceCheckListFragment)
     fun inject(updateErrorFragment: UpdateErrorFragment)
-    fun inject(allCheckListFragment: AllCheckListFragment)
-    fun inject(detailContractDialog: DetailContractDialog)
+    fun inject(detailContractDialogFragment: DetailContractDialogFragment)
     fun inject(searchCheckListFragment: SearchCheckListFragment)
     fun inject(createCheckListFragment: CreateCheckListFragment)
     fun inject(createPreCheckListFragment: CreatePreCheckListFragment)

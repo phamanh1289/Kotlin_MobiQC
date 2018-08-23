@@ -14,6 +14,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.blank.CreatePreCheckListContract
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.DetailContractDialogFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -67,6 +68,12 @@ class CreatePreCheckListFragment : BaseFragment(), CreatePreCheckListContract.Cr
         initClickAction()
     }
 
+    fun showDialogDetailContract() {
+        val dialogContract = DetailContractDialogFragment()
+        dialogContract.setData(contractModel, contractModel.Contract)
+        dialogContract.show(fragmentManager, DetailContractDialogFragment::class.java.simpleName)
+    }
+
     private fun handleDataArgument() {
         arguments?.let {
             val json = it.getString(Constants.ARG_CONTRACT_DETAIL) ?: ""
@@ -77,7 +84,6 @@ class CreatePreCheckListFragment : BaseFragment(), CreatePreCheckListContract.Cr
         fragPreCheckList_tvFirstStatus.text = listFirstStatus[Constants.FIRST_ITEM].account
         fragPreCheckList_tvContractNumber.text = contractModel.Contract
     }
-
 
     private fun initClickAction() {
         fragPreCheckList_tvSubmit.setOnClickListener {

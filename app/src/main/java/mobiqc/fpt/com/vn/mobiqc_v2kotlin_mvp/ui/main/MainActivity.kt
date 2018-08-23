@@ -79,12 +79,10 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
         val fragment = getCurrentFragment()
         when (fragment) {
             is DetailContractFragment -> fragment.onClickContractNumber()
-            is AllCheckListFragment -> fragment.requestDetailContract()
+            is AllCheckListFragment -> fragment.showDialogDetailContract()
             is UpdateErrorFragment -> fragment.showDetailContract()
-            is CreatePreCheckListFragment -> {
-            }
-            is CreateCheckListFragment -> {
-            }
+            is CreatePreCheckListFragment -> fragment.showDialogDetailContract()
+            is CreateCheckListFragment -> fragment.showDialogDetailContract()
         }
     }
 

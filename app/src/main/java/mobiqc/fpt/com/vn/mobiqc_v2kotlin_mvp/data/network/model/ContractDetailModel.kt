@@ -40,6 +40,7 @@ data class ContractDetailModel(
         val DeploymentID: String,
         val DescriptionCS: String,
         val GroupPoint: String,
+        val GroupPoints: String,
         val FinishDate: String,
         var Deposits: Double,
 

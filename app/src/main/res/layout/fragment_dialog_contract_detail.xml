@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/fragDialogDetailContract_llRoot"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@drawable/shape_circle_dialog_while_5dp"
+    android:visibility="gone"
     android:orientation="vertical"
     tools:ignore="MissingPrefix">
 

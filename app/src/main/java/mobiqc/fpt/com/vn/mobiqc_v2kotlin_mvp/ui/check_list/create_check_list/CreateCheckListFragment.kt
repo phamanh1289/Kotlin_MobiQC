@@ -18,6 +18,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.diff.CreateCheckListAdapter
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.dialog_detail_contract.DetailContractDialogFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -77,6 +78,12 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
     private fun initView() {
         handleDataArgument()
         initOnClick()
+    }
+
+    fun showDialogDetailContract() {
+        val dialogContract = DetailContractDialogFragment()
+        dialogContract.setData(contractModel, contractModel.Contract)
+        dialogContract.show(fragmentManager, DetailContractDialogFragment::class.java.simpleName)
     }
 
     private fun initViewTimeZone() {
