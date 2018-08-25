@@ -5,8 +5,6 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
@@ -28,8 +26,10 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.check_contract.CheckCon
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
-import java.io.ByteArrayOutputStream
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import java.io.File
+import java.io.IOException
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -279,6 +279,10 @@ object AppUtils {
         return ""
     }
 
+    fun compareDate(start: String, end: String): Boolean {
+        return formatter.parse(start).before(formatter.parse(end))
+    }
+
     fun changeFormatDistance(distance: Double): String {
         return when {
             distance == 0.0 -> "0 m"
@@ -312,18 +316,18 @@ object AppUtils {
         }
     }
 
-    fun convertBitmapToByte(bitmap: Bitmap): ByteArray {
-        val stream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
-        return stream.toByteArray()
-    }
-
-    fun getBitmapFromData(context: Context?, data: Intent): Bitmap? {
-        var photo: Bitmap? = null
-        val photoUri = data.data
-        photoUri?.let {
-            photo = BitmapFactory.decodeStream(context?.contentResolver?.openInputStream(it))
+    fun getExternalIp(): String {
+        var ipWan = ""
+        val client = OkHttpClient()
+        try {
+            val url = Constants.URL_CHECK_IP
+            val request = Request.Builder().url(url).build()
+            val response = client.newCall(request).execute()
+            val responseBody = response.body()
+            if (responseBody != null) ipWan = responseBody.string()
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
-        return photo
+        return ipWan
     }
 }

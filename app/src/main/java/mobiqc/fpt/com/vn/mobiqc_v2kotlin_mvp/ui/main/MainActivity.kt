@@ -9,6 +9,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ItemMenuModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseResultModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.location.LocationRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.adapter.ItemMenuAdapter
@@ -35,7 +37,6 @@ import javax.inject.Inject
  * * Copyright (c) 2018 by FPT Telecom      **
  */
 class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterface {
-
     private val KT_HOP_DONG = 1
 
     @Inject
@@ -73,6 +74,39 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
         actMain_ivNotification.setOnClickListener {
             handleActionNotify()
         }
+        getIpExternal()
+    }
+
+    private fun getIpExternal() {
+        showLoading()
+        presenter.getIpWan()
+    }
+
+    override fun loadIpWan(ip: String) {
+        if (ip.isNotBlank()) {
+            getSharePreferences().ipWan = ip
+            presenter.let {
+                val map = HashMap<String, Any>()
+                map[Constants.PARAMS_API_KEY] = getString(R.string.api_key_storage)
+                map[Constants.PARAMS_USER_NAME_LOW] = getSharePreferences().accountName
+                map[Constants.PARAMS_IP_CLIENT] = ip
+                it.getAssetToken(map)
+            }
+        } else hideLoading()
+    }
+
+    override fun loadAssetToken(data: ResponseModel) {
+        val result: ResponseResultModel? = data.ResponseResult
+        result?.let {
+            if (it.ErrorCode == Constants.REQUEST_TOKEN_SUCCESS)
+                getSharePreferences().userToken = it.Token
+        }
+        hideLoading()
+    }
+
+    override fun handleError(error: String) {
+        hideLoading()
+        AppUtils.showDialog(supportFragmentManager, confirmDialogInterface = null, content = error)
     }
 
     private fun handleActionNotify() {

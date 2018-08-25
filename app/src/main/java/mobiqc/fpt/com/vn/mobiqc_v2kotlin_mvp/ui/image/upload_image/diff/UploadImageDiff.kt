@@ -1,4 +1,4 @@
-package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.diff
+package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.diff
 
 import android.support.v7.util.DiffUtil
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.UploadImageModel

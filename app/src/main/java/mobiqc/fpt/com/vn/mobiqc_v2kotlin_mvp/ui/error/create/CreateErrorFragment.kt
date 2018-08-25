@@ -14,7 +14,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.infrastructure.Infrastru
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.partner.PartnerRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.UploadImageFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.UploadImageFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject

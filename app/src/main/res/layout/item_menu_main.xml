@@ -5,9 +5,12 @@
     android:id="@+id/itemMenuMain"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_8dp"
     android:background="@android:color/transparent"
     android:textColor="@color/white"
-    android:textSize="@dimen/_17dp"
-    tools:text="Kiem tra hop dong">
+    android:textSize="@dimen/_16dp"
+    android:layout_marginTop="@dimen/_10dp"
+    android:paddingStart="@dimen/_8dp"
+    android:paddingEnd="@dimen/_8dp"
+    fontPath="@string/Helvetica_Bold"
+    tools:ignore="MissingPrefix">
 </TextView>

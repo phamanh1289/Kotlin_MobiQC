@@ -7,9 +7,7 @@ import dagger.Provides
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.connect.ApiConfig
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.connect.ApiConfigType
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.scope.AppScope
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.ApiMobiNetService
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.ApiService
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.ApiWsMobiNetService
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ErrorServerModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseApplication
@@ -33,7 +31,7 @@ import java.util.concurrent.TimeUnit
 @Module
 @AppScope
 class NetworkModule(private val mType: ApiConfigType) {
-    private val DISK_CACHE_SIZE = (50 * 1024 * 1024).toLong()
+    private val CACHE_SIZE_BUFFER = (50 * 1024 * 1024).toLong()
     private val httpClient = OkHttpClient.Builder()
             .connectTimeout(1, TimeUnit.MINUTES)
             .readTimeout(4, TimeUnit.MINUTES)
@@ -49,7 +47,7 @@ class NetworkModule(private val mType: ApiConfigType) {
                 .readTimeout(1, TimeUnit.MINUTES)
                 .connectTimeout(1, TimeUnit.MINUTES)
                 .writeTimeout(1, TimeUnit.MINUTES)
-                .cache(okhttp3.Cache(cacheDir, DISK_CACHE_SIZE))
+                .cache(okhttp3.Cache(cacheDir, CACHE_SIZE_BUFFER))
                 .build()
     }
 
@@ -120,5 +118,31 @@ class NetworkModule(private val mType: ApiConfigType) {
                         .create()))
                 .build()
         return retrofit.create(ApiWsMobiNetService::class.java)
+    }
+
+    @Provides
+    fun provideApiIstorageService(): ApiIstorageService {
+        val retrofit = Retrofit.Builder()
+                .baseUrl(ApiConfig.createConnectionDetail(mType).urlStorage)
+                .client(httpClient.build())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
+                        .setLenient()
+                        .create()))
+                .build()
+        return retrofit.create(ApiIstorageService::class.java)
+    }
+
+    @Provides
+    fun provideApiUploadImageService(): ApiUploadImageService {
+        val retrofit = Retrofit.Builder()
+                .baseUrl(ApiConfig.createConnectionDetail(mType).urlUploadImage)
+                .client(httpClient.build())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
+                        .setLenient()
+                        .create()))
+                .build()
+        return retrofit.create(ApiUploadImageService::class.java)
     }
 }

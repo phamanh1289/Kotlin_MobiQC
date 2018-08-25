@@ -1,4 +1,4 @@
-package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.diff
+package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.diff
 
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.widget.RecyclerView
@@ -6,11 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.item_image_choice.view.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.UploadImageModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 
 /**
  * * Created by Anh Pham on 08/08/2018.     **
@@ -29,8 +27,10 @@ class UploadImageAdapter(val onClick: (Int) -> Unit) : ListAdapter<UploadImageMo
     inner class UploadImageHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindData(model: UploadImageModel?, onClick: (Int) -> Unit) {
             model?.let { item ->
-                val arrByte = AppUtils.convertBitmapToByte(item.bitmap)
-                Glide.with(itemView.context).load(arrByte).apply(RequestOptions().override(350, 550).centerCrop()).into(itemView.itemImageChoice_imgPicture)
+                Glide.with(itemView.context)
+                        .load(item.filePath)
+                        .override(350, 550).centerCrop()
+                        .into(itemView.itemImageChoice_imgPicture)
                 itemView.itemImageChoice_imgDelete.setOnClickListener {
                     onClick(adapterPosition)
                 }

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_8dp"
+    android:background="@drawable/shape_border_grey_text_view"
+    android:orientation="horizontal"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        android:id="@+id/check_list_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginStart="@dimen/_8dp"
+        android:text="@string/check_list_id"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvID"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvID"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/supporter_error"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/search_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/search_location"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvZone"
+        app:layout_constraintStart_toStartOf="@+id/check_list_id"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvZone"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvZone"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvID"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvID"/>
+
+    <TextView
+        android:id="@+id/search_branch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/search_branch"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvBranch"
+        app:layout_constraintStart_toStartOf="@+id/search_location"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvBranch"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvBranch"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvID"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvZone"/>
+
+    <TextView
+        android:id="@+id/check_list_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/check_list_type"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvType"
+        app:layout_constraintStart_toStartOf="@+id/search_branch"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvType"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvType"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvID"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvBranch"/>
+
+    <TextView
+        android:id="@+id/sub_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/sub_error"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvElement"
+        app:layout_constraintStart_toStartOf="@+id/check_list_type"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvElement"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvElement"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvType"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvType"/>
+
+    <TextView
+        android:id="@+id/error_detail_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/error_detail_description"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvDescription"
+        app:layout_constraintStart_toStartOf="@+id/sub_error"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvDescription"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvDescription"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvElement"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvElement"/>
+
+    <TextView
+        android:id="@+id/supporter_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/supporter_error"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvPartner"
+        app:layout_constraintStart_toStartOf="@+id/error_detail_description"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvPartner"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvPartner"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvDescription"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvDescription"/>
+
+    <TextView
+        android:id="@+id/contract_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/contract_note"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvNote"
+        app:layout_constraintStart_toStartOf="@+id/supporter_error"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvNote"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvNote"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvPartner"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvPartner"/>
+
+    <TextView
+        android:id="@+id/send_email_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/send_email_error"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvMail"
+        app:layout_constraintStart_toStartOf="@+id/contract_note"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvMail"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvMail"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvNote"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvNote"/>
+
+    <TextView
+        android:id="@+id/check_list_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/check_list_status"
+        app:layout_constraintBottom_toBottomOf="@+id/itemListError_tvStatus"
+        app:layout_constraintStart_toStartOf="@+id/send_email_error"
+        app:layout_constraintTop_toTopOf="@+id/itemListError_tvStatus"/>
+
+    <TextView
+        android:id="@+id/itemListError_tvStatus"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:padding="@dimen/_4dp"
+        android:textColor="@color/steel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itemListError_tvMail"
+        app:layout_constraintTop_toBottomOf="@+id/itemListError_tvMail"/>
+
+</android.support.constraint.ConstraintLayout>

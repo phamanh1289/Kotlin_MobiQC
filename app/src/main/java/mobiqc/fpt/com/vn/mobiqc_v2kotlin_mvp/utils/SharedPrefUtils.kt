@@ -18,6 +18,8 @@ class SharedPrefUtils constructor(app: Context?) {
         private const val MOBI_ACCOUNT = "mobiAccount"
         private const val CREATE_DATE = "createDate"
         private const val LIST_PARAMS = "list_params"
+        private const val USER_TOKEN = "assetToken"
+        private const val IP_WAN = "ipWan"
     }
 
     var imeiDevice: String
@@ -38,6 +40,12 @@ class SharedPrefUtils constructor(app: Context?) {
     var listParams: String
         get() = sharedPreferences?.getString(LIST_PARAMS, "")!!
         set(value) = sharedPreferences?.put { putString(LIST_PARAMS, value) }!!
+    var ipWan: String
+        get() = sharedPreferences?.getString(IP_WAN, "")!!
+        set(value) = sharedPreferences?.put { putString(IP_WAN, value) }!!
+    var userToken: String
+        get() = "Bearer ${sharedPreferences?.getString(USER_TOKEN, "")!!}"
+        set(value) = sharedPreferences?.put { putString(USER_TOKEN, value) }!!
 
     private inline fun SharedPreferences.put(body: SharedPreferences.Editor.() -> Unit) {
         val editor = this.edit()
@@ -49,7 +57,7 @@ class SharedPrefUtils constructor(app: Context?) {
         app?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
     }
 
-    fun checkReLogin() : Boolean{
+    fun checkReLogin(): Boolean {
         return if (accountName.isBlank())
             false
         else createDate == AppUtils.getCurrentDate(Constants.CURRENT_DATE)

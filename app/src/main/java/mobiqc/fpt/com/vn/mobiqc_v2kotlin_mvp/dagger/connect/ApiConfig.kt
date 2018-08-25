@@ -10,23 +10,19 @@ object ApiConfig {
         var url = ""
         var urlMobiNet = ""
         var urlWsMobiNet = ""
-        var apiKey = ""
+        var urlUploadImage = ""
+        var urlGetToken = ""
         when (type) {
             ApiConfigType.DEVELOP -> {
                 url = "http://wsmobiqc.fpt.vn/MobiQC.svc/"
                 urlMobiNet = "http://mobinet.fpt.vn/MobiNet.svc/"
                 urlWsMobiNet = "http://wsmobinet.fpt.vn/MobiNet.svc/"
+                urlUploadImage = "http://dev.androidcoban.com/blog/"
+                urlGetToken = "http://istorage.fpt.net/api/"
             }
-            ApiConfigType.STAGING -> url = "url staging"
-            ApiConfigType.PRELIVE -> {
-                url = "url"
-                apiKey = "key"
-            }
-            ApiConfigType.LIVE -> {
-                url = "url"
-                apiKey = "key"
+            else -> {
             }
         }
-        return ApiConfigDetail(baseURL = url, apiKey = apiKey, urlMobiNet = urlMobiNet, urlWsMobiNet = urlWsMobiNet)
+        return ApiConfigDetail(baseURL = url, urlMobiNet = urlMobiNet, urlWsMobiNet = urlWsMobiNet, urlUploadImage = urlUploadImage, urlStorage = urlGetToken)
     }
 }

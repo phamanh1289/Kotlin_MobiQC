@@ -112,7 +112,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
             AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_mess), actionCancel = true, confirmDialogInterface = null)
         }
         fragCreateCheckList_tvStatus.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.create_check_list_status), listFirstStatus, fragCreateCheckList_tvStatus, positionFirstStatus) }
-        fragCreateCheckList_tvDate.setOnClickListener { AppUtils.showPickTime(context, fragCreateCheckList_tvDate, false) }
+        fragCreateCheckList_tvDate.setOnClickListener { AppUtils.showPickTime(context, fragCreateCheckList_tvDate, Constants.SET_MIN_DATE) }
         fragCreateCheckList_imgClear.setOnClickListener {
             fragCreateCheckList_tvDate.setText("")
             if (fragCreateCheckList_cbGuestDate.isChecked)

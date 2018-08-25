@@ -29,6 +29,8 @@ class ItemMenuAdapter(var mData: ArrayList<ItemMenuModel>?, val onClick: (Int) -
     inner class ItemMenuHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: ItemMenuModel, onListener: (Int) -> Unit) {
             itemView.itemMenuMain.text = item.name
+            if (item.id.isBlank() || item.name == itemView.context.getString(R.string.menu_dang_xuat))
+                itemView.itemMenuMain.setTextColor(itemView.context.resources.getColor(R.color.colorPrimary))
             itemView.setOnClickListener { onListener(adapterPosition) }
         }
     }

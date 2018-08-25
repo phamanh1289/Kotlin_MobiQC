@@ -84,9 +84,11 @@ interface ApiService {
     @POST("CreatePreChecklist")
     fun postCreatePreChecklist(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
-
     @POST("InsertErrorInfrastructure")
     fun postInsertErrorInfrastructure(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
+    @POST("GetErrorInfrastructure")
+    fun getErrorInfrastructure(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
 
     @GET

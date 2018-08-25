@@ -71,6 +71,8 @@ object Constants {
     const val PARAMS_MAIL_TO = "MailTo"
     const val PARAMS_STATUS = "Status"
     const val PARAMS_ERROR = "Error"
+    const val PARAMS_API_KEY = "api_key"
+    const val PARAMS_IP_CLIENT = "ip_client"
     const val PARAMS_NO_VALUE_INT = 0
 
     //End : Params call api
@@ -80,6 +82,7 @@ object Constants {
     const val ARG_MENU_PCL = 3
     const val ARG_MENU_CL = 4
     const val FIRST_ITEM = 0
+    const val REQUEST_TOKEN_SUCCESS = 0
     const val NO_DISTANCE_RULE = 0.0
     const val DISTANCE_RULE = 30.0
     const val SECOND_ITEM = 1
@@ -119,7 +122,7 @@ object Constants {
     const val BAO_CAO_SO_LIEU = "bao_cao_so_lieu"
     const val THONG_TIN = "thong_tin"
     const val DANG_XUAT = "dang_xuat"
-    const val TIME_DATE_FORMAT = "dd/MM/yyyy"
+    const val TIME_DATE_FORMAT = "dd-MM-yyyy"
     const val ARG_TYPE_CONTRACT = "TypeContract"
     const val ARG_MENU_TYPE = "menuType"
     const val ARG_SEARCH_TYPE = "searchType"
@@ -144,5 +147,9 @@ object Constants {
     const val FILE_NAME_DOWNLOAD = "MobiQc_Release.apk"
     const val PATH_FILE_DOWNLOAD = "application/vnd.android.package-archive"
     const val DOWNLOAD_SUCCESS = true
+    const val SET_MAX_DATE = true
+    const val SET_MIN_DATE = false
     const val ERROR_FIRST_ITEM = "Không có"
+    const val URL_CHECK_IP = "http://checkip.amazonaws.com/"
+
 }

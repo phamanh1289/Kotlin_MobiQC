@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MobiQC</string>
     <string name="version_app_name">MobiQC v%1$s</string>
+    <string name="api_key_storage">7d2ea261075fb6f251a66af89b6b4bb597de89b0</string>
     <string name="Helvetica">fonts/Helvetica.ttf</string>
     <string name="Helvetica_Bold">fonts/Helvetica-Bold.ttf</string>
     <string name="Helvetica_light">fonts/Helvetica-light.ttf</string>
@@ -108,10 +109,16 @@
     <string name="deployment_check_list">Phiếu Triển Khai</string>
     <string name="maintenance_check_list">Phiếu Bảo Trì</string>
     <string name="upload_image">Upload hình ảnh</string>
+    <string name="mess_upload_image">Chưa có chọn hình ảnh để upload!</string>
+    <string name="mess_title_image">Hình ảnh</string>
     <string name="check_list_id">ID</string>
     <string name="check_list_create">Thời gian tạo</string>
     <string name="check_list_type">Loại</string>
     <string name="check_list_status">Tình trạng</string>
+    <string name="mes_mail_no_send">Chưa gửi</string>
+    <string name="mes_mail_send">Đã gửi</string>
+    <string name="status_done">Đã xử lý</string>
+    <string name="status_no_done">Chưa xử lý</string>
     <string name="check_list_last">Cập nhật cuối</string>
     <string name="check_list_user">Người cập nhật</string>
     <string name="check_list_menu_detail">Xem chi tiết</string>
@@ -199,10 +206,9 @@
     <string name="menu_infrastructure_list_error">Danh sách lỗi hạ tầng</string>
     <string name="email_haint">haint4@fpt.com.vn</string>
     <string name="no_action_mail">Không tìm thấy ứng dụng email.</string>
-    <string name="mess_no_connection">Không có kết nối.</string>
-    <string name="url_check_ip">http://checkip.amazonaws.com/</string>
     <string name="create_error_mess">Bạn có muốn tạo lỗi này?</string>
     <string name="max_pick_image">Chỉ chọn tối đa 6 ảnh</string>
+    <string name="send_email_error">Gửi email</string>
     <string name="create_error_success">Khởi tạo lỗi thành công!\n\nBạn có muốn upload hình ảnh cho lỗi này?"</string>
 
     <!--===========Data Check List=============-->
