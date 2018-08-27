@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,60 +9,128 @@
     android:layout_marginEnd="@dimen/_20dp"
     android:layout_marginStart="@dimen/_20dp"
     android:background="@drawable/shape_circle_dialog_while"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
 
     <TextView
         fontPath="@string/Helvetica_Bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="@dimen/_8dp"
-        android:paddingEnd="@dimen/_8dp"
-        android:paddingStart="@dimen/_8dp"
+        android:padding="@dimen/_10dp"
         android:text="@string/check_list_menu_title"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_17dp"
         tools:ignore="MissingPrefix"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1dp"
-        android:layout_marginTop="@dimen/_8dp"
         android:background="@color/silver"/>
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_45dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_8dp"
+        app:cardCornerRadius="@dimen/_15dp"
+        app:cardElevation="@dimen/_15dp">
 
         <TextView
             android:id="@+id/fragDialogMenuCheckList_tvDetail"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_50dp"
-            android:layout_marginEnd="@dimen/_8dp"
-            android:layout_marginStart="@dimen/_8dp"
-            android:layout_weight="1"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingTop="@dimen/_10dp"
             android:text="@string/check_list_menu_detail"
-            android:textColor="@color/bright_red"
-            android:textSize="@dimen/_17dp"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_15dp"/>
 
-        <View
-            android:layout_width="@dimen/_1dp"
-            android:layout_height="match_parent"
-            android:background="@color/silver"/>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_8dp"
+        app:cardCornerRadius="@dimen/_15dp"
+        app:cardElevation="@dimen/_15dp">
 
         <TextView
             android:id="@+id/fragDialogMenuCheckList_tvError"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_50dp"
-            android:layout_marginEnd="@dimen/_8dp"
-            android:layout_marginStart="@dimen/_8dp"
-            android:layout_weight="1"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingTop="@dimen/_10dp"
             android:text="@string/check_list_menu_error"
-            android:textColor="@color/bright_blue"
-            android:textSize="@dimen/_17dp"/>
-    </LinearLayout>
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_15dp"/>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/fragDialogMenuCheckList_cvErrorDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/_15dp"
+        app:cardElevation="@dimen/_15dp">
+
+        <TextView
+            android:id="@+id/fragDialogMenuCheckList_tvErrorDetail"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingTop="@dimen/_10dp"
+            android:text="@string/error_update_detail"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_15dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/fragDialogMenuCheckList_cvStatusDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_40dp"
+        android:layout_marginStart="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/_15dp"
+        app:cardElevation="@dimen/_15dp">
+
+        <TextView
+            android:id="@+id/fragDialogMenuCheckList_tvStatusDone"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingTop="@dimen/_10dp"
+            android:text="@string/status_done"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_15dp"/>
+
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>

@@ -12,10 +12,15 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_list_error.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ErrorInfrastructureModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.MenuCheckListDialogInterface
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.realm.partner.PartnerRealmManager
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore.DataCore
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.SendEmailDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list.diff.ListErrorAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
@@ -26,15 +31,19 @@ import javax.inject.Inject
  * * Created by Anh Pham on 08/09/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView {
+class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuCheckListDialogInterface {
 
     @Inject
     lateinit var presenter: ListErrorPresenter
 
     private var listError = ArrayList<ErrorInfrastructureModel>()
-    private lateinit var adapterError: ListErrorAdapter
+    lateinit var adapterError: ListErrorAdapter
+    var positionListError = 0
+    private var mSendEmail = ""
+    private var mCcEmail = ""
 
     companion object {
+        const val DEFAULT_IS_HTML_BODY = 1
         fun newInstance(title: String): ListErrorFragment {
             val args = Bundle()
             args.putString(Constants.ARG_TITLE, title)
@@ -64,7 +73,10 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView {
     }
 
     private fun initViewError() {
-        adapterError = ListErrorAdapter { }
+        adapterError = ListErrorAdapter {
+            positionListError = it
+            AppUtils.showMenuCheckListDialog(fragmentManager, confirmDialogInterface = this, index = it, typeOption = true)
+        }
         adapterError.submitList(listError)
         fragListError_rvMain.apply {
             val layout = LinearLayoutManager(context)
@@ -109,6 +121,94 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView {
         else AppUtils.showDialog(fragmentManager, content = response.Description, confirmDialogInterface = null)
     }
 
+    private fun handleSendEmail() {
+        presenter.let {
+            val dialogSendMail = SendEmailDialog()
+            val modelError = listError[positionListError]
+            mCcEmail = getSharePreferences().accountName
+            mSendEmail = PartnerRealmManager().getEmail(modelError.Area, modelError.Branch, modelError.Partner) ?: ""
+            dialogSendMail.setDataDialog(mSendEmail, mCcEmail, object : ConfirmDialogInterface {
+                override fun onClickOk() {
+                    mSendEmail = dialogSendMail.getListSendMail()
+                    mCcEmail = dialogSendMail.getListCcMail()
+                    if (AppUtils.isValidEmail(fragmentManager, mSendEmail, context))
+                        if (AppUtils.isValidEmail(fragmentManager, mCcEmail, context)) {
+                            showLoading()
+                            dialogSendMail.dismiss()
+                            presenter.getAlbumCode(getSharePreferences().userToken, listError[positionListError].ImageCode)
+                        }
+                }
+
+                override fun onClickCancel() {
+                    dialogSendMail.dismiss()
+                }
+            })
+            dialogSendMail.show(fragmentManager, SendEmailDialog::
+            class.java.simpleName)
+        }
+    }
+
+    //Start : sự kiện onclick menu dialog
+    override fun onClickDetail(index: Int) {
+
+    }
+
+    override fun onClickError(index: Int) {
+        handleSendEmail()
+    }
+
+    override fun onClickUpdateDetail(index: Int) {
+        addFragment(CreateErrorFragment.newInstance(listError[index]), true, true)
+    }
+
+    override fun onClickUpdateStatus(index: Int) {
+        presenter.let {
+            showLoading()
+            val model = listError[positionListError]
+            model.Status = Constants.DONE_STATUS_ERROR
+            val map = HashMap<String, Any>()
+            map[Constants.PARAMS_ERROR] = model
+            it.postUpdateErrorInfrastructure(map)
+        }
+    }
+    //End : sự kiện onclick menu dialog
+
+    override fun loadUpdateErrorInfrastructure(response: ResponseModel) {
+        if (response.Code == Constants.REQUEST_SUCCESS) {
+            adapterError.notifyItemChanged(positionListError)
+            AppUtils.showDialog(fragmentManager, content = response.Description, confirmDialogInterface = null)
+            hideLoading()
+        }
+    }
+
+    private fun handleDataAlbumCode(data: ResponseResultModel) {
+        if (data.ErrorCode == Constants.REQUEST_TOKEN_SUCCESS) {
+            val listImage: ArrayList<ResultImageModel> = Gson().fromJson(Gson().toJson(data.Results), object : TypeToken<ArrayList<ResultImageModel>>() {}.type)
+            val result = StringBuilder()
+            listImage.forEach { result.append(AppUtils.toAddHtmlToImage(it.link)) }
+            presenter.let {
+                val model = listError[positionListError]
+                val map = HashMap<String, Any>()
+                map[Constants.PARAMS_TO] = mSendEmail
+                map[Constants.PARAMS_MAIL_CC] = mCcEmail
+                map[Constants.PARAMS_MAIL_SUBJECT] = getString(R.string.subject_email, model.ID.toString(), model.Type.toLowerCase(), model.Element)
+                map[Constants.PARAMS_MAIL_BODY] = DataCore.getBaseBodyMail(model, result.toString())
+                map[Constants.PARAMS_MAIL_HTML_BODY] = DEFAULT_IS_HTML_BODY
+                it.postSendMail(map)
+            }
+        } else {
+            hideLoading()
+            AppUtils.showDialog(fragmentManager, content = data.Message, confirmDialogInterface = null)
+        }
+    }
+
+    override fun loadSendMail(response: ResultEmailModel) {
+        AppUtils.showDialog(fragmentManager, content = response.ResultDESC, confirmDialogInterface = null)
+    }
+
+    override fun loadAlbumCode(response: ResponseModel) {
+        handleDataAlbumCode(response.ResponseResult)
+    }
 
     override fun handleError(error: String) {
         hideLoading()
@@ -120,11 +220,12 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView {
         presenter.onDetach()
     }
 
-
     private fun EditText.onChange(cb: (String) -> Unit) {
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (AppUtils.compareDate(fragListError_tvFromDate.text.toString(), fragListError_tvToDate.text.toString()))
+                val fromDate = fragListError_tvFromDate.text.toString()
+                val toDate = fragListError_tvToDate.text.toString()
+                if (AppUtils.compareDate(fromDate, toDate) || (fromDate == toDate))
                     requestDataError()
                 else AppUtils.showDialog(fragmentManager, content = getString(R.string.error_date), confirmDialogInterface = null)
             }

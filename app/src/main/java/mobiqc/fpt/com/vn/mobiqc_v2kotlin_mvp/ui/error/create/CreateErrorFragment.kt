@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_create_error.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ErrorInfrastructureModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
@@ -33,6 +34,7 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
     private var listZone = ArrayList<SingleChoiceModel>()
     private var listBranch = ArrayList<SingleChoiceModel>()
     private var listDescription = ArrayList<SingleChoiceModel>()
+    var errorModel: ErrorInfrastructureModel? = null
 
     private var imageCode = ""
     private var positionParent = 0
@@ -45,9 +47,9 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
     private var typeStatusError = false
 
     companion object {
-        fun newInstance(title: String): CreateErrorFragment {
+        fun newInstance(model: ErrorInfrastructureModel): CreateErrorFragment {
             val args = Bundle()
-            args.putString(Constants.ARG_TITLE, title)
+            args.putParcelable(Constants.ARG_ERROR_MODEL, model)
             val fragment = CreateErrorFragment()
             fragment.arguments = args
             return fragment
@@ -71,6 +73,64 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
         initOnClick()
         handleStatusTypeError()
         getAllDataList()
+        handleArgument()
+    }
+
+    private fun handleArgument() {
+        arguments?.let {
+            errorModel = it.getParcelable(Constants.ARG_ERROR_MODEL)
+            errorModel?.let { model ->
+                fragCreateError_tvId.text = model.ID.toString()
+                fragCreateError_llId.visibility = View.VISIBLE
+                fragCreateError_tvZone.text = model.Area
+                positionZone = compareValue(model.Area, listZone)
+                getDataBranch()
+                fragCreateError_tvBranch.text = model.Branch
+                positionBranch = compareValue(model.Branch, listBranch)
+                if (model.Type != getString(R.string.error_station))
+                    handleStatusTypeError()
+                fragCreateError_tvSubError.setText(model.Element)
+                getDescriptionInfraStruct(model.Type)
+                positionDescription = compareValue(model.Description, listDescription)
+                fragCreateError_tvDescription.text = model.Description
+                getDataPartner()
+                positionParent = compareValue(model.Partner, listParent)
+                fragCreateError_tvPartner.text = model.Partner
+                fragCreateError_tvNote.setText(model.Note)
+                if (model.Status == Constants.DONE_STATUS_ERROR)
+                    handleStatusDoneError()
+                if (model.ID != 0)
+                    fragCreateError_tvSubmit.text = getString(R.string.error_detail_submit)
+            }
+        }
+    }
+
+    private fun compareValue(data: String, list: ArrayList<SingleChoiceModel>): Int {
+        var index = 0
+        for (i in 0 until list.size) {
+            if (data == list[i].account) {
+                if (i != Constants.FIRST_ITEM) {
+                    list[0].status = false
+                    list[i].status = true
+                    index = i
+                }
+                break
+            }
+        }
+        return index
+    }
+
+    private fun setDataModelFromField() {
+        errorModel?.let {
+            it.Area = listZone[positionZone].account
+            it.Branch = listBranch[positionBranch].account
+            it.Type = getTypeInfraStruct(typeError)
+            it.Element = fragCreateError_tvSubError.text.toString()
+            it.Description = listDescription[positionDescription].account
+            it.Partner = listParent[positionParent].account
+            it.Note = fragCreateError_tvNote.text.toString()
+            it.Status = if (fragCreateError_imgDoneError.isSelected) Constants.DONE_STATUS_ERROR else Constants.YET_STATUS_ERROR
+        }
     }
 
     fun setDefaultValueIndex(view: Int, index: Int) {
@@ -90,6 +150,9 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
             R.id.fragCreateError_tvPartner -> {
                 positionParent = index
             }
+            R.id.fragCreateError_tvDescription -> {
+                positionDescription = index
+            }
         }
     }
 
@@ -101,25 +164,23 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
             handleStatusTypeError()
         }
         fragCreateError_llDoneError.setOnClickListener {
-            typeStatusError = !typeStatusError
-            fragCreateError_imgDoneError.isSelected = typeStatusError
-            fragCreateError_tvDoneError.isSelected = typeStatusError
+            handleStatusDoneError()
         }
         fragCreateError_tvZone.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_location), listZone, fragCreateError_tvZone, positionZone) }
         fragCreateError_tvBranch.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_branch), listBranch, fragCreateError_tvBranch, positionBranch) }
         fragCreateError_tvPartner.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.supporter_error), listParent, fragCreateError_tvPartner, positionParent) }
         fragCreateError_tvDescription.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_description), listDescription, fragCreateError_tvDescription, positionDescription) }
         fragCreateError_tvSubmit.setOnClickListener {
-            addFragment(UploadImageFragment(), true, true)
-//            AppUtils.showDialog(fragmentManager, content = getString(R.string.create_error_mess), confirmDialogInterface = object : ConfirmDialogInterface {
-//                override fun onClickOk() {
-//                    initParamUpDateError()
-//                }
-//
-//                override fun onClickCancel() {
-//
-//                }
-//            })
+            //            addFragment(UploadImageFragment(), true, true)
+            AppUtils.showDialog(fragmentManager, content = getString(if (errorModel == null) R.string.create_error_mess else R.string.update_error_mess), confirmDialogInterface = object : ConfirmDialogInterface {
+                override fun onClickOk() {
+                    initParamCreateAndUpDateError()
+                }
+
+                override fun onClickCancel() {
+
+                }
+            })
         }
     }
 
@@ -131,9 +192,16 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
         getDataPartner()
     }
 
+    private fun handleStatusDoneError() {
+        typeStatusError = !typeStatusError
+        fragCreateError_imgDoneError.isSelected = typeStatusError
+        fragCreateError_tvDoneError.isSelected = typeStatusError
+    }
+
     private fun getDescriptionInfraStruct(type: String) {
         listDescription = InfrastructureRealmManager().getDescription(type)
-        listDescription[positionDescription].let {
+        positionDescription = 0
+        listDescription[Constants.FIRST_ITEM].let {
             fragCreateError_tvDescription.text = it.account
         }
     }
@@ -174,10 +242,21 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
         getDescriptionInfraStruct(getTypeInfraStruct(typeError))
     }
 
-    private fun initParamUpDateError() {
+    private fun initParamCreateAndUpDateError() {
         presenter.let {
-            imageCode = AppUtils.generateImageCode(listBranch[positionBranch].account)
+            showLoading()
             val subMap = HashMap<String, Any>()
+            var mailTo = ""
+            imageCode = AppUtils.generateImageCode(listBranch[positionBranch].account)
+            errorModel?.let { model ->
+                subMap[Constants.PARAMS_ID] = model.ID
+                subMap[Constants.PARAMS_UPDATE_BY] = getSharePreferences().accountName
+                imageCode = model.ImageCode
+                mailTo = model.MailTo
+            }
+            if (errorModel == null) {
+                subMap[Constants.PARAMS_CREATE_BY] = getSharePreferences().accountName
+            }
             subMap[Constants.PARAMS_AREA] = listZone[positionZone].account
             subMap[Constants.PARAMS_BRANCH] = listBranch[positionBranch].account
             subMap[Constants.PARAMS_TYPE] = getTypeInfraStruct(typeError)
@@ -186,17 +265,20 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
             subMap[Constants.PARAMS_PARTNER] = listParent[positionParent].account
             subMap[Constants.PARAMS_NOTE] = fragCreateError_tvNote.text.toString()
             subMap[Constants.PARAMS_IMAGE_CODE] = imageCode
-            subMap[Constants.PARAMS_MAIL_TO] = ""
-            subMap[Constants.PARAMS_STATUS] = if (fragCreateError_llDoneError.isSelected) Constants.DONE_STATUS_ERROR else Constants.YET_STATUS_ERROR
-            subMap[Constants.PARAMS_CREATE_BY] = getSharePreferences().accountName
+            subMap[Constants.PARAMS_MAIL_TO] = mailTo
+            subMap[Constants.PARAMS_STATUS] = if (fragCreateError_imgDoneError.isSelected) Constants.DONE_STATUS_ERROR else Constants.YET_STATUS_ERROR
+
             val map = HashMap<String, Any>()
             map[Constants.PARAMS_ERROR] = subMap
-            it.postInsertErrorInfrastructure(map)
+            if (errorModel == null)
+                it.postInsertErrorInfrastructure(map)
+            else
+                it.postUpdateErrorInfrastructure(map)
         }
     }
 
-    private fun handleRequestSuccess() {
-        AppUtils.showDialog(fragmentManager, content = getString(R.string.create_error_success), confirmDialogInterface = object : ConfirmDialogInterface {
+    private fun handleCreateAndUpdateSuccess() {
+        AppUtils.showDialog(fragmentManager, content = getString(if (errorModel == null) R.string.create_error_success else R.string.update_error_success), confirmDialogInterface = object : ConfirmDialogInterface {
             override fun onClickOk() {
                 addFragment(UploadImageFragment.newInstance(imageCode), true, true)
             }
@@ -210,15 +292,23 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
     private fun clearDataWhenRequestSuccess() {
         fragCreateError_tvNote.setText("")
         fragCreateError_tvSubError.setText("")
-        fragCreateError_llDoneError.isSelected = false
+        imageCode = ""
     }
 
     override fun loadInsertErrorInfrastructure(response: ResponseModel) {
         if (response.Code == Constants.REQUEST_SUCCESS) {
-            handleRequestSuccess()
+            handleCreateAndUpdateSuccess()
         } else
             AppUtils.showDialog(fragmentManager, content = response.Description, confirmDialogInterface = null)
         clearDataWhenRequestSuccess()
+    }
+
+    override fun loadUpdateErrorInfrastructure(response: ResponseModel) {
+        if (response.Code == Constants.REQUEST_SUCCESS) {
+            setDataModelFromField()
+            handleCreateAndUpdateSuccess()
+        } else
+            AppUtils.showDialog(fragmentManager, content = response.Description, confirmDialogInterface = null)
     }
 
     override fun handleError(error: String) {

@@ -23,4 +23,15 @@ class CreateErrorPresenter @Inject constructor(private val apiService: ApiServic
                 }))
     }
 
+    override fun postUpdateErrorInfrastructure(map: HashMap<String, Any>) {
+        addSubscribe(apiService.updateErrorInfrastructure(map)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view?.loadUpdateErrorInfrastructure(it)
+                }, {
+                    view?.handleError(it.message.toString())
+                }))
+    }
+
 }

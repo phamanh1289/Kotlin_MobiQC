@@ -74,7 +74,7 @@ class MaintenanceCheckListFragment : BaseFragment(), DeploymentCheckListContract
     private fun handleDataCheckList(list: ArrayList<CheckListModel>) {
         dataCheckList = list
         mAdapterAll = AllCheckListAdapter { index ->
-            AppUtils.showMenuCheckListDialog(fragmentManager, confirmDialogInterface = this, index = index)
+            AppUtils.showMenuCheckListDialog(fragmentManager, confirmDialogInterface = this, index = index,typeOption = false)
         }
         mAdapterAll.submitList(dataCheckList)
         fragCheckListMaintenance_rvMain.apply {
@@ -105,6 +105,15 @@ class MaintenanceCheckListFragment : BaseFragment(), DeploymentCheckListContract
     override fun onClickDetail(index: Int) {
         val model = dataCheckList[index]
         addFragment(DetailContractFragment.newInstance(model.ID.toString(), Constants.STATUS_COMPLETED, model.ObjID, Constants.MAINTENANCE, model.Contract, model.Date), true, true)
+    }
+
+
+    override fun onClickUpdateDetail(index: Int) {
+
+    }
+
+    override fun onClickUpdateStatus(index: Int) {
+
     }
 
     override fun onDestroy() {

@@ -113,22 +113,14 @@ open class PartnerRealmManager {
         }
     }
 
-    fun getEmail(zone: String, branch: String, pratner: String): ArrayList<SingleChoiceModel> {
+    fun getEmail(zone: String, branch: String, pratner: String): String? {
         try {
             realm = Realm.getDefaultInstance()
-            val list = ArrayList<SingleChoiceModel>()
-            var result: RealmResults<PartnerRealmModel>? = null
+            var item: PartnerRealmModel? = null
             realm?.executeTransaction {
-                result = it.where(PartnerRealmModel::class.java)?.equalTo(PARTNER_COL_ZONE, zone)?.equalTo(PARTNER_COL_BRANCH, branch)?.equalTo(PARTNER_COL_PARTNER, pratner)?.distinct(PARTNER_COL_EMAIL)
+                item = it.where(PartnerRealmModel::class.java)?.equalTo(PARTNER_COL_ZONE, zone)?.equalTo(PARTNER_COL_BRANCH, branch)?.equalTo(PARTNER_COL_PARTNER, pratner)?.findFirst()
             }
-            result?.let {
-                if (it.size != 0) {
-                    for (i in 0 until it.size) {
-                        list.add(SingleChoiceModel(account = (it[i] as PartnerRealmModelRealmProxy).`realmGet$email`(), status = i == Constants.FIRST_ITEM))
-                    }
-                }
-            }
-            return list
+            return item?.email
         } finally {
             realm?.close()
         }

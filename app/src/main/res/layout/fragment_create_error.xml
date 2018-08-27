@@ -17,6 +17,34 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/fragCreateError_llId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp"
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="@string/Helvetica_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:text="@string/check_list_id"/>
+
+            <TextView
+                android:id="@+id/fragCreateError_tvId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.65"
+                fontPath="@string/Helvetica_Bold"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_17dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12dp"
@@ -190,7 +218,6 @@
                 android:layout_weight="0.35"
                 android:text="@string/sub_error"/>
 
-
             <EditText
                 android:id="@+id/fragCreateError_tvSubError"
                 android:layout_width="0dp"
@@ -199,8 +226,7 @@
                 android:layout_weight="0.65"
                 android:background="@drawable/shape_border_grey_text_view"
                 android:gravity="center_vertical"
-                android:hint="@string/enter_number"
-                android:inputType="numberDecimal"
+                android:hint="@string/enter_note"
                 android:paddingBottom="@dimen/_4dp"
                 android:paddingEnd="@dimen/_27dp"
                 android:paddingStart="@dimen/_10dp"

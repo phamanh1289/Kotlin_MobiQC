@@ -87,8 +87,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/_8dp"
-        android:paddingEnd="@dimen/_16dp"
-        android:paddingStart="@dimen/_16dp"
+        android:paddingEnd="@dimen/_8dp"
+        android:paddingStart="@dimen/_8dp"
         android:visibility="gone">
 
     </android.support.v7.widget.RecyclerView>

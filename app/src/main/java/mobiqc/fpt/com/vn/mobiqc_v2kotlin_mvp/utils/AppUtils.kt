@@ -9,7 +9,6 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
 import android.support.v4.app.FragmentManager
-import android.text.TextUtils
 import android.widget.TextView
 import com.google.android.gms.maps.model.LatLng
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
@@ -52,8 +51,28 @@ object AppUtils {
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting
     }
 
-    fun isValidEmail(email: String): Boolean {
-        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    fun isValidEmail(fragmentManager: FragmentManager?, listEmail: String, context: Context?): Boolean {
+        var result = true
+        context?.let {
+            val elementEmail = ArrayList<String>()
+            if (listEmail.contains(";")) {
+                elementEmail.addAll(listEmail.split(";"))
+            } else elementEmail.add(listEmail)
+            if (elementEmail.size != 0) {
+                for (i in 0 until elementEmail.size) {
+                    if (elementEmail[i].isNotBlank())
+                        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(elementEmail[i]).matches() || !elementEmail[i].contains(it.getString(R.string.default_type_email))) {
+                            showDialog(fragmentManager, content = it.getString(R.string.mess_validate_email_detail, elementEmail[i]), confirmDialogInterface = null)
+                            result = false
+                            break
+                        }
+                }
+            } else {
+                result = false
+                showDialog(fragmentManager, content = it.getString(R.string.mess_validate_email), confirmDialogInterface = null)
+            }
+        }
+        return result
     }
 
     fun getScreenWidth(): Int {
@@ -64,6 +83,10 @@ object AppUtils {
         return Resources.getSystem().displayMetrics.heightPixels
     }
 
+    fun toAddHtmlToImage(link: String): String {
+        return "<img src='http://iqc.fpt.vn$link'>"
+    }
+
     fun showDialog(fragmentManager: FragmentManager?, title: String = "", content: String = "", actionCancel: Boolean = false, confirmDialogInterface: ConfirmDialogInterface?) {
         fragmentManager?.let {
             val dialog = ConfirmDialog()
@@ -72,10 +95,10 @@ object AppUtils {
         }
     }
 
-    fun showMenuCheckListDialog(fragmentManager: FragmentManager?, confirmDialogInterface: MenuCheckListDialogInterface, index: Int) {
+    fun showMenuCheckListDialog(fragmentManager: FragmentManager?, confirmDialogInterface: MenuCheckListDialogInterface, index: Int, typeOption: Boolean) {
         fragmentManager?.let {
             val dialog = MenuCheckListDialog()
-            dialog.setDataDialog(confirmDialogInterface = confirmDialogInterface, index = index)
+            dialog.setDataDialog(confirmDialogInterface = confirmDialogInterface, index = index, typeDialog = typeOption)
             dialog.show(it, MenuCheckListDialog::class.java.simpleName)
         }
     }
@@ -280,7 +303,9 @@ object AppUtils {
     }
 
     fun compareDate(start: String, end: String): Boolean {
-        return formatter.parse(start).before(formatter.parse(end))
+        val startDate = if (start.contains("-")) start.replace("-", "/") else start
+        val endDate = if (start.contains("-")) end.replace("-", "/") else end
+        return formatter.parse(startDate).before(formatter.parse(endDate))
     }
 
     fun changeFormatDistance(distance: Double): String {

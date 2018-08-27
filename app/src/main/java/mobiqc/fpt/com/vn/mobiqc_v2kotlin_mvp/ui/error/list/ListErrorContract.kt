@@ -1,6 +1,7 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list
 
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResultEmailModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
 
 /**
@@ -10,10 +11,16 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
 interface ListErrorContract {
     interface ListErrorView : BaseView {
         fun loadErrorInfrastructure(response: ResponseModel)
-        fun handleError(error : String)
+        fun loadUpdateErrorInfrastructure(response: ResponseModel)
+        fun loadSendMail(response: ResultEmailModel)
+        fun loadAlbumCode(response: ResponseModel)
+        fun handleError(error: String)
     }
 
     interface ListErrorPresenter {
         fun getErrorInfrastructure(map: HashMap<String, Any>)
+        fun postUpdateErrorInfrastructure(map: HashMap<String, Any>)
+        fun postSendMail(map: HashMap<String, Any>)
+        fun getAlbumCode(token:String,code: String)
     }
 }

@@ -1,10 +1,7 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api
 
 import io.reactivex.Observable
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseAccountGroupModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDataModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseLowCaseModel
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -90,6 +87,11 @@ interface ApiService {
     @POST("GetErrorInfrastructure")
     fun getErrorInfrastructure(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
+    @POST("UpdateErrorInfrastructure")
+    fun updateErrorInfrastructure(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
+    @POST("SendEmail")
+    fun postSendMail(@Body map: HashMap<String, Any>): Observable<ResultEmailModel>
 
     @GET
     @Streaming

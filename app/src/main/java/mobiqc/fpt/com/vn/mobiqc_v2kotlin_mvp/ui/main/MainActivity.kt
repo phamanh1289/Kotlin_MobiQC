@@ -126,7 +126,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.CAP_NHAT_LOI -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CNL, itemMenu.name), false, true)
             Constants.TAO_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CL, itemMenu.name), false, true)
             Constants.TAO_PRE_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_PCL, itemMenu.name), false, true)
-            Constants.TAO_LOI_MOI -> addFragment(CreateErrorFragment.newInstance(itemMenu.name), false, true)
+            Constants.TAO_LOI_MOI -> addFragment(CreateErrorFragment(), false, true)
             Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
             Constants.KQ_XAC_MINH ->
                 AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
@@ -174,6 +174,12 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
                 mCountBack--
                 handleTitleMain()
                 handleShowMenu()
+                val fragError = supportFragmentManager.findFragmentById(android.R.id.tabcontent)
+                fragError?.let {
+                    if (it is ListErrorFragment) {
+                        it.adapterError.notifyItemChanged(it.positionListError)
+                    }
+                }
             }
         }
     }

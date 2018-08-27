@@ -21,6 +21,8 @@ class MenuCheckListDialog : DialogFragment() {
 
     var confirmDialogInterface: MenuCheckListDialogInterface? = null
     private var index = 0
+    //True : show 4 option. False : show 2 option
+    private var typeDialog = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -38,18 +40,33 @@ class MenuCheckListDialog : DialogFragment() {
         dialog?.window?.setLayout(AppUtils.getScreenWidth() - resources.getDimension(R.dimen._40dp).toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    fun setDataDialog(confirmDialogInterface: MenuCheckListDialogInterface?, index : Int) {
+    fun setDataDialog(confirmDialogInterface: MenuCheckListDialogInterface?, index: Int, typeDialog: Boolean) {
         this.index = index
         this.confirmDialogInterface = confirmDialogInterface
+        this.typeDialog = typeDialog
     }
 
     private fun handleUIDialog() {
+        if (typeDialog) {
+            fragDialogMenuCheckList_cvErrorDetail.visibility = View.VISIBLE
+            fragDialogMenuCheckList_cvStatusDone.visibility = View.VISIBLE
+            fragDialogMenuCheckList_tvDetail.text = getString(R.string.view_image)
+            fragDialogMenuCheckList_tvError.text = getString(R.string.send_email_notify)
+        }
         fragDialogMenuCheckList_tvDetail.setOnClickListener {
             confirmDialogInterface?.onClickDetail(index)
             dismiss()
         }
         fragDialogMenuCheckList_tvError.setOnClickListener {
             confirmDialogInterface?.onClickError(index)
+            dismiss()
+        }
+        fragDialogMenuCheckList_tvErrorDetail.setOnClickListener {
+            confirmDialogInterface?.onClickUpdateDetail(index)
+            dismiss()
+        }
+        fragDialogMenuCheckList_tvStatusDone.setOnClickListener {
+            confirmDialogInterface?.onClickUpdateStatus(index)
             dismiss()
         }
     }

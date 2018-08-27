@@ -63,7 +63,14 @@
     <string name="contract_instock_hi_FPT">Số HĐ tồn hiFPT</string>
     <string name="contract_up_coming">Số HĐ sắp tới hẹn</string>
     <string name="contract_over_time">Số HĐ trễ hẹn</string>
-    <string name="date_time_format">%1$s-%2$s-%3$s</string>
+    <string name="send_email">Người nhận Email</string>
+    <string name="cc_email">CC Email</string>
+    <string name="example_email">email@fpt.com.vn;…</string>
+    <string name="mess_validate_email_detail">Email \"%1$s\" không hợp lệ</string>
+    <string name="mess_validate_email">Email không hợp lệ</string>
+    <string name="add_default_email">%1$s@fpt.com.vn</string>
+    <string name="default_type_email">fpt.com.vn</string>
+    <string name="date_time_format">%1$s/%2$s/%3$s</string>
     <string name="error_date">Thời gian không hợp lệ!</string>
     <string name="error_calculator_date">Khoảng thời gian xem không được quá 7 ngày!</string>
     <string name="error_permission">Chưa có đơn vị quản lý, vui lòng liên hệ quản trị hệ thống để được cấp quyền.</string>
@@ -207,9 +214,15 @@
     <string name="email_haint">haint4@fpt.com.vn</string>
     <string name="no_action_mail">Không tìm thấy ứng dụng email.</string>
     <string name="create_error_mess">Bạn có muốn tạo lỗi này?</string>
+    <string name="update_error_mess">Bạn có muốn cập nhật lỗi này?</string>
     <string name="max_pick_image">Chỉ chọn tối đa 6 ảnh</string>
     <string name="send_email_error">Gửi email</string>
+    <string name="send_email_notify">Gửi email thông báo</string>
+    <string name="view_image">Xem hình ảnh</string>
+    <string name="subject_email">[MobiQC - ID#%1$s] Thông báo lỗi hạ tầng %2$s %3$s</string>
+    <string name="error_update_detail">Cập nhật chi tiết</string>
     <string name="create_error_success">Khởi tạo lỗi thành công!\n\nBạn có muốn upload hình ảnh cho lỗi này?"</string>
+    <string name="update_error_success">Cập nhật lỗi thành công!\n\nBạn có muốn upload hình ảnh cho lỗi này?"</string>
 
     <!--===========Data Check List=============-->
     <string name="first_status_1">Không có tín hiệu</string>

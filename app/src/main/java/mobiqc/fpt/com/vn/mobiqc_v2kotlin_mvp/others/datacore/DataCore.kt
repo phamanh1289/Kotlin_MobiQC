@@ -2,6 +2,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore
 
 import android.content.Context
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ErrorInfrastructureModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ItemMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
@@ -124,5 +125,24 @@ object DataCore {
             list.add(SingleChoiceModel(id = 4, account = it.getString(R.string.pre_first_status_7)))
         }
         return list
+    }
+
+    fun getBaseBodyMail(error: ErrorInfrastructureModel, urlImage: String): String {
+        return "<html><head><meta http-equiv=Content-Type content=\"text/html; charset=utf-8\">\n" +
+                "</head><body lang=VI link=blue vlink=purple><div class=WordSection1>" +
+                "<p ><span>Dear Anh/Chị,<o:p></o:p></span></p>" +
+                "<p ><span>FTQ kiểm tra hạ tầng ghi nhận lỗi sau. </br>Kính nhờ Anh/Chị nhanh chóng khắc phục lỗi và phản hồi thông tin xử lý lại cho FTQ trong vòng 1 tuần kể từ khi FTQ gởi thông báo." +
+                "</br>Thông tin phản hồi có gửi kèm hình ảnh kết quả đã xử lý.<o:p></o:p></span></p>" +
+                "<ul><li>ID: <b> ${error.ID} </b></li>" +
+                "<li>Vùng: <b> ${error.Area} </b></li>" +
+                "<li>Chi nhánh: <b> ${error.Branch} </b></li>" +
+                "<li>Lỗi: <b> ${error.Type} </b></li>" +
+                "<li>Phần tử lỗi: <b> ${error.Element} </b></li>" +
+                "<li>Mô tả lỗi: <b> ${error.Description} </b></li>" +
+                "<li>Ghi chú: <b> ${error.Note} </b></li>" +
+                "<li>Nhân sự ghi nhận lỗi: <b> ${error.CreateBy} </b></li>" +
+                "<li>Thời gian ghi nhận lỗi: <b> ${error.CreateDate} </b></li></ul>" +
+                "<p ><span>Trân trọng cảm ơn!<o:p></o:p></span></p>" +
+                "<p > $urlImage </p><h4><span><o:p>&nbsp;</o:p></span></h4></div></body></html>"
     }
 }

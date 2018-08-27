@@ -10,5 +10,4 @@
         android:layout_gravity="center"
         app:mk_type="TwinFishesSpinner"
         app:mk_color="@color/cerulean" />
-
 </FrameLayout>

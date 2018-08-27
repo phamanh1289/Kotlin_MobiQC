@@ -2,8 +2,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api
 
 import io.reactivex.Observable
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * * Created by Anh Pham on 08/09/2018.     **
@@ -24,5 +23,8 @@ interface ApiIstorageService {
 
     @POST("iqc/partner/addImage")
     fun postAddImage(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
+    @GET("iqc/partner/album")
+    fun getAlbum(@Header("Authorization") token : String, @Query("Code") code: String): Observable<ResponseModel>
 
 }
