@@ -87,6 +87,10 @@ object AppUtils {
         return "<img src='http://iqc.fpt.vn$link'>"
     }
 
+     fun getUrlImage(link: String): String {
+        return "http://iqc.fpt.vn$link"
+    }
+
     fun showDialog(fragmentManager: FragmentManager?, title: String = "", content: String = "", actionCancel: Boolean = false, confirmDialogInterface: ConfirmDialogInterface?) {
         fragmentManager?.let {
             val dialog = ConfirmDialog()

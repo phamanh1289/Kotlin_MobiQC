@@ -15,8 +15,10 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list.ListErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.UploadImageFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.view_image.ViewImageFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.main.MainActivity
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.reprot.ReportFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.splash_screen.SplashScreenActivity
 
 /**
@@ -41,4 +43,6 @@ interface ActivityComponent {
     fun inject(createErrorFragment: CreateErrorFragment)
     fun inject(listErrorFragment: ListErrorFragment)
     fun inject(uploadImageFragment: UploadImageFragment)
+    fun inject(viewImageFragment: ViewImageFragment)
+    fun inject(reportFragment: ReportFragment)
 }

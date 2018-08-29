@@ -14,7 +14,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.UploadImageModel
  * * Created by Anh Pham on 08/08/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class UploadImageAdapter(val onClick: (Int) -> Unit) : ListAdapter<UploadImageModel, UploadImageAdapter.UploadImageHolder>(UploadImageDiff()) {
+class UploadImageAdapter(var typeImage: Boolean = false, val onClick: (Int) -> Unit) : ListAdapter<UploadImageModel, UploadImageAdapter.UploadImageHolder>(UploadImageDiff()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UploadImageAdapter.UploadImageHolder {
         return UploadImageHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_image_choice, parent, false))
@@ -29,11 +29,16 @@ class UploadImageAdapter(val onClick: (Int) -> Unit) : ListAdapter<UploadImageMo
             model?.let { item ->
                 Glide.with(itemView.context)
                         .load(item.filePath)
-                        .override(350, 550).centerCrop()
                         .into(itemView.itemImageChoice_imgPicture)
-                itemView.itemImageChoice_imgDelete.setOnClickListener {
-                    onClick(adapterPosition)
-                }
+                itemView.itemImageChoice_imgDelete?.visibility = if (typeImage) View.GONE else View.VISIBLE
+                if (typeImage)
+                    itemView.setOnClickListener {
+                        onClick(adapterPosition)
+                    }
+                else
+                    itemView.itemImageChoice_imgDelete.setOnClickListener {
+                        onClick(adapterPosition)
+                    }
             }
         }
     }

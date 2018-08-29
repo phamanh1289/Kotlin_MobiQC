@@ -109,8 +109,8 @@ class CheckContractFragment : BaseFragment() {
                 R.id.fragCheckContract_tvMobiGroup -> AppUtils.showDialogSingChoiceGroup(fragmentManager, getString(R.string.don_vi), dataMobiGroup, fragCheckContract_tvMobiGroup, positionMobiGroup)
                 R.id.fragCheckContract_tvMobiAcc -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiAcc, fragCheckContract_tvMobiAcc, positionMobiAcc)
                 R.id.fragCheckContract_tvMobiType -> AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.to), dataMobiType, fragCheckContract_tvMobiType, positionMobiType)
-                R.id.fragCheckContract_tvFromDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvFromDate, Constants.SET_MAX_DATE) }
-                R.id.fragCheckContract_tvToDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvToDate, Constants.SET_MAX_DATE) }
+                R.id.fragCheckContract_tvFromDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvFromDate, Constants.SET_CURRENT_IS_MAX_DATE) }
+                R.id.fragCheckContract_tvToDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvToDate, Constants.SET_CURRENT_IS_MAX_DATE) }
                 R.id.fragCheckContract_tvSearch -> handleErrorSearch()
             }
         }

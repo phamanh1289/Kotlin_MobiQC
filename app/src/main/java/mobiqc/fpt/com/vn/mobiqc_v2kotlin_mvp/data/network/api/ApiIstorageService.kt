@@ -15,12 +15,6 @@ interface ApiIstorageService {
     @POST("iqc/partner/createImage")
     fun postCreateImage(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
-    @POST("iqc/partner/album")
-    fun postAlbum(@Body map: HashMap<String, Any>): Observable<ResponseModel>
-
-    @POST("iqc/partner/deleteImage")
-    fun postDeleteImage(@Body map: HashMap<String, Any>): Observable<ResponseModel>
-
     @POST("iqc/partner/addImage")
     fun postAddImage(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 

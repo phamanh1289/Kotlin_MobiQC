@@ -44,10 +44,10 @@ object DataCore {
     fun getListTypeKS(context: Context?): ArrayList<SingleChoiceModel> {
         val list = ArrayList<SingleChoiceModel>()
         context?.let {
-            list.add(SingleChoiceModel(id = 6, account = it.getString(R.string.type_KS_hot), status = true))
-            list.add(SingleChoiceModel(id = 7, account = it.getString(R.string.type_KS_cold)))
-            list.add(SingleChoiceModel(id = 4, account = it.getString(R.string.type_KS_subject)))
-            list.add(SingleChoiceModel(id = 5, account = it.getString(R.string.type_KS_swap)))
+            list.add(SingleChoiceModel(id = Constants.TYPE_KS_HOT, account = it.getString(R.string.type_KS_hot), status = true))
+            list.add(SingleChoiceModel(id = Constants.TYPE_KS_COOL, account = it.getString(R.string.type_KS_cold)))
+            list.add(SingleChoiceModel(id = Constants.TYPE_KS_SUBJ, account = it.getString(R.string.type_KS_subject)))
+            list.add(SingleChoiceModel(id = Constants.TYPE_KS_SWAP, account = it.getString(R.string.type_KS_swap)))
         }
         return list
     }

@@ -12,13 +12,15 @@
         android:id="@+id/fragAllCheckList_tabLayout"
         android:layout_width="0dp"
         android:layout_height="@dimen/_45dp"
+        fontPath="@string/Helvetica_Bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicatorColor="@color/bright_blue"
-        app:tabIndicatorHeight="@dimen/_2dp"
-        app:tabSelectedTextColor="@color/bright_blue"
-        app:tabTextColor="@color/black_text">
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorHeight="@dimen/_1dp"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabTextAppearance="@style/MyCustomTabTextAppearance"
+        app:tabTextColor="@color/steel">
 
     </android.support.design.widget.TabLayout>
 
@@ -26,7 +28,7 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_2dp"
-        android:background="@color/bright_blue"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragAllCheckList_tabLayout"/>

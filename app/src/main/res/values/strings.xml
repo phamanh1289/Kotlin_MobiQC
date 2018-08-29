@@ -51,6 +51,7 @@
     <string name="loai_tc_1">Triển khai</string>
     <string name="loai_tc_2">Bảo trì</string>
     <string name="contract_number">Số HĐ</string>
+    <string name="percent_contract">Tỉ lệ</string>
     <string name="contract_name">Tên HĐ</string>
     <string name="contract_address">Địa chỉ</string>
     <string name="contract_time">Thời gian hẹn</string>
@@ -115,6 +116,8 @@
     <string name="phone_number_sms">SMS</string>
     <string name="deployment_check_list">Phiếu Triển Khai</string>
     <string name="maintenance_check_list">Phiếu Bảo Trì</string>
+    <string name="data_report">Dữ liệu</string>
+    <string name="chart_report">Biểu đồ</string>
     <string name="upload_image">Upload hình ảnh</string>
     <string name="mess_upload_image">Chưa có chọn hình ảnh để upload!</string>
     <string name="mess_title_image">Hình ảnh</string>

@@ -2,7 +2,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api
 
 import io.reactivex.Observable
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
-import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 /**
@@ -11,12 +11,7 @@ import retrofit2.http.*
  */
 interface ApiUploadImageService {
     @Multipart
-    @POST("upload.php")
+    @POST("upload")
     @Headers("Content-Type: application/json")
-    fun postUploadImage(@Header("Authorization") token:String, @Part file: MultipartBody.Part): Observable<ResponseModel>
-
-    @Multipart
-    @POST("upload.php")
-//    @Headers("Content-Type: application/json")
-    fun postUploadImageDemo(@Part file: MultipartBody.Part): Observable<ResponseModel>
+    fun postUploadImage(@Header("Authorization") token: String, @Part("fileType") file: RequestBody): Observable<ResponseModel>
 }

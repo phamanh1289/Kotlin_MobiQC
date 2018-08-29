@@ -15,5 +15,6 @@ interface SearchCheckListContract {
 
     interface SearchCheckListPresenter {
         fun getListContract(map: HashMap<String, Any>)
+        fun getReportControlErrorDetail(map: HashMap<String, Any>)
     }
 }

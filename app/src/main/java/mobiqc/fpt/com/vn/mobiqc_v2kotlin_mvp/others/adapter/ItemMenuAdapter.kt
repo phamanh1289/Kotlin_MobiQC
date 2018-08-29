@@ -1,5 +1,6 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.adapter
 
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -29,8 +30,8 @@ class ItemMenuAdapter(var mData: ArrayList<ItemMenuModel>?, val onClick: (Int) -
     inner class ItemMenuHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: ItemMenuModel, onListener: (Int) -> Unit) {
             itemView.itemMenuMain.text = item.name
-            if (item.id.isBlank() || item.name == itemView.context.getString(R.string.menu_dang_xuat))
-                itemView.itemMenuMain.setTextColor(itemView.context.resources.getColor(R.color.colorPrimary))
+            if (item.id.isBlank())
+                itemView.itemMenuMain.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorPrimary))
             itemView.setOnClickListener { onListener(adapterPosition) }
         }
     }

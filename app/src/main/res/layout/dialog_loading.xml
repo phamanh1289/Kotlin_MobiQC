@@ -9,5 +9,5 @@
         android:layout_height="@dimen/_45dp"
         android:layout_gravity="center"
         app:mk_type="TwinFishesSpinner"
-        app:mk_color="@color/cerulean" />
+        app:mk_color="@color/colorPrimary" />
 </FrameLayout>

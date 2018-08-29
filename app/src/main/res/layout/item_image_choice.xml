@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/_150dp"
     android:layout_height="@dimen/_250dp"
@@ -8,10 +9,19 @@
     android:focusable="true"
     tools:ignore="ContentDescription">
 
+    <com.tuyenmonkey.mkloader.MKLoader
+        android:id="@+id/itemImageChoice_imgLoading"
+        android:layout_width="@dimen/_40dp"
+        android:layout_height="@dimen/_40dp"
+        android:layout_gravity="center"
+        app:mk_color="@color/steel"
+        app:mk_type="Worm"/>
+
     <ImageView
         android:id="@+id/itemImageChoice_imgPicture"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
 
     <ImageView
         android:id="@+id/itemImageChoice_imgDelete"

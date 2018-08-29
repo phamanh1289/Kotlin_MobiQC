@@ -25,12 +25,11 @@
         android:id="@+id/itemSearchCheckList_tvContract"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16dp"
         android:layout_marginTop="@dimen/_8dp"
         android:padding="@dimen/_4dp"
         android:textColor="@color/black_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Location"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="tvContract"/>
 
@@ -93,9 +92,16 @@
         android:padding="@dimen/_4dp"
         android:textColor="@color/black_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemSearchCheckList_tvPhoneNumber"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchCheckList_tvPhoneNumber"
         tools:text="tvAssignDate"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="86dp"/>
 
 
 </android.support.constraint.ConstraintLayout>

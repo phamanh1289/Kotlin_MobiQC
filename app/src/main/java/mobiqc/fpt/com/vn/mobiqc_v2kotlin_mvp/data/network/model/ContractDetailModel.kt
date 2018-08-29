@@ -5,6 +5,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model
  * * Copyright (c) 2018 by FPT Telecom      **
  */
 data class ContractDetailModel(
+        val ID: Int,
         val ObjID: Int,
         val Name: String,
         val LocalType: String,

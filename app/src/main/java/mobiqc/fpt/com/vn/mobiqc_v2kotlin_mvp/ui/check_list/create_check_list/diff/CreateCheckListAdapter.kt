@@ -1,5 +1,6 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.create_check_list.diff
 
+import android.support.v4.content.ContextCompat
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -37,7 +38,7 @@ class CreateCheckListAdapter(val onClick: (Int) -> Unit) : ListAdapter<PartnerTi
                 itemView.itemTimeZone_imgChecked.isSelected = item.status
                 val resultTimeZone = reasonId == Constants.TYPE_NO_CONNECT && (item.TimezoneCode18 == Constants.TIME_ZONE_19 || item.TimezoneCode18 == Constants.TIME_ZONE_21)
                 when {
-                    item.TimezoneCode == Constants.DONT_BOOK_DATE || resultTimeZone -> itemView.itemTimeZone_llRootView.setBackgroundColor(itemView.resources.getColor(R.color.grey_blur))
+                    item.TimezoneCode == Constants.DONT_BOOK_DATE || resultTimeZone -> itemView.itemTimeZone_llRootView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.grey_blur))
                     else -> itemView.setOnClickListener {
                         onClick(adapterPosition)
                         indexSelect = adapterPosition

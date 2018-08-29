@@ -22,7 +22,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
  */
 class AllCheckListFragment : BaseFragment() {
 
-    private lateinit var mViewPagerAdapter: ViewPagerCheckListAdapter
+    private lateinit var mBaseViewPagerAdapter: BaseViewPagerAdapter
     private lateinit var contractModel: ContractDetailModel
     private var contractNumber = ""
 
@@ -63,10 +63,10 @@ class AllCheckListFragment : BaseFragment() {
     }
 
     private fun setUpTabLayout() {
-        mViewPagerAdapter = ViewPagerCheckListAdapter(fragmentManager)
-        mViewPagerAdapter.addTabFragment(DeploymentCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString()), getString(R.string.deployment_check_list))
-        mViewPagerAdapter.addTabFragment(MaintenanceCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString()), getString(R.string.maintenance_check_list))
-        fragAllCheckList_viewPager.adapter = mViewPagerAdapter
+        mBaseViewPagerAdapter = BaseViewPagerAdapter(childFragmentManager)
+        mBaseViewPagerAdapter.addTabFragment(DeploymentCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString()), getString(R.string.deployment_check_list))
+        mBaseViewPagerAdapter.addTabFragment(MaintenanceCheckListFragment.newInstance(contractModel.ObjID.toBigDecimal().toString()), getString(R.string.maintenance_check_list))
+        fragAllCheckList_viewPager.adapter = mBaseViewPagerAdapter
         fragAllCheckList_tabLayout.setupWithViewPager(fragAllCheckList_viewPager)
     }
 

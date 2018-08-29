@@ -27,6 +27,8 @@ class SearchCheckListAdapter(val onClick: (Int) -> Unit) : ListAdapter<ContractD
             model?.let { item ->
                 itemView.itemSearchCheckList_tvContract.text = itemView.context.getString(R.string.name_check_list, item.Contract, item.Name)
                 itemView.itemSearchCheckList_tvName.text = item.FullName
+                itemView.Location.visibility = if (item.Phone.isNullOrBlank()) View.GONE else View.VISIBLE
+                itemView.itemSearchCheckList_tvPhoneNumber.visibility = if (item.Phone.isNullOrBlank()) View.GONE else View.VISIBLE
                 itemView.itemSearchCheckList_tvPhoneNumber.text = item.Phone
                 itemView.itemSearchCheckList_tvAddress.text = item.Address
                 itemView.setOnClickListener { onClick(adapterPosition) }

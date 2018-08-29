@@ -2,6 +2,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base
 
 import android.app.Application
 import android.content.Context
+import android.support.multidex.MultiDex
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
@@ -34,6 +35,7 @@ class BaseApplication : Application() {
                 .setDefaultFontPath(getString(R.string.Helvetica))
                 .setFontAttrId(R.attr.fontPath)
                 .build())
+        MultiDex.install(this)
     }
 
     override fun attachBaseContext(base: Context) {

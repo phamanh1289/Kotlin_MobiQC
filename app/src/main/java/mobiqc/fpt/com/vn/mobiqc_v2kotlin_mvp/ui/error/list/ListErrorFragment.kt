@@ -22,6 +22,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.SendEmailDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list.diff.ListErrorAdapter
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.view_image.ViewImageFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import javax.inject.Inject
@@ -41,6 +42,8 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
     var positionListError = 0
     private var mSendEmail = ""
     private var mCcEmail = ""
+    //True : move to ViewImageFramgent, false : nothing
+    private var isCheck = false
 
     companion object {
         const val DEFAULT_IS_HTML_BODY = 1
@@ -66,6 +69,8 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
     }
 
     private fun initView() {
+        setTitle(TitleAndMenuModel(title = arguments?.getString(Constants.ARG_TITLE)
+                ?: "", status = true, image = R.drawable.ic_notifications))
         fragListError_tvToDate.setText(AppUtils.getCurrentDate(Constants.CURRENT_DATE))
         fragListError_tvFromDate.setText(AppUtils.getCurrentDate(Constants.CURRENT_DATE))
         initOnClick()
@@ -100,8 +105,8 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
     }
 
     private fun initOnClick() {
-        fragListError_tvToDate.setOnClickListener { AppUtils.showPickTime(context, fragListError_tvToDate, Constants.SET_MAX_DATE) }
-        fragListError_tvFromDate.setOnClickListener { AppUtils.showPickTime(context, fragListError_tvFromDate, Constants.SET_MAX_DATE) }
+        fragListError_tvToDate.setOnClickListener { AppUtils.showPickTime(context, fragListError_tvToDate, Constants.SET_CURRENT_IS_MAX_DATE) }
+        fragListError_tvFromDate.setOnClickListener { AppUtils.showPickTime(context, fragListError_tvFromDate, Constants.SET_CURRENT_IS_MAX_DATE) }
         fragListError_tvToDate.onChange { it }
         fragListError_tvFromDate.onChange { it }
     }
@@ -150,7 +155,7 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
 
     //Start : sự kiện onclick menu dialog
     override fun onClickDetail(index: Int) {
-
+        addFragment(ViewImageFragment.newInstance(listError[positionListError].ID, listError[positionListError].ImageCode), true, true)
     }
 
     override fun onClickError(index: Int) {
@@ -203,6 +208,7 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
     }
 
     override fun loadSendMail(response: ResultEmailModel) {
+        hideLoading()
         AppUtils.showDialog(fragmentManager, content = response.ResultDESC, confirmDialogInterface = null)
     }
 
@@ -223,11 +229,12 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
     private fun EditText.onChange(cb: (String) -> Unit) {
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                val fromDate = fragListError_tvFromDate.text.toString()
-                val toDate = fragListError_tvToDate.text.toString()
-                if (AppUtils.compareDate(fromDate, toDate) || (fromDate == toDate))
+                val fromDateChoice = fragListError_tvFromDate.text.toString()
+                val toDateChoice = fragListError_tvToDate.text.toString()
+                if (AppUtils.compareDate(fromDateChoice, toDateChoice) || (fromDateChoice == toDateChoice))
                     requestDataError()
-                else AppUtils.showDialog(fragmentManager, content = getString(R.string.error_date), confirmDialogInterface = null)
+                else
+                    AppUtils.showDialog(fragmentManager, content = getString(R.string.error_date), confirmDialogInterface = null)
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

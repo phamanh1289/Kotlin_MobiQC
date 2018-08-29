@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragDetailContract_scMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_text"
+    android:focusable="true">
+
+    <it.sephiroth.android.library.imagezoom.ImageViewTouch
+        android:id="@+id/fragViewImageDetail_imgView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

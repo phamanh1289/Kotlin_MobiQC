@@ -1,6 +1,7 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.detail_contract
 
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -154,9 +155,9 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
 
     private fun showDataMaintenance(it: ContractDetailModel) {
         showUI(false)
-        fragDetailContract_llDeposits.setBackgroundColor(resources.getColor(R.color.grey_blur))
-        fragDetailContract_llDescription.setBackgroundColor(resources.getColor(R.color.grey_blur))
-        fragDetailContract_llFinishDate.setBackgroundColor(resources.getColor(R.color.white))
+        fragDetailContract_llDeposits.setBackgroundColor(ContextCompat.getColor(context!!, R.color.grey_blur))
+        fragDetailContract_llDescription.setBackgroundColor(ContextCompat.getColor(context!!, R.color.grey_blur))
+        fragDetailContract_llFinishDate.setBackgroundColor(ContextCompat.getColor(context!!, R.color.white))
         fragDetailContract_tvCableBT.text = getString(R.string.cable_met, (it.Indoor + it.Outdoor))
         fragDetailContract_tvCableTK.text = getString(R.string.cable_met, (it.IDCLength + it.ODCLength))
         fragDetailContract_tvInit_StatusD.text = it.Init_StatusD
@@ -215,7 +216,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             fragDetailContract_tvFinishDate.text = if (model.FinishDate.isNullOrEmpty()) "N/A" else model.FinishDate
         fragDetailContract_scMain.visibility = View.VISIBLE
         if (supid.isNotBlank()) {
-            fragDetailContract_tvObjID.setTextColor(resources.getColor(R.color.black_text))
+            fragDetailContract_tvObjID.setTextColor(ContextCompat.getColor(context!!, R.color.black_text))
             if (typeCheckList == Constants.MAINTENANCE) {
                 fragDetailContract_llCableLink_1.visibility = View.VISIBLE
                 fragDetailContract_tvCableLink_1.text = model.Link1

@@ -17,7 +17,7 @@ object ApiConfig {
                 url = "http://wsmobiqc.fpt.vn/MobiQC.svc/"
                 urlMobiNet = "http://mobinet.fpt.vn/MobiNet.svc/"
                 urlWsMobiNet = "http://wsmobinet.fpt.vn/MobiNet.svc/"
-                urlUploadImage = "http://dev.androidcoban.com/blog/"
+                urlUploadImage = "http://iqc.fpt.vn/api/"
                 urlGetToken = "http://istorage.fpt.net/api/"
             }
             else -> {

@@ -108,6 +108,10 @@ object Constants {
     const val STATUS_COMPLETED = 2
     const val DEPLOYMENT = 1
     const val MAINTENANCE = 2
+    const val TYPE_KS_HOT = 6
+    const val TYPE_KS_COOL = 7
+    const val TYPE_KS_SUBJ = 4
+    const val TYPE_KS_SWAP = 5
     const val TYPE_ADSL = 1
     const val TYPE_FTTH = 2
     const val TYPE_PON = 3
@@ -154,8 +158,9 @@ object Constants {
     const val FILE_NAME_DOWNLOAD = "MobiQc_Release.apk"
     const val PATH_FILE_DOWNLOAD = "application/vnd.android.package-archive"
     const val DOWNLOAD_SUCCESS = true
-    const val SET_MAX_DATE = true
-    const val SET_MIN_DATE = false
+    const val SET_CURRENT_IS_MAX_DATE = true
+    const val SET_CURRENT_IS_MIN_DATE = false
+    const val TYPE_IMAGE_VIEW = true
     const val ERROR_FIRST_ITEM = "Không có"
     const val URL_CHECK_IP = "http://checkip.amazonaws.com/"
 

@@ -93,6 +93,12 @@ interface ApiService {
     @POST("SendEmail")
     fun postSendMail(@Body map: HashMap<String, Any>): Observable<ResultEmailModel>
 
+    @POST("GetControlErrorReport")
+    fun getControlErrorReport(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
+    @POST("GetControlErrorDetailReport")
+    fun getControlErrorDetailReport(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+
     @GET
     @Streaming
     fun getFileNewVersion(@Url fileUrl: String): Call<ResponseBody>

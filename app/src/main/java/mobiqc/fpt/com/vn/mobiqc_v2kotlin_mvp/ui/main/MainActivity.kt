@@ -28,6 +28,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list.ListErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.infomation.InformationFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.reprot.ReportFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.StartActivityUtils
 import javax.inject.Inject
@@ -130,7 +131,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
             Constants.KQ_XAC_MINH ->
                 AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
-            Constants.BAO_CAO_SO_LIEU -> ""
+            Constants.BAO_CAO_SO_LIEU -> addFragment(ReportFragment(),false,true)
             Constants.THONG_TIN -> addFragment(InformationFragment.newInstance(itemMenu.name), false, true)
             Constants.DANG_XUAT -> {
                 getSharePreferences().toClearSessionLogin()

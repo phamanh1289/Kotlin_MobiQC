@@ -21,8 +21,6 @@ class LoadingDialog : DialogFragment() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.setCanceledOnTouchOutside(false)
         isCancelable = false
-//        dialog?.window?.setDimAmount(0.3f)
-//        dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         return inflater.inflate(R.layout.dialog_loading, container, false)
     }
 
@@ -30,5 +28,4 @@ class LoadingDialog : DialogFragment() {
         super.onStart()
         dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT , ViewGroup.LayoutParams.MATCH_PARENT)
     }
-
 }
