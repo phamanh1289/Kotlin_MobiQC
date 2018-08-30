@@ -1,5 +1,6 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.component
 
+import com.google.android.gms.maps.MapFragment
 import dagger.Subcomponent
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.module.ActivityModule
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.dagger.scope.ActivityScope
@@ -18,6 +19,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.UploadImageFr
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.view_image.ViewImageFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.login.LoginFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.main.MainActivity
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.maps.MapsFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.reprot.ReportFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.splash_screen.SplashScreenActivity
 
@@ -45,4 +47,5 @@ interface ActivityComponent {
     fun inject(uploadImageFragment: UploadImageFragment)
     fun inject(viewImageFragment: ViewImageFragment)
     fun inject(reportFragment: ReportFragment)
+    fun inject(mapFragment: MapsFragment)
 }

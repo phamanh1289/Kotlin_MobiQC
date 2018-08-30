@@ -15,6 +15,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.GroupPointDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.check_list.all_check_list.AllCheckListFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.maps.MapsFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 import java.util.*
@@ -253,7 +254,9 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     }
 
     private fun onClickLocation() {
-        AppUtils.showDialog(fragmentManager, content = "Show Location", confirmDialogInterface = null)
+        val lat = fragDetailContract_tvCoordinate.text.split(",")[0]
+        val lng = fragDetailContract_tvCoordinate.text.split(",")[1]
+        addFragment(MapsFragment.newInstance(contractModel.FullName,lat,lng), true, true)
     }
 
     private fun onClickImage() {

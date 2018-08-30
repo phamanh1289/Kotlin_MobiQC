@@ -1,6 +1,8 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.datacore
 
 import android.content.Context
+import android.support.v4.content.ContextCompat
+import com.github.mikephil.charting.utils.ColorTemplate
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ErrorInfrastructureModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ItemMenuModel
@@ -144,5 +146,19 @@ object DataCore {
                 "<li>Thời gian ghi nhận lỗi: <b> ${error.CreateDate} </b></li></ul>" +
                 "<p ><span>Trân trọng cảm ơn!<o:p></o:p></span></p>" +
                 "<p > $urlImage </p><h4><span><o:p>&nbsp;</o:p></span></h4></div></body></html>"
+    }
+
+    fun getListcolor(context: Context?): ArrayList<Int> {
+        val colors = ArrayList<Int>()
+        context?.let {
+            colors.add(ContextCompat.getColor(it, R.color.bright_blue))
+            colors.add(ContextCompat.getColor(it, R.color.bright_red))
+            colors.add(ContextCompat.getColor(it, R.color.blue))
+            colors.add(ContextCompat.getColor(it, R.color.red_text))
+            colors.add(ContextCompat.getColor(it, R.color.colorPrimary))
+            colors.add(ContextCompat.getColor(it, R.color.steel))
+            colors.add(ColorTemplate.getHoloBlue())
+        }
+        return colors
     }
 }

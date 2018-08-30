@@ -21,6 +21,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.GroupPointDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.maps.MapsFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.SharedPrefUtils
 import java.util.ArrayList
@@ -113,7 +114,7 @@ class DetailContractDialogFragment : DialogFragment(), DetailContractDialogContr
     }
 
     private fun requestLocation() {
-
+        addFragment(MapsFragment(), true, true)
     }
 
     private fun requestAddress() {

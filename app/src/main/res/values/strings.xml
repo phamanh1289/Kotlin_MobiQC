@@ -2,6 +2,7 @@
     <string name="app_name">MobiQC</string>
     <string name="version_app_name">MobiQC v%1$s</string>
     <string name="api_key_storage">7d2ea261075fb6f251a66af89b6b4bb597de89b0</string>
+    <string name="google_maps_key">AIzaSyBNKRpluxm-gYRusWsAmp_a0WjbszrmwnE</string>
     <string name="Helvetica">fonts/Helvetica.ttf</string>
     <string name="Helvetica_Bold">fonts/Helvetica-Bold.ttf</string>
     <string name="Helvetica_light">fonts/Helvetica-light.ttf</string>
@@ -52,6 +53,7 @@
     <string name="loai_tc_2">Bảo trì</string>
     <string name="contract_number">Số HĐ</string>
     <string name="percent_contract">Tỉ lệ</string>
+    <string name="percent_value">%1$s %2$s</string>
     <string name="contract_name">Tên HĐ</string>
     <string name="contract_address">Địa chỉ</string>
     <string name="contract_time">Thời gian hẹn</string>

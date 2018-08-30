@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemChartReport_llRoot"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_36dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/_8dp"
+    android:paddingTop="@dimen/_8dp"
+    tools:ignore="MissingPrefix">
+
+
+    <FrameLayout
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:paddingEnd="@dimen/_16dp"
+        android:paddingStart="@dimen/_16dp"
+        android:textColor="@color/steel"
+        android:textSize="@dimen/_17dp">
+
+        <FrameLayout
+            android:id="@+id/itemChartReport_vColor"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"/>
+
+        <TextView
+            android:id="@+id/itemChartReport_tvType"
+            fontPath="@string/Helvetica_Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24dp"
+            android:textColor="@color/steel"
+            android:textSize="@dimen/_14dp"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/itemChartReport_tvContractNumber"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:gravity="center_horizontal"
+        android:textColor="@color/steel"
+        android:textSize="@dimen/_14dp"/>
+
+    <TextView
+        android:id="@+id/itemChartReport_tvPercent"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:gravity="center_horizontal"
+        android:textColor="@color/steel"
+        android:textSize="@dimen/_14dp"/>
+
+</LinearLayout>

@@ -135,6 +135,8 @@ object Constants {
     const val TIME_DATE_FORMAT = "dd/MM/yyyy"
     const val ARG_TYPE_CONTRACT = "TypeContract"
     const val ARG_MENU_TYPE = "menuType"
+    const val ARG_LAT = "lat"
+    const val ARG_LNG = "lng"
     const val ARG_SEARCH_TYPE = "searchType"
     const val ARG_SEARCH_KEY = "searchKey"
     const val ARG_ERROR_MODEL = "errorModel"

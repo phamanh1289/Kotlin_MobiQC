@@ -74,6 +74,9 @@ dependencies {
     implementation 'it.sephiroth.android.library.imagezoom:imagezoom:2.3.0'
     //Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    //google map
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
 }
 kapt {
     generateStubs = true

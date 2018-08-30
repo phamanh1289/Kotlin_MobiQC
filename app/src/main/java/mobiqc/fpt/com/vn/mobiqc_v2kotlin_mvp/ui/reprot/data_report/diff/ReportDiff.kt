@@ -9,7 +9,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.DetailReportMode
  */
 class ReportDiff : DiffUtil.ItemCallback<DetailReportModel>() {
     override fun areItemsTheSame(oldItem: DetailReportModel, newItem: DetailReportModel): Boolean {
-        return oldItem.color == newItem.color
+        return oldItem.title == newItem.title
     }
 
     override fun areContentsTheSame(oldItem: DetailReportModel, newItem: DetailReportModel): Boolean {

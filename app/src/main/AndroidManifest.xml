@@ -53,6 +53,10 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+
         <!--install app after download file-->
         <provider
             android:name="android.support.v4.content.FileProvider"

@@ -15,6 +15,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.MenuCheckListDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.AccountGroup
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.DetailReportModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PhoneNumberModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.SingleChoiceModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
@@ -29,6 +30,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
 import java.io.IOException
+import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -87,7 +89,7 @@ object AppUtils {
         return "<img src='http://iqc.fpt.vn$link'>"
     }
 
-     fun getUrlImage(link: String): String {
+    fun getUrlImage(link: String): String {
         return "http://iqc.fpt.vn$link"
     }
 
@@ -358,5 +360,15 @@ object AppUtils {
             e.printStackTrace()
         }
         return ipWan
+    }
+
+    fun getSumListData(list: ArrayList<DetailReportModel>): Float {
+        var sum = 0f
+        list.forEach { sum += it.value }
+        return sum
+    }
+
+    fun getCurrentPercent(value: Float, sum: Float): String {
+        return ((value / sum) * 100.0).toBigDecimal().setScale(1, BigDecimal.ROUND_HALF_EVEN).toString()
     }
 }

@@ -78,7 +78,7 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/fragReport_tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_36dp"
+        android:layout_height="@dimen/_48dp"
         fontPath="@string/Helvetica_Bold"
         app:tabIndicatorColor="@color/colorPrimary"
         app:tabIndicatorHeight="@dimen/_1dp"
