@@ -15,4 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         map:mapType="terrain"/>
+
+    <TextView
+        android:id="@+id/fragMaps_tvDistance"
+        fontPath="@string/Helvetica_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_16dp"
+        android:textColor="@color/bright_red"
+        android:textSize="@dimen/_17dp"
+        tools:text="@string/no_data"/>
 </FrameLayout>

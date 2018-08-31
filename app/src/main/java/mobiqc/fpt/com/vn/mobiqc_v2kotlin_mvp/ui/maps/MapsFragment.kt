@@ -2,7 +2,6 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.maps
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -15,6 +14,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.gson.Gson
+import com.google.maps.android.PolyUtil
+import com.google.maps.android.SphericalUtil
+import kotlinx.android.synthetic.main.fragment_maps.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PolylineMapModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
@@ -38,11 +40,10 @@ import javax.inject.Inject
  */
 class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
 
-    private lateinit var mMap: GoogleMap
     private var mapFragment: SupportMapFragment? = null
     private lateinit var mLocationManager: LocationService
     private var markerGuest: Marker? = null
-    private var markerMyLoction: Marker? = null
+    private var markerMyLocation: Marker? = null
     private var lat = 0.0
     private var lng = 0.0
     private var mBound: LatLngBounds? = null
@@ -51,6 +52,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     lateinit var presenter: MapsPresenter
 
     companion object {
+        private lateinit var mMap: GoogleMap
         fun newInstance(contractNumber: String, lat: String, lng: String): MapsFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT_NUMBER, contractNumber)
@@ -85,16 +87,20 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
         arguments?.let {
             lat = it.getString(Constants.ARG_LAT).toDouble()
             lng = it.getString(Constants.ARG_LNG).toDouble()
-            val title = it.getString(Constants.ARG_TITLE) ?: ""
+            val title = it.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
             markerGuest = addMarkerToMap(title)
             setTitle(TitleAndMenuModel(title = title, status = false))
         }
         val builder = LatLngBounds.Builder()
         builder.include(markerGuest?.position)
-        builder.include(markerMyLoction?.position)
+        builder.include(markerMyLocation?.position)
         mBound = builder.build()
         mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
-        DownloadTask().execute(getDirectionsUrl(markerMyLoction?.position!!, markerGuest?.position!!))
+        fragMaps_tvDistance.run {
+            val distance = SphericalUtil.computeDistanceBetween(markerMyLocation?.position, markerGuest?.position)
+            text = AppUtils.changeFormatDistance(distance)
+        }
+        DownloadTask().execute(getDirectionsUrl(markerMyLocation?.position!!, markerGuest?.position!!))
     }
 
     override fun onMapReady(map: GoogleMap?) {
@@ -106,7 +112,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
                 val myLocation = mLocationManager.getLocationUser()
                 lat = myLocation.latitude
                 lng = myLocation.longitude
-                markerMyLoction = addMarkerToMap("")
+                markerMyLocation = addMarkerToMap("")
                 mMap.clear()
             }
             handleArgument()
@@ -128,22 +134,13 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     }
 
     private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String {
-        // Origin of route
-        val str_origin = "origin=" + origin.latitude + "," + origin.longitude
-        // Destination of route
-        val str_dest = "destination=" + dest.latitude + "," + dest.longitude
-        // Sensor enabled
-        val sensor = "sensor=false"
-        val mode = "mode=driving"
-        // Building the parameters to the web service
-        val parameters = "$str_origin&$str_dest&$sensor&$mode"
-        // Output format
-        val output = "json"
-        // Building the url to the web service
-        return "https://maps.googleapis.com/maps/api/directions/$output?$parameters"
+        val parameters = "${getString(R.string.geo_map_origin, origin.latitude.toString(), origin.longitude.toString())}&" +
+                "${getString(R.string.geo_map_destination, dest.latitude.toString(), dest.longitude.toString())}&" +
+                "${Constants.GEO_MAP_SENSOR}&${Constants.GEO_MAP_MODE_DRIVING}"
+        return getString(R.string.geo_map_url, Constants.GEO_MAP_OUTPUT_FORMAT, parameters)
     }
 
-    private inner class DownloadTask : AsyncTask<String, String, String>() {
+    class DownloadTask : AsyncTask<String, String, String>() {
         override fun doInBackground(vararg url: String): String {
             var data = ""
             try {
@@ -157,45 +154,47 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
             super.onPostExecute(result)
             drawPolylineToMap(result)
         }
-    }
 
-    @Throws(IOException::class)
-    private fun downloadUrl(strUrl: String): String {
-        var data = ""
-        var iStream: InputStream? = null
-        var urlConnection: HttpURLConnection? = null
-        try {
-            val url = URL(strUrl)
-            urlConnection = url.openConnection() as HttpURLConnection
-            urlConnection.connect()
-            iStream = urlConnection.inputStream
-            val br = BufferedReader(InputStreamReader(iStream))
-            val sb = StringBuffer()
-            var line = br.readLine()
-            while (line != null) {
-                sb.append(line)
-                line = br.readLine()
+        @Throws(IOException::class)
+        private fun downloadUrl(strUrl: String): String {
+            var data = ""
+            var iStream: InputStream? = null
+            var urlConnection: HttpURLConnection? = null
+            try {
+                val url = URL(strUrl)
+                urlConnection = url.openConnection() as HttpURLConnection
+                urlConnection.connect()
+                iStream = urlConnection.inputStream
+                val br = BufferedReader(InputStreamReader(iStream))
+                val sb = StringBuffer()
+                var line = br.readLine()
+                while (line != null) {
+                    sb.append(line)
+                    line = br.readLine()
+                }
+                data = sb.toString()
+                br.close()
+            } catch (e: Exception) {
+            } finally {
+                iStream!!.close()
+                urlConnection!!.disconnect()
             }
-            data = sb.toString()
-            br.close()
-        } catch (e: Exception) {
-        } finally {
-            iStream!!.close()
-            urlConnection!!.disconnect()
+            return data
         }
-        return data
-    }
 
-
-    private fun drawPolylineToMap(data: String) {
-        val model: PolylineMapModel? = Gson().fromJson(data, PolylineMapModel::class.java)
-        model?.let {
-            val item = model.routes[Constants.FIRST_ITEM]
-            val leg = item.legs[Constants.FIRST_ITEM]
-            leg.steps.forEach { itemStep ->
-                mMap.addPolyline(PolylineOptions()
-                        .add(LatLng(itemStep.start_location.lat, itemStep.start_location.lng), LatLng(itemStep.end_location.lat, itemStep.end_location.lng)).width(5f)
-                        .color(Color.RED))
+        private fun drawPolylineToMap(data: String) {
+            val model: PolylineMapModel? = Gson().fromJson(data, PolylineMapModel::class.java)
+            model?.let {
+                val item = it.routes[Constants.FIRST_ITEM]
+                val overviewPolyline = item.overview_polyline
+                val listLatLng = PolyUtil.decode(overviewPolyline.points)
+                var startLocation = listLatLng[Constants.FIRST_ITEM]
+                listLatLng.forEach { itemLatLng ->
+                    mMap.addPolyline(PolylineOptions()
+                            .add(LatLng(startLocation.latitude, startLocation.longitude), LatLng(itemLatLng.latitude, itemLatLng.longitude)).width(5f)
+                            .color(R.color.colorPrimary))
+                    startLocation = itemLatLng
+                }
             }
         }
     }

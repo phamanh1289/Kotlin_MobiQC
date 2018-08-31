@@ -169,6 +169,7 @@
     <string name="notify_error_type_over">vượt mức cho phép</string>
     <string name="notify_error_type_no_update">không được cập nhật</string>
     <string name="notify_error_type_ok">trong mức cho phép</string>
+    <string name="distance">Khoảng cách</string>
     <string name="search_location">Vùng</string>
     <string name="search_branch">Chi Nhánh</string>
     <string name="search_title">Tìm kiếm</string>
@@ -224,6 +225,9 @@
     <string name="send_email_error">Gửi email</string>
     <string name="send_email_notify">Gửi email thông báo</string>
     <string name="view_image">Xem hình ảnh</string>
+    <string name="geo_map_destination">destination=%1$S,%2$S</string>
+    <string name="geo_map_origin">origin=%1$S,%2$S</string>
+    <string name="geo_map_url">https://maps.googleapis.com/maps/api/directions/%1$s?%2$s</string>
     <string name="subject_email">[MobiQC - ID#%1$s] Thông báo lỗi hạ tầng %2$s %3$s</string>
     <string name="error_update_detail">Cập nhật chi tiết</string>
     <string name="create_error_success">Khởi tạo lỗi thành công!\n\nBạn có muốn upload hình ảnh cho lỗi này?"</string>

@@ -165,5 +165,13 @@ object Constants {
     const val TYPE_IMAGE_VIEW = true
     const val ERROR_FIRST_ITEM = "Không có"
     const val URL_CHECK_IP = "http://checkip.amazonaws.com/"
+//    The other modes of transport are:
+//    driving (default)
+//    walking
+//    bicycling
+//    transit
+    const val GEO_MAP_MODE_DRIVING = "mode=driving"
+    const val GEO_MAP_SENSOR = "sensor=true"
+    const val GEO_MAP_OUTPUT_FORMAT = "json"
 
 }
