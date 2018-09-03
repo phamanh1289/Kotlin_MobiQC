@@ -22,23 +22,23 @@ class LocationService(val context: Context?) {
     }
 
     private var locationManager: LocationManager? = null
-    private lateinit var location: Location
+    private var location: Location? = null
 
     fun getLocationManager() {
         try {
             locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
             locationManager?.let {
                 if (getNetworkLocation()!!)
-                    setLocationUser(context, it , LocationManager.NETWORK_PROVIDER)
-                if (getStatusGps()!!)
-                    setLocationUser(context, it,LocationManager.GPS_PROVIDER)
+                    setLocationUser(context, it, LocationManager.NETWORK_PROVIDER)
+                if (getStatusGps()!! && location == null)
+                    setLocationUser(context, it, LocationManager.GPS_PROVIDER)
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    private fun setLocationUser(context: Context?,locationManager: LocationManager, type: String) {
+    private fun setLocationUser(context: Context?, locationManager: LocationManager, type: String) {
         context?.let { it ->
             if (ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 locationManager.requestLocationUpdates(type, ONE_MIN.toLong(), TEN_METERS.toFloat(), locationListener)
@@ -55,7 +55,7 @@ class LocationService(val context: Context?) {
         return locationManager?.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
 
-    fun getLocationUser(): Location {
+    fun getLocationUser(): Location? {
         return location
     }
 

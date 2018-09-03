@@ -102,4 +102,5 @@ interface ApiService {
     @GET
     @Streaming
     fun getFileNewVersion(@Url fileUrl: String): Call<ResponseBody>
+
 }

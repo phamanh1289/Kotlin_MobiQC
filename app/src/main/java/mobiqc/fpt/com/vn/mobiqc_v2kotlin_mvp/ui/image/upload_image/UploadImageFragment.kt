@@ -57,6 +57,7 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         const val TYPE_IMAGE = 2
         const val TYPE_VIDEO = 3
         const val MAX_IMAGE = 6
+        const val MAX_COL = 2
         const val TITLE = "title"
         const val MODEL = "mode"
         const val MAX_SELECTION = "maxSelection"
@@ -97,7 +98,7 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         fragUpLoadImage_rvMain.apply {
             adapter = adapterImage
             setHasFixedSize(true)
-            val layout = GridLayoutManager(context, 2)
+            val layout = GridLayoutManager(context, MAX_COL)
             layoutManager = layout
         }
     }

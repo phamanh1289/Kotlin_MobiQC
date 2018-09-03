@@ -27,6 +27,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.contract.search_contract.SearchF
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.create.CreateErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.list.ListErrorFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.error.update.UpdateErrorFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.UploadImageFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.infomation.InformationFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.reprot.ReportFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
@@ -130,7 +131,8 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.TAO_LOI_MOI -> addFragment(CreateErrorFragment(), false, true)
             Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
             Constants.KQ_XAC_MINH ->
-                AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
+                addFragment(UploadImageFragment(),false,true)
+//                AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
             Constants.BAO_CAO_SO_LIEU -> addFragment(ReportFragment(),false,true)
             Constants.THONG_TIN -> addFragment(InformationFragment.newInstance(itemMenu.name), false, true)
             Constants.DANG_XUAT -> {

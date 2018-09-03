@@ -2,6 +2,7 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.maps
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -25,10 +26,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.service.LocationService
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
+import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
 import javax.inject.Inject
@@ -43,21 +41,25 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     private var mapFragment: SupportMapFragment? = null
     private lateinit var mLocationManager: LocationService
     private var markerGuest: Marker? = null
-    private var markerMyLocation: Marker? = null
+    private var mMyLocation: LatLng? = null
     private var lat = 0.0
     private var lng = 0.0
     private var mBound: LatLngBounds? = null
-
+    private var contractNumber = ""
+    private var fullName = ""
+    private var address = ""
     @Inject
     lateinit var presenter: MapsPresenter
 
     companion object {
         private lateinit var mMap: GoogleMap
-        fun newInstance(contractNumber: String, lat: String, lng: String): MapsFragment {
+        fun newInstance(contractNumber: String, fullName: String, lat: String, lng: String, address: String): MapsFragment {
             val args = Bundle()
             args.putString(Constants.ARG_CONTRACT_NUMBER, contractNumber)
+            args.putString(Constants.ARG_TITLE, fullName)
             args.putString(Constants.ARG_LAT, lat)
             args.putString(Constants.ARG_LNG, lng)
+            args.putString(Constants.ARG_LOCATION, address)
             val fragment = MapsFragment()
             fragment.arguments = args
             return fragment
@@ -87,20 +89,23 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
         arguments?.let {
             lat = it.getString(Constants.ARG_LAT).toDouble()
             lng = it.getString(Constants.ARG_LNG).toDouble()
-            val title = it.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
-            markerGuest = addMarkerToMap(title)
-            setTitle(TitleAndMenuModel(title = title, status = false))
+            contractNumber = it.getString(Constants.ARG_CONTRACT_NUMBER) ?: ""
+            fullName = it.getString(Constants.ARG_TITLE) ?: ""
+            address = it.getString(Constants.ARG_LOCATION) ?: ""
+            markerGuest = mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
+            markerGuest?.snippet = address
+            setTitle(TitleAndMenuModel(title = contractNumber, status = false))
         }
         val builder = LatLngBounds.Builder()
         builder.include(markerGuest?.position)
-        builder.include(markerMyLocation?.position)
+        builder.include(mMyLocation)
         mBound = builder.build()
         mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
         fragMaps_tvDistance.run {
-            val distance = SphericalUtil.computeDistanceBetween(markerMyLocation?.position, markerGuest?.position)
-            text = AppUtils.changeFormatDistance(distance)
+            val distance = SphericalUtil.computeDistanceBetween(mMyLocation, markerGuest?.position)
+            text = getString(R.string.distance, AppUtils.changeFormatDistance(distance))
         }
-        DownloadTask().execute(getDirectionsUrl(markerMyLocation?.position!!, markerGuest?.position!!))
+        DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
     }
 
     override fun onMapReady(map: GoogleMap?) {
@@ -108,19 +113,29 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
             mMap = it
             if (ActivityCompat.checkSelfPermission(context!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                 mMap.isMyLocationEnabled = true
-            if (mLocationManager.getStatusGps()!!) {
-                val myLocation = mLocationManager.getLocationUser()
-                lat = myLocation.latitude
-                lng = myLocation.longitude
-                markerMyLocation = addMarkerToMap("")
-                mMap.clear()
-            }
+            if (mLocationManager.getStatusGps()!!)
+                getMyCurrentLocation()
             handleArgument()
+            initOnClickMap()
         }
     }
 
-    private fun addMarkerToMap(title: String): Marker {
-        return mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title(title))
+    private fun getMyCurrentLocation() {
+        val myLocation = mLocationManager.getLocationUser()
+        myLocation?.let { location ->
+            mMyLocation = LatLng(location.latitude, location.longitude)
+        }
+    }
+
+    private fun initOnClickMap() {
+        mMap.setOnMyLocationButtonClickListener {
+            getMyCurrentLocation()
+            mMap.clear()
+            mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
+            markerGuest?.snippet = address
+            DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
+            false
+        }
     }
 
     override fun handleError(error: String) {
@@ -131,6 +146,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()
+        mLocationManager.stopListtenerLocation()
     }
 
     private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String {
@@ -141,6 +157,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     }
 
     class DownloadTask : AsyncTask<String, String, String>() {
+
         override fun doInBackground(vararg url: String): String {
             var data = ""
             try {
@@ -165,7 +182,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
                 urlConnection = url.openConnection() as HttpURLConnection
                 urlConnection.connect()
                 iStream = urlConnection.inputStream
-                val br = BufferedReader(InputStreamReader(iStream))
+                val br = BufferedReader(InputStreamReader(iStream) as Reader?)
                 val sb = StringBuffer()
                 var line = br.readLine()
                 while (line != null) {
@@ -191,8 +208,8 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
                 var startLocation = listLatLng[Constants.FIRST_ITEM]
                 listLatLng.forEach { itemLatLng ->
                     mMap.addPolyline(PolylineOptions()
-                            .add(LatLng(startLocation.latitude, startLocation.longitude), LatLng(itemLatLng.latitude, itemLatLng.longitude)).width(5f)
-                            .color(R.color.colorPrimary))
+                            .add(LatLng(startLocation.latitude, startLocation.longitude), LatLng(itemLatLng.latitude, itemLatLng.longitude)).width(8f)
+                            .color(Color.RED))
                     startLocation = itemLatLng
                 }
             }

@@ -14,6 +14,7 @@ import javax.inject.Inject
  * * Copyright (c) 2018 by FPT Telecom      **
  */
 class SplashScreenPresenter @Inject constructor(val apiService: ApiService) : BasePresenter<SplashScreenContract.SplashScreenView>(), SplashScreenContract.SplashScreenPresenter {
+
     override fun getNewFileVersion(url: String) {
         DownloadService(url, view).initDownload()
     }

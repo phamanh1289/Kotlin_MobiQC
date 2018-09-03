@@ -169,7 +169,7 @@
     <string name="notify_error_type_over">vượt mức cho phép</string>
     <string name="notify_error_type_no_update">không được cập nhật</string>
     <string name="notify_error_type_ok">trong mức cho phép</string>
-    <string name="distance">Khoảng cách</string>
+    <string name="distance">Khoảng cách : %1$s</string>
     <string name="search_location">Vùng</string>
     <string name="search_branch">Chi Nhánh</string>
     <string name="search_title">Tìm kiếm</string>

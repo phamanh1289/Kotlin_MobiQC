@@ -21,6 +21,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.GroupPointDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.main.MainActivity
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.maps.MapsFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.SharedPrefUtils
@@ -85,7 +86,10 @@ class DetailContractDialogFragment : DialogFragment(), DetailContractDialogContr
 
     private fun initOnClick() {
         fragDialogDetailContract_tvAddress.setOnClickListener { requestAddress() }
-        fragDialogDetailContract_tvCoordinate.setOnClickListener { requestLocation() }
+        fragDialogDetailContract_tvCoordinate.setOnClickListener {
+            dismiss()
+            requestLocation()
+        }
         fragDialogDetailContract_tvPhone.setOnClickListener { AppUtils.makeCallPhoneNumber(context, contractModel.Phone) }
         fragDialogDetailContract_tvAllPhone.setOnClickListener { requestAllPhone() }
         fragDialogDetailContract_tvODCCableType.setOnClickListener {
@@ -114,7 +118,9 @@ class DetailContractDialogFragment : DialogFragment(), DetailContractDialogContr
     }
 
     private fun requestLocation() {
-        addFragment(MapsFragment(), true, true)
+        val lat = fragDialogDetailContract_tvCoordinate.text.split(",")[0]
+        val lng = fragDialogDetailContract_tvCoordinate.text.split(",")[1]
+        addFragment(MapsFragment.newInstance(contractNumber, contractModel.FullName, lat, lng, contractModel.Address), true, true)
     }
 
     private fun requestAddress() {
@@ -221,7 +227,14 @@ class DetailContractDialogFragment : DialogFragment(), DetailContractDialogContr
     }
 
     override fun addFragment(fragment: BaseFragment, isAddToBackStack: Boolean, isAnimation: Boolean) {
-
+        if (activity is BaseActivity) {
+            if (activity is MainActivity) {
+                val activity = activity as MainActivity
+                if (isAddToBackStack) activity.mCountBack++
+                activity.handleShowMenu()
+            }
+            (activity as BaseActivity).addFragment(fragment, isAddToBackStack, isAnimation)
+        }
     }
 
     override fun replaceFragment(fragment: BaseFragment, isAddToBackStack: Boolean, isAnimation: Boolean) {

@@ -256,7 +256,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
     private fun onClickLocation() {
         val lat = fragDetailContract_tvCoordinate.text.split(",")[0]
         val lng = fragDetailContract_tvCoordinate.text.split(",")[1]
-        addFragment(MapsFragment.newInstance(contractModel.FullName,lat,lng), true, true)
+        addFragment(MapsFragment.newInstance(contractNumber, contractModel.FullName, lat, lng, contractModel.Address), true, true)
     }
 
     private fun onClickImage() {
