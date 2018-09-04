@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.BuildConfig
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDataModel
@@ -26,7 +25,6 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.StartActivityUtils
 import javax.inject.Inject
 
 
-@Suppress("DEPRECATION")
 class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScreenContract.SplashScreenView {
 
     @Inject
@@ -37,7 +35,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     private val updateClick = object : ConfirmDialogInterface {
         override fun onClickOk() {
             if (AppUtils.getFileDownload().exists())
-                installFileExit()
+                installFileExist()
             else {
                 AppUtils.showDialogDownLoadData(supportFragmentManager, mDialogDownload)
                 presenter.getNewFileVersion(url)
@@ -59,6 +57,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
 
     private fun initView() {
         mDialogDownload = ShowDownLoadDialog()
+        AppUtils.deleteFileExist()
         Handler().postDelayed({
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 getPermission().requestEachCombined(
@@ -70,18 +69,22 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                         Manifest.permission.WAKE_LOCK)
                         .subscribe {
                             if (it.granted) {
-                                presenter.let { callApi ->
-                                    showLoading()
-                                    val map = HashMap<String, Any>()
-                                    map["Version"] = BuildConfig.VERSION_CODE
-//                                    map["Version"] = 20
-                                    callApi.getAppVersion(map)
-                                }
+                                initParamGetNewVersion()
                             } else
                                 AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.message_permission), confirmDialogInterface = this, actionCancel = true)
                         }
             }
         }, 1000)
+    }
+
+    private fun initParamGetNewVersion() {
+        presenter.let { pre ->
+            showLoading()
+            val map = HashMap<String, Any>()
+//                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
+            map[Constants.PARAMS_VERSION] = 20
+            pre.getAppVersion(map)
+        }
     }
 
     @SuppressLint("HardwareIds")
@@ -91,7 +94,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                 getSharePreferences().imeiDevice = (getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager).deviceId
     }
 
-    private fun installFileExit() {
+    private fun installFileExist() {
         val fileUri = android.support.v4.content.FileProvider.getUriForFile(this, applicationContext.packageName + ".provider", AppUtils.getFileDownload())
         val intent = Intent(Intent.ACTION_VIEW)
         intent.setDataAndType(fileUri, Constants.PATH_FILE_DOWNLOAD)
@@ -134,7 +137,6 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     override fun loadNewErrorData(response: ResponseErrorDataModel, data: String?) {
         hideLoading()
         if (response.code == Constants.REQUEST_SUCCESS) {
-            AppUtils.deleteFileExist()
             data?.let {
                 getSharePreferences().maxDateError = it
             }
@@ -147,14 +149,30 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             AppUtils.showDialog(fragmentManager = supportFragmentManager, content = response.description, confirmDialogInterface = null)
     }
 
-    override fun loadNewFileVersion(response: Boolean) {
-        if (response == Constants.DOWNLOAD_SUCCESS)
-            installFileExit()
+    override fun loadNewFileVersion(percent: Float) {
+        if (percent.toInt() != Constants.DOWNLOAD_FAIL) {
+            mDialogDownload.setPercent(percent)
+            if (percent.toInt() == Constants.DOWNLOAD_SUCCESS)
+                installFileExist()
+        } else {
+            mDialogDownload.dismiss()
+            AppUtils.showDialog(supportFragmentManager, content = getString(R.string.mess_error_update), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                override fun onClickOk() {
+                    presenter.getNewFileVersion(url)
+                }
+
+                override fun onClickCancel() {
+                    finish()
+                }
+            })
+        }
     }
 
     override fun handleError(error: String) {
         hideLoading()
         AppUtils.showDialog(fragmentManager = supportFragmentManager, content = error, confirmDialogInterface = null)
+        if (mDialogDownload.isAdded)
+            mDialogDownload.dismiss()
     }
 
     override fun onClickCancel() {

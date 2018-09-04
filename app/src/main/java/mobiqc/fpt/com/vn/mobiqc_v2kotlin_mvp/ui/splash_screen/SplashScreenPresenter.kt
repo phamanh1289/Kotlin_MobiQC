@@ -16,7 +16,7 @@ import javax.inject.Inject
 class SplashScreenPresenter @Inject constructor(val apiService: ApiService) : BasePresenter<SplashScreenContract.SplashScreenView>(), SplashScreenContract.SplashScreenPresenter {
 
     override fun getNewFileVersion(url: String) {
-        DownloadService(url, view).initDownload()
+        DownloadService(url,view).initDownload()
     }
 
     override fun getAppVersion(map: HashMap<String, Any>) {

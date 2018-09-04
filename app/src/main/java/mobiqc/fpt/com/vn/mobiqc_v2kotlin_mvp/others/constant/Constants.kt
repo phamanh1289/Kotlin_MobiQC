@@ -79,6 +79,7 @@ object Constants {
     const val PARAMS_ERROR = "Error"
     const val PARAMS_API_KEY = "api_key"
     const val PARAMS_IP_CLIENT = "ip_client"
+    const val PARAMS_VERSION = "Version"
     const val PARAMS_NO_VALUE_INT = 0
 
     //End : Params call api
@@ -118,6 +119,8 @@ object Constants {
     const val YET_STATUS_ERROR = 0
     const val DONE_STATUS_ERROR = 1
     const val DONT_BOOK_DATE = -1
+    const val DOWNLOAD_SUCCESS = 100
+    const val DOWNLOAD_FAIL = -1
     const val SUCCESSFUL = "Successful"
     const val TYPE_SEND_MAIL = "message/rfc822"
     const val ERROR_NETWORK = "Không có kết nối internet!"
@@ -159,13 +162,12 @@ object Constants {
     const val DEFAULT_KIND = "3"
     const val FILE_NAME_DOWNLOAD = "MobiQc_Release.apk"
     const val PATH_FILE_DOWNLOAD = "application/vnd.android.package-archive"
-    const val DOWNLOAD_SUCCESS = true
     const val SET_CURRENT_IS_MAX_DATE = true
     const val SET_CURRENT_IS_MIN_DATE = false
     const val TYPE_IMAGE_VIEW = true
     const val ERROR_FIRST_ITEM = "Không có"
     const val URL_CHECK_IP = "http://checkip.amazonaws.com/"
-//    The other modes of transport are:
+    //    The other modes of transport are:
 //    driving (default)
 //    walking
 //    bicycling

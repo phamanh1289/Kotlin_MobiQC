@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import kotlinx.android.synthetic.main.fragment_dialog_show_download.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 
@@ -23,6 +24,22 @@ class ShowDownLoadDialog : DialogFragment() {
         dialog?.setCanceledOnTouchOutside(false)
         isCancelable = false
         return inflater.inflate(R.layout.fragment_dialog_show_download, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        fragDialogShowDownload_tvDetail.text = getString(R.string.wait_load_data, 0, "%")
+    }
+
+    fun setPercent(per: Float) {
+        val current = per.toInt()
+        when (current) {
+            100 -> dismiss()
+            else -> {
+                fragDialogShowDownload_tvDetail.text = getString(R.string.wait_load_data, per.toInt(), "%")
+                fragDialogShowDownload_tvPercent.progress = per.toInt()
+            }
+        }
     }
 
     override fun onStart() {

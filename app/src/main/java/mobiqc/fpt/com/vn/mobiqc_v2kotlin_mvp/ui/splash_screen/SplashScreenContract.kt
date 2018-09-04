@@ -10,17 +10,17 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
  */
 interface SplashScreenContract {
     interface SplashScreenView : BaseView {
-        fun loadAppVersion(response : ResponseModel)
-        fun loadCheckImei(response : ResponseModel)
-        fun loadNewErrorData(response : ResponseErrorDataModel, data : String?)
-        fun loadNewFileVersion(response : Boolean)
-        fun handleError(error : String)
+        fun loadAppVersion(response: ResponseModel)
+        fun loadCheckImei(response: ResponseModel)
+        fun loadNewErrorData(response: ResponseErrorDataModel, data: String?)
+        fun loadNewFileVersion(percent: Float)
+        fun handleError(error: String)
     }
 
     interface SplashScreenPresenter {
         fun getAppVersion(map: HashMap<String, Any>)
         fun postCheckImei(map: HashMap<String, Any>)
         fun getNewErrorData(map: HashMap<String, Any>)
-        fun getNewFileVersion(url : String)
+        fun getNewFileVersion(url: String)
     }
 }

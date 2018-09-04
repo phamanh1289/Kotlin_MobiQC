@@ -10,7 +10,6 @@ import android.os.Looper
 import android.provider.MediaStore
 import android.support.v7.widget.GridLayoutManager
 import android.util.Base64
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +20,7 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.UploadImageModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.dialog.ShowDownLoadDialog
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.diff.UploadImageAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
@@ -49,7 +49,8 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
 
     private var listBitmap = ArrayList<UploadImageModel>()
     private lateinit var adapterImage: UploadImageAdapter
-    var mIsUploadImage = false
+    private lateinit var mDialogDownload: ShowDownLoadDialog
+    private var mIsUploadImage = false
 
     companion object {
         const val RESULT_CODE_IMAGE = 101
@@ -87,6 +88,7 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         setTitle(TitleAndMenuModel(title = getString(R.string.upload_image)))
         initRecyclerViewImage()
         initOnClick()
+        mDialogDownload = ShowDownLoadDialog()
     }
 
     private fun initRecyclerViewImage() {
@@ -113,7 +115,10 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         fragUpLoadImage_imgUpImage.setOnClickListener {
             if (listBitmap.size == 0)
                 AppUtils.showDialog(fragmentManager, content = getString(R.string.mess_upload_image), confirmDialogInterface = null)
-            else initDataToUpload()
+            else {
+                AppUtils.showDialogDownLoadData(fragmentManager, mDialogDownload)
+                taskUpload().execute()
+            }
         }
     }
 
@@ -201,16 +206,11 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
 //    });
 
 
-
     inner class taskUpload : AsyncTask<Void, String, Int>() {
-        override fun onPreExecute() {
-            super.onPreExecute()
-            showLoading()
-        }
 
         override fun onProgressUpdate(vararg values: String) {
             super.onProgressUpdate(*values)
-//            tvProgress.setText(values[0])
+//            mDialogDownload.setPercent(values[0].toBigDecimal())
         }
 
         override fun doInBackground(vararg voids: Void): Int {
@@ -218,15 +218,14 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
             var num = 0
             for (i in 0 until listBitmap.size) {
                 val img = listBitmap[i]
-                publishProgress("Đang tải lên hình thứ " + (i + 1) + "...")
-                val result = sendFileToServer(img.filePath, "http://iqc.fpt.vn/api/upload", getSharePreferences().userToken, codeFolder, getSharePreferences().accountName)
+                val result = sendFileToServer(img.filePath, "http://iqc.fpt.vn/api/upload", getSharePreferences().userToken, codeFolder)
                 if (result !== "error") {
                     try {
                         val jsonResult = JSONObject(result)
                         if (jsonResult.getInt("ErrorCode") == 0) {
-                            img.filePath  = jsonResult.getString("ImgPath").toString()
-//                            img.setUpload(true)
+                            img.filePath = jsonResult.getString("ImgPath").toString()
                             num++
+                            publishProgress((100 * i / listBitmap.size).toString())
                         }
                     } catch (e: JSONException) {
                         e.printStackTrace()
@@ -238,11 +237,10 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
 
         override fun onPostExecute(integer: Int) {
             super.onPostExecute(integer)
-            hideLoading()
             AppUtils.showDialog(fragmentManager, content = "Đã upload thành công $integer ảnh", confirmDialogInterface = null)
-            if (integer > 0) {
-                createAlbumImage()
-            }
+//            if (integer > 0) {
+//                createAlbumImage()
+//            }
         }
     }
 
@@ -250,7 +248,7 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
 
     }
 
-    private fun sendFileToServer(filename: String, targetUrl: String, accessToken: String, codeFolder: String, uploader: String): String {
+    private fun sendFileToServer(filename: String, targetUrl: String, accessToken: String, codeFolder: String): String {
         var filename = filename
         //Set timeout upload 1 image is 2 minutes
         mIsUploadImage = true
@@ -258,8 +256,6 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         handler.postDelayed({ mIsUploadImage = false }, (120 * 1000).toLong())
 
         var response = "error"
-        Log.e("Image filename", filename)
-        Log.e("url", targetUrl)
         var connection: HttpURLConnection? = null
         var out: BufferedOutputStream? = null
         var fileStream: InputStream? = null
@@ -282,7 +278,6 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
             fileStream = FileInputStream(filename)
 
             val lengthOfFile = fileUpload.length()
-            Log.i("UPLOAD", "Length of file: $lengthOfFile B")
 
             // int sizeOfPacket = 8192; // 8kb
             val sizeOfBlock = (1024 * 1024).toLong() //
@@ -292,7 +287,6 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
             val data = filename.toByteArray(charset("UTF-8"))
             val base64 = Base64.encodeToString(data, Base64.NO_WRAP)
                     .replace("[\"\';\\-\\+\\.\\^:,?=!@#$%^&*()\\[\\]]".toRegex(), "")
-            Log.i("UPLOAD", "Session id upload .......: $base64")
             var contentLength: Long
             var i = 0
 
@@ -304,25 +298,18 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
                 try {
                     val from = i * sizeOfBlock
                     var to: Long
-                    if (from + sizeOfBlock > lengthOfFile) {
-                        to = lengthOfFile
+                    to = if (from + sizeOfBlock > lengthOfFile) {
+                        lengthOfFile
                     } else {
-                        to = sizeOfBlock * (i + 1)
+                        sizeOfBlock * (i + 1)
                     }
-                    to = to - 1
+                    to -= 1
                     contentLength = to - from + 1
                     headerValue = "bytes $from-$to/$lengthOfFile"
 
                     val url = URL(targetUrl)
                     connection = url.openConnection() as HttpURLConnection
                     connection.connectTimeout = 15 * 1000
-
-                    Log.i("UPLOAD",
-                            "chunk uploading: " + "..........." + (i + 1) + "......")
-                    Log.i("UPLOAD", "content Range upload: $headerValue")
-                    Log.i("UPLOAD",
-                            "............file name..................: " + fileUpload.name)
-
                     connection.doInput = true
                     connection.doOutput = true
                     connection.useCaches = false
@@ -337,15 +324,15 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
                     connection.setRequestProperty("Content-Range", headerValue)
                     connection.setRequestProperty("X-Chunk-Index", (i + 1).toString() + "")
                     connection.setRequestProperty("X-Chunks-Number", totalChunk.toString() + "")
-                    connection.setRequestProperty("code-folder", codeFolder)
-                    connection.setRequestProperty("uploader", uploader)
                     connection.setRequestProperty("Content-Length", contentLength.toString() + "")
                     if (i > 0) {
                         connection.setRequestProperty("X-Last-Checksum", checksum)
                     }
+
+                    connection.setRequestProperty("code-folder", codeFolder)
+                    connection.setRequestProperty("uploader", "minhhl2")
                     connection.setRequestProperty("iqc-contract-name", "test")
                     connection.setRequestProperty("iqc-mobi-account", "test")
-
                     out = BufferedOutputStream(connection.outputStream)
 
                     var read = 1
@@ -368,9 +355,6 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
                     }
                     val serverResponseCode = connection.responseCode
                     val serverResponseMessage = connection.responseMessage
-                    Log.i("UPLOAD", "Server Response Code $serverResponseCode")
-                    Log.i("UPLOAD", "Server Response Message$serverResponseMessage")
-
                     // if upload chunk i success then upload next chunk
                     // else upload chunk i again
                     if (serverResponseCode == HttpURLConnection.HTTP_OK || serverResponseCode == HttpURLConnection.HTTP_CREATED) {
@@ -380,12 +364,11 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
                         for ((key, value) in map) {
                             if (!(key + "").isEmpty() && key + "" == "X-Checksum") {
                                 for (item in value) {
-                                    checksum = checksum + item
+                                    checksum += item
                                 }
                                 break
                             }
                         }
-                        Log.i("UPLOAD", ".............X-Checksum.....: $checksum")
                     } else
                         return "error"
 
@@ -394,10 +377,8 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
                         out = null
                         connection.disconnect()
                     } else {
-                        //                        response = Common.getStringFromInputStream(connection.getInputStream());
                         val s = Scanner(connection.inputStream).useDelimiter("\\A")
                         response = if (s.hasNext()) s.next() else ""
-                        Log.d("UPLOAD", "JSON String after upload image: $response")
                         out.close()
                         out = null
                         connection.disconnect()
@@ -421,7 +402,6 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         } catch (ex: Exception) {
             // Exception handling
             response = "error"
-            Log.e("UPLOAD", "Send file Exception: " + ex.message)
             ex.printStackTrace()
         } finally {
             connection?.disconnect()
