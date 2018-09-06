@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.BuildConfig
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDataModel
@@ -37,8 +38,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             if (AppUtils.getFileDownload().exists())
                 installFileExist()
             else {
-                AppUtils.showDialogDownLoadData(supportFragmentManager, mDialogDownload)
-                presenter.getNewFileVersion(url)
+                initParamGetNewVersion()
             }
         }
 
@@ -69,7 +69,13 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                         Manifest.permission.WAKE_LOCK)
                         .subscribe {
                             if (it.granted) {
-                                initParamGetNewVersion()
+                                presenter.let { pre ->
+                                    showLoading()
+                                    val map = HashMap<String, Any>()
+                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
+//                                    map[Constants.PARAMS_VERSION] = 20
+                                    pre.getAppVersion(map)
+                                }
                             } else
                                 AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.message_permission), confirmDialogInterface = this, actionCancel = true)
                         }
@@ -78,13 +84,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     private fun initParamGetNewVersion() {
-        presenter.let { pre ->
-            showLoading()
-            val map = HashMap<String, Any>()
-//                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
-            map[Constants.PARAMS_VERSION] = 20
-            pre.getAppVersion(map)
-        }
+        AppUtils.showDialogDownLoadData(supportFragmentManager, mDialogDownload)
+        presenter.getNewFileVersion(url)
     }
 
     @SuppressLint("HardwareIds")
@@ -151,14 +152,14 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
 
     override fun loadNewFileVersion(percent: Float) {
         if (percent.toInt() != Constants.DOWNLOAD_FAIL) {
-            mDialogDownload.setPercent(percent)
+            mDialogDownload.setPercentDownload(percent)
             if (percent.toInt() == Constants.DOWNLOAD_SUCCESS)
                 installFileExist()
         } else {
             mDialogDownload.dismiss()
             AppUtils.showDialog(supportFragmentManager, content = getString(R.string.mess_error_update), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
                 override fun onClickOk() {
-                    presenter.getNewFileVersion(url)
+                    initParamGetNewVersion()
                 }
 
                 override fun onClickCancel() {

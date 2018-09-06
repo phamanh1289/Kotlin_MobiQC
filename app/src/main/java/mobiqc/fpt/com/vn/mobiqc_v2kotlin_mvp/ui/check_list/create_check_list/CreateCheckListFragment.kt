@@ -238,7 +238,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
     private fun handleRemainCheck(list: ArrayList<StatusCheckListModel>) {
         if (list.size != 0) {
             val item = list[Constants.FIRST_ITEM]
-            if (item.StatusCL == Constants.CREATE_CHECK_LIST_SUCCESS)
+            if (item.StatusCL == Constants.CREATE_SUCCESS)
                 presenter.let {
                     val map = HashMap<String, Any>()
                     map[Constants.PARAMS_OBJID] = contractModel.ObjID.toBigDecimal()
@@ -269,7 +269,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
                     listParams[Constants.PARAMS_DEP_ID] = pDepID
                     listParams[Constants.PARAMS_REQUEST_FROM] = Constants.DEFAULT_REQUEST_FROM_MOBI_QC
                     listParams[Constants.PARAMS_OWNER_TYPE] = ownerType
-                    if (item.Statusinf == Constants.CREATE_CHECK_LIST_SUCCESS)
+                    if (item.Statusinf == Constants.CREATE_SUCCESS)
                         presenter.postCreateChecklist(listParams)
                     else {
                         hideLoading()

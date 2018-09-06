@@ -1,11 +1,13 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image
 
+import android.content.Context
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.ApiIstorageService
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.ApiUploadImageService
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.UploadImageModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.service.UploadService
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BasePresenter
-import okhttp3.RequestBody
 import javax.inject.Inject
 
 /**
@@ -14,15 +16,8 @@ import javax.inject.Inject
  */
 class UploadImagePresenter @Inject constructor(private val apiUploadImageService: ApiUploadImageService, private val apiIstorageService: ApiIstorageService) : BasePresenter<UploadImageContract.UploadImageView>(), UploadImageContract.UploadImagePresenter {
 
-    override fun postUploadImage(token: String, part: RequestBody) {
-        addSubscribe(apiUploadImageService.postUploadImage(token, part)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    view?.loadUploadImageToServer(it)
-                }, {
-                    view?.handleError(it.message.toString())
-                }))
+    override fun postUploadImage(context: Context?, token: String, list: ArrayList<UploadImageModel>) {
+        UploadService(context, list, token,view).upLoadImageToServer().execute()
     }
 
     override fun postCreateImage(map: HashMap<String, Any>) {

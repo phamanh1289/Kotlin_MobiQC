@@ -171,8 +171,7 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
         fragCreateError_tvPartner.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.supporter_error), listParent, fragCreateError_tvPartner, positionParent) }
         fragCreateError_tvDescription.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.error_detail_description), listDescription, fragCreateError_tvDescription, positionDescription) }
         fragCreateError_tvSubmit.setOnClickListener {
-            //            addFragment(UploadImageFragment(), true, true)
-            AppUtils.showDialog(fragmentManager, content = getString(if (errorModel == null) R.string.create_error_mess else R.string.update_error_mess), confirmDialogInterface = object : ConfirmDialogInterface {
+            AppUtils.showDialog(fragmentManager, content = getString(if (errorModel == null) R.string.create_error_mess else R.string.update_error_mess), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
                 override fun onClickOk() {
                     initParamCreateAndUpDateError()
                 }
@@ -278,13 +277,14 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
     }
 
     private fun handleCreateAndUpdateSuccess() {
-        AppUtils.showDialog(fragmentManager, content = getString(if (errorModel == null) R.string.create_error_success else R.string.update_error_success), confirmDialogInterface = object : ConfirmDialogInterface {
+        hideLoading()
+        AppUtils.showDialog(fragmentManager, content = getString(if (errorModel == null) R.string.create_error_success else R.string.update_error_success),actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
             override fun onClickOk() {
                 addFragment(UploadImageFragment.newInstance(imageCode), true, true)
             }
 
             override fun onClickCancel() {
-
+                clearAllBackStack()
             }
         })
     }

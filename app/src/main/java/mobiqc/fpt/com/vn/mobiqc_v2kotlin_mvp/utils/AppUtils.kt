@@ -8,6 +8,7 @@ import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
+import android.provider.MediaStore
 import android.support.v4.app.FragmentManager
 import android.widget.TextView
 import com.google.android.gms.maps.model.LatLng
@@ -370,5 +371,16 @@ object AppUtils {
 
     fun getCurrentPercent(value: Float, sum: Float): String {
         return ((value / sum) * 100.0).toBigDecimal().setScale(1, BigDecimal.ROUND_HALF_EVEN).toString()
+    }
+
+    fun addFileToSd(context: Context?, file: File) {
+        val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+        intent.data = Uri.fromFile(file)
+        context?.sendBroadcast(intent)
+    }
+
+    fun removeFile(context: Context?,file: File) {
+        val resolver = context?.contentResolver
+        resolver?.delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Images.Media.DATA + "=?", arrayOf(file.absolutePath))
     }
 }

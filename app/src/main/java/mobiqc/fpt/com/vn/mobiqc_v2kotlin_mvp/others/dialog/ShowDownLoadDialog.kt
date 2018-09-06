@@ -31,7 +31,7 @@ class ShowDownLoadDialog : DialogFragment() {
         fragDialogShowDownload_tvDetail.text = getString(R.string.wait_load_data, 0, "%")
     }
 
-    fun setPercent(per: Float) {
+    fun setPercentDownload(per: Float) {
         val current = per.toInt()
         when (current) {
             100 -> dismiss()
@@ -40,6 +40,11 @@ class ShowDownLoadDialog : DialogFragment() {
                 fragDialogShowDownload_tvPercent.progress = per.toInt()
             }
         }
+    }
+
+    fun setPercentUpload(per: Int, total: Int) {
+        fragDialogShowDownload_tvDetail.text = getString(R.string.wait_up_data, per, total)
+        fragDialogShowDownload_tvPercent.progress = (100 * per / total)
     }
 
     override fun onStart() {

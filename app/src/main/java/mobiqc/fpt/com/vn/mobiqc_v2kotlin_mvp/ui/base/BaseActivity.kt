@@ -24,6 +24,7 @@ open class BaseActivity : AppCompatActivity(), BaseView {
     private lateinit var sharePreferences: SharedPrefUtils
     private var mDialogView: LoadingDialog? = null
     private lateinit var rxPermissions: RxPermissions
+    private var ischeckShowDialog = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,12 +54,16 @@ open class BaseActivity : AppCompatActivity(), BaseView {
         if (isNetworkConnected()) {
             if (mDialogView == null)
                 mDialogView = LoadingDialog()
-            mDialogView?.show(supportFragmentManager, LoadingDialog::class.java.simpleName)
+            if (!ischeckShowDialog) {
+                mDialogView?.show(supportFragmentManager, LoadingDialog::class.java.simpleName)
+                ischeckShowDialog = true
+            }
         }
     }
 
     override fun hideLoading() {
         mDialogView?.dismiss()
+        ischeckShowDialog = false
     }
 
     override fun isNetworkConnected(): Boolean {

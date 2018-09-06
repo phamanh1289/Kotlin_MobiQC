@@ -59,6 +59,7 @@ object Constants {
     const val PARAMS_LOCAL_TYPE_ID = "LocaltypeID"
     const val PARAMS_REASON_ID = "ReasonID"
     const val PARAMS_CREATE_BY = "CreateBy"
+    const val PARAMS_CREATE_BY_LOW = "createby"
     const val PARAMS_UPDATE_BY = "UpdateBy"
     const val PARAMS_ID = "ID"
     const val PARAMS_SUB_SUPPORTER = "SubSupporter"
@@ -74,12 +75,18 @@ object Constants {
     const val PARAMS_PARTNER = "Partner"
     const val PARAMS_NOTE = "Note"
     const val PARAMS_IMAGE_CODE = "ImageCode"
+    const val PARAMS_CODE = "code"
+    const val PARAMS_IMAGES = "images"
     const val PARAMS_MAIL_TO = "MailTo"
     const val PARAMS_STATUS = "Status"
+    const val PARAMS_STATUS_LOW = "status"
     const val PARAMS_ERROR = "Error"
     const val PARAMS_API_KEY = "api_key"
     const val PARAMS_IP_CLIENT = "ip_client"
+    const val PARAMS_LINK = "link"
     const val PARAMS_VERSION = "Version"
+    const val PARAMS_AUTHORIZATION = "Authorization"
+    const val PARAMS_CONTENT_DISPOSITION = "Content-Disposition"
     const val PARAMS_NO_VALUE_INT = 0
 
     //End : Params call api
@@ -96,7 +103,7 @@ object Constants {
     const val NO_IMAGE = 0
     const val SMS_TRUE = 1
     const val REQUEST_SUCCESS = 1
-    const val CREATE_CHECK_LIST_SUCCESS = 0
+    const val CREATE_SUCCESS = 0
     const val CREATE_CHECK_LIST_FAIL = 1
     const val WARNING_CHECK_LIST = 2
     const val REQUEST_UPDATE = 0

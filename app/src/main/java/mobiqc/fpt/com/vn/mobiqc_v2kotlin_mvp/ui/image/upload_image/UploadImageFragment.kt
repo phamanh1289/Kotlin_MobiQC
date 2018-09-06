@@ -1,21 +1,16 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image
 
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.os.AsyncTask
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.MediaStore
 import android.support.v7.widget.GridLayoutManager
-import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.erikagtierrez.multiple_media_picker.Gallery
 import kotlinx.android.synthetic.main.fragment_upload_image.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.LinkImageUploadModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.UploadImageModel
@@ -25,16 +20,6 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.upload_image.diff.UploadImageAdapter
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import org.json.JSONException
-import org.json.JSONObject
-import java.io.*
-import java.net.HttpURLConnection
-import java.net.URL
-import java.text.SimpleDateFormat
-import java.util.*
 import javax.inject.Inject
 
 
@@ -50,10 +35,12 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
     private var listBitmap = ArrayList<UploadImageModel>()
     private lateinit var adapterImage: UploadImageAdapter
     private lateinit var mDialogDownload: ShowDownLoadDialog
-    private var mIsUploadImage = false
+    private lateinit var imageCode: String
+    private var countAddImage = 0
 
     companion object {
         const val RESULT_CODE_IMAGE = 101
+        const val IMAGE_CODE_EXSIT = 404
         const val TYPE_IMAGE_AND_VIDEO = 1
         const val TYPE_IMAGE = 2
         const val TYPE_VIDEO = 3
@@ -63,6 +50,8 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         const val MODEL = "mode"
         const val MAX_SELECTION = "maxSelection"
         const val RESULT = "result"
+        const val UPLOAD_FAIL = "error"
+        const val DEFAULT_STATUS_CREATE_IAMGE = 1
         fun newInstance(code: String): UploadImageFragment {
             val args = Bundle()
             args.putString(Constants.ARG_IMAGE_CODE, code)
@@ -89,6 +78,9 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         initRecyclerViewImage()
         initOnClick()
         mDialogDownload = ShowDownLoadDialog()
+        arguments?.let {
+            imageCode = it.getString(Constants.ARG_IMAGE_CODE) ?: ""
+        }
     }
 
     private fun initRecyclerViewImage() {
@@ -117,7 +109,7 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
                 AppUtils.showDialog(fragmentManager, content = getString(R.string.mess_upload_image), confirmDialogInterface = null)
             else {
                 AppUtils.showDialogDownLoadData(fragmentManager, mDialogDownload)
-                taskUpload().execute()
+                presenter.postUploadImage(context = context, token = getSharePreferences().userToken, list = listBitmap)
             }
         }
     }
@@ -130,17 +122,93 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         startActivityForResult(intent, RESULT_CODE_IMAGE)
     }
 
-    override fun loadUploadImageToServer(response: ResponseModel) {
-        hideLoading()
-        AppUtils.showDialog(fragmentManager, content = response.message, confirmDialogInterface = null)
+    private fun initParamCreateAlbum() {
+        val listPathServer = ArrayList<LinkImageUploadModel>()
+        listBitmap.forEach {
+            listPathServer.add(LinkImageUploadModel(it.pathServer)) }
+        presenter.let {
+            val link = HashMap<String, Any>()
+            link[Constants.PARAMS_LINK] = listPathServer
+            val map = HashMap<String, Any>()
+            map[Constants.PARAMS_CODE] = imageCode
+            map[Constants.PARAMS_CREATE_BY_LOW] = getSharePreferences().accountName
+            map[Constants.PARAMS_STATUS_LOW] = DEFAULT_STATUS_CREATE_IAMGE
+            map[Constants.PARAMS_IMAGES] = listPathServer
+            it.postCreateImage(map)
+        }
+    }
+
+    private fun initParamAddImage() {
+        for (i in 0 until listBitmap.size) {
+            presenter.let {
+                val item = listBitmap[i]
+                val link = HashMap<String, Any>()
+                val map = HashMap<String, Any>()
+                map[Constants.PARAMS_CODE] = imageCode
+                link[Constants.PARAMS_LINK] = item.pathServer
+                map[Constants.PARAMS_CREATE_BY_LOW] = getSharePreferences().accountName
+                it.postAddImage(map)
+            }
+        }
+    }
+
+    override fun loadUploadImageToServer(response: Int) {
+        if (response == listBitmap.size) {
+            mDialogDownload.dismiss()
+            showLoading()
+            initParamCreateAlbum()
+        } else
+            mDialogDownload.setPercentUpload(response, listBitmap.size)
     }
 
     override fun loadCreateImage(response: ResponseModel) {
+        when (response.ResponseResult.ErrorCode) {
+            Constants.CREATE_SUCCESS -> {
+                hideLoading()
+                clearDataImage()
+                AppUtils.showDialog(fragmentManager, content = getString(R.string.upload_image_success, listBitmap.size), confirmDialogInterface = object : ConfirmDialogInterface {
+                    override fun onClickOk() {
+                        clearAllBackStack()
+                    }
 
+                    override fun onClickCancel() {
+
+                    }
+                })
+            }
+            IMAGE_CODE_EXSIT -> initParamAddImage()
+            else -> {
+                hideLoading()
+                clearDataImage()
+                AppUtils.showDialog(fragmentManager, content = response.ResponseResult.Message, confirmDialogInterface = null)
+            }
+        }
+    }
+
+    private fun clearDataImage() {
+        if (listBitmap.size != 0) {
+            listBitmap.clear()
+            adapterImage.notifyDataSetChanged()
+        }
     }
 
     override fun loadAddImage(response: ResponseModel) {
+        countAddImage++
+        if (countAddImage != listBitmap.size)
+            initParamAddImage()
+        else {
+            hideLoading()
+            clearDataImage()
+            AppUtils.showDialog(fragmentManager, content = getString(R.string.upload_image_success, listBitmap.size), confirmDialogInterface = object : ConfirmDialogInterface {
+                override fun onClickOk() {
+                    clearAllBackStack()
+                }
 
+                override fun onClickCancel() {
+
+                }
+            })
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -165,282 +233,5 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()
-    }
-
-    //==================
-    private fun initDataToUpload() {
-        showLoading()
-        val codeFolder = "MobiQC ${SimpleDateFormat("yyyyMM", Locale.getDefault()).format(Calendar.getInstance().time)}"
-        val date = SimpleDateFormat("yyyyMMddHHmmssSSSS", Locale.getDefault()).format(Calendar.getInstance().time)
-        val body: MultipartBody.Part?
-        val imgFile = File(listBitmap[0].filePath)
-        var pathTo = ""
-        if (imgFile.exists())
-            pathTo = imgFile.absolutePath.substring(0, imgFile.absolutePath.lastIndexOf(File.separator)) + "/MOBIQC_" + codeFolder + "_" + date + ".jpg"
-        val requestFile = RequestBody.create(MediaType.parse("image/*"), imgFile)
-//        body = MultipartBody.Part.createFormData("fileType", pathTo, requestFile)
-        presenter.postUploadImage(getSharePreferences().userToken, requestFile)
-    }
-
-//    public interface ApiInterface {
-//        @Multipart
-//        @POST("/api/Accounts/editaccount")
-//        Call<User> editUser (@Header("Authorization") String authorization, @Part("file\"; filename=\"pp.png\" ") RequestBody file , @Part("FirstName") RequestBody fname, @Part("Id") RequestBody id);
-//    }
-//
-//    File file = new File(imageUri.getPath());
-//    RequestBody fbody = RequestBody.create(MediaType.parse("image/*"), file);
-//    RequestBody name = RequestBody.create(MediaType.parse("text/plain"), firstNameField.getText().toString());
-//    RequestBody id = RequestBody.create(MediaType.parse("text/plain"), AZUtils.getUserId(this));
-//    Call<User> call = client.editUser(AZUtils.getToken(this), fbody, name, id);
-//    call.enqueue(new Callback<User>() {
-//        @Override
-//        public void onResponse(retrofit.Response<User> response, Retrofit retrofit) {
-//            AZUtils.printObject(response.body());
-//        }
-//
-//        @Override
-//        public void onFailure(Throwable t) {
-//            t.printStackTrace();
-//        }
-//    });
-
-
-    inner class taskUpload : AsyncTask<Void, String, Int>() {
-
-        override fun onProgressUpdate(vararg values: String) {
-            super.onProgressUpdate(*values)
-//            mDialogDownload.setPercent(values[0].toBigDecimal())
-        }
-
-        override fun doInBackground(vararg voids: Void): Int {
-            val codeFolder = "MobiQC ${SimpleDateFormat("yyyyMM", Locale.getDefault()).format(Calendar.getInstance().time)}"
-            var num = 0
-            for (i in 0 until listBitmap.size) {
-                val img = listBitmap[i]
-                val result = sendFileToServer(img.filePath, "http://iqc.fpt.vn/api/upload", getSharePreferences().userToken, codeFolder)
-                if (result !== "error") {
-                    try {
-                        val jsonResult = JSONObject(result)
-                        if (jsonResult.getInt("ErrorCode") == 0) {
-                            img.filePath = jsonResult.getString("ImgPath").toString()
-                            num++
-                            publishProgress((100 * i / listBitmap.size).toString())
-                        }
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
-                    }
-                }
-            }
-            return num
-        }
-
-        override fun onPostExecute(integer: Int) {
-            super.onPostExecute(integer)
-            AppUtils.showDialog(fragmentManager, content = "Đã upload thành công $integer ảnh", confirmDialogInterface = null)
-//            if (integer > 0) {
-//                createAlbumImage()
-//            }
-        }
-    }
-
-    fun createAlbumImage() {
-
-    }
-
-    private fun sendFileToServer(filename: String, targetUrl: String, accessToken: String, codeFolder: String): String {
-        var filename = filename
-        //Set timeout upload 1 image is 2 minutes
-        mIsUploadImage = true
-        val handler = Handler(Looper.getMainLooper())
-        handler.postDelayed({ mIsUploadImage = false }, (120 * 1000).toLong())
-
-        var response = "error"
-        var connection: HttpURLConnection? = null
-        var out: BufferedOutputStream? = null
-        var fileStream: InputStream? = null
-        var total: Long = 0
-        var checksum = ""
-
-        //Rename file upload
-        val fileUploadOld = File(filename)
-        val date = SimpleDateFormat("yyyyMMddHHmmssSSSS").format(Calendar.getInstance().time)
-        val absolutePath = fileUploadOld.absolutePath
-        val pathTo = absolutePath.substring(0, absolutePath.lastIndexOf(File.separator)) + "/MOBIQC_" + codeFolder + "_" + date + ".jpg"
-        val fileUpload = File(pathTo)
-        if (!renameImageFile(context, fileUploadOld, fileUpload))
-            return "error"
-        //        fileUploadOld.renameTo(fileUpload);
-        filename = fileUpload.path
-        try {
-            // Read from filePath and upload to server (url)
-            val buf = ByteArray(1024 * 16)
-            fileStream = FileInputStream(filename)
-
-            val lengthOfFile = fileUpload.length()
-
-            // int sizeOfPacket = 8192; // 8kb
-            val sizeOfBlock = (1024 * 1024).toLong() //
-            val totalChunk = ((lengthOfFile + (sizeOfBlock - 1)) / sizeOfBlock).toInt()
-            var headerValue: String
-
-            val data = filename.toByteArray(charset("UTF-8"))
-            val base64 = Base64.encodeToString(data, Base64.NO_WRAP)
-                    .replace("[\"\';\\-\\+\\.\\^:,?=!@#$%^&*()\\[\\]]".toRegex(), "")
-            var contentLength: Long
-            var i = 0
-
-            while (mIsUploadImage && i < totalChunk) {
-                val totalTmp = total
-                if (fileStream == null) {
-                    fileStream = FileInputStream(filename)
-                }
-                try {
-                    val from = i * sizeOfBlock
-                    var to: Long
-                    to = if (from + sizeOfBlock > lengthOfFile) {
-                        lengthOfFile
-                    } else {
-                        sizeOfBlock * (i + 1)
-                    }
-                    to -= 1
-                    contentLength = to - from + 1
-                    headerValue = "bytes $from-$to/$lengthOfFile"
-
-                    val url = URL(targetUrl)
-                    connection = url.openConnection() as HttpURLConnection
-                    connection.connectTimeout = 15 * 1000
-                    connection.doInput = true
-                    connection.doOutput = true
-                    connection.useCaches = false
-                    connection.requestMethod = "POST"
-
-                    connection.addRequestProperty("Authorization", "Bearer $accessToken")
-                    connection.addRequestProperty("Content-Type", "application/json; charset=UTF-8")
-                    connection.setRequestProperty("Connection", "Keep-Alive")
-                    connection.setRequestProperty("Content-Disposition",
-                            "attachment; filename=\"" + fileUpload.name + "\"")
-                    connection.setRequestProperty("Session-ID", base64)
-                    connection.setRequestProperty("Content-Range", headerValue)
-                    connection.setRequestProperty("X-Chunk-Index", (i + 1).toString() + "")
-                    connection.setRequestProperty("X-Chunks-Number", totalChunk.toString() + "")
-                    connection.setRequestProperty("Content-Length", contentLength.toString() + "")
-                    if (i > 0) {
-                        connection.setRequestProperty("X-Last-Checksum", checksum)
-                    }
-
-                    connection.setRequestProperty("code-folder", codeFolder)
-                    connection.setRequestProperty("uploader", "minhhl2")
-                    connection.setRequestProperty("iqc-contract-name", "test")
-                    connection.setRequestProperty("iqc-mobi-account", "test")
-                    out = BufferedOutputStream(connection.outputStream)
-
-                    var read = 1
-                    while (read > 0 && total < sizeOfBlock * (i + 1)) {
-                        if (!isCancelled()) {
-                            read = fileStream.read(buf)
-                            if (read > 0) {
-                                total += read.toLong()
-                                out.write(buf, 0, read)
-                                out.flush()
-                            }
-                        }
-                    }
-
-                    if (isCancelled()) {
-                        out.close()
-                        fileStream.close()
-                        connection.disconnect()
-                        return "error"
-                    }
-                    val serverResponseCode = connection.responseCode
-                    val serverResponseMessage = connection.responseMessage
-                    // if upload chunk i success then upload next chunk
-                    // else upload chunk i again
-                    if (serverResponseCode == HttpURLConnection.HTTP_OK || serverResponseCode == HttpURLConnection.HTTP_CREATED) {
-                        checksum = ""
-                        i++
-                        val map = connection.headerFields
-                        for ((key, value) in map) {
-                            if (!(key + "").isEmpty() && key + "" == "X-Checksum") {
-                                for (item in value) {
-                                    checksum += item
-                                }
-                                break
-                            }
-                        }
-                    } else
-                        return "error"
-
-                    if (i < totalChunk - 1) {
-                        out.close()
-                        out = null
-                        connection.disconnect()
-                    } else {
-                        val s = Scanner(connection.inputStream).useDelimiter("\\A")
-                        response = if (s.hasNext()) s.next() else ""
-                        out.close()
-                        out = null
-                        connection.disconnect()
-                    }
-                } catch (e: Exception) {
-                    total = totalTmp
-                    connection?.disconnect()
-
-                    if (out != null) {
-                        out.close()
-                        out = null
-                    }
-
-                    fileStream.close()
-                    fileStream = null
-
-                    e.printStackTrace()
-                }
-
-            }
-        } catch (ex: Exception) {
-            // Exception handling
-            response = "error"
-            ex.printStackTrace()
-        } finally {
-            connection?.disconnect()
-            try {
-                fileStream?.close()
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-
-        }
-        return response
-    }
-
-    private fun isCancelled(): Boolean {
-        return false
-    }
-
-    fun renameImageFile(c: Context?, from: File, to: File): Boolean {
-        var result = false
-        c?.let {
-            result = if (from.renameTo(to)) {
-                removeMedia(it, from)
-                addMedia(it, to)
-                true
-            } else {
-                false
-            }
-        }
-        return result
-    }
-
-    fun addMedia(c: Context, f: File) {
-        val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-        intent.data = Uri.fromFile(f)
-        c.sendBroadcast(intent)
-    }
-
-    private fun removeMedia(c: Context, f: File) {
-        val resolver = c.contentResolver
-        resolver.delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Images.Media.DATA + "=?", arrayOf(f.absolutePath))
     }
 }

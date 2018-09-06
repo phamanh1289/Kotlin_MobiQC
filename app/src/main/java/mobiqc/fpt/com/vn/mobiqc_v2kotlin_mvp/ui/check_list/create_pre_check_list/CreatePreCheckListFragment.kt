@@ -108,7 +108,7 @@ class CreatePreCheckListFragment : BaseFragment(), CreatePreCheckListContract.Cr
     private fun handleRemainCheck(list: ArrayList<StatusCheckListModel>) {
         if (list.size != 0) {
             val item = list[Constants.FIRST_ITEM]
-            if (item.StatusCL == Constants.CREATE_CHECK_LIST_SUCCESS)
+            if (item.StatusCL == Constants.CREATE_SUCCESS)
                 presenter.let {
                     val paramPreCL = HashMap<String, Any>()
                     paramPreCL[Constants.PARAMS_OBJID] = contractModel.ObjID.toBigDecimal()

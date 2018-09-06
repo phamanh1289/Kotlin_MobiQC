@@ -108,6 +108,7 @@
     <string name="type_amount">%1$s (%2$d)</string>
     <string name="deposit_amount">%1$s VNĐ</string>
     <string name="wait_load_data">Đang tải %1$d %2$s dữ liệu, xin vui lòng chờ!</string>
+    <string name="wait_up_data">Đang tải %1$d/%2$d hình ảnh lên server, xin vui lòng chờ!</string>
     <string name="group_point_info">Thông tin tập điểm</string>
     <string name="group_point_name">Tên TĐ</string>
     <string name="group_point_pop">POP-TĐ</string>
@@ -171,6 +172,7 @@
     <string name="notify_error_type_no_update">không được cập nhật</string>
     <string name="notify_error_type_ok">trong mức cho phép</string>
     <string name="distance">Khoảng cách : %1$s</string>
+    <string name="path_new_file">%1$s/MOBIQC_%2$s_%3$s.jpg </string>
     <string name="search_location">Vùng</string>
     <string name="search_branch">Chi Nhánh</string>
     <string name="search_title">Tìm kiếm</string>
@@ -182,6 +184,7 @@
     <string name="data_search_id">Số CMND</string>
     <string name="list_contract">Danh sách hợp đồng</string>
     <string name="result_search">Kết quả tìm kiếm</string>
+    <string name="upload_image_success">Upload %1$d hình ảnh thành công.</string>
     <string name="validate_key_search">Từ khóa không được bỏ trống!</string>
     <string name="mobi_acc_no_data">Chưa có đơn vị quản lý, vui lòng liên hệ quản trị hệ thống để được cấp quyền.</string>
     <string name="name_check_list">%1$s | %2$s</string>

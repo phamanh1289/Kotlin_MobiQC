@@ -1,8 +1,8 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base
 
-import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
+import android.support.multidex.MultiDexApplication
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
@@ -17,7 +17,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class BaseApplication : Application() {
+class BaseApplication : MultiDexApplication() {
     companion object {
         lateinit var instance: BaseApplication private set
         val dbName = "mobi_qc.realm"
@@ -35,11 +35,11 @@ class BaseApplication : Application() {
                 .setDefaultFontPath(getString(R.string.Helvetica))
                 .setFontAttrId(R.attr.fontPath)
                 .build())
-        MultiDex.install(this)
     }
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
+        MultiDex.install(this)
     }
 
     private fun setupInjector() {
