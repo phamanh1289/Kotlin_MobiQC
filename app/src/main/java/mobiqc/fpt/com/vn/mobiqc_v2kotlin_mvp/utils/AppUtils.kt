@@ -390,4 +390,5 @@ object AppUtils {
         val resolver = context?.contentResolver
         resolver?.delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Images.Media.DATA + "=?", arrayOf(file.absolutePath))
     }
+
 }

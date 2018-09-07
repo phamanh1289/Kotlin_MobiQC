@@ -1,10 +1,12 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.maps
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
+import android.provider.Settings
 import android.support.v4.app.ActivityCompat
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +21,7 @@ import com.google.maps.android.PolyUtil
 import com.google.maps.android.SphericalUtil
 import kotlinx.android.synthetic.main.fragment_maps.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.PolylineMapModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.TitleAndMenuModel
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
@@ -52,6 +55,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     lateinit var presenter: MapsPresenter
 
     companion object {
+        const val CHECK_GPS = 1010
         private lateinit var mMap: GoogleMap
         fun newInstance(contractNumber: String, fullName: String, lat: String, lng: String, address: String): MapsFragment {
             val args = Bundle()
@@ -85,6 +89,11 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
         mLocationManager.getLocationManager()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        activity?.onBackPressed()
+    }
+
     private fun handleArgument() {
         arguments?.let {
             lat = it.getString(Constants.ARG_LAT).toDouble()
@@ -96,16 +105,18 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
             markerGuest?.snippet = address
             setTitle(TitleAndMenuModel(title = contractNumber, status = false))
         }
-        val builder = LatLngBounds.Builder()
-        builder.include(markerGuest?.position)
-        builder.include(mMyLocation)
-        mBound = builder.build()
-        mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
-        fragMaps_tvDistance.run {
-            val distance = SphericalUtil.computeDistanceBetween(mMyLocation, markerGuest?.position)
-            text = getString(R.string.distance, AppUtils.changeFormatDistance(distance))
+        mMyLocation?.let {
+            val builder = LatLngBounds.Builder()
+            builder.include(markerGuest?.position)
+            builder.include(it)
+            mBound = builder.build()
+            mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
+            fragMaps_tvDistance.run {
+                val distance = SphericalUtil.computeDistanceBetween(it, markerGuest?.position)
+                text = getString(R.string.distance, AppUtils.changeFormatDistance(distance))
+            }
+            DownloadTask().execute(getDirectionsUrl(it, markerGuest?.position!!))
         }
-        DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
     }
 
     override fun onMapReady(map: GoogleMap?) {
@@ -113,10 +124,31 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
             mMap = it
             if (ActivityCompat.checkSelfPermission(context!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                 mMap.isMyLocationEnabled = true
-            if (mLocationManager.getStatusGps()!!)
+            if (!mLocationManager.getStatusGps()!!) {
+                AppUtils.showDialog(fragmentManager, content = getString(R.string.notify_off_GPS), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                    override fun onClickOk() {
+                        val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                        startActivityForResult(intent, CHECK_GPS)
+                    }
+
+                    override fun onClickCancel() {
+                        activity?.onBackPressed()
+                    }
+
+                })
+                hideLoading()
+            } else {
                 getMyCurrentLocation()
-            handleArgument()
-            initOnClickMap()
+                handleArgument()
+                mMap.setOnMyLocationButtonClickListener {
+                    getMyCurrentLocation()
+                    mMap.clear()
+                    mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
+                    markerGuest?.snippet = address
+                    DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
+                    false
+                }
+            }
         }
     }
 
@@ -124,17 +156,6 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
         val myLocation = mLocationManager.getLocationUser()
         myLocation?.let { location ->
             mMyLocation = LatLng(location.latitude, location.longitude)
-        }
-    }
-
-    private fun initOnClickMap() {
-        mMap.setOnMyLocationButtonClickListener {
-            getMyCurrentLocation()
-            mMap.clear()
-            mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
-            markerGuest?.snippet = address
-            DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
-            false
         }
     }
 
@@ -146,7 +167,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()
-        mLocationManager.stopListtenerLocation()
+        mLocationManager.stopListenerLocation()
     }
 
     private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String {

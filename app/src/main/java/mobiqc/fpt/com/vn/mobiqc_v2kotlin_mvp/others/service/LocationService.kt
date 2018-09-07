@@ -10,6 +10,7 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 
+
 /**
  * * Created by Anh Pham on 08/16/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
@@ -22,7 +23,7 @@ class LocationService(val context: Context?) {
     }
 
     private var locationManager: LocationManager? = null
-    private var location: Location? = null
+    private var bestLocation: Location? = null
 
     fun getLocationManager() {
         try {
@@ -30,7 +31,7 @@ class LocationService(val context: Context?) {
             locationManager?.let {
                 if (getNetworkLocation()!!)
                     setLocationUser(context, it, LocationManager.NETWORK_PROVIDER)
-                if (getStatusGps()!! && location == null)
+                if (getStatusGps()!!)
                     setLocationUser(context, it, LocationManager.GPS_PROVIDER)
             }
         } catch (e: Exception) {
@@ -40,9 +41,17 @@ class LocationService(val context: Context?) {
 
     private fun setLocationUser(context: Context?, locationManager: LocationManager, type: String) {
         context?.let { it ->
-            if (ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            val listProvider = locationManager.getProviders(true)
+            if (ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 locationManager.requestLocationUpdates(type, ONE_MIN.toLong(), TEN_METERS.toFloat(), locationListener)
-                location = locationManager.getLastKnownLocation(type)
+                listProvider?.forEach {
+                    val location = locationManager.getLastKnownLocation(it)
+                    location?.let { pointer ->
+                        if (bestLocation == null || pointer.accuracy < bestLocation?.accuracy!!) {
+                            bestLocation = pointer
+                        }
+                    }
+                }
             }
         }
     }
@@ -51,21 +60,21 @@ class LocationService(val context: Context?) {
         return locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }
 
-    fun getNetworkLocation(): Boolean? {
+    private fun getNetworkLocation(): Boolean? {
         return locationManager?.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
 
     fun getLocationUser(): Location? {
-        return location
+        return bestLocation
     }
 
-    fun stopListtenerLocation() {
+    fun stopListenerLocation() {
         locationManager?.removeUpdates(locationListener)
     }
 
     private val locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location) {
-            this@LocationService.location = location
+            this@LocationService.bestLocation = location
         }
 
         override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}

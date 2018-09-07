@@ -118,7 +118,7 @@ class UpdateErrorFragment : BaseFragment(), ErrorContract.ErrorView, ConfirmDial
         setTitle(TitleAndMenuModel(title = contractNumber, status = true, image = R.drawable.ic_info))
     }
 
-    //Start : Lấy dữ liệu từ database lên
+    //Start : Lấy dữ liệu từ realm lên
     private fun setAllData() {
         setDataTypeKS()
         setDataTypeError()
