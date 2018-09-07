@@ -131,12 +131,20 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
             Constants.KQ_XAC_MINH ->
                 AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
-            Constants.BAO_CAO_SO_LIEU -> addFragment(ReportFragment(),false,true)
+            Constants.BAO_CAO_SO_LIEU -> addFragment(ReportFragment(), false, true)
             Constants.THONG_TIN -> addFragment(InformationFragment.newInstance(itemMenu.name), false, true)
             Constants.DANG_XUAT -> {
-                getSharePreferences().toClearSessionLogin()
-                LocationRealmManager().deleteAllLocation()
-                StartActivityUtils().toSplashActivity(this)
+                AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.mess_log_out), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                    override fun onClickOk() {
+                        getSharePreferences().toClearSessionLogin()
+                        LocationRealmManager().deleteAllLocation()
+                        StartActivityUtils().toSplashActivity(this@MainActivity)
+                    }
+
+                    override fun onClickCancel() {
+
+                    }
+                })
             }
         }
         if (itemMenu.id.isNotBlank() || itemMenu.id != Constants.DANG_XUAT)

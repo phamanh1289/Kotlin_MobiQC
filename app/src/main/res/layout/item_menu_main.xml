@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemMenuMain"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    android:textColor="@color/white"
-    android:textSize="@dimen/_16dp"
-    android:layout_marginTop="@dimen/_10dp"
-    android:paddingStart="@dimen/_8dp"
-    android:paddingEnd="@dimen/_8dp"
-    fontPath="@string/Helvetica_Bold"
+    android:orientation="vertical"
     tools:ignore="MissingPrefix">
-</TextView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:background="@color/grey_blur"/>
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/itemMenuMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:background="@android:color/transparent"
+        android:paddingEnd="@dimen/_8dp"
+        android:textSize="@dimen/_16dp"
+        fontPath="@string/Helvetica_Bold"
+        android:paddingStart="@dimen/_8dp"
+        android:textColor="@color/steel"
+        tools:ignore="MissingPrefix">
+    </TextView>
+</LinearLayout>

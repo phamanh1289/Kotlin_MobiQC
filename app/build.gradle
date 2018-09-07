@@ -18,7 +18,7 @@ android {
     }
     defaultConfig {
         applicationId "mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp"
-        minSdkVersion 19
+        minSdkVersion 22
         targetSdkVersion 27
         multiDexEnabled true
         versionCode 22

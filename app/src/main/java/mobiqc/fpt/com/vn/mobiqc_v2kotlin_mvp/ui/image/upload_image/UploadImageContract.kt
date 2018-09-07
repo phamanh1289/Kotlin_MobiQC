@@ -19,7 +19,7 @@ interface UploadImageContract {
 
     interface UploadImagePresenter {
         fun postUploadImage(context: Context?, token: String, list: ArrayList<UploadImageModel>)
-        fun postCreateImage(map: HashMap<String, Any>)
-        fun postAddImage(map: HashMap<String, Any>)
+        fun postCreateImage(token: String, map: HashMap<String, Any>)
+        fun postAddImage(token: String, map: HashMap<String, Any>)
     }
 }

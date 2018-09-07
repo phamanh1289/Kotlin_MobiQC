@@ -107,8 +107,9 @@
     <string name="cable_met">%1$d m</string>
     <string name="type_amount">%1$s (%2$d)</string>
     <string name="deposit_amount">%1$s VNĐ</string>
-    <string name="wait_load_data">Đang tải %1$d %2$s dữ liệu, xin vui lòng chờ!</string>
-    <string name="wait_up_data">Đang tải %1$d/%2$d hình ảnh lên server, xin vui lòng chờ!</string>
+    <string name="wait_process">Đang xử lý. Xin vui lòng chờ!</string>
+    <string name="wait_load_data">Đang tải %1$d %2$s dữ liệu.\n\nXin vui lòng chờ!</string>
+    <string name="wait_up_data">Đang tải %1$d/%2$d hình ảnh lên server.\n\nXin vui lòng chờ!</string>
     <string name="group_point_info">Thông tin tập điểm</string>
     <string name="group_point_name">Tên TĐ</string>
     <string name="group_point_pop">POP-TĐ</string>
@@ -125,6 +126,7 @@
     <string name="mess_upload_image">Chưa có chọn hình ảnh để upload!</string>
     <string name="mess_title_image">Hình ảnh</string>
     <string name="check_list_id">ID</string>
+    <string name="mess_log_out">Bạn có muốn thoát tài khoản?</string>
     <string name="mess_error_update">Tải bản cập nhật mới thất bại. Bạn có muốn tải lại không?</string>
     <string name="check_list_create">Thời gian tạo</string>
     <string name="check_list_type">Loại</string>

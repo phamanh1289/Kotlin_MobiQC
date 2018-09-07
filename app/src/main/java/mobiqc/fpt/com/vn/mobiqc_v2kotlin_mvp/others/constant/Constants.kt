@@ -61,6 +61,7 @@ object Constants {
     const val PARAMS_CREATE_BY = "CreateBy"
     const val PARAMS_CREATE_BY_LOW = "createby"
     const val PARAMS_UPDATE_BY = "UpdateBy"
+    const val PARAMS_UPDATE_BY_LOW = "updateBy"
     const val PARAMS_ID = "ID"
     const val PARAMS_SUB_SUPPORTER = "SubSupporter"
     const val PARAMS_DEP_ID = "DepID"

@@ -41,9 +41,9 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
     companion object {
         const val RESULT_CODE_IMAGE = 101
         const val IMAGE_CODE_EXSIT = 404
-        const val TYPE_IMAGE_AND_VIDEO = 1
+//        const val TYPE_IMAGE_AND_VIDEO = 1
         const val TYPE_IMAGE = 2
-        const val TYPE_VIDEO = 3
+//        const val TYPE_VIDEO = 3
         const val MAX_IMAGE = 6
         const val MAX_COL = 2
         const val TITLE = "title"
@@ -125,7 +125,8 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
     private fun initParamCreateAlbum() {
         val listPathServer = ArrayList<LinkImageUploadModel>()
         listBitmap.forEach {
-            listPathServer.add(LinkImageUploadModel(it.pathServer)) }
+            listPathServer.add(LinkImageUploadModel(it.pathServer))
+        }
         presenter.let {
             val link = HashMap<String, Any>()
             link[Constants.PARAMS_LINK] = listPathServer
@@ -134,7 +135,7 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
             map[Constants.PARAMS_CREATE_BY_LOW] = getSharePreferences().accountName
             map[Constants.PARAMS_STATUS_LOW] = DEFAULT_STATUS_CREATE_IAMGE
             map[Constants.PARAMS_IMAGES] = listPathServer
-            it.postCreateImage(map)
+            it.postCreateImage(getSharePreferences().userToken, map)
         }
     }
 
@@ -142,12 +143,11 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         for (i in 0 until listBitmap.size) {
             presenter.let {
                 val item = listBitmap[i]
-                val link = HashMap<String, Any>()
                 val map = HashMap<String, Any>()
                 map[Constants.PARAMS_CODE] = imageCode
-                link[Constants.PARAMS_LINK] = item.pathServer
-                map[Constants.PARAMS_CREATE_BY_LOW] = getSharePreferences().accountName
-                it.postAddImage(map)
+                map[Constants.PARAMS_LINK] = item.pathServer
+                map[Constants.PARAMS_UPDATE_BY_LOW] = getSharePreferences().accountName
+                it.postAddImage(getSharePreferences().userToken, map)
             }
         }
     }
@@ -165,9 +165,9 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
         when (response.ResponseResult.ErrorCode) {
             Constants.CREATE_SUCCESS -> {
                 hideLoading()
-                clearDataImage()
                 AppUtils.showDialog(fragmentManager, content = getString(R.string.upload_image_success, listBitmap.size), confirmDialogInterface = object : ConfirmDialogInterface {
                     override fun onClickOk() {
+                        clearDataImage()
                         clearAllBackStack()
                     }
 
@@ -179,8 +179,8 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
             IMAGE_CODE_EXSIT -> initParamAddImage()
             else -> {
                 hideLoading()
-                clearDataImage()
                 AppUtils.showDialog(fragmentManager, content = response.ResponseResult.Message, confirmDialogInterface = null)
+                clearDataImage()
             }
         }
     }
@@ -198,9 +198,9 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
             initParamAddImage()
         else {
             hideLoading()
-            clearDataImage()
             AppUtils.showDialog(fragmentManager, content = getString(R.string.upload_image_success, listBitmap.size), confirmDialogInterface = object : ConfirmDialogInterface {
                 override fun onClickOk() {
+                    clearDataImage()
                     clearAllBackStack()
                 }
 

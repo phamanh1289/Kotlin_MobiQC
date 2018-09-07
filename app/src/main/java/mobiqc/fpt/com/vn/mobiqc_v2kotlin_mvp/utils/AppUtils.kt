@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.app.FragmentManager
+import android.util.Patterns
 import android.widget.TextView
 import com.google.android.gms.maps.model.LatLng
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
@@ -82,6 +83,10 @@ object AppUtils {
         return Resources.getSystem().displayMetrics.widthPixels
     }
 
+    fun isURL(url: String): Boolean {
+        return Patterns.WEB_URL.matcher(url).matches()
+    }
+
     fun getScreenHeight(): Int {
         return Resources.getSystem().displayMetrics.heightPixels
     }
@@ -91,7 +96,9 @@ object AppUtils {
     }
 
     fun getUrlImage(link: String): String {
-        return "http://iqc.fpt.vn$link"
+        return if (link.isNotBlank())
+            "http://iqc.fpt.vn/$link"
+        else ""
     }
 
     fun showDialog(fragmentManager: FragmentManager?, title: String = "", content: String = "", actionCancel: Boolean = false, confirmDialogInterface: ConfirmDialogInterface?) {
@@ -118,7 +125,7 @@ object AppUtils {
 
     fun showDialogDownLoadData(fragmentManager: FragmentManager?, dialog: ShowDownLoadDialog) {
         fragmentManager?.let {
-            dialog.show(it, ConfirmDialog::class.java.simpleName)
+            dialog.show(it, ShowDownLoadDialog::class.java.simpleName)
         }
     }
 
@@ -379,7 +386,7 @@ object AppUtils {
         context?.sendBroadcast(intent)
     }
 
-    fun removeFile(context: Context?,file: File) {
+    fun removeFile(context: Context?, file: File) {
         val resolver = context?.contentResolver
         resolver?.delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Images.Media.DATA + "=?", arrayOf(file.absolutePath))
     }

@@ -13,10 +13,10 @@ interface ApiIstorageService {
     fun getAccessToken(@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
     @POST("iqc/partner/createImage")
-    fun postCreateImage(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+    fun postCreateImage(@Header("Authorization") token : String,@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
     @POST("iqc/partner/addImage")
-    fun postAddImage(@Body map: HashMap<String, Any>): Observable<ResponseModel>
+    fun postAddImage(@Header("Authorization") token : String,@Body map: HashMap<String, Any>): Observable<ResponseModel>
 
     @GET("iqc/partner/album")
     fun getAlbum(@Header("Authorization") token : String, @Query("Code") code: String): Observable<ResponseModel>

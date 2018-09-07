@@ -1,7 +1,7 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.image.view_image
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +31,9 @@ class ViewImageFragment : BaseFragment(), ViewImageContract.ViewImageView {
     private lateinit var adapterImage: UploadImageAdapter
 
     companion object {
+        const val LOW_QUANTITY = "200"
+        const val HIGH_QUANTITY = "480"
+        const val MAX_COL = 2
         fun newInstance(id: Int, code: String): ViewImageFragment {
             val args = Bundle()
             args.putInt(Constants.ARG_SUPID, id)
@@ -72,8 +75,7 @@ class ViewImageFragment : BaseFragment(), ViewImageContract.ViewImageView {
         if (data.ErrorCode == Constants.REQUEST_TOKEN_SUCCESS) {
             val listImage: ArrayList<ResultImageModel> = Gson().fromJson(Gson().toJson(data.Results), object : TypeToken<ArrayList<ResultImageModel>>() {}.type)
             for (i in 0 until listImage.size) {
-                //Quantity image : 200 up to 480
-                listUrlImage.add(UploadImageModel(filePath = AppUtils.getUrlImage(listImage[i].link).replace("200", "480")))
+                    listUrlImage.add(UploadImageModel(filePath = AppUtils.getUrlImage(listImage[i].link).replace(LOW_QUANTITY, HIGH_QUANTITY)))
             }
             adapterImage.notifyDataSetChanged()
             fragViewImage_tvNoData.visibility = if (listUrlImage.size != 0) View.GONE else View.VISIBLE
@@ -89,8 +91,7 @@ class ViewImageFragment : BaseFragment(), ViewImageContract.ViewImageView {
         adapterImage.submitList(listUrlImage)
         fragViewImage_rvMain.apply {
             adapter = adapterImage
-            val layout = LinearLayoutManager(context)
-            layout.orientation = LinearLayoutManager.VERTICAL
+            val layout = GridLayoutManager(context, MAX_COL)
             layoutManager = layout
             setHasFixedSize(true)
         }

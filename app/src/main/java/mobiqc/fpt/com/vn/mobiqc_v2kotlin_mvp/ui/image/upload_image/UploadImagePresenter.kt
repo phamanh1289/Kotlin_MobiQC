@@ -17,11 +17,11 @@ import javax.inject.Inject
 class UploadImagePresenter @Inject constructor(private val apiUploadImageService: ApiUploadImageService, private val apiIstorageService: ApiIstorageService) : BasePresenter<UploadImageContract.UploadImageView>(), UploadImageContract.UploadImagePresenter {
 
     override fun postUploadImage(context: Context?, token: String, list: ArrayList<UploadImageModel>) {
-        UploadService(context, list, token,view).upLoadImageToServer().execute()
+        UploadService(context, list, token, view).upLoadImageToServer().execute()
     }
 
-    override fun postCreateImage(map: HashMap<String, Any>) {
-        addSubscribe(apiIstorageService.postCreateImage(map)
+    override fun postCreateImage(token: String, map: HashMap<String, Any>) {
+        addSubscribe(apiIstorageService.postCreateImage(token,map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -31,8 +31,8 @@ class UploadImagePresenter @Inject constructor(private val apiUploadImageService
                 }))
     }
 
-    override fun postAddImage(map: HashMap<String, Any>) {
-        addSubscribe(apiIstorageService.postAddImage(map)
+    override fun postAddImage(token: String, map: HashMap<String, Any>) {
+        addSubscribe(apiIstorageService.postAddImage(token,map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

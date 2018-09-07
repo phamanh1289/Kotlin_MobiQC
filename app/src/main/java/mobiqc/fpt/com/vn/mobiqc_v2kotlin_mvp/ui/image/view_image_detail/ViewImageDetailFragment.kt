@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_view_image_detail.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseFragment
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.KeyboardUtils
 
 /**
@@ -53,15 +54,23 @@ class ViewImageDetailFragment : BaseFragment() {
         arguments?.let {
             imageModel = it.getString(Constants.ARG_IMAGE_CODE) ?: ""
         }
-        Glide.with(context)
-                .load(imageModel)
-                .asBitmap()
-                .into(object : SimpleTarget<Bitmap>() {
-                    override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
-                        fragViewImageDetail_imgView.displayType = ImageViewTouchBase.DisplayType.FIT_IF_BIGGER
-                        fragViewImageDetail_imgView.setImageBitmap(resource, null, MIN_ZOOM, MAX_ZOOM)
-                    }
-                })
+        fragViewImageDetail_imgView.displayType = ImageViewTouchBase.DisplayType.FIT_IF_BIGGER
+        if (AppUtils.isURL(imageModel)) {
+            showLoading()
+            Glide.with(context)
+                    .load(imageModel)
+                    .asBitmap()
+                    .into(object : SimpleTarget<Bitmap>() {
+                        override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+                            fragViewImageDetail_imgView.setImageBitmap(resource, null, MIN_ZOOM, MAX_ZOOM)
+                            hideLoading()
+                        }
+                    })
+        } else {
+            fragViewImageDetail_imgView.setScaleEnabled(false)
+            fragViewImageDetail_imgView.doubleTapEnabled = false
+            fragViewImageDetail_imgView.setImageDrawable(context?.getDrawable(R.drawable.img_no_image))
+        }
     }
 
 }

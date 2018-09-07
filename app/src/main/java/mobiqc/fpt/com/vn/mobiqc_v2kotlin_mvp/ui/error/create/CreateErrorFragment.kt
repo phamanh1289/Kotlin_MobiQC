@@ -289,18 +289,11 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
         })
     }
 
-    private fun clearDataWhenRequestSuccess() {
-        fragCreateError_tvNote.setText("")
-        fragCreateError_tvSubError.setText("")
-        imageCode = ""
-    }
-
     override fun loadInsertErrorInfrastructure(response: ResponseModel) {
         if (response.Code == Constants.REQUEST_SUCCESS) {
             handleCreateAndUpdateSuccess()
         } else
             AppUtils.showDialog(fragmentManager, content = response.Description, confirmDialogInterface = null)
-        clearDataWhenRequestSuccess()
     }
 
     override fun loadUpdateErrorInfrastructure(response: ResponseModel) {

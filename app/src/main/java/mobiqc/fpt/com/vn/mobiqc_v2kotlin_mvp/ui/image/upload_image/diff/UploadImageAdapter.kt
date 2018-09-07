@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_image_choice.view.*
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.UploadImageModel
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 
 /**
  * * Created by Anh Pham on 08/08/2018.     **
@@ -27,9 +28,11 @@ class UploadImageAdapter(var typeImage: Boolean = false, val onClick: (Int) -> U
     inner class UploadImageHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindData(model: UploadImageModel?, onClick: (Int) -> Unit) {
             model?.let { item ->
-                Glide.with(itemView.context)
-                        .load(item.filePath)
-                        .into(itemView.itemImageChoice_imgPicture)
+                if (AppUtils.isURL(item.filePath))
+                    Glide.with(itemView.context)
+                            .load(item.filePath)
+                            .into(itemView.itemImageChoice_imgPicture)
+                else itemView.itemImageChoice_imgPicture.setImageResource(R.drawable.img_no_image)
                 itemView.itemImageChoice_imgDelete?.visibility = if (typeImage) View.GONE else View.VISIBLE
                 if (typeImage)
                     itemView.setOnClickListener {
