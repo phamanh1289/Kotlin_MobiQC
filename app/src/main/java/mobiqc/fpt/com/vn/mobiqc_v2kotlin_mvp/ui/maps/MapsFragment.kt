@@ -91,7 +91,54 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        activity?.onBackPressed()
+        if (requestCode == CHECK_GPS)
+            if (mLocationManager.getStatusGps()!!) {
+                enableMyLocation()
+                drawPolyline()
+            } else
+                activity?.onBackPressed()
+    }
+
+    private fun enableMyLocation() {
+        if (ActivityCompat.checkSelfPermission(context!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.isMyLocationEnabled = true
+            mMap.setOnMyLocationButtonClickListener {
+                getMyCurrentLocation()
+                mMap.clear()
+                mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
+                markerGuest?.snippet = address
+                DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
+                false
+            }
+        }
+    }
+
+    private fun drawPolyline() {
+        if (!mLocationManager.getStatusGps()!!) {
+            AppUtils.showDialog(fragmentManager, content = getString(R.string.notify_off_GPS), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                override fun onClickOk() {
+                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                    startActivityForResult(intent, CHECK_GPS)
+                }
+
+                override fun onClickCancel() {
+                    activity?.onBackPressed()
+                }
+
+            })
+            hideLoading()
+        } else {
+            getMyCurrentLocation()
+            handleArgument()
+        }
+    }
+
+    override fun onMapReady(map: GoogleMap?) {
+        map?.let {
+            mMap = it
+            enableMyLocation()
+            drawPolyline()
+        }
     }
 
     private fun handleArgument() {
@@ -110,46 +157,13 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
             builder.include(markerGuest?.position)
             builder.include(it)
             mBound = builder.build()
-            mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
             fragMaps_tvDistance.run {
                 val distance = SphericalUtil.computeDistanceBetween(it, markerGuest?.position)
                 text = getString(R.string.distance, AppUtils.changeFormatDistance(distance))
             }
             DownloadTask().execute(getDirectionsUrl(it, markerGuest?.position!!))
         }
-    }
-
-    override fun onMapReady(map: GoogleMap?) {
-        map?.let {
-            mMap = it
-            if (ActivityCompat.checkSelfPermission(context!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-                mMap.isMyLocationEnabled = true
-            if (!mLocationManager.getStatusGps()!!) {
-                AppUtils.showDialog(fragmentManager, content = getString(R.string.notify_off_GPS), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
-                    override fun onClickOk() {
-                        val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-                        startActivityForResult(intent, CHECK_GPS)
-                    }
-
-                    override fun onClickCancel() {
-                        activity?.onBackPressed()
-                    }
-
-                })
-                hideLoading()
-            } else {
-                getMyCurrentLocation()
-                handleArgument()
-                mMap.setOnMyLocationButtonClickListener {
-                    getMyCurrentLocation()
-                    mMap.clear()
-                    mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
-                    markerGuest?.snippet = address
-                    DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
-                    false
-                }
-            }
-        }
+        mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
     }
 
     private fun getMyCurrentLocation() {

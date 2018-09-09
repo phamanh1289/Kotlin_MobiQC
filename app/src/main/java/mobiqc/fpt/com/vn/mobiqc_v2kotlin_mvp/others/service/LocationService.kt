@@ -17,6 +17,8 @@ import android.support.v4.app.ActivityCompat
  */
 class LocationService(val context: Context?) {
 
+    private var typeProvider = ""
+
     companion object {
         const val ONE_MIN = 1000 * 60 * 1
         const val TEN_METERS = 1
@@ -29,39 +31,33 @@ class LocationService(val context: Context?) {
         try {
             locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
             locationManager?.let {
-                if (getNetworkLocation()!!)
-                    setLocationUser(context, it, LocationManager.NETWORK_PROVIDER)
-                if (getStatusGps()!!)
-                    setLocationUser(context, it, LocationManager.GPS_PROVIDER)
+                setLocationUser(context, it)
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    private fun setLocationUser(context: Context?, locationManager: LocationManager, type: String) {
+    private fun setLocationUser(context: Context?, locationManager: LocationManager) {
         context?.let { it ->
-            val listProvider = locationManager.getProviders(true)
-            if (ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                locationManager.requestLocationUpdates(type, ONE_MIN.toLong(), TEN_METERS.toFloat(), locationListener)
-                listProvider?.forEach {
+            val listProvider: List<String> = locationManager.getProviders(true)
+            if (ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                listProvider.forEach {
                     val location = locationManager.getLastKnownLocation(it)
                     location?.let { pointer ->
                         if (bestLocation == null || pointer.accuracy < bestLocation?.accuracy!!) {
+                            typeProvider = it
                             bestLocation = pointer
                         }
                     }
                 }
+                locationManager.requestLocationUpdates(typeProvider, ONE_MIN.toLong(), TEN_METERS.toFloat(), locationListener)
             }
         }
     }
 
     fun getStatusGps(): Boolean? {
         return locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER)
-    }
-
-    private fun getNetworkLocation(): Boolean? {
-        return locationManager?.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
 
     fun getLocationUser(): Location? {

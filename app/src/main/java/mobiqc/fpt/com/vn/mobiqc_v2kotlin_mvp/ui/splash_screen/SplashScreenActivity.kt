@@ -27,6 +27,9 @@ import javax.inject.Inject
 
 
 class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScreenContract.SplashScreenView {
+    companion object {
+        const val CHECK_PERMISSION = 1100
+    }
 
     @Inject
     lateinit var presenter: SplashScreenPresenter
@@ -63,7 +66,6 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                 getPermission().requestEachCombined(
                         Manifest.permission.READ_PHONE_STATE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.USE_FINGERPRINT,
                         Manifest.permission.ACCESS_COARSE_LOCATION,
                         Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.WAKE_LOCK)
@@ -177,10 +179,12 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     override fun onClickCancel() {
+        finish()
     }
 
     override fun onClickOk() {
         StartActivityUtils().toSettingPermission(this, packageName)
+        finish()
     }
 
     override fun onDestroy() {

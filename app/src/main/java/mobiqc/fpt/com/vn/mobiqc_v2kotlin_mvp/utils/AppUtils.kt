@@ -9,10 +9,12 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
+import android.provider.Settings
 import android.support.v4.app.FragmentManager
 import android.util.Patterns
 import android.widget.TextView
 import com.google.android.gms.maps.model.LatLng
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.BuildConfig
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.MenuCheckListDialogInterface
@@ -390,5 +392,4 @@ object AppUtils {
         val resolver = context?.contentResolver
         resolver?.delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Images.Media.DATA + "=?", arrayOf(file.absolutePath))
     }
-
 }

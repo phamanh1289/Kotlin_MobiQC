@@ -63,7 +63,6 @@ dependencies {
     implementation 'io.realm:android-adapters:2.1.1'
     //Permission
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
-    implementation 'com.karumi:dexter:4.2.0'
     //Fonts
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     //Google map
