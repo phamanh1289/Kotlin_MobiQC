@@ -86,7 +86,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
         mapFragment = childFragmentManager.findFragmentById(R.id.fragMaps_viewMap) as SupportMapFragment
         mapFragment?.getMapAsync(this)
         mLocationManager = LocationService(context)
-        mLocationManager.getLocationManager()
+        getMyCurrentLocation()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -107,7 +107,9 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
                 mMap.clear()
                 mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
                 markerGuest?.snippet = address
-                DownloadTask().execute(getDirectionsUrl(mMyLocation!!, markerGuest?.position!!))
+                mMyLocation?.let {
+                    DownloadTask().execute(getDirectionsUrl(it, markerGuest?.position!!))
+                }
                 false
             }
         }
@@ -161,15 +163,16 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
                 val distance = SphericalUtil.computeDistanceBetween(it, markerGuest?.position)
                 text = getString(R.string.distance, AppUtils.changeFormatDistance(distance))
             }
+            mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
             DownloadTask().execute(getDirectionsUrl(it, markerGuest?.position!!))
         }
-        mMap.setOnMapLoadedCallback { mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(mBound, 150)) }
     }
 
     private fun getMyCurrentLocation() {
+        mLocationManager.getLocationManager()
         val myLocation = mLocationManager.getLocationUser()
-        myLocation?.let { location ->
-            mMyLocation = LatLng(location.latitude, location.longitude)
+        myLocation?.let {
+            mMyLocation = LatLng(it.latitude, it.longitude)
         }
     }
 
@@ -180,8 +183,8 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.onDetach()
         mLocationManager.stopListenerLocation()
+        presenter.onDetach()
     }
 
     private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String {

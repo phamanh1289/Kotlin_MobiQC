@@ -2,7 +2,6 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.service
 
 import android.Manifest
 import android.content.Context
-import android.content.Context.LOCATION_SERVICE
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -17,7 +16,7 @@ import android.support.v4.app.ActivityCompat
  */
 class LocationService(val context: Context?) {
 
-    private var typeProvider = ""
+    var typeProvider = ""
 
     companion object {
         const val ONE_MIN = 1000 * 60 * 1
@@ -28,31 +27,28 @@ class LocationService(val context: Context?) {
     private var bestLocation: Location? = null
 
     fun getLocationManager() {
-        try {
-            locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
-            locationManager?.let {
-                setLocationUser(context, it)
+        context?.let {
+            locationManager = it.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            locationManager?.let { location ->
+                setLocationUser(it, location)
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 
-    private fun setLocationUser(context: Context?, locationManager: LocationManager) {
-        context?.let { it ->
+    private fun setLocationUser(context: Context, locationManager: LocationManager) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             val listProvider: List<String> = locationManager.getProviders(true)
-            if (ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                listProvider.forEach {
-                    val location = locationManager.getLastKnownLocation(it)
-                    location?.let { pointer ->
-                        if (bestLocation == null || pointer.accuracy < bestLocation?.accuracy!!) {
-                            typeProvider = it
-                            bestLocation = pointer
-                        }
+            listProvider.forEach {
+                val location = locationManager.getLastKnownLocation(it)
+                location?.let { pointer ->
+                    if (bestLocation == null || pointer.accuracy < bestLocation?.accuracy!!) {
+                        typeProvider = it
+                        bestLocation = pointer
                     }
                 }
-                locationManager.requestLocationUpdates(typeProvider, ONE_MIN.toLong(), TEN_METERS.toFloat(), locationListener)
             }
+            if (typeProvider.isNotBlank())
+                locationManager.requestLocationUpdates(typeProvider, ONE_MIN.toLong(), TEN_METERS.toFloat(), locationListener)
         }
     }
 
