@@ -8,9 +8,11 @@ import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.base.BaseView
  */
 interface MapsContract {
     interface MapsView : BaseView {
-        fun handleError(error : String)
+        fun loadPolyline(data: String)
+        fun handleError(error: String)
     }
 
     interface MapsPresenter {
+        fun getPolyline(url: String)
     }
 }

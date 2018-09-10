@@ -9,12 +9,10 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
-import android.provider.Settings
 import android.support.v4.app.FragmentManager
 import android.util.Patterns
 import android.widget.TextView
 import com.google.android.gms.maps.model.LatLng
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.BuildConfig
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.MenuCheckListDialogInterface
@@ -370,6 +368,16 @@ object AppUtils {
             e.printStackTrace()
         }
         return ipWan
+    }
+
+    fun getUrlPolyline(context: Context?, fromLatLng: LatLng, toLatLng: LatLng): String {
+        context?.let {
+            val parameters = "${it.getString(R.string.geo_map_origin, fromLatLng.latitude.toString(), fromLatLng.longitude.toString())}&" +
+                    "${it.getString(R.string.geo_map_destination, toLatLng.latitude.toString(), toLatLng.longitude.toString())}&" +
+                    "${Constants.GEO_MAP_SENSOR}&${Constants.GEO_MAP_MODE_DRIVING}"
+            return it.getString(R.string.geo_map_url, Constants.GEO_MAP_OUTPUT_FORMAT, parameters)
+        }
+        return ""
     }
 
     fun getSumListData(list: ArrayList<DetailReportModel>): Float {

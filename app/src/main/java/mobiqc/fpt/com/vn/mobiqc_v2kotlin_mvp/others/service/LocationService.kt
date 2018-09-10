@@ -8,6 +8,9 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import java.io.IOException
 
 
 /**
@@ -16,11 +19,24 @@ import android.support.v4.app.ActivityCompat
  */
 class LocationService(val context: Context?) {
 
-    var typeProvider = ""
+    private var typeProvider = ""
 
     companion object {
         const val ONE_MIN = 1000 * 60 * 1
         const val TEN_METERS = 1
+        fun getLatLngPolyline(url: String): String {
+            val client = OkHttpClient()
+            var result = ""
+            try {
+                val request = Request.Builder().url(url).build()
+                val response = client.newCall(request).execute()
+                val responseBody = response.body()
+                if (responseBody != null) result = responseBody.string()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+            return result
+        }
     }
 
     private var locationManager: LocationManager? = null
@@ -73,4 +89,5 @@ class LocationService(val context: Context?) {
         override fun onProviderEnabled(provider: String) {}
         override fun onProviderDisabled(provider: String) {}
     }
+
 }
