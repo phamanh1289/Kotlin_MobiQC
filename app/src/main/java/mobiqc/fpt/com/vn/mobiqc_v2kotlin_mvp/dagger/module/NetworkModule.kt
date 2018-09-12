@@ -37,6 +37,7 @@ class NetworkModule(private val mType: ApiConfigType) {
             .readTimeout(4, TimeUnit.MINUTES)
             .writeTimeout(4, TimeUnit.MINUTES)
             .addInterceptor(ConnectivityInterceptor())
+            .retryOnConnectionFailure(true)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .addInterceptor(ApiCustomInterceptor())
 
@@ -48,6 +49,7 @@ class NetworkModule(private val mType: ApiConfigType) {
                 .connectTimeout(1, TimeUnit.MINUTES)
                 .writeTimeout(1, TimeUnit.MINUTES)
                 .cache(okhttp3.Cache(cacheDir, CACHE_SIZE_BUFFER))
+                .retryOnConnectionFailure(true)
                 .build()
     }
 

@@ -1,16 +1,17 @@
 package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.service
 
 import android.os.AsyncTask
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api.ApiService
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.constant.Constants
+import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.others.custom_body.DownloadProgressInterceptor
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.ui.splash_screen.SplashScreenContract
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.utils.AppUtils
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import java.io.BufferedInputStream
 import java.io.FileOutputStream
 import java.util.concurrent.TimeUnit
@@ -29,27 +30,30 @@ class DownloadService(private val url: String, private val view: SplashScreenCon
     fun initDownload() {
         val retrofit = Retrofit.Builder()
                 .client(OkHttpClient.Builder()
+                        .addInterceptor(DownloadProgressInterceptor(view))
+                        .retryOnConnectionFailure(true)
                         .connectTimeout(1, TimeUnit.MINUTES)
                         .readTimeout(4, TimeUnit.MINUTES)
                         .writeTimeout(4, TimeUnit.MINUTES)
                         .build())
                 .baseUrl("http://wsmobiqc.fpt.vn/MobiQC.svc/")
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
-        val retrofitInterface = retrofit.create(ApiService::class.java)
-        retrofitInterface.getFileNewVersion(url).enqueue(object : Callback<ResponseBody> {
-            override fun onFailure(call: Call<ResponseBody>?, t: Throwable?) {
-                view?.loadNewFileVersion(Constants.DOWNLOAD_FAIL.toFloat())
-            }
-
-            override fun onResponse(call: Call<ResponseBody>?, response: Response<ResponseBody>?) {
-                response?.body()?.let {
-                    UpdateProcess().execute(it)
-                }
-            }
-        })
+        retrofit.create(ApiService::class.java)
+                .getFileNewVersion(url)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe( { it ->
+                    DownLoadFileApk().execute(it)
+                },{
+                    view?.loadNewFileVersion(Constants.DOWNLOAD_FAIL.toFloat())
+                })
+//        val sink = Okio.buffer(Okio.sink(AppUtils.getFileDownload()))
+//        sink.writeAll(responseBody?.source() as Source)
+//        sink.close()
     }
 
-    inner class UpdateProcess : AsyncTask<ResponseBody, Float, Float>() {
+    inner class DownLoadFileApk : AsyncTask<ResponseBody, Float, Float>() {
 
         override fun onProgressUpdate(vararg values: Float?) {
             super.onProgressUpdate(*values)
@@ -67,8 +71,8 @@ class DownloadService(private val url: String, private val view: SplashScreenCon
             try {
                 var totalFile = buffer.read(dataArray)
                 while (totalFile != -1) {
-                    currentSize += totalFile
                     outPutStream.write(dataArray, 0, totalFile)
+                    currentSize += totalFile
                     totalSize?.let {
                         publishProgress(((currentSize / it) * 100))
                     }

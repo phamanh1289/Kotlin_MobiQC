@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
-import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.BuildConfig
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.R
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.interfaces.ConfirmDialogInterface
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.ResponseErrorDataModel
@@ -74,8 +73,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                                 presenter.let { pre ->
                                     showLoading()
                                     val map = HashMap<String, Any>()
-                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
-//                                    map[Constants.PARAMS_VERSION] = 20
+//                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
+                                    map[Constants.PARAMS_VERSION] = 20
                                     pre.getAppVersion(map)
                                 }
                             } else

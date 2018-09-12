@@ -3,7 +3,6 @@ package mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.api
 import io.reactivex.Observable
 import mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp.data.network.model.*
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.http.*
 
 /**
@@ -101,6 +100,5 @@ interface ApiService {
 
     @GET
     @Streaming
-    fun getFileNewVersion(@Url fileUrl: String): Call<ResponseBody>
-
+    fun getFileNewVersion(@Url fileUrl: String): Observable<ResponseBody>
 }
