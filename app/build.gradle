@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -17,7 +19,7 @@ android {
         experimental = true
     }
     defaultConfig {
-        applicationId "mobiqc.fpt.com.vn.mobiqc_v2kotlin_mvp"
+        applicationId "mobiqc.fpt.com.vn"
         minSdkVersion 19
         targetSdkVersion 27
         multiDexEnabled true
@@ -25,10 +27,32 @@ android {
         versionName "2.1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            Properties properties = new Properties()
+            properties.load(project.rootProject.file('local.properties').newDataInputStream())
+            storeFile file(properties.getProperty('storeFile'))
+            keyAlias properties.getProperty('keyAlias')
+            storePassword properties.getProperty('storePassword')
+            keyPassword properties.getProperty('keyPassword')
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        applicationVariants.all { variant ->
+            configApkFileName(variant, defaultConfig)
+        }
+        staging {
+            matchingFallbacks = ['debug', 'qa', 'release']
         }
     }
 }
@@ -74,4 +98,28 @@ dependencies {
     implementation 'it.sephiroth.android.library.imagezoom:imagezoom:2.3.0'
     //Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    //Firebase
+//    implementation 'com.google.firebase:firebase-core:16.0.3'
+//    implementation 'com.google.firebase:firebase-messaging:17.3.1'
+}
+
+//apply plugin: 'com.google.gms.google-services'
+
+
+static def getCurrentDayTime() {
+    Date today = new Date()
+    SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd")
+    return df.format(today)
+}
+
+def configApkFileName(variant, defaultConfig) {
+    variant.outputs.each { output ->
+        if (variant.buildType.name == android.buildTypes.release.name) {
+            output.outputFileName = new File("", "MobiQC_" + variant.buildType.name
+                    + "_v" + defaultConfig.versionName + "_"
+                    + defaultConfig.versionCode + "_"
+                    + getCurrentDayTime()
+                    + ".apk")
+        }
+    }
 }

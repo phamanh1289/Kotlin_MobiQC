@@ -124,10 +124,11 @@
     <string name="chart_report">Biểu đồ</string>
     <string name="upload_image">Upload hình ảnh</string>
     <string name="mess_upload_image">Chưa có chọn hình ảnh để upload!</string>
+    <string name="mess_install_android_o">Bạn cần cung cấp quyền \"Cài đặt nguồn không xác định\" \nHướng dẫn : bấm vào Đồng Ý -> kéo xuống cuối sẽ thấy.</string>
     <string name="mess_title_image">Hình ảnh</string>
     <string name="check_list_id">ID</string>
     <string name="mess_log_out">Bạn có muốn thoát tài khoản?</string>
-    <string name="mess_error_update">Tải bản cập nhật mới thất bại. Bạn có muốn tải lại không?</string>
+    <string name="mess_error_update">Tải bản cập nhật mới thất bại!</string>
     <string name="check_list_create">Thời gian tạo</string>
     <string name="check_list_type">Loại</string>
     <string name="check_list_status">Tình trạng</string>
