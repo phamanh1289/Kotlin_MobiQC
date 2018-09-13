@@ -2,6 +2,7 @@ package vn.com.fpt.mobiqc.ui.splash_screen
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,9 +11,9 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
+import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
-import vn.com.fpt.mobiqc.BuildConfig
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.interfaces.ConfirmDialogInterface
 import vn.com.fpt.mobiqc.data.network.model.ResponseErrorDataModel
@@ -29,6 +30,10 @@ import javax.inject.Inject
 
 
 class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScreenContract.SplashScreenView {
+
+    companion object {
+        const val ENABLE_UNKNOWN_RESOURCE = 1010
+    }
 
     @Inject
     lateinit var presenter: SplashScreenPresenter
@@ -72,8 +77,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                                 presenter.let { pre ->
                                     showLoading()
                                     val map = HashMap<String, Any>()
-                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
-//                                    map[Constants.PARAMS_VERSION] = 20
+//                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
+                                    map[Constants.PARAMS_VERSION] = 20
                                     pre.getAppVersion(map)
                                 }
                             } else
@@ -96,11 +101,22 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     }
 
     private fun installFileExist() {
-        when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> installAllowAndroidNougat()
-            else -> installBelowAndroidNougat()
-        }
-        this@SplashScreenActivity.finish()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !packageManager.canRequestPackageInstalls()) {
+            AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.mess_install_android_o), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                @RequiresApi(Build.VERSION_CODES.O)
+                override fun onClickOk() {
+                    startActivityForResult(Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:$packageName")), ENABLE_UNKNOWN_RESOURCE)
+                }
+
+                override fun onClickCancel() {
+                    finish()
+                }
+            })
+        } else
+            when {
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> installAllowAndroidNougat()
+                else -> installBelowAndroidNougat()
+            }
     }
 
     private fun installBelowAndroidNougat() {
@@ -108,28 +124,28 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
         intent.setDataAndType(Uri.fromFile(AppUtils.getFileDownload()), Constants.PATH_FILE_DOWNLOAD)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
+        this@SplashScreenActivity.finish()
     }
 
     private fun installAllowAndroidNougat() {
         val fileUri = android.support.v4.content.FileProvider.getUriForFile(this, applicationContext.packageName + ".provider", AppUtils.getFileDownload())
-        val intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !packageManager.canRequestPackageInstalls())
+        val intent: Intent? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !packageManager.canRequestPackageInstalls())
             Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES)
         else
             Intent(Intent.ACTION_INSTALL_PACKAGE)
-        intent.data = fileUri
-        intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-        startActivity(intent)
+        intent?.let {
+            it.data = fileUri
+            it.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            startActivity(it)
+        }
+        this@SplashScreenActivity.finish()
     }
 
     override fun loadAppVersion(response: ResponseModel) {
         if (response.Code == Constants.REQUEST_UPDATE) {
             hideLoading()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !packageManager.canRequestPackageInstalls()) {
-                AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.mess_install_android_o), confirmDialogInterface = this, actionCancel = true)
-            } else {
-                url = response.Link
-                AppUtils.showDialog(fragmentManager = supportFragmentManager, content = response.Description, confirmDialogInterface = updateClick)
-            }
+            url = response.Link
+            AppUtils.showDialog(fragmentManager = supportFragmentManager, content = response.Description, confirmDialogInterface = updateClick)
         } else {
             getImeiDevice()
             presenter.let {
@@ -208,5 +224,19 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == ENABLE_UNKNOWN_RESOURCE && resultCode == Activity.RESULT_OK) {
+            installAllowAndroidNougat()
+        } else AppUtils.showDialog(supportFragmentManager, content = getString(R.string.mess_out_app), confirmDialogInterface = object : ConfirmDialogInterface {
+            override fun onClickOk() {
+                finish()
+            }
+
+            override fun onClickCancel() {
+            }
+        })
     }
 }

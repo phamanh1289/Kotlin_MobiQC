@@ -19,7 +19,7 @@ android {
         experimental = true
     }
     defaultConfig {
-        applicationId "mobiqc.fpt.com.vn"
+        applicationId "vn.com.fpt.mobiqc"
         minSdkVersion 19
         targetSdkVersion 27
         multiDexEnabled true
@@ -99,11 +99,11 @@ dependencies {
     //Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     //Firebase
-//    implementation 'com.google.firebase:firebase-core:16.0.3'
-//    implementation 'com.google.firebase:firebase-messaging:17.3.1'
+    implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.firebase:firebase-messaging:17.3.1'
 }
 
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 
 
 static def getCurrentDayTime() {
