@@ -17,7 +17,7 @@ import javax.inject.Inject
 class UploadImagePresenter @Inject constructor(private val apiUploadImageService: ApiUploadImageService, private val apiIstorageService: ApiIstorageService) : BasePresenter<UploadImageContract.UploadImageView>(), UploadImageContract.UploadImagePresenter {
 
     override fun postUploadImage(context: Context?, token: String, list: ArrayList<UploadImageModel>) {
-        UploadService(context, list, token, view).upLoadImageToServer().execute()
+        UploadService(context, list, token, view).UpLoadImageToServer().execute()
     }
 
     override fun postCreateImage(token: String, map: HashMap<String, Any>) {

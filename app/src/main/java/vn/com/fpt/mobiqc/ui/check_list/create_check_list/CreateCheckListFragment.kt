@@ -105,6 +105,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
             adapter = adapterTimeZone
             isNestedScrollingEnabled = false
         }
+        fragCreateCheckList_llTimeZone.visibility = if (isCheckGuestDate) View.VISIBLE else View.GONE
     }
 
     private fun initOnClick() {
@@ -114,27 +115,40 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
         fragCreateCheckList_tvStatus.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.create_check_list_status), listFirstStatus, fragCreateCheckList_tvStatus, positionFirstStatus) }
         fragCreateCheckList_tvDate.setOnClickListener { AppUtils.showPickTime(context, fragCreateCheckList_tvDate, Constants.SET_CURRENT_IS_MIN_DATE) }
         fragCreateCheckList_imgClear.setOnClickListener {
+            isCheckGuestDate = true
+            handleGuestDate()
             fragCreateCheckList_tvDate.setText("")
-            if (fragCreateCheckList_cbGuestDate.isChecked)
-                fragCreateCheckList_cbGuestDate.isChecked = false
         }
-        fragCreateCheckList_cbGuestDate.setOnCheckedChangeListener { _, isCheck ->
-            isCheckGuestDate = isCheck
-            fragCreateCheckList_llTimeZone.visibility = if (isCheck) View.VISIBLE else View.GONE
-            if (isCheck)
-                initParamGetTimeZone()
+        fragCreateCheckList_cbGuestDate.setOnClickListener {
+            handleGuestDate()
         }
-        fragCreateCheckList_cbRush.setOnCheckedChangeListener { _, isCheck ->
-            isCheckOwner = isCheck
-            initParamGetOwner(isCheckOwner)
+        fragCreateCheckList_llRush.setOnClickListener {
+            handleCheckRush()
         }
         fragCreateCheckList_tvSubmit.setOnClickListener { initActionSubmit() }
+    }
+
+    private fun handleGuestDate() {
+        if (fragCreateCheckList_tvDate.text.isNotBlank()) {
+            isCheckGuestDate = !isCheckGuestDate
+            fragCreateCheckList_cbGuestDate.isSelected = isCheckGuestDate
+            if (isCheckGuestDate)
+                initParamGetTimeZone()
+            fragCreateCheckList_llTimeZone.visibility = if (isCheckGuestDate) View.VISIBLE else View.GONE
+        }
+    }
+
+    private fun handleCheckRush() {
+        isCheckOwner = !isCheckOwner
+        fragCreateCheckList_tvRush.isSelected = isCheckOwner
+        fragCreateCheckList_imgRush.isSelected = isCheckOwner
+        initParamGetOwner(isCheckOwner)
     }
 
     private fun initActionSubmit() {
         if (fragCreateCheckList_tvPartner.text.isBlank() || fragCreateCheckList_tvSub.text.isBlank())
             AppUtils.showDialog(fragmentManager, confirmDialogInterface = null, content = getString(R.string.alert_create_check_list))
-        else if (fragCreateCheckList_cbGuestDate.isChecked && adapterTimeZone.indexSelect == Constants.DONT_BOOK_DATE)
+        else if (fragCreateCheckList_cbGuestDate.isSelected && adapterTimeZone.indexSelect == Constants.DONT_BOOK_DATE)
             AppUtils.showDialog(fragmentManager, content = getString(R.string.time_zone_error_mes), confirmDialogInterface = null)
         else {
             AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_mess), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
@@ -295,7 +309,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
                 data.split(".")[Constants.FIRST_ITEM] else data
             when {
                 result.toInt() != 0 -> {
-                    if (!fragCreateCheckList_cbGuestDate.isChecked) {
+                    if (!fragCreateCheckList_cbGuestDate.isSelected) {
                         hideLoading()
                         AppUtils.showDialog(fragmentManager, content = getString(R.string.create_check_list_success), confirmDialogInterface = onClickSuccess)
                     } else {
@@ -375,8 +389,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 fragCreateCheckList_imgClear.visibility = if (s?.length != 0) View.VISIBLE else View.GONE
-                fragCreateCheckList_cbGuestDate.isEnabled = s?.length != 0
-                if (s?.length != 0 && fragCreateCheckList_cbGuestDate.isChecked)
+                if (s?.length != 0 && fragCreateCheckList_cbGuestDate.isSelected)
                     initParamGetTimeZone()
             }
 

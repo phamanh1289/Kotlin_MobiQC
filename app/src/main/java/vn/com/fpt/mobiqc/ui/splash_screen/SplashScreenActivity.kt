@@ -14,9 +14,7 @@ import android.provider.Settings
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
-import com.crashlytics.android.Crashlytics
 import com.google.firebase.analytics.FirebaseAnalytics
-import io.fabric.sdk.android.Fabric
 import vn.com.fpt.mobiqc.BuildConfig
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.interfaces.ConfirmDialogInterface
@@ -60,11 +58,11 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        Fabric.with(this@SplashScreenActivity, Crashlytics())
         setContentView(R.layout.activity_splash_screen)
         getActivityComponent().inject(this)
         presenter.onAttach(this)
         mAnalytics = FirebaseAnalytics.getInstance(this)
-        Fabric.with(this, Crashlytics())
         initView()
     }
 

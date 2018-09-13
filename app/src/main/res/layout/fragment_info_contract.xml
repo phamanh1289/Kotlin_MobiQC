@@ -23,7 +23,7 @@
             android:layout_marginTop="@dimen/_16dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/no_data"
-            android:textColor="@color/black_text"
+            android:textColor="@color/steel"
             android:textSize="@dimen/_19dp"
             android:visibility="gone"/>
 
@@ -80,10 +80,12 @@
                         android:padding="@dimen/_10dp">
 
                         <TextView
+                            fontPath="@string/Helvetica_Bold"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
-                            android:text="@string/contract_assign"/>
+                            android:text="@string/contract_assign"
+                            android:textColor="@color/steel"/>
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvContractAssign"
@@ -92,7 +94,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.3"
                             android:padding="@dimen/_8dp"
-                            android:textColor="@color/black"
+                            android:textColor="@color/steel"
                             tools:text="0"/>
                     </LinearLayout>
 
@@ -103,10 +105,12 @@
                         android:padding="@dimen/_10dp">
 
                         <TextView
+                            fontPath="@string/Helvetica_Bold"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
-                            android:text="@string/contract_finish"/>
+                            android:text="@string/contract_finish"
+                            android:textColor="@color/steel"/>
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvContractFinish"
@@ -115,7 +119,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.3"
                             android:padding="@dimen/_8dp"
-                            android:textColor="@color/black"
+                            android:textColor="@color/steel"
                             tools:text="0"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -140,10 +144,12 @@
                         android:padding="@dimen/_10dp">
 
                         <TextView
+                            fontPath="@string/Helvetica_Bold"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
-                            android:text="@string/contract_instock"/>
+                            android:text="@string/contract_instock"
+                            android:textColor="@color/steel"/>
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvContractInStock"
@@ -152,7 +158,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.3"
                             android:padding="@dimen/_8dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/button"
                             tools:text="0"/>
                     </LinearLayout>
 
@@ -164,10 +170,12 @@
                         android:padding="@dimen/_10dp">
 
                         <TextView
+                            fontPath="@string/Helvetica_Bold"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
-                            android:text="@string/contract_instock_hi_FPT"/>
+                            android:text="@string/contract_instock_hi_FPT"
+                            android:textColor="@color/steel"/>
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvContractInStockHiFPT"
@@ -176,7 +184,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.3"
                             android:padding="@dimen/_8dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/button"
                             tools:text="0"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -202,10 +210,12 @@
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvLabelOvertime48"
+                            fontPath="@string/Helvetica_Bold"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
-                            android:text="@string/contract_up_coming"/>
+                            android:text="@string/contract_up_coming"
+                            android:textColor="@color/steel"/>
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvContractComing"
@@ -226,10 +236,12 @@
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvLabelOvertime96"
+                            fontPath="@string/Helvetica_Bold"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
-                            android:text="@string/contract_over_time"/>
+                            android:text="@string/contract_over_time"
+                            android:textColor="@color/steel"/>
 
                         <TextView
                             android:id="@+id/fragInfoContract_tvContractOverTime"

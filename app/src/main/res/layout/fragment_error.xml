@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.65"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 tools:text="1058916416"/>
         </LinearLayout>
 
@@ -78,7 +78,7 @@
                     android:paddingEnd="@dimen/_27dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"/>
 
             </FrameLayout>
@@ -124,7 +124,7 @@
                     android:paddingEnd="@dimen/_27dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"/>
 
             </FrameLayout>
@@ -170,7 +170,7 @@
                     android:paddingEnd="@dimen/_27dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"/>
 
             </FrameLayout>
@@ -206,7 +206,7 @@
                 android:paddingEnd="@dimen/_27dp"
                 android:paddingStart="@dimen/_10dp"
                 android:paddingTop="@dimen/_4dp"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_14dp"/>
 
         </LinearLayout>
@@ -239,7 +239,7 @@
                 android:paddingEnd="@dimen/_27dp"
                 android:paddingStart="@dimen/_10dp"
                 android:paddingTop="@dimen/_4dp"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_14dp"/>
 
         </LinearLayout>
@@ -283,7 +283,7 @@
                     android:paddingEnd="@dimen/_27dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"/>
 
             </FrameLayout>
@@ -329,7 +329,7 @@
                     android:paddingEnd="@dimen/_27dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"/>
 
             </FrameLayout>
@@ -375,7 +375,7 @@
                     android:paddingEnd="@dimen/_27dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"/>
 
             </FrameLayout>
@@ -402,7 +402,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.65"
-                android:text="@string/mess_demo"
                 android:background="@drawable/shape_border_grey_text_view"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_note"
@@ -410,7 +409,7 @@
                 android:paddingEnd="@dimen/_10dp"
                 android:paddingStart="@dimen/_10dp"
                 android:paddingTop="@dimen/_4dp"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_14dp"
                 tools:ignore="TextFields"/>
 

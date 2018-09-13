@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_infomation.*
 import vn.com.fpt.mobiqc.BuildConfig
 import vn.com.fpt.mobiqc.R
+import vn.com.fpt.mobiqc.data.network.model.TitleAndMenuModel
 import vn.com.fpt.mobiqc.others.constant.Constants
 import vn.com.fpt.mobiqc.ui.base.BaseFragment
 import vn.com.fpt.mobiqc.utils.KeyboardUtils
@@ -42,6 +43,11 @@ class InformationFragment : BaseFragment() {
     }
 
     private fun initView() {
+        var title = ""
+        arguments?.let {
+            title = it.getString(Constants.ARG_TITLE)
+        }
+        setTitle(TitleAndMenuModel(title = title))
         fragInformation_tvEmail.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
             intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.email_haint)))

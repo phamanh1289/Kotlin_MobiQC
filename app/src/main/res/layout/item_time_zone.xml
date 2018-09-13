@@ -29,7 +29,7 @@
         android:layout_marginEnd="@dimen/_8dp"
         android:layout_marginStart="@dimen/_8dp"
         android:layout_weight="0.5"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_15dp"
         tools:text="Số HĐ"/>
 
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
         android:gravity="center"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_15dp"
         tools:text="Số HĐ"/>
 
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
         android:gravity="center"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_15dp"
         tools:text="Năng lực"/>
 </LinearLayout>

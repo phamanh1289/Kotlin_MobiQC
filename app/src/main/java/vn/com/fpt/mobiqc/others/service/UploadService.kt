@@ -27,7 +27,7 @@ import java.util.*
 class UploadService(val context: Context?,var listBitmap : ArrayList<UploadImageModel>, val token : String,val view : UploadImageContract.UploadImageView?){
 
     @SuppressLint("StaticFieldLeak")
-    inner class upLoadImageToServer : AsyncTask<Void, Int, Int>() {
+    inner class UpLoadImageToServer : AsyncTask<Void, Int, Int>() {
 
         override fun onProgressUpdate(vararg values: Int?) {
             super.onProgressUpdate(*values)

@@ -26,6 +26,7 @@ class LoginFragment : BaseFragment(), LoginContract.LoginView {
 
     @Inject
     lateinit var presenter: LoginPresenter
+    private var isCheckShowHidePassWord = true
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_login, container, false)
@@ -51,11 +52,16 @@ class LoginFragment : BaseFragment(), LoginContract.LoginView {
                 presenter.postLogin(map)
             }
         }
-        fragLogin_cbShowPass.setOnCheckedChangeListener { _, isCheck ->
-            fragLogin_tvPass.transformationMethod =
-                    if (isCheck) HideReturnsTransformationMethod.getInstance()
-                    else PasswordTransformationMethod.getInstance()
-        }
+        fragLogin_cbShowPass.setOnClickListener { handleShowHidePassword() }
+    }
+
+    private fun handleShowHidePassword(){
+        fragLogin_tvPass.transformationMethod =
+                if (isCheckShowHidePassWord) HideReturnsTransformationMethod.getInstance()
+                else PasswordTransformationMethod.getInstance()
+        fragLogin_imgDoneError.isSelected = isCheckShowHidePassWord
+        fragLogin_tvDoneError.isSelected = isCheckShowHidePassWord
+        isCheckShowHidePassWord = !isCheckShowHidePassWord
     }
 
     private fun isValidate(): Boolean {

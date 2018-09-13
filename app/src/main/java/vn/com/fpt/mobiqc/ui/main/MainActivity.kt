@@ -5,9 +5,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
 import android.view.View
-import com.crashlytics.android.Crashlytics
 import com.google.firebase.analytics.FirebaseAnalytics
-import io.fabric.sdk.android.Fabric
 import kotlinx.android.synthetic.main.activity_main.*
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.interfaces.ConfirmDialogInterface
@@ -55,11 +53,11 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        Fabric.with(this, Crashlytics())
         setContentView(R.layout.activity_main)
         getActivityComponent().inject(this)
         presenter.onAttach(this)
         mAnalytics = FirebaseAnalytics.getInstance(this)
-        Fabric.with(this, Crashlytics())
         initView()
     }
 

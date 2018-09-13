@@ -29,7 +29,7 @@ class PhoneNumberAdapter(val onClick: (Int) -> Unit) : ListAdapter<PhoneNumberMo
             model?.let { item ->
                 itemView.itemPhoneNumber_tvNumber.text = item.Phone
                 itemView.itemPhoneNumber_tvDateUpdate.text = AppUtils.toConvertTimeToString(itemView.context, item.Date)
-                itemView.itemPhoneNumber_rbSms.isChecked = item.Sms == Constants.SMS_TRUE
+                itemView.itemPhoneNumber_rbSms.isSelected = item.Sms == Constants.SMS_TRUE
                 itemView.setOnClickListener { onClick(adapterPosition) }
             }
         }

@@ -33,6 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_service"
                 android:textSize="@dimen/_15dp"/>
 
@@ -42,7 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -60,6 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_status"
                 android:textSize="@dimen/_15dp"/>
 
@@ -69,7 +71,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -87,6 +89,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_indoor"
                 android:textSize="@dimen/_15dp"/>
 
@@ -96,7 +99,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -114,6 +117,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_outdoor"
                 android:textSize="@dimen/_15dp"/>
 
@@ -123,7 +127,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -141,6 +145,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_lan"
                 android:textSize="@dimen/_15dp"/>
 
@@ -150,7 +155,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -168,6 +173,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_other"
                 android:textSize="@dimen/_15dp"/>
 
@@ -177,7 +183,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -198,6 +204,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_BT"
                 android:textSize="@dimen/_15dp"/>
 
@@ -207,7 +214,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -225,6 +232,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_TK"
                 android:textSize="@dimen/_15dp"/>
 
@@ -234,7 +242,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -252,6 +260,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_link_1"
                 android:textSize="@dimen/_15dp"/>
 
@@ -261,7 +270,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -279,6 +288,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_link_2"
                 android:textSize="@dimen/_15dp"/>
 
@@ -288,7 +298,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -305,6 +315,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_cable_type"
                 android:textSize="@dimen/_15dp"/>
 
@@ -334,6 +345,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_modem"
                 android:textSize="@dimen/_15dp"/>
 
@@ -343,7 +355,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -361,6 +373,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_stb"
                 android:textSize="@dimen/_15dp"/>
 
@@ -370,7 +383,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -388,6 +401,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_hd_box"
                 android:textSize="@dimen/_15dp"/>
 
@@ -397,7 +411,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -415,6 +429,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_deposit"
                 android:textSize="@dimen/_15dp"/>
 
@@ -424,7 +439,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -444,6 +459,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_telesales"
                 android:textSize="@dimen/_15dp"/>
 
@@ -453,7 +469,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -471,6 +487,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_draw"
                 android:textSize="@dimen/_15dp"/>
 
@@ -498,6 +515,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_note_detail"
                 android:textSize="@dimen/_15dp"/>
 
@@ -507,7 +525,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -526,6 +544,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_error"
                 android:textSize="@dimen/_15dp"/>
 
@@ -535,7 +554,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -552,6 +571,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_note"
                 android:textSize="@dimen/_15dp"/>
 
@@ -561,7 +581,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>
@@ -579,6 +599,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/contract_detail_finish"
                 android:textSize="@dimen/_15dp"/>
 
@@ -588,7 +609,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_15dp"/>
 
         </LinearLayout>

@@ -47,13 +47,31 @@
         android:padding="@dimen/_8dp"
         android:textSize="@dimen/_17dp"/>
 
-    <CheckBox
+    <LinearLayout
         android:id="@+id/fragLogin_cbShowPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="@dimen/_8dp"
-        android:text="@string/login_show_pass"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fragLogin_imgDoneError"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/selector_time_zone"/>
+
+        <TextView
+            android:id="@+id/fragLogin_tvDoneError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8dp"
+            android:textSize="@dimen/_14dp"
+            android:text="@string/login_show_pass"
+            android:textColor="@drawable/selector_blue_text"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/fragLogin_tvSubmit"

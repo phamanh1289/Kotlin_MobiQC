@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:padding="@dimen/_8dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_17dp"
                     tools:text="0"/>
             </LinearLayout>
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:padding="@dimen/_8dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_17dp"
                     tools:text="0"/>
             </LinearLayout>
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:padding="@dimen/_8dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_17dp"
                     tools:text="0"/>
             </LinearLayout>
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:padding="@dimen/_8dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_17dp"
                     tools:text="0"/>
             </LinearLayout>
@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:padding="@dimen/_8dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_17dp"
                     tools:text="0"/>
             </LinearLayout>
@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:padding="@dimen/_8dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_17dp"
                     tools:text="0"/>
             </LinearLayout>

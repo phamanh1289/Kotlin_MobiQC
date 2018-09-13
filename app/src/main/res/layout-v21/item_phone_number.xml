@@ -5,6 +5,7 @@
     android:id="@+id/itemCompletedContract_llRootView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical|center_horizontal"
     android:layout_marginBottom="@dimen/_8dp"
     android:orientation="horizontal">
 
@@ -13,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.35"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_14dp"
         tools:text="@string/phone_number"/>
 
@@ -23,19 +24,17 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:gravity="center_horizontal"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_14dp"
         tools:text="@string/phone_number_date"/>
 
-    <RadioButton
+    <ImageView
         android:id="@+id/itemPhoneNumber_rbSms"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.15"
-        android:layout_marginStart="@dimen/_8dp"
-        android:buttonTint="@color/colorPrimary"
-        android:gravity="center"
-        android:textColor="@color/black_text"
-        android:textSize="@dimen/_14dp"/>
+        android:layout_width="@dimen/_20dp"
+        android:layout_height="@dimen/_20dp"
+        android:layout_margin="@dimen/_8dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/selector_time_zone"
+        tools:ignore="ContentDescription"/>
 
 </LinearLayout>

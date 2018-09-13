@@ -14,7 +14,7 @@
         android:paddingBottom="@dimen/_8dp"
         android:layout_weight="1"
         android:paddingTop="@dimen/_8dp"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_14dp"/>
 
     <RadioButton

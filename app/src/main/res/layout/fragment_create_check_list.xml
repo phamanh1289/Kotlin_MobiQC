@@ -28,7 +28,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/create_check_list_status"/>
+                android:text="@string/create_check_list_status"
+                android:textColor="@color/steel"/>
 
             <FrameLayout
                 android:layout_width="0dp"
@@ -55,7 +56,7 @@
                     android:paddingEnd="@dimen/_27dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"/>
 
             </FrameLayout>
@@ -74,7 +75,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/error_detail_note"/>
+                android:text="@string/error_detail_note"
+                android:textColor="@color/steel"/>
 
             <EditText
                 android:id="@+id/fragCreateCheckList_tvNote"
@@ -83,14 +85,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.65"
                 android:background="@drawable/shape_border_grey_text_view"
-                android:text="@string/mess_demo"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_note"
                 android:paddingBottom="@dimen/_4dp"
                 android:paddingEnd="@dimen/_10dp"
                 android:paddingStart="@dimen/_10dp"
                 android:paddingTop="@dimen/_4dp"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_14dp"
                 tools:ignore="TextFields"/>
 
@@ -108,7 +109,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/create_check_list_partner"/>
+                android:text="@string/create_check_list_partner"
+                android:textColor="@color/steel"/>
 
             <TextView
                 android:id="@+id/fragCreateCheckList_tvPartner"
@@ -123,7 +125,7 @@
                 android:paddingEnd="@dimen/_10dp"
                 android:paddingStart="@dimen/_10dp"
                 android:paddingTop="@dimen/_4dp"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_14dp"
                 tools:ignore="TextFields"/>
 
@@ -141,7 +143,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/create_check_list_sub"/>
+                android:text="@string/create_check_list_sub"
+                android:textColor="@color/steel"/>
 
             <TextView
                 android:id="@+id/fragCreateCheckList_tvSub"
@@ -156,7 +159,7 @@
                 android:paddingEnd="@dimen/_10dp"
                 android:paddingStart="@dimen/_10dp"
                 android:paddingTop="@dimen/_4dp"
-                android:textColor="@color/black_text"
+                android:textColor="@color/steel"
                 android:textSize="@dimen/_14dp"
                 tools:ignore="TextFields"/>
 
@@ -174,7 +177,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:text="@string/create_check_list_date"/>
+                android:text="@string/create_check_list_date"
+                android:textColor="@color/steel"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -195,7 +199,7 @@
                     android:paddingEnd="@dimen/_10dp"
                     android:paddingStart="@dimen/_10dp"
                     android:paddingTop="@dimen/_4dp"
-                    android:textColor="@color/black_text"
+                    android:textColor="@color/steel"
                     android:textSize="@dimen/_14dp"
                     tools:ignore="LabelFor,MissingPrefix,NestedWeights,TextFields"/>
 
@@ -216,24 +220,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_20dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <TextView
                 fontPath="@string/Helvetica_Bold"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.35"
-                android:text="@string/create_check_list_guest_date"/>
+                android:text="@string/create_check_list_guest_date"
+                android:textColor="@color/steel"/>
 
-            <CheckBox
+            <ImageView
                 android:id="@+id/fragCreateCheckList_cbGuestDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.65"
-                android:buttonTint="@color/colorPrimary"
-                android:enabled="false"/>
+                android:layout_width="@dimen/_30dp"
+                android:layout_height="@dimen/_30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_25dp"
+                android:padding="@dimen/_4dp"
+                android:src="@drawable/selector_time_zone"
+                tools:ignore="ContentDescription"/>
 
         </LinearLayout>
 
@@ -283,14 +290,34 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/fragCreateCheckList_cbRush"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/fragCreateCheckList_llRush"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_16dp"
-            android:buttonTint="@color/colorPrimary"
-            android:text="@string/create_check_list_rush"/>
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/fragCreateCheckList_imgRush"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/selector_time_zone"
+                tools:ignore="ContentDescription"/>
+
+            <TextView
+                android:id="@+id/fragCreateCheckList_tvRush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_4dp"
+                android:paddingEnd="@dimen/_8dp"
+                android:paddingStart="@dimen/_8dp"
+                android:paddingTop="@dimen/_4dp"
+                android:text="@string/create_check_list_rush"
+                android:textColor="@drawable/selector_blue_text"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/fragCreateCheckList_tvSubmit"

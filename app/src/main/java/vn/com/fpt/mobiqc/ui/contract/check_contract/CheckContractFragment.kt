@@ -28,10 +28,10 @@ class CheckContractFragment : BaseFragment() {
     private var dataMobiAcc = ArrayList<SingleChoiceModel>()
     private var dataMobiType = ArrayList<SingleChoiceModel>()
     var dataMobiGroup = ArrayList<AccountGroup>()
-
     var positionMobiGroup = 0
     var positionMobiAcc = 0
     var positionMobiType = 0
+    private var typeContract = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_check_contract, container, false)
@@ -47,6 +47,7 @@ class CheckContractFragment : BaseFragment() {
     private fun initView() {
         handleData()
         handleOnClick()
+        handleStatusTypeError()
         clickListener.let {
             fragCheckContract_tvMobiGroup.setOnClickListener(it)
             fragCheckContract_tvMobiAcc.setOnClickListener(it)
@@ -54,6 +55,8 @@ class CheckContractFragment : BaseFragment() {
             fragCheckContract_tvFromDate.setOnClickListener(it)
             fragCheckContract_tvToDate.setOnClickListener(it)
             fragCheckContract_tvSearch.setOnClickListener(it)
+            fragCheckContract_llProcessing.setOnClickListener(it)
+            fragCheckContract_llCompleted.setOnClickListener(it)
         }
         AppUtils.getDefaultDateSearch(fragCheckContract_tvToDate, fragCheckContract_tvFromDate, Constants.LATE_DATE)
     }
@@ -93,7 +96,7 @@ class CheckContractFragment : BaseFragment() {
             if (error.isNotBlank())
                 AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
             else {
-                val type = if (fragCheckContract_rbProcessing.isChecked) Constants.STATUS_PROCESSING else Constants.STATUS_COMPLETED
+                val type = if (typeContract) Constants.STATUS_PROCESSING else Constants.STATUS_COMPLETED
                 val acc = fragCheckContract_tvMobiAcc.text.toString().trim()
                 val checkList = if (fragCheckContract_tvMobiType.text.toString() == getString(R.string.loai_tc_1)) Constants.DEPLOYMENT else Constants.MAINTENANCE
                 val from = fragCheckContract_tvFromDate.text.toString()
@@ -101,6 +104,14 @@ class CheckContractFragment : BaseFragment() {
                 addFragment(InfoContractFragment.newInstance(type, acc, checkList, from, to), true, true)
             }
         }
+    }
+
+    private fun handleStatusTypeError() {
+        fragCheckContract_imgProcessing.isSelected = !typeContract
+        fragCheckContract_tvProcessing.isSelected = !typeContract
+        fragCheckContract_imgCompleted.isSelected = typeContract
+        fragCheckContract_tvCompleted.isSelected = typeContract
+        typeContract = !typeContract
     }
 
     private fun handleOnClick() {
@@ -112,6 +123,8 @@ class CheckContractFragment : BaseFragment() {
                 R.id.fragCheckContract_tvFromDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvFromDate, Constants.SET_CURRENT_IS_MAX_DATE) }
                 R.id.fragCheckContract_tvToDate -> context?.let { AppUtils.showPickTime(it, fragCheckContract_tvToDate, Constants.SET_CURRENT_IS_MAX_DATE) }
                 R.id.fragCheckContract_tvSearch -> handleErrorSearch()
+                R.id.fragCheckContract_llProcessing -> handleStatusTypeError()
+                R.id.fragCheckContract_llCompleted -> handleStatusTypeError()
             }
         }
     }

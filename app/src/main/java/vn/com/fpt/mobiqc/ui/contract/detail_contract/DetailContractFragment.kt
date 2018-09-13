@@ -217,7 +217,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             fragDetailContract_tvFinishDate.text = if (model.FinishDate.isNullOrEmpty()) "N/A" else model.FinishDate
         fragDetailContract_scMain.visibility = View.VISIBLE
         if (supid.isNotBlank()) {
-            fragDetailContract_tvObjID.setTextColor(ContextCompat.getColor(context!!, R.color.black_text))
+            fragDetailContract_tvObjID.setTextColor(ContextCompat.getColor(context!!, R.color.steel))
             if (typeCheckList == Constants.MAINTENANCE) {
                 fragDetailContract_llCableLink_1.visibility = View.VISIBLE
                 fragDetailContract_tvCableLink_1.text = model.Link1

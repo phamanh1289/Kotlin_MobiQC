@@ -35,7 +35,7 @@
         android:padding="@dimen/_8dp"
         android:paddingEnd="@dimen/_8dp"
         android:paddingStart="@dimen/_8dp"
-        android:textColor="@color/black_text"
+        android:textColor="@color/steel"
         android:textSize="@dimen/_16dp"/>
 
     <ProgressBar

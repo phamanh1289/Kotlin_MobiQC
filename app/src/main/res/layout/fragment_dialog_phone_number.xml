@@ -16,9 +16,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/_8dp"
-        android:textColor="@color/black_text"
-        android:textSize="@dimen/_18dp"
-        tools:text="@string/group_point_info"/>
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_18dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
