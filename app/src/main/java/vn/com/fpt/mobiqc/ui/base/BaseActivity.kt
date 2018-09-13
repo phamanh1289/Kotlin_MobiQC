@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.tbruyelle.rxpermissions2.RxPermissions
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.dagger.component.ActivityComponent
 import vn.com.fpt.mobiqc.data.local.CustomTransaction
@@ -12,7 +13,6 @@ import vn.com.fpt.mobiqc.others.dialog.LoadingDialog
 import vn.com.fpt.mobiqc.ui.main.MainActivity
 import vn.com.fpt.mobiqc.utils.AppUtils
 import vn.com.fpt.mobiqc.utils.SharedPrefUtils
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 /**
  * * Created by Anh Pham on 08/02/2018.     **
@@ -24,13 +24,13 @@ open class BaseActivity : AppCompatActivity(), BaseView {
     private lateinit var sharePreferences: SharedPrefUtils
     private var mDialogView: LoadingDialog? = null
     private lateinit var rxPermissions: RxPermissions
-    private var ischeckShowDialog = false
+    private var isCheckShowDialog = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivityComponent = BaseApplication.instance.getApplicationComponent().getActivityComponent()
         sharePreferences = SharedPrefUtils(this)
-        rxPermissions = RxPermissions(this@BaseActivity)
+        rxPermissions = RxPermissions(this)
     }
 
     override fun getSharePreferences(): SharedPrefUtils {
@@ -54,16 +54,16 @@ open class BaseActivity : AppCompatActivity(), BaseView {
         if (isNetworkConnected()) {
             if (mDialogView == null)
                 mDialogView = LoadingDialog()
-            if (!ischeckShowDialog) {
+            if (!isCheckShowDialog) {
                 mDialogView?.show(supportFragmentManager, LoadingDialog::class.java.simpleName)
-                ischeckShowDialog = true
+                isCheckShowDialog = true
             }
         }
     }
 
     override fun hideLoading() {
         mDialogView?.dismiss()
-        ischeckShowDialog = false
+        isCheckShowDialog = false
     }
 
     override fun isNetworkConnected(): Boolean {
@@ -121,4 +121,5 @@ open class BaseActivity : AppCompatActivity(), BaseView {
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
+
 }

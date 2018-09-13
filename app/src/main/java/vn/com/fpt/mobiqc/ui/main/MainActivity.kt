@@ -5,6 +5,9 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
 import android.view.View
+import com.crashlytics.android.Crashlytics
+import com.google.firebase.analytics.FirebaseAnalytics
+import io.fabric.sdk.android.Fabric
 import kotlinx.android.synthetic.main.activity_main.*
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.interfaces.ConfirmDialogInterface
@@ -33,6 +36,8 @@ import vn.com.fpt.mobiqc.utils.AppUtils
 import vn.com.fpt.mobiqc.utils.StartActivityUtils
 import javax.inject.Inject
 
+
+
 /**
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
@@ -43,6 +48,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     @Inject
     lateinit var presenter: MainPresenterImp
 
+    private var mAnalytics: FirebaseAnalytics? = null
     private lateinit var menuAdapter: ItemMenuAdapter
     private var mData: ArrayList<ItemMenuModel> = ArrayList()
     var mCountBack = 0
@@ -52,6 +58,8 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
         setContentView(R.layout.activity_main)
         getActivityComponent().inject(this)
         presenter.onAttach(this)
+        mAnalytics = FirebaseAnalytics.getInstance(this)
+        Fabric.with(this, Crashlytics())
         initView()
     }
 
@@ -147,8 +155,10 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
                 })
             }
         }
-        if (itemMenu.id.isNotBlank() || itemMenu.id != Constants.DANG_XUAT)
+        if (itemMenu.id.isNotBlank()) {
             actMain_dlMenu.closeDrawers()
+            logEventAnalytics(itemMenu)
+        }
     }
 
     fun handleShowMenu() {
@@ -158,11 +168,15 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
 
     fun setTitleMain(model: TitleAndMenuModel?) {
         model?.let {
-            actMain_tvTitleMain.text = if (it.title.contains("-")) it.title.replace("-", "").trim() else it.title.trim()
+            actMain_tvTitleMain.text = deletePrefix(it.title)
             actMain_ivNotification.visibility = if (it.status) View.VISIBLE else View.GONE
             actMain_ivNotification.isFocusable = it.status
             actMain_ivNotification.setImageResource(if (it.status) it.image else Constants.NO_IMAGE)
         }
+    }
+
+    private fun deletePrefix(title: String): String {
+        return if (title.contains("-")) title.replace("-", "").trim() else title.trim()
     }
 
     private fun handleTitleMain() {
@@ -198,5 +212,15 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     }
 
     override fun onClickCancel() {
+    }
+
+    private fun logEventAnalytics(item: ItemMenuModel) {
+        mAnalytics?.let {
+            val bundle = Bundle()
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, item.id)
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, deletePrefix(item.name))
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, Constants.EVENT_SLIDE_MENU)
+            it.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
+        }
     }
 }

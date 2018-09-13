@@ -14,6 +14,10 @@ import android.provider.Settings
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
+import com.crashlytics.android.Crashlytics
+import com.google.firebase.analytics.FirebaseAnalytics
+import io.fabric.sdk.android.Fabric
+import vn.com.fpt.mobiqc.BuildConfig
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.interfaces.ConfirmDialogInterface
 import vn.com.fpt.mobiqc.data.network.model.ResponseErrorDataModel
@@ -40,6 +44,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
 
     private var url = ""
     private lateinit var mDialogDownload: ShowDownLoadDialog
+    private var mAnalytics: FirebaseAnalytics? = null
     private val updateClick = object : ConfirmDialogInterface {
         override fun onClickOk() {
             if (AppUtils.getFileDownload().exists())
@@ -58,6 +63,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
         setContentView(R.layout.activity_splash_screen)
         getActivityComponent().inject(this)
         presenter.onAttach(this)
+        mAnalytics = FirebaseAnalytics.getInstance(this)
+        Fabric.with(this, Crashlytics())
         initView()
     }
 
@@ -77,8 +84,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                                 presenter.let { pre ->
                                     showLoading()
                                     val map = HashMap<String, Any>()
-//                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
-                                    map[Constants.PARAMS_VERSION] = 20
+                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
+//                                    map[Constants.PARAMS_VERSION] = 20
                                     pre.getAppVersion(map)
                                 }
                             } else

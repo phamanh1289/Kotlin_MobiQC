@@ -158,6 +158,7 @@ object Constants {
     const val ARG_IMAGE_CODE = "imageCode"
     const val ARG_OBJID = "objId"
     const val ARG_SUPID = "supId"
+    const val EVENT_SLIDE_MENU = "Main Menu"
     const val ARG_MOBI_ACC = "MobiAcc"
     const val ARG_TYPE_CHECKLIST = "TypeCL"
     const val ARG_DATE_FROM = "DateFrom"
