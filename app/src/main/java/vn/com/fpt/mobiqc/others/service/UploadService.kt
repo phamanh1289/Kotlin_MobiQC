@@ -24,7 +24,7 @@ import java.util.*
  * * Created by Anh Pham on 06/09/2018.     **
  * * Copyright (c) 2018 by AppsCyclone      **
  */
-class UploadService(val context: Context?,var listBitmap : ArrayList<UploadImageModel>, val token : String,val view : UploadImageContract.UploadImageView?){
+class UploadService(val context: Context?, var listBitmap: ArrayList<UploadImageModel>, val token: String, val view: UploadImageContract.UploadImageView?) {
 
     @SuppressLint("StaticFieldLeak")
     inner class UpLoadImageToServer : AsyncTask<Void, Int, Int>() {
@@ -82,7 +82,7 @@ class UploadService(val context: Context?,var listBitmap : ArrayList<UploadImage
                         doOutput = true
                         useCaches = false
                         requestMethod = "POST"
-                        addRequestProperty(Constants.PARAMS_AUTHORIZATION,token)
+                        addRequestProperty(Constants.PARAMS_AUTHORIZATION, token)
                         setRequestProperty(Constants.PARAMS_CONTENT_DISPOSITION, "attachment; filename=\"${newFileUpload.name}\"")
                         out = BufferedOutputStream(outputStream)
                         var read = 1
@@ -135,4 +135,43 @@ class UploadService(val context: Context?,var listBitmap : ArrayList<UploadImage
         }
         return currentFile
     }
+
+
+//    fun initUpload() {
+//        val file = File(listBitmap[0].filePath)
+//        val fileName = "attachment; filename=\"${file.name}\""
+//        val body = Headers.of("Content-Disposition", fileName)
+//        val fbody = RequestBody.create(MediaType.parse("image/*"), file)
+//        val multiPart = MultipartBody.Part.create(body,fbody)
+//                val map = HashMap<String, RequestBody>()
+//        map[fileName] = fbody
+//
+//        val retrofit = Retrofit.Builder()
+//                .client(OkHttpClient.Builder()
+//                        .addInterceptor(ConnectivityInterceptor())
+//                        .addInterceptor(ApiCustomInterceptor())
+//                        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+//                        .retryOnConnectionFailure(true)
+//                        .connectTimeout(1, TimeUnit.MINUTES)
+//                        .readTimeout(4, TimeUnit.MINUTES)
+//                        .writeTimeout(4, TimeUnit.MINUTES)
+//                        .build())
+//                .baseUrl("http://iqc.fpt.vn/api/")
+//                .addConverterFactory(ProtoConverterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
+//                        .setLenient()
+//                        .create()))
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .build()
+//        retrofit.create(ApiUploadImageService::class.java)
+//                .postUploadImage(token, multiPart).enqueue(object :Callback<ResponseBody>{
+//                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+//                        view?.handleError(t.toString())
+//                    }
+//
+//                    override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+//                        view?.loadUploadImageToServer(1)
+//                    }
+//                })
+//    }
 }

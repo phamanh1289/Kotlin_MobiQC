@@ -10,6 +10,7 @@ import vn.com.fpt.mobiqc.others.service.UploadService
 import vn.com.fpt.mobiqc.ui.base.BasePresenter
 import javax.inject.Inject
 
+
 /**
  * * Created by Anh Pham on 08/09/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
@@ -18,10 +19,11 @@ class UploadImagePresenter @Inject constructor(private val apiUploadImageService
 
     override fun postUploadImage(context: Context?, token: String, list: ArrayList<UploadImageModel>) {
         UploadService(context, list, token, view).UpLoadImageToServer().execute()
+//        UploadService(context, list, token, view).initUpload()
     }
 
     override fun postCreateImage(token: String, map: HashMap<String, Any>) {
-        addSubscribe(apiIstorageService.postCreateImage(token,map)
+        addSubscribe(apiIstorageService.postCreateImage(token, map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -32,7 +34,7 @@ class UploadImagePresenter @Inject constructor(private val apiUploadImageService
     }
 
     override fun postAddImage(token: String, map: HashMap<String, Any>) {
-        addSubscribe(apiIstorageService.postAddImage(token,map)
+        addSubscribe(apiIstorageService.postAddImage(token, map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

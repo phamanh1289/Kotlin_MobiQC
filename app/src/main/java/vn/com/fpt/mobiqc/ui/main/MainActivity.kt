@@ -28,6 +28,7 @@ import vn.com.fpt.mobiqc.ui.contract.search_contract.SearchFragment
 import vn.com.fpt.mobiqc.ui.error.create.CreateErrorFragment
 import vn.com.fpt.mobiqc.ui.error.list.ListErrorFragment
 import vn.com.fpt.mobiqc.ui.error.update.UpdateErrorFragment
+import vn.com.fpt.mobiqc.ui.image.upload_image.UploadImageFragment
 import vn.com.fpt.mobiqc.ui.infomation.InformationFragment
 import vn.com.fpt.mobiqc.ui.reprot.ReportFragment
 import vn.com.fpt.mobiqc.utils.AppUtils
@@ -137,7 +138,8 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
                 Constants.TAO_LOI_MOI -> addFragment(CreateErrorFragment(), false, true)
                 Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
                 Constants.KQ_XAC_MINH ->
-                    AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
+                    addFragment(UploadImageFragment.newInstance("IscTest"),false,false)
+//                    AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
                 Constants.BAO_CAO_SO_LIEU -> addFragment(ReportFragment(), false, true)
                 Constants.THONG_TIN -> addFragment(InformationFragment.newInstance(itemMenu.name), false, true)
                 Constants.DANG_XUAT -> {

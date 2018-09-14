@@ -1,11 +1,10 @@
 package vn.com.fpt.mobiqc.others.custom_body
 
 import io.reactivex.subjects.PublishSubject
-import vn.com.fpt.mobiqc.ui.splash_screen.SplashScreenContract
-import vn.com.fpt.mobiqc.utils.AppUtils
 import okhttp3.MediaType
 import okhttp3.ResponseBody
 import okio.*
+import vn.com.fpt.mobiqc.ui.splash_screen.SplashScreenContract
 import java.io.IOException
 
 
@@ -27,12 +26,6 @@ open class DownloadProgressResponseBody(val responseBody: ResponseBody?, val vie
 
     override fun source(): BufferedSource {
         return Okio.buffer(source(responseBody?.source() as Source))
-    }
-
-    fun writeFileToSdCard() {
-        val sink = Okio.buffer(Okio.sink(AppUtils.getFileDownload()))
-        sink.writeAll(responseBody?.source() as Source)
-        sink.close()
     }
 
     private fun source(source: Source): Source {

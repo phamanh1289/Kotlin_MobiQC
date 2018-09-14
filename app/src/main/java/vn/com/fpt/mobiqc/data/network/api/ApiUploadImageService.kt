@@ -15,5 +15,5 @@ import retrofit2.http.Part
 interface ApiUploadImageService {
     @Multipart
     @POST("upload")
-    fun postUploadImage(@Header("Authorization") token: String, @Part file: MultipartBody.Part): Call<ResponseBody>
+    fun postUploadImage(@Header("Authorization") token: String, @Part map: MultipartBody.Part): Call<ResponseBody>
 }
