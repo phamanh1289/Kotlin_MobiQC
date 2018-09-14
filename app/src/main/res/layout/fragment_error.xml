@@ -27,6 +27,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_number"/>
 
             <TextView
@@ -35,6 +36,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.65"
+                android:textSize="@dimen/_16dp"
                 android:textColor="@color/steel"
                 tools:text="1058916416"/>
         </LinearLayout>
@@ -51,6 +53,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_type"/>
 
             <FrameLayout
@@ -97,6 +100,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_main_indoor"/>
 
             <FrameLayout
@@ -143,6 +147,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_user"/>
 
             <FrameLayout
@@ -189,6 +194,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_check"/>
 
 
@@ -223,6 +229,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_money"/>
 
             <EditText
@@ -256,6 +263,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_type_error"/>
 
             <FrameLayout
@@ -302,6 +310,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_main_error"/>
 
             <FrameLayout
@@ -348,6 +357,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_description"/>
 
             <FrameLayout
@@ -394,6 +404,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_note"/>
 
             <EditText

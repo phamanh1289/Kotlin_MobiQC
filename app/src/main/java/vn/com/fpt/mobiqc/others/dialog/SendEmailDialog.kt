@@ -41,10 +41,8 @@ class SendEmailDialog : DialogFragment() {
     }
 
     private fun loadDataDialog() {
-        fragDialogSendEmail_tvSendMail.setText("phamanh1289@gmail.com")
-        fragDialogSendEmail_tvCcEmail.setText("anhpham.developer@gmail.com")
-//        fragDialogSendEmail_tvSendMail.setText(sendMail)
-//        fragDialogSendEmail_tvCcEmail.setText(getString(R.string.add_default_email, ccMail))
+        fragDialogSendEmail_tvSendMail.setText(sendMail)
+        fragDialogSendEmail_tvCcEmail.setText(getString(R.string.add_default_email, ccMail))
         fragDialogSendEmail_tvCancel.setOnClickListener {
             confirmDialogInterface?.onClickCancel()
         }

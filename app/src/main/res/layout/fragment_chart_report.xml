@@ -20,6 +20,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/no_data"
+            android:textColor="@color/steel"
+            fontPath="@string/Helvetica_Bold"
             android:textSize="@dimen/_17dp"
             android:visibility="gone"/>
 

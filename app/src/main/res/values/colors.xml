@@ -5,6 +5,7 @@
     <color name="colorAccent">#00AAFF</color>
     <color name="white">#ffffff</color>
     <color name="grey_blur">#F5F5F5</color>
+    <color name="grey_blur_two">#EFEFF4</color>
     <color name="button">#007aff</color>
     <color name="steel">#6e8198</color>
     <color name="blue">#4df553</color>

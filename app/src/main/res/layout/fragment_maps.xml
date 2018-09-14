@@ -24,6 +24,5 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_16dp"
         android:textColor="@color/bright_red"
-        android:textSize="@dimen/_17dp"
-        tools:text="@string/no_data"/>
+        android:textSize="@dimen/_17dp"/>
 </FrameLayout>

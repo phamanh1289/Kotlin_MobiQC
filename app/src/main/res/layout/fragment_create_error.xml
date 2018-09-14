@@ -30,6 +30,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/check_list_id"/>
 
             <TextView
@@ -39,7 +40,7 @@
                 android:layout_weight="0.65"
                 fontPath="@string/Helvetica_Bold"
                 android:textColor="@color/steel"
-                android:textSize="@dimen/_17dp"/>
+                android:textSize="@dimen/_16dp"/>
 
 
         </LinearLayout>
@@ -56,6 +57,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/search_location"/>
 
             <FrameLayout
@@ -102,6 +104,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/search_branch"/>
 
             <FrameLayout
@@ -148,6 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/type_error"/>
 
             <LinearLayout
@@ -216,6 +220,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/sub_error"/>
 
             <EditText
@@ -248,6 +253,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_description"/>
 
             <FrameLayout
@@ -294,6 +300,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/supporter_error"/>
 
             <FrameLayout
@@ -340,6 +347,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
+                android:textColor="@color/steel"
                 android:text="@string/error_detail_note"/>
 
             <EditText

@@ -26,12 +26,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/_6dp">
+                android:padding="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:textColor="@color/steel"
+                    fontPath="@string/Helvetica_Bold"
                     android:text="@string/info_app_name"/>
 
                 <TextView
@@ -50,12 +52,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/_6dp">
+                android:padding="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:textColor="@color/steel"
+                    fontPath="@string/Helvetica_Bold"
                     android:text="@string/info_version"/>
 
                 <TextView
@@ -88,12 +92,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/_6dp">
+                android:padding="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:textColor="@color/steel"
+                    fontPath="@string/Helvetica_Bold"
                     android:text="@string/info_account_name"/>
 
                 <TextView
@@ -112,12 +118,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/_6dp">
+                android:padding="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:textColor="@color/steel"
+                    fontPath="@string/Helvetica_Bold"
                     android:text="@string/info_imei"/>
 
                 <TextView
@@ -136,12 +144,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/_6dp">
+                android:padding="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:textColor="@color/steel"
+                    fontPath="@string/Helvetica_Bold"
                     android:text="@string/info_ip_lan"/>
 
                 <TextView
@@ -160,12 +170,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/_6dp">
+                android:padding="@dimen/_8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
+                    android:textColor="@color/steel"
+                    fontPath="@string/Helvetica_Bold"
                     android:text="@string/info_ip_wan"/>
 
                 <TextView
@@ -193,12 +205,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="@dimen/_6dp">
+            android:padding="@dimen/_8dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
+                android:textColor="@color/steel"
+                fontPath="@string/Helvetica_Bold"
                 android:text="@string/info_contact"/>
 
             <TextView

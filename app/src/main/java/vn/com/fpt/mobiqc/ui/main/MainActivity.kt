@@ -35,7 +35,6 @@ import vn.com.fpt.mobiqc.utils.StartActivityUtils
 import javax.inject.Inject
 
 
-
 /**
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
@@ -49,6 +48,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     private var mAnalytics: FirebaseAnalytics? = null
     private lateinit var menuAdapter: ItemMenuAdapter
     private var mData: ArrayList<ItemMenuModel> = ArrayList()
+    private var currentPage = ""
     var mCountBack = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -128,35 +128,39 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     }
 
     private fun handleActionMenu(itemMenu: ItemMenuModel) {
-        when (itemMenu.id) {
-            Constants.KT_HOP_DONG -> addFragment(CheckContractFragment(), false, true)
-            Constants.CAP_NHAT_LOI -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CNL, itemMenu.name), false, true)
-            Constants.TAO_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CL, itemMenu.name), false, true)
-            Constants.TAO_PRE_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_PCL, itemMenu.name), false, true)
-            Constants.TAO_LOI_MOI -> addFragment(CreateErrorFragment(), false, true)
-            Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
-            Constants.KQ_XAC_MINH ->
-                AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
-            Constants.BAO_CAO_SO_LIEU -> addFragment(ReportFragment(), false, true)
-            Constants.THONG_TIN -> addFragment(InformationFragment.newInstance(itemMenu.name), false, true)
-            Constants.DANG_XUAT -> {
-                AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.mess_log_out), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
-                    override fun onClickOk() {
-                        getSharePreferences().toClearSessionLogin()
-                        LocationRealmManager().deleteAllLocation()
-                        StartActivityUtils().toSplashActivity(this@MainActivity)
-                    }
+        if (currentPage != itemMenu.id) {
+            when (itemMenu.id) {
+                Constants.KT_HOP_DONG -> addFragment(CheckContractFragment(), false, true)
+                Constants.CAP_NHAT_LOI -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CNL, itemMenu.name), false, true)
+                Constants.TAO_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_CL, itemMenu.name), false, true)
+                Constants.TAO_PRE_CHECK_LIST -> addFragment(SearchFragment.newInstance(Constants.ARG_MENU_PCL, itemMenu.name), false, true)
+                Constants.TAO_LOI_MOI -> addFragment(CreateErrorFragment(), false, true)
+                Constants.DANH_SACH_LOI -> addFragment(ListErrorFragment.newInstance(itemMenu.name), false, true)
+                Constants.KQ_XAC_MINH ->
+                    AppUtils.showDialog(supportFragmentManager, content = getString(R.string.action_feature), confirmDialogInterface = null)
+                Constants.BAO_CAO_SO_LIEU -> addFragment(ReportFragment(), false, true)
+                Constants.THONG_TIN -> addFragment(InformationFragment.newInstance(itemMenu.name), false, true)
+                Constants.DANG_XUAT -> {
+                    AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.mess_log_out), actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                        override fun onClickOk() {
+                            getSharePreferences().toClearSessionLogin()
+                            LocationRealmManager().deleteAllLocation()
+                            StartActivityUtils().toSplashActivity(this@MainActivity)
+                        }
 
-                    override fun onClickCancel() {
+                        override fun onClickCancel() {
 
-                    }
-                })
+                        }
+                    })
+                }
             }
-        }
-        if (itemMenu.id.isNotBlank()) {
-            actMain_dlMenu.closeDrawers()
-            logEventAnalytics(itemMenu)
-        }
+            if (itemMenu.id.isNotBlank()) {
+                if (itemMenu.id != Constants.KQ_XAC_MINH)
+                    currentPage = itemMenu.id
+                actMain_dlMenu.closeDrawers()
+                logEventAnalytics(itemMenu)
+            }
+        } else actMain_dlMenu.closeDrawers()
     }
 
     fun handleShowMenu() {

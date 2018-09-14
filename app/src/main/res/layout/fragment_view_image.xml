@@ -14,8 +14,11 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:visibility="gone"
+        android:textColor="@color/steel"
+        fontPath="@string/Helvetica_Bold"
         android:text="@string/no_data"
-        android:textSize="@dimen/_19dp"/>
+        android:textSize="@dimen/_19dp"
+        tools:ignore="MissingPrefix"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragViewImage_rvMain"

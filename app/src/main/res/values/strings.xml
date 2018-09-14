@@ -32,10 +32,7 @@
     <string name="menu_kq_xac_minh">- Kết quả xác minh thông tin</string>
     <string name="menu_bao_cao_so_lieu">- Báo cáo số liệu kiểm soát</string>
     <string name="menu_thong_tin">- Thông tin</string>
-    <string name="menu_dang_xuat">ĐĂNG XUẤT</string>
-    <string name="copyright">Copyright © 2017 ISC FTEL</string>
-    <string name="info_about">+ Giới thiệu: MobiQC là 1 bản MobiNet đầy đủ dành cho FTQ để giám sát quá trình nhân viên của đối tác thực hiện triển khai, bảo trì dịch vụ.</string>
-    <string name="info_team">+ Bộ phận thực hiện: ISC (Team ThànhND7, DiệnTN2)</string>
+    <string name="menu_dang_xuat">Đăng xuất</string>
     <string name="no_data">Không có dữ liệu</string>
     <string name="loai_hd">Loại HD</string>
     <string name="don_vi">Đơn vị</string>

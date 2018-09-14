@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_menu_main.view.*
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.network.model.ItemMenuModel
+import vn.com.fpt.mobiqc.others.constant.Constants
 
 /**
  * * Created by Anh Pham on 08/07/2018.     **
@@ -30,8 +31,10 @@ class ItemMenuAdapter(var mData: ArrayList<ItemMenuModel>?, val onClick: (Int) -
     inner class ItemMenuHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: ItemMenuModel, onListener: (Int) -> Unit) {
             itemView.itemMenuMain.text = item.name
-            if (item.id.isBlank())
+            if (item.id.isBlank() || item.id == Constants.DANG_XUAT) {
                 itemView.itemMenuMain.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorPrimary))
+                itemView.itemMenu_rootView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.grey_blur))
+            }
             itemView.setOnClickListener { onListener(adapterPosition) }
         }
     }
