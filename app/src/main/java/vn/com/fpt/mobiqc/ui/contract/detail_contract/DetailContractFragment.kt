@@ -241,7 +241,8 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             onClickODCCableType(Constants.TYPE_ADSL)
         }
         fragDetailContract_tvCoordinate.setOnClickListener { onClickLocation() }
-        fragDetailContract_tvImage.setOnClickListener { onClickImage() }
+//        if (fragDetailContract_tvImage.text.isNotBlank())
+//            fragDetailContract_tvImage.setOnClickListener { addFragment(ViewImageDetailFragment.newInstance(Constants.TYPE_OTHER_IMAGE, fragDetailContract_tvImage.text.toString()), true, true) }
     }
 
     fun onClickContractNumber() {
@@ -257,10 +258,6 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
         val lat = fragDetailContract_tvCoordinate.text.split(",")[0]
         val lng = fragDetailContract_tvCoordinate.text.split(",")[1]
         addFragment(MapsFragment.newInstance(contractNumber, contractModel.FullName, lat, lng, contractModel.Address), true, true)
-    }
-
-    private fun onClickImage() {
-        AppUtils.showDialog(fragmentManager, content = "Show Image", confirmDialogInterface = null)
     }
 
     private fun onClickAllPhone() {

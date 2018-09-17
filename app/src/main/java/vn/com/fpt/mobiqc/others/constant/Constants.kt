@@ -18,6 +18,8 @@ object Constants {
     const val PARAMS_FROM = "From"
     const val PARAMS_TO_MONTH = "ToMonth"
     const val PARAMS_TO_DATE = "ToDate"
+    const val PARAMS_FROM_DAY = "FromDay"
+    const val PARAMS_TO_DAY = "ToDay"
     const val PARAMS_TO = "To"
     const val PARAMS_MAIL_CC = "CC"
     const val PARAMS_MAIL_SUBJECT = "Subject"
@@ -124,6 +126,8 @@ object Constants {
     const val TYPE_ADSL = 1
     const val TYPE_FTTH = 2
     const val TYPE_PON = 3
+    const val TYPE_DEFAULT_IMAGE = 0
+    const val TYPE_OTHER_IMAGE = 1
     const val YET_STATUS_ERROR = 0
     const val DONE_STATUS_ERROR = 1
     const val DONT_BOOK_DATE = -1
@@ -156,6 +160,7 @@ object Constants {
     const val ARG_TYPE_MENU = "TypeMenu"
     const val ARG_TITLE = "Title"
     const val ARG_IMAGE_CODE = "imageCode"
+    const val ARG_IMAGE_TYPE = "typeImage"
     const val ARG_OBJID = "objId"
     const val ARG_SUPID = "supId"
     const val EVENT_SLIDE_MENU = "Main Menu"

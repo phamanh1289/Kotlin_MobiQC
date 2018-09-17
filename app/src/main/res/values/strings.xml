@@ -75,6 +75,7 @@
     <string name="error_calculator_date">Khoảng thời gian xem không được quá 7 ngày!</string>
     <string name="error_permission">Chưa có đơn vị quản lý, vui lòng liên hệ quản trị hệ thống để được cấp quyền.</string>
     <string name="contract_service_name">Gói DV</string>
+    <string name="url_image_ftel">http://ftel.mobile-tinc.rad.fpt.net/imggen/Default.aspx/?username=\"\"&amp;url=\\</string>
     <string name="contract_user_name">Tên KH</string>
     <string name="contract_location">Tọa độ</string>
     <string name="contract_phone_number">Điện thoại</string>

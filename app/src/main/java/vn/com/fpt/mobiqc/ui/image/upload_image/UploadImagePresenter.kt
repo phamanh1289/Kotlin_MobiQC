@@ -8,6 +8,7 @@ import vn.com.fpt.mobiqc.data.network.api.ApiUploadImageService
 import vn.com.fpt.mobiqc.data.network.model.UploadImageModel
 import vn.com.fpt.mobiqc.others.service.UploadService
 import vn.com.fpt.mobiqc.ui.base.BasePresenter
+import java.util.*
 import javax.inject.Inject
 
 
@@ -19,7 +20,18 @@ class UploadImagePresenter @Inject constructor(private val apiUploadImageService
 
     override fun postUploadImage(context: Context?, token: String, list: ArrayList<UploadImageModel>) {
         UploadService(context, list, token, view).UpLoadImageToServer().execute()
-//        UploadService(context, list, token, view).initUpload()
+//        val file = File(list[0].filePath)
+//        val requestBody = RequestBody.create(MediaType.parse("image/*"), file)
+//        val multiPart = MultipartBody.Part.createFormData("fileType", file.name, requestBody)
+//        addSubscribe(apiUploadImageService.postUploadImage(token)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe({
+//                    if (it.toString().isNotBlank())
+//                        view?.loadUploadImageToServer(15)
+//                }, {
+//                    view?.handleError(it.message.toString())
+//                }))
     }
 
     override fun postCreateImage(token: String, map: HashMap<String, Any>) {

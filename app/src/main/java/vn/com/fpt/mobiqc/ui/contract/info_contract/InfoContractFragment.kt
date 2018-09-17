@@ -112,9 +112,11 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
     private fun addParams() {
         listParams[Constants.PARAMS_FROM] = fromDate.split("/")[0]
         listParams[Constants.PARAMS_FROM_DATE] = fromDate.split("/")[0]
+        listParams[Constants.PARAMS_FROM_DAY] = fromDate.split("/")[0]
         listParams[Constants.PARAMS_FROM_MONTH] = fromDate.split("/")[1]
         listParams[Constants.PARAMS_TO_DATE] = toDate.split("/")[0]
         listParams[Constants.PARAMS_TO] = toDate.split("/")[0]
+        listParams[Constants.PARAMS_TO_DAY] = toDate.split("/")[0]
         listParams[Constants.PARAMS_TO_MONTH] = toDate.split("/")[1]
     }
 
@@ -187,6 +189,7 @@ class InfoContractFragment : BaseFragment(), InfoContract.InfoContractView {
         hideLoading()
         AppUtils.showDialog(fragmentManager, content = error, confirmDialogInterface = null)
     }
+
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDetach()

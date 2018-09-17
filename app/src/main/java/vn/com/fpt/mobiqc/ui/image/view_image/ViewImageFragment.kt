@@ -86,7 +86,7 @@ class ViewImageFragment : BaseFragment(), ViewImageContract.ViewImageView {
 
     private fun initViewListImage() {
         adapterImage = UploadImageAdapter(Constants.TYPE_IMAGE_VIEW) {
-            addFragment(ViewImageDetailFragment.newInstance(listUrlImage[it].filePath), true, true)
+            addFragment(ViewImageDetailFragment.newInstance(Constants.TYPE_DEFAULT_IMAGE ,listUrlImage[it].filePath), true, true)
         }
         adapterImage.submitList(listUrlImage)
         fragViewImage_rvMain.apply {

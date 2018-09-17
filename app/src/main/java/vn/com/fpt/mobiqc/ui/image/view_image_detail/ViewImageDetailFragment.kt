@@ -23,13 +23,15 @@ import vn.com.fpt.mobiqc.utils.KeyboardUtils
 class ViewImageDetailFragment : BaseFragment() {
 
     private var imageModel = ""
+    private var typeImage = 0
 
     companion object {
         const val MIN_ZOOM = 2f
         const val MAX_ZOOM = 4f
-        fun newInstance(model: String): ViewImageDetailFragment {
+        fun newInstance(typeImage: Int, urlImage: String): ViewImageDetailFragment {
             val args = Bundle()
-            args.putString(Constants.ARG_IMAGE_CODE, model)
+            args.putInt(Constants.ARG_IMAGE_TYPE, typeImage)
+            args.putString(Constants.ARG_IMAGE_CODE, urlImage)
             val fragment = ViewImageDetailFragment()
             fragment.arguments = args
             return fragment
@@ -43,18 +45,16 @@ class ViewImageDetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.let { KeyboardUtils.setupUI(view, activity = it) }
-        initView()
-    }
-
-    private fun initView() {
         handleArgument()
     }
 
     private fun handleArgument() {
         arguments?.let {
             imageModel = it.getString(Constants.ARG_IMAGE_CODE) ?: ""
+            typeImage = it.getInt(Constants.ARG_IMAGE_TYPE)
         }
         fragViewImageDetail_imgView.displayType = ImageViewTouchBase.DisplayType.FIT_IF_BIGGER
+        imageModel = if (typeImage == Constants.TYPE_OTHER_IMAGE) getString(R.string.url_image_ftel) + imageModel else imageModel
         if (AppUtils.isURL(imageModel)) {
             showLoading()
             Glide.with(context)
@@ -69,7 +69,7 @@ class ViewImageDetailFragment : BaseFragment() {
         } else {
             fragViewImageDetail_imgView.setScaleEnabled(false)
             fragViewImageDetail_imgView.doubleTapEnabled = false
-            fragViewImageDetail_imgView.setImageDrawable(context?.getDrawable(R.drawable.img_no_image))
+            fragViewImageDetail_imgView.setImageResource(R.drawable.img_no_image)
         }
     }
 
