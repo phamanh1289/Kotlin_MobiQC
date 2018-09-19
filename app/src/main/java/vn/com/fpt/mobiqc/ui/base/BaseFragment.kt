@@ -25,9 +25,8 @@ open class BaseFragment : Fragment(), BaseView {
     }
 
     override fun hideLoading() {
-        if (activity is BaseActivity) {
+        if (activity is BaseActivity)
             (activity as BaseActivity).hideLoading()
-        }
     }
 
     override fun isNetworkConnected(): Boolean {

@@ -58,7 +58,6 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        Fabric.with(this@SplashScreenActivity, Crashlytics())
         setContentView(R.layout.activity_splash_screen)
         getActivityComponent().inject(this)
         presenter.onAttach(this)
@@ -71,24 +70,29 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
         AppUtils.deleteFileExist()
         Handler().postDelayed({
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                getPermission().requestEachCombined(
-                        Manifest.permission.READ_PHONE_STATE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.WAKE_LOCK)
-                        .subscribe {
-                            if (it.granted) {
-                                presenter.let { pre ->
-                                    showLoading()
-                                    val map = HashMap<String, Any>()
-                                    map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
+                try {
+                    getPermission()?.requestEachCombined(
+                            Manifest.permission.READ_PHONE_STATE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.WAKE_LOCK)
+                            ?.subscribe {
+                                if (it.granted) {
+                                    presenter.let { pre ->
+                                        showLoading()
+                                        val map = HashMap<String, Any>()
+                                        map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
 //                                    map[Constants.PARAMS_VERSION] = 20
-                                    pre.getAppVersion(map)
-                                }
-                            } else
-                                AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.message_permission), confirmDialogInterface = this, actionCancel = true)
-                        }
+                                        pre.getAppVersion(map)
+                                    }
+                                } else
+                                    AppUtils.showDialog(fragmentManager = supportFragmentManager, content = getString(R.string.message_permission), confirmDialogInterface = this, actionCancel = true)
+                            }
+                } catch (e: Exception) {
+                    startActivity(Intent(this, SplashScreenActivity::class.java))
+                    finish()
+                }
             }
         }, 1000)
     }

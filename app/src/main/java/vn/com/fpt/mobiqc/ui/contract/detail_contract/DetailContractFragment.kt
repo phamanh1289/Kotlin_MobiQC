@@ -198,7 +198,7 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             fragDetailContract_tvAddress.text = if (it.Address.isNullOrEmpty()) it.Support_Location else it.Address
             fragDetailContract_tvCoordinate.text = AppUtils.getLocationUser(it.Coordinate)
             fragDetailContract_tvPhone.text = it.Phone
-            fragDetailContract_tvCreateDate.text = it.CreateDate
+            fragDetailContract_tvCreateDate.text = AppUtils.toConvertTimeToString(context, it.CreateDate)
             fragDetailContract_tvODCCableType.text = it.ODCCableType
             fragDetailContract_tvDeposits.text = getString(R.string.deposit_amount, AppUtils.setFormatMoney(it.Deposits.toLong()))
             fragDetailContract_tvDescription.text = it.Description

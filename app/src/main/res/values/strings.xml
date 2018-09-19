@@ -2,7 +2,7 @@
     <string name="app_name">MobiQC</string>
     <string name="version_app_name">MobiQC v%1$s</string>
     <string name="api_key_storage">7d2ea261075fb6f251a66af89b6b4bb597de89b0</string>
-    <string name="google_maps_key">AIzaSyBNKRpluxm-gYRusWsAmp_a0WjbszrmwnE</string>
+    <string name="google_maps_key">AIzaSyAWgPBWHnSk4H8rGswP717s_KnPgw3M8ac</string>
     <string name="Helvetica">fonts/Helvetica.ttf</string>
     <string name="Helvetica_Bold">fonts/Helvetica-Bold.ttf</string>
     <string name="Helvetica_light">fonts/Helvetica-light.ttf</string>
@@ -233,6 +233,7 @@
     <string name="view_image">Xem hình ảnh</string>
     <string name="geo_map_destination">destination=%1$S,%2$S</string>
     <string name="geo_map_origin">origin=%1$S,%2$S</string>
+    <string name="geo_map_key">key=%1$S</string>
     <string name="geo_map_url">https://maps.googleapis.com/maps/api/directions/%1$s?%2$s</string>
     <string name="subject_email">[MobiQC - ID#%1$s] Thông báo lỗi hạ tầng %2$s %3$s</string>
     <string name="error_update_detail">Cập nhật chi tiết</string>

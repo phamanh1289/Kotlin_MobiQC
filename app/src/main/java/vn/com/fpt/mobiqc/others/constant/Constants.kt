@@ -135,7 +135,7 @@ object Constants {
     const val DOWNLOAD_FAIL = -1
     const val SUCCESSFUL = "Successful"
     const val TYPE_SEND_MAIL = "message/rfc822"
-    const val ERROR_NETWORK = "Không có kết nối internet!"
+    const val ERROR_NETWORK = "Hiện không có kết nối wifi/3G/4G!"
     const val TITLE_DIALOG = "Thông báo"
     const val KT_HOP_DONG = "kt_hop_dong"
     const val CAP_NHAT_LOI = "cap_nhat_loi"

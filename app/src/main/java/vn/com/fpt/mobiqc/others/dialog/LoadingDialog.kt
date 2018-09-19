@@ -17,9 +17,11 @@ import vn.com.fpt.mobiqc.R
 class LoadingDialog : DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.setCanceledOnTouchOutside(false)
+        dialog?.let {
+            it.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            it.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            it.setCanceledOnTouchOutside(false)
+        }
         isCancelable = false
         return inflater.inflate(R.layout.dialog_loading, container, false)
     }

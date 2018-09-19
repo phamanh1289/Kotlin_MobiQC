@@ -13,6 +13,8 @@ import android.support.v4.app.FragmentManager
 import android.util.Patterns
 import android.widget.TextView
 import com.google.android.gms.maps.model.LatLng
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.interfaces.ConfirmDialogInterface
 import vn.com.fpt.mobiqc.data.interfaces.MenuCheckListDialogInterface
@@ -28,8 +30,6 @@ import vn.com.fpt.mobiqc.ui.contract.check_contract.CheckContractFragment
 import vn.com.fpt.mobiqc.ui.contract.search_contract.SearchFragment
 import vn.com.fpt.mobiqc.ui.error.create.CreateErrorFragment
 import vn.com.fpt.mobiqc.ui.error.update.UpdateErrorFragment
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import java.io.File
 import java.io.IOException
 import java.math.BigDecimal
@@ -105,7 +105,8 @@ object AppUtils {
         fragmentManager?.let {
             val dialog = ConfirmDialog()
             dialog.setDataDialog(title = title, content = content, actionCancel = actionCancel, confirmDialogInterface = confirmDialogInterface)
-            dialog.show(it, ConfirmDialog::class.java.simpleName)
+            if (!it.isStateSaved)
+                dialog.show(it, ConfirmDialog::class.java.simpleName)
         }
     }
 
@@ -374,7 +375,8 @@ object AppUtils {
         context?.let {
             val parameters = "${it.getString(R.string.geo_map_origin, fromLatLng.latitude.toString(), fromLatLng.longitude.toString())}&" +
                     "${it.getString(R.string.geo_map_destination, toLatLng.latitude.toString(), toLatLng.longitude.toString())}&" +
-                    "${Constants.GEO_MAP_SENSOR}&${Constants.GEO_MAP_MODE_DRIVING}"
+                    "${Constants.GEO_MAP_SENSOR}&${Constants.GEO_MAP_MODE_DRIVING}&" +
+                    it.getString(R.string.geo_map_key, it.getString(R.string.google_maps_key))
             return it.getString(R.string.geo_map_url, Constants.GEO_MAP_OUTPUT_FORMAT, parameters)
         }
         return ""

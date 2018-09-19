@@ -82,17 +82,16 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
         mapFragment = childFragmentManager.findFragmentById(R.id.fragMaps_viewMap) as SupportMapFragment
         mapFragment?.getMapAsync(this)
         mLocationManager = LocationService(context)
-        showLoading()
+        mLocationManager.getLocationManager()
         getMyCurrentLocation()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CHECK_GPS)
-            if (mLocationManager.getStatusGps()!!) {
-                enableMyLocation()
-                drawPolyline()
-            } else
+            if (mLocationManager.getStatusGps()!!)
+                activity?.onBackPressed()
+            else
                 AppUtils.showDialog(fragmentManager, content = getString(R.string.notify_off_GPS_again), confirmDialogInterface = object : ConfirmDialogInterface {
                     override fun onClickOk() {
                         activity?.onBackPressed()
@@ -108,9 +107,8 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
         if (ActivityCompat.checkSelfPermission(context!!, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.isMyLocationEnabled = true
             mMap.setOnMyLocationButtonClickListener {
-                showLoading()
                 mMap.clear()
-                mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
+                markerGuest = mMap.addMarker(MarkerOptions().position(LatLng(lat, lng)).title("$contractNumber - $fullName"))
                 markerGuest?.snippet = address
                 getMyCurrentLocation()
                 mMyLocation?.let {
@@ -134,11 +132,8 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
                 }
 
             })
-            hideLoading()
-        } else {
-            getMyCurrentLocation()
+        } else
             handleArgument()
-        }
     }
 
     override fun onMapReady(map: GoogleMap?) {
@@ -160,6 +155,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
             markerGuest?.snippet = address
             setTitle(TitleAndMenuModel(title = contractNumber, status = false))
         }
+        getMyCurrentLocation()
         mMyLocation?.let {
             val builder = LatLngBounds.Builder()
             builder.include(markerGuest?.position)
@@ -175,9 +171,7 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     }
 
     private fun getMyCurrentLocation() {
-        mLocationManager.getLocationManager()
-        val myLocation = mLocationManager.getLocationUser()
-        myLocation?.let {
+        mLocationManager.getLocationUser()?.let {
             mMyLocation = LatLng(it.latitude, it.longitude)
         }
     }
@@ -185,18 +179,25 @@ class MapsFragment : BaseFragment(), MapsContract.MapsView, OnMapReadyCallback {
     private fun drawPolylineToMap(data: String) {
         val model: PolylineMapModel? = Gson().fromJson(data, PolylineMapModel::class.java)
         model?.let {
-            val item = it.routes[Constants.FIRST_ITEM]
-            val overviewPolyline = item.overview_polyline
-            val listLatLng = PolyUtil.decode(overviewPolyline.points)
-            var startLocation = listLatLng[Constants.FIRST_ITEM]
-            listLatLng.forEach { itemLatLng ->
-                mMap.addPolyline(PolylineOptions()
-                        .add(LatLng(startLocation.latitude, startLocation.longitude), LatLng(itemLatLng.latitude, itemLatLng.longitude)).width(8f)
-                        .color(Color.RED))
-                startLocation = itemLatLng
+            if (it.routes.size != 0)
+                it.routes[Constants.FIRST_ITEM].let { item ->
+                    val overviewPolyline = item.overview_polyline
+                    val listLatLng = PolyUtil.decode(overviewPolyline.points)
+                    var startLocation = listLatLng[Constants.FIRST_ITEM]
+                    listLatLng.forEach { itemLatLng ->
+                        mMap.addPolyline(PolylineOptions()
+                                .add(LatLng(startLocation.latitude, startLocation.longitude), LatLng(itemLatLng.latitude, itemLatLng.longitude)).width(8f)
+                                .color(Color.RED))
+                        startLocation = itemLatLng
+                    }
+                }
+            else {
+                mMyLocation?.let {location->
+                    mMap.addPolyline(PolylineOptions()
+                            .add(LatLng(location.latitude, location.longitude), markerGuest?.position).width(8f).color(Color.RED))
+                }
             }
         }
-        hideLoading()
     }
 
     override fun loadPolyline(data: String) {

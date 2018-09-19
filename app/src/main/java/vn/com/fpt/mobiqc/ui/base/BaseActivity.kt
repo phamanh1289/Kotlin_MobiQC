@@ -21,20 +21,22 @@ import vn.com.fpt.mobiqc.utils.SharedPrefUtils
 open class BaseActivity : AppCompatActivity(), BaseView {
 
     private lateinit var mActivityComponent: ActivityComponent
-    private lateinit var sharePreferences: SharedPrefUtils
+    private var sharePreferences: SharedPrefUtils? = null
     private var mDialogView: LoadingDialog? = null
-    private lateinit var rxPermissions: RxPermissions
+    private var rxPermissions: RxPermissions? = null
     private var isCheckShowDialog = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivityComponent = BaseApplication.instance.getApplicationComponent().getActivityComponent()
-        sharePreferences = SharedPrefUtils(this)
-        rxPermissions = RxPermissions(this)
+        this.let {
+            sharePreferences = SharedPrefUtils(it)
+            rxPermissions = RxPermissions(it)
+        }
     }
 
     override fun getSharePreferences(): SharedPrefUtils {
-        return sharePreferences
+        return sharePreferences ?: SharedPrefUtils(BaseApplication.instance)
     }
 
     override fun getCurrentFragment(): BaseFragment {
@@ -42,7 +44,7 @@ open class BaseActivity : AppCompatActivity(), BaseView {
         return fragment as? BaseFragment ?: BaseFragment()
     }
 
-    fun getPermission(): RxPermissions {
+    fun getPermission(): RxPermissions? {
         return rxPermissions
     }
 
@@ -51,19 +53,23 @@ open class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     override fun showLoading() {
-        if (isNetworkConnected()) {
-            if (mDialogView == null)
-                mDialogView = LoadingDialog()
-            if (!isCheckShowDialog) {
-                mDialogView?.show(supportFragmentManager, LoadingDialog::class.java.simpleName)
-                isCheckShowDialog = true
+        this.let {
+            if (isNetworkConnected()) {
+                if (mDialogView == null)
+                    mDialogView = LoadingDialog()
+                if (!isCheckShowDialog) {
+                    mDialogView?.show(supportFragmentManager, LoadingDialog::class.java.simpleName)
+                    isCheckShowDialog = true
+                }
             }
         }
     }
 
     override fun hideLoading() {
-        mDialogView?.dismiss()
-        isCheckShowDialog = false
+        this.let {
+            mDialogView?.dismiss()
+            isCheckShowDialog = false
+        }
     }
 
     override fun isNetworkConnected(): Boolean {
