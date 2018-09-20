@@ -22,6 +22,7 @@ import vn.com.fpt.mobiqc.utils.AppUtils
 class SingChoiceDialog : DialogFragment() {
 
     private var title = ""
+    private var index = 0
     private var list = ArrayList<SingleChoiceModel>()
     lateinit var singleAdapter: SelectionSingleAdapter
     private lateinit var onClick: (Int) -> Unit
@@ -46,6 +47,7 @@ class SingChoiceDialog : DialogFragment() {
             layoutManager = layout
             adapter = singleAdapter
             setHasFixedSize(true)
+            scrollToPosition(index)
         }
         fragDialogSingleChoice_tvTitle.text = title
     }
@@ -54,10 +56,11 @@ class SingChoiceDialog : DialogFragment() {
         singleAdapter.submitList(list)
     }
 
-    fun setDataDialog(title: String, list: ArrayList<SingleChoiceModel>, onClick: (Int) -> Unit) {
+    fun setDataDialog(title: String, list: ArrayList<SingleChoiceModel>, index: Int, onClick: (Int) -> Unit) {
         this.title = title
         this.list = list
         this.onClick = onClick
+        this.index = index
     }
 
     override fun onStart() {

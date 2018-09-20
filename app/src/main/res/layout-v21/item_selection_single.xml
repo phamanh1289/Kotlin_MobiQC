@@ -15,7 +15,7 @@
         android:paddingBottom="@dimen/_8dp"
         android:layout_weight="1"
         android:paddingTop="@dimen/_8dp"
-        android:textColor="@color/steel"
+        android:textColor="@drawable/selector_blue_text"
         android:textSize="@dimen/_14dp"/>
 
     <ImageView

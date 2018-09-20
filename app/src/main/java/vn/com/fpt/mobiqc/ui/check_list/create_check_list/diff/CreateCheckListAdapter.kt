@@ -35,7 +35,12 @@ class CreateCheckListAdapter(val onClick: (Int) -> Unit) : ListAdapter<PartnerTi
                 itemView.itemTimeZone_tvTimeZone.text = item.Timezone
                 itemView.itemTimeZone_tvContractNumber.text = item.TimeCount.toString()
                 itemView.itemTimeZone_tvAbility.text = item.TimezoneAbility.toString()
-                itemView.itemTimeZone_imgChecked.isSelected = item.status
+                item.status.run {
+                    itemView.itemTimeZone_tvTimeZone.isSelected = this
+                    itemView.itemTimeZone_tvContractNumber.isSelected = this
+                    itemView.itemTimeZone_tvAbility.isSelected = this
+                    itemView.itemTimeZone_imgChecked.isSelected = this
+                }
                 val resultTimeZone = reasonId == Constants.TYPE_NO_CONNECT && (item.TimezoneCode18 == Constants.TIME_ZONE_19 || item.TimezoneCode18 == Constants.TIME_ZONE_21)
                 when {
                     item.TimezoneCode == Constants.DONT_BOOK_DATE || resultTimeZone -> itemView.itemTimeZone_llRootView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.grey_blur))

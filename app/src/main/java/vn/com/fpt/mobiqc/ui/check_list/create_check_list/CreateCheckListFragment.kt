@@ -120,7 +120,10 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
             fragCreateCheckList_tvDate.setText("")
         }
         fragCreateCheckList_cbGuestDate.setOnClickListener {
-            handleGuestDate()
+            if (fragCreateCheckList_tvPartner.text.isBlank() || fragCreateCheckList_tvSub.text.isBlank())
+                AppUtils.showDialog(fragmentManager, confirmDialogInterface = null, content = getString(R.string.alert_create_check_list))
+            else
+                handleGuestDate()
         }
         fragCreateCheckList_llRush.setOnClickListener {
             handleCheckRush()

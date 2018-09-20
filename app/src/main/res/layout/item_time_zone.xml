@@ -23,35 +23,32 @@
 
     <TextView
         android:id="@+id/itemTimeZone_tvTimeZone"
-        fontPath="@string/Helvetica_Bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8dp"
         android:layout_marginStart="@dimen/_8dp"
-        android:layout_weight="0.5"
-        android:textColor="@color/steel"
+        android:layout_weight="0.4"
+        android:textColor="@drawable/selector_blue_text"
         android:textSize="@dimen/_15dp"
         tools:text="Số HĐ"/>
 
     <TextView
         android:id="@+id/itemTimeZone_tvContractNumber"
-        fontPath="@string/Helvetica_Bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:textColor="@color/steel"
+        android:textColor="@drawable/selector_blue_text"
         android:textSize="@dimen/_15dp"
         tools:text="Số HĐ"/>
 
     <TextView
         android:id="@+id/itemTimeZone_tvAbility"
-        fontPath="@string/Helvetica_Bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:textColor="@color/steel"
+        android:textColor="@drawable/selector_blue_text"
         android:textSize="@dimen/_15dp"
         tools:text="Năng lực"/>
 </LinearLayout>

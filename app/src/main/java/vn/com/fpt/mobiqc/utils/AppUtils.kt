@@ -243,7 +243,7 @@ object AppUtils {
 
     fun showDialogSingChoice(fragmentManager: FragmentManager?, title: String, listData: ArrayList<SingleChoiceModel>, view: TextView, itemSelected: Int) {
         val dialog = SingChoiceDialog()
-        dialog.setDataDialog(title = title, list = listData) { position ->
+        dialog.setDataDialog(title = title, list = listData, index = itemSelected) { position ->
             listData[itemSelected].status = false
             listData[position].status = true
             val fragment = fragmentManager?.findFragmentById(android.R.id.tabcontent)

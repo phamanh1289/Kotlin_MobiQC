@@ -30,11 +30,14 @@ class ItemMenuAdapter(var mData: ArrayList<ItemMenuModel>?, val onClick: (Int) -
 
     inner class ItemMenuHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: ItemMenuModel, onListener: (Int) -> Unit) {
-            itemView.itemMenuMain.text = item.name
-            if (item.id.isBlank() || item.id == Constants.DANG_XUAT) {
-                itemView.itemMenuMain.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorPrimary))
+            itemView.itemMenuMain_tvTitle.text = item.name
+            if (item.id.isBlank()) {
+                itemView.itemMenuMain_tvTitle.setTextColor(ContextCompat.getColor(itemView.context, R.color.colorPrimary))
                 itemView.itemMenu_rootView.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.grey_blur))
+                itemView.itemMenuMain_imgArrow.visibility = View.GONE
             }
+            if (item.id == Constants.DANG_XUAT)
+                itemView.itemMenuMain_imgArrow.setImageResource(R.drawable.ic_logout)
             itemView.setOnClickListener { onListener(adapterPosition) }
         }
     }

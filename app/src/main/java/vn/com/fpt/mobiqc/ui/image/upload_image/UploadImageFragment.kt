@@ -41,9 +41,9 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
     companion object {
         const val RESULT_CODE_IMAGE = 101
         const val IMAGE_CODE_EXSIT = 404
-//        const val TYPE_IMAGE_AND_VIDEO = 1
+        //        const val TYPE_IMAGE_AND_VIDEO = 1
         const val TYPE_IMAGE = 2
-//        const val TYPE_VIDEO = 3
+        //        const val TYPE_VIDEO = 3
         const val MAX_IMAGE = 6
         const val MAX_COL = 2
         const val TITLE = "title"
@@ -108,8 +108,16 @@ class UploadImageFragment : BaseFragment(), UploadImageContract.UploadImageView 
             if (listBitmap.size == 0)
                 AppUtils.showDialog(fragmentManager, content = getString(R.string.mess_upload_image), confirmDialogInterface = null)
             else {
-                AppUtils.showDialogDownLoadData(fragmentManager, mDialogDownload)
-                presenter.postUploadImage(context = context, token = getSharePreferences().userToken, list = listBitmap)
+                AppUtils.showDialog(fragmentManager, content = getString(R.string.mess_notify_upload_image, listBitmap.size),actionCancel = true, confirmDialogInterface = object : ConfirmDialogInterface {
+                    override fun onClickOk() {
+                        AppUtils.showDialogDownLoadData(fragmentManager, mDialogDownload)
+                        presenter.postUploadImage(context = context, token = getSharePreferences().userToken, list = listBitmap)
+                    }
+
+                    override fun onClickCancel() {
+
+                    }
+                })
             }
         }
     }

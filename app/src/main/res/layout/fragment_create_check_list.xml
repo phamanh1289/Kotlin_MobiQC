@@ -260,28 +260,34 @@
                 android:padding="@dimen/_6dp">
 
                 <TextView
+                    fontPath="@string/Helvetica_Bold"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
+                    android:layout_weight="0.5"
                     android:gravity="center_vertical"
                     android:text="@string/time_zone"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16dp"/>
 
                 <TextView
+                    fontPath="@string/Helvetica_Bold"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.25"
                     android:gravity="center"
                     android:text="@string/time_zone_contract"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16dp"/>
 
                 <TextView
+                    fontPath="@string/Helvetica_Bold"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.25"
                     android:gravity="center"
                     android:text="@string/time_zone_ability"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16dp"/>
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView

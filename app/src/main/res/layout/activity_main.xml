@@ -41,8 +41,7 @@
                 android:layout_marginStart="@dimen/_16dp"
                 android:layout_weight="1"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_17dp"
-                tools:text="Bao cao so lieu kiem soat"/>
+                android:textSize="@dimen/_17dp"/>
 
             <ImageView
                 android:id="@+id/actMain_ivNotification"
@@ -70,7 +69,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:layout_marginEnd="@dimen/_30dp"
         android:clickable="true"
         android:focusable="true"
         android:background="@color/white"
@@ -89,7 +87,7 @@
                 android:gravity="center"
                 android:padding="@dimen/_8dp"
                 android:text="@string/contract_deposit"
-                android:textColor="@color/steel"/>
+                android:textColor="@color/colorPrimary"/>
 
             <ImageView
                 android:layout_width="@dimen/_200dp"

@@ -26,7 +26,10 @@ class SelectionSingleAdapter(val onClick: (Int) -> Unit) : ListAdapter<SingleCho
     inner class SelectionSingleHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindData(item: SingleChoiceModel, onClick: (Int) -> Unit) {
             itemView.itemSelection_tvTitle.text = item.account.trim()
-            itemView.itemSelection_rbCheck.isSelected = item.status
+            item.status.run {
+                itemView.itemSelection_rbCheck.isSelected = this
+                itemView.itemSelection_tvTitle.isSelected = this
+            }
             itemView.setOnClickListener {
                 onClick(adapterPosition)
             }
