@@ -86,10 +86,11 @@ class DetailContractDialogFragment : DialogFragment(), DetailContractDialogContr
 
     private fun initOnClick() {
         fragDialogDetailContract_tvAddress.setOnClickListener { requestAddress() }
-        fragDialogDetailContract_tvCoordinate.setOnClickListener {
-            dismiss()
-            requestLocation()
-        }
+        if (fragDialogDetailContract_tvCoordinate.text.isNotBlank())
+            fragDialogDetailContract_tvCoordinate.setOnClickListener {
+                dismiss()
+                requestLocation()
+            }
         fragDialogDetailContract_tvPhone.setOnClickListener { AppUtils.makeCallPhoneNumber(context, contractModel.Phone) }
         fragDialogDetailContract_tvAllPhone.setOnClickListener { requestAllPhone() }
         fragDialogDetailContract_tvODCCableType.setOnClickListener {
@@ -124,7 +125,7 @@ class DetailContractDialogFragment : DialogFragment(), DetailContractDialogContr
     }
 
     private fun requestAddress() {
-        AppUtils.showAddressToMap(context, contractModel.Address)
+            AppUtils.showAddressToMap(context, contractModel.Address)
     }
 
     private fun requestDataDeposit(data: String) {

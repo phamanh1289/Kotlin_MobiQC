@@ -240,7 +240,8 @@ class DetailContractFragment : BaseFragment(), DetailContract.DetailContractView
             showLoading()
             onClickODCCableType(Constants.TYPE_ADSL)
         }
-        fragDetailContract_tvCoordinate.setOnClickListener { onClickLocation() }
+        if (fragDetailContract_tvCoordinate.text.isNotBlank())
+            fragDetailContract_tvCoordinate.setOnClickListener { onClickLocation() }
 //        if (fragDetailContract_tvImage.text.isNotBlank())
 //            fragDetailContract_tvImage.setOnClickListener { addFragment(ViewImageDetailFragment.newInstance(Constants.TYPE_OTHER_IMAGE, fragDetailContract_tvImage.text.toString()), true, true) }
     }
