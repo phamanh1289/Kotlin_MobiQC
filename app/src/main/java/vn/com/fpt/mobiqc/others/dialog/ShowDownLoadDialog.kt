@@ -26,11 +26,6 @@ class ShowDownLoadDialog : DialogFragment() {
         return inflater.inflate(R.layout.fragment_dialog_show_download, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        fragDialogShowDownload_tvDetail.text = getString(R.string.wait_process)
-    }
-
     fun setPercentDownload(per: Float) {
         val current = per.toInt()
         when (current) {
