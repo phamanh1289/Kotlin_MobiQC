@@ -12,19 +12,19 @@
 
     <TextView
         android:id="@+id/fragDialogConfirm_tvTitle"
+        fontPath="@string/Helvetica_Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/_8dp"
-        android:text="@string/title_dialog"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/_18dp"
-        fontPath="@string/Helvetica_Bold"
         tools:ignore="MissingPrefix"/>
 
     <TextView
         android:id="@+id/fragDialogConfirm_tvContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/_5dp"
         android:paddingEnd="@dimen/_8dp"
         android:paddingStart="@dimen/_8dp"
         android:textColor="@color/steel"
@@ -50,19 +50,19 @@
             android:layout_height="@dimen/_50dp"
             android:layout_marginEnd="@dimen/_8dp"
             android:layout_marginStart="@dimen/_8dp"
-            android:text="@string/action_cancel"
-            android:gravity="center"
             android:layout_weight="1"
-            android:visibility="gone"
+            android:gravity="center"
+            android:text="@string/action_cancel"
             android:textColor="@color/bright_red"
-            android:textSize="@dimen/_17dp"/>
+            android:textSize="@dimen/_17dp"
+            android:visibility="gone"/>
 
         <View
             android:id="@+id/fragDialogConfirm_vLineHorizontal"
             android:layout_width="@dimen/_1dp"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            android:background="@color/silver"/>
+            android:background="@color/silver"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/fragDialogConfirm_tvOK"
@@ -70,9 +70,9 @@
             android:layout_height="@dimen/_50dp"
             android:layout_marginEnd="@dimen/_8dp"
             android:layout_marginStart="@dimen/_8dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/action_ok"
-            android:layout_weight="1"
             android:textColor="@color/bright_blue"
             android:textSize="@dimen/_17dp"/>
     </LinearLayout>

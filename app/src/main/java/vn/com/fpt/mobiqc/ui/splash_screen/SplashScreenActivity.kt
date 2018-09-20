@@ -15,6 +15,7 @@ import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.telephony.TelephonyManager
 import com.google.firebase.analytics.FirebaseAnalytics
+import vn.com.fpt.mobiqc.BuildConfig
 import vn.com.fpt.mobiqc.R
 import vn.com.fpt.mobiqc.data.interfaces.ConfirmDialogInterface
 import vn.com.fpt.mobiqc.data.network.model.ResponseErrorDataModel
@@ -81,8 +82,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
                                     presenter.let { pre ->
                                         showLoading()
                                         val map = HashMap<String, Any>()
-//                                        map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
-                                    map[Constants.PARAMS_VERSION] = 20
+                                        map[Constants.PARAMS_VERSION] = BuildConfig.VERSION_CODE
+//                                    map[Constants.PARAMS_VERSION] = 20
                                         pre.getAppVersion(map)
                                     }
                                 } else

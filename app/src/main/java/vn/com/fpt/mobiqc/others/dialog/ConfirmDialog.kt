@@ -20,8 +20,8 @@ import vn.com.fpt.mobiqc.utils.AppUtils
  */
 class ConfirmDialog : DialogFragment() {
 
-    var titleDialog = ""
-    var contentDialog = ""
+    private var titleDialog = ""
+    private var contentDialog = ""
     var actionCancel = false
     var confirmDialogInterface: ConfirmDialogInterface? = null
 
