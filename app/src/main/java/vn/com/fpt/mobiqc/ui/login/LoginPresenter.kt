@@ -7,6 +7,7 @@ import io.reactivex.schedulers.Schedulers
 import vn.com.fpt.mobiqc.data.network.api.ApiService
 import vn.com.fpt.mobiqc.data.network.model.LocationUserModel
 import vn.com.fpt.mobiqc.data.realm.location.LocationRealmManager
+import vn.com.fpt.mobiqc.others.constant.Constants
 import vn.com.fpt.mobiqc.ui.base.BasePresenter
 import javax.inject.Inject
 
@@ -32,10 +33,12 @@ class LoginPresenter @Inject constructor(val apiService: ApiService) : BasePrese
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ it ->
-                    val list: ArrayList<LocationUserModel> = Gson().fromJson(it.Data.toString(), object : TypeToken<ArrayList<LocationUserModel>>() {}.type)
-                    if (list.size != 0) {
-                        list.forEach { item ->
-                            LocationRealmManager().insertLocation(item)
+                    if (it.Code == Constants.REQUEST_SUCCESS) {
+                        val list: ArrayList<LocationUserModel> = Gson().fromJson(it.Data.toString(), object : TypeToken<ArrayList<LocationUserModel>>() {}.type)
+                        if (list.size != 0) {
+                            list.forEach { item ->
+                                LocationRealmManager().insertLocation(item)
+                            }
                         }
                     }
                     view?.loadLogin(it)

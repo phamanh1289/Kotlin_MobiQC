@@ -184,8 +184,6 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
     }
 
     private fun getAllDataList() {
-        if (PartnerRealmManager().getCountPartner() == 0)
-            PartnerRealmManager().importFromJson(resources)
         getDataZone()
         getDataBranch()
         getDataPartner()
@@ -236,8 +234,6 @@ class CreateErrorFragment : BaseFragment(), CreateErrorContract.CreateErrorView 
         fragCreateError_tvStation.isSelected = typeError
         fragCreateError_imgPeripheral.isSelected = !typeError
         fragCreateError_tvPeripheral.isSelected = !typeError
-        if (InfrastructureRealmManager().getCountInfrast() == 0)
-            InfrastructureRealmManager().importFromJson(resources)
         getDescriptionInfraStruct(getTypeInfraStruct(typeError))
     }
 

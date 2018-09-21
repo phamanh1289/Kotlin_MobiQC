@@ -107,8 +107,8 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
     private fun initOnClick() {
         fragListError_tvToDate.setOnClickListener { AppUtils.showPickTime(context, fragListError_tvToDate, Constants.SET_CURRENT_IS_MAX_DATE) }
         fragListError_tvFromDate.setOnClickListener { AppUtils.showPickTime(context, fragListError_tvFromDate, Constants.SET_CURRENT_IS_MAX_DATE) }
-        fragListError_tvToDate.onChange { it }
-        fragListError_tvFromDate.onChange { it }
+        fragListError_tvToDate.onChange ()
+        fragListError_tvFromDate.onChange ()
     }
 
     private fun handleDataError(list: ArrayList<ErrorInfrastructureModel>) {
@@ -226,7 +226,7 @@ class ListErrorFragment : BaseFragment(), ListErrorContract.ListErrorView, MenuC
         presenter.onDetach()
     }
 
-    private fun EditText.onChange(cb: (String) -> Unit) {
+    private fun EditText.onChange() {
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val fromDateChoice = fragListError_tvFromDate.text.toString()

@@ -69,8 +69,8 @@ class ReportFragment : BaseFragment(), ReportContract.ReportView {
     private fun initOnClick() {
         fragReport_tvFromDate.setText(AppUtils.getCurrentDate(Constants.CURRENT_DATE))
         fragReport_tvToDate.setText(AppUtils.getCurrentDate(Constants.CURRENT_DATE))
-        fragReport_tvFromDate.onChange { it }
-        fragReport_tvToDate.onChange { it }
+        fragReport_tvFromDate.onChange ()
+        fragReport_tvToDate.onChange ()
         fragReport_tvFromDate.setOnClickListener { AppUtils.showPickTime(context, fragReport_tvFromDate, Constants.SET_CURRENT_IS_MAX_DATE) }
         fragReport_tvToDate.setOnClickListener { AppUtils.showPickTime(context, fragReport_tvToDate, Constants.SET_CURRENT_IS_MAX_DATE) }
     }
@@ -148,7 +148,7 @@ class ReportFragment : BaseFragment(), ReportContract.ReportView {
         presenter.onDetach()
     }
 
-    private fun EditText.onChange(cb: (String) -> Unit) {
+    private fun EditText.onChange() {
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val fromDateChoice = fragReport_tvFromDate.text.toString()

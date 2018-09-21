@@ -72,7 +72,7 @@ class SearchFragment : BaseFragment() {
     }
 
     private fun initOnClick() {
-        fragSearch_etKeyWord.onChange { it }
+        fragSearch_etKeyWord.onChange()
         fragSearch_imgClearText.setOnClickListener { fragSearch_etKeyWord.setText("") }
         fragSearch_tvLocation.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_location), listParent, fragSearch_tvLocation, positionParent) }
         fragSearch_tvBranch.setOnClickListener { AppUtils.showDialogSingChoice(fragmentManager, getString(R.string.search_branch), listName, fragSearch_tvBranch, positionName) }
@@ -124,11 +124,11 @@ class SearchFragment : BaseFragment() {
         if (keySearch.isBlank())
             AppUtils.showDialog(fragmentManager, content = getString(R.string.validate_key_search), confirmDialogInterface = null)
         else {
-            addFragment(SearchCheckListFragment.newInstance(typeMenu, listTypeSearch[positionTypeSearch].id, keySearch, listParent[positionParent].id, false), true, true)
+            addFragment(SearchCheckListFragment.newInstance(typeMenu, listTypeSearch[positionTypeSearch].id, keySearch, listParent[positionParent].id), true, true)
         }
     }
 
-    private fun EditText.onChange(cb: (String) -> Unit) {
+    private fun EditText.onChange() {
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 fragSearch_imgClearText.visibility = if (s?.length != 0) View.VISIBLE else View.GONE

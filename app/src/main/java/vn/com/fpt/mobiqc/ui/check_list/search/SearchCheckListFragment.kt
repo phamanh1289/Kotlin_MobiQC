@@ -46,7 +46,7 @@ class SearchCheckListFragment : BaseFragment(), SearchCheckListContract.SearchCh
     private var listDataCheckList = ArrayList<ContractDetailModel>()
 
     companion object {
-        fun newInstance(type: Int, searchType: Int, keySearch: String, location: Int, isReport: Boolean): SearchCheckListFragment {
+        fun newInstance(type: Int, searchType: Int, keySearch: String, location: Int): SearchCheckListFragment {
             val args = Bundle()
             args.putInt(Constants.ARG_MENU_TYPE, type)
             args.putInt(Constants.ARG_SEARCH_TYPE, searchType)

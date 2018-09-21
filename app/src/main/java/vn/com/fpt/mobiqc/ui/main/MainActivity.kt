@@ -13,7 +13,9 @@ import vn.com.fpt.mobiqc.data.network.model.ItemMenuModel
 import vn.com.fpt.mobiqc.data.network.model.ResponseModel
 import vn.com.fpt.mobiqc.data.network.model.ResponseResultModel
 import vn.com.fpt.mobiqc.data.network.model.TitleAndMenuModel
+import vn.com.fpt.mobiqc.data.realm.infrastructure.InfrastructureRealmManager
 import vn.com.fpt.mobiqc.data.realm.location.LocationRealmManager
+import vn.com.fpt.mobiqc.data.realm.partner.PartnerRealmManager
 import vn.com.fpt.mobiqc.others.adapter.ItemMenuAdapter
 import vn.com.fpt.mobiqc.others.constant.Constants
 import vn.com.fpt.mobiqc.others.datacore.DataCore
@@ -85,6 +87,10 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
 
     private fun getIpExternal() {
         showLoading()
+        if (PartnerRealmManager().getCountPartner() == 0)
+            PartnerRealmManager().importFromJson(resources)
+        if (InfrastructureRealmManager().getCountInfrast() == 0)
+            InfrastructureRealmManager().importFromJson(resources)
         presenter.getIpWan()
     }
 
