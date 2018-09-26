@@ -50,6 +50,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
     private var mAnalytics: FirebaseAnalytics? = null
     private lateinit var menuAdapter: ItemMenuAdapter
     private var mData: ArrayList<ItemMenuModel> = ArrayList()
+    //Vị trí hiện tại của slide menu
     private var currentPage = ""
     var mCountBack = 0
 
@@ -161,7 +162,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
                 }
             }
             if (itemMenu.id.isNotBlank()) {
-                if (itemMenu.id != Constants.KQ_XAC_MINH)
+                if (itemMenu.id != Constants.KQ_XAC_MINH && itemMenu.id != Constants.DANG_XUAT)
                     currentPage = itemMenu.id
                 actMain_dlMenu.closeDrawers()
                 logEventAnalytics(itemMenu)

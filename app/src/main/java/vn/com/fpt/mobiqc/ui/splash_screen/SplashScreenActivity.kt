@@ -159,8 +159,8 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             getImeiDevice()
             presenter.let {
                 val map = HashMap<String, Any>()
-            map[Constants.PARAMS_IMEI_LOW] = getSharePreferences().imeiDevice
-//                map[Constants.PARAMS_IMEI_LOW] = "358548066496528"
+//            map[Constants.PARAMS_IMEI_LOW] = getSharePreferences().imeiDevice
+                map[Constants.PARAMS_IMEI_LOW] = "358548066496528"
                 it.postCheckImei(map)
             }
         }
