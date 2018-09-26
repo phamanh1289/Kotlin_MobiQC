@@ -215,7 +215,7 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
         setTitle(TitleAndMenuModel(title = contractModel.Contract, status = true, image = R.drawable.ic_info))
         listFirstStatus = DataCore.getListFirstStatus(context)
         fragCreateCheckList_tvStatus.text = listFirstStatus[Constants.FIRST_ITEM].account
-        fragCreateCheckList_tvDate.onChange { it }
+        fragCreateCheckList_tvDate.onChange ()
         initParamGetOwner(isCheckOwner)
     }
 
@@ -388,14 +388,13 @@ class CreateCheckListFragment : BaseFragment(), CreateCheckListContract.CreateCh
         presenter.onDetach()
     }
 
-    private fun EditText.onChange(cb: (String) -> Unit) {
+    private fun EditText.onChange() {
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 fragCreateCheckList_imgClear.visibility = if (s?.length != 0) View.VISIBLE else View.GONE
                 if (s?.length != 0 && fragCreateCheckList_cbGuestDate.isSelected)
                     initParamGetTimeZone()
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })

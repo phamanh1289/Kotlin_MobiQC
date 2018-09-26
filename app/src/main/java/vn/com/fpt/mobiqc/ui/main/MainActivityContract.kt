@@ -7,7 +7,7 @@ import vn.com.fpt.mobiqc.ui.base.BaseView
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-interface MainContract {
+interface MainActivityContract {
     interface MainView : BaseView {
         fun loadIpWan(ip: String)
         fun loadAssetToken(data: ResponseModel)

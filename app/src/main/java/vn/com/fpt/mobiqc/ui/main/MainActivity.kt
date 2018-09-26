@@ -41,11 +41,11 @@ import javax.inject.Inject
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterface {
+class MainActivity : BaseActivity(), MainActivityContract.MainView, ConfirmDialogInterface {
     private val KT_HOP_DONG = 1
 
     @Inject
-    lateinit var presenter: MainPresenterImp
+    lateinit var mActivityPresenter: MainActivityPresenter
 
     private var mAnalytics: FirebaseAnalytics? = null
     private lateinit var menuAdapter: ItemMenuAdapter
@@ -58,7 +58,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getActivityComponent().inject(this)
-        presenter.onAttach(this)
+        mActivityPresenter.onAttach(this)
         mAnalytics = FirebaseAnalytics.getInstance(this)
         initView()
     }
@@ -92,13 +92,13 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
             PartnerRealmManager().importFromJson(resources)
         if (InfrastructureRealmManager().getCountInfrast() == 0)
             InfrastructureRealmManager().importFromJson(resources)
-        presenter.getIpWan()
+        mActivityPresenter.getIpWan()
     }
 
     override fun loadIpWan(ip: String) {
         if (ip.isNotBlank()) {
             getSharePreferences().ipWan = ip
-            presenter.let {
+            mActivityPresenter.let {
                 val map = HashMap<String, Any>()
                 map[Constants.PARAMS_API_KEY] = getString(R.string.api_key_storage)
                 map[Constants.PARAMS_USER_NAME_LOW] = getSharePreferences().accountName
@@ -195,7 +195,7 @@ class MainActivity : BaseActivity(), MainContract.MainView, ConfirmDialogInterfa
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.onDetach()
+        mActivityPresenter.onDetach()
     }
 
     override fun onBackPressed() {

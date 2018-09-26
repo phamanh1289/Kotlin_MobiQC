@@ -12,7 +12,7 @@ import javax.inject.Inject
  * * Created by Anh Pham on 08/02/2018.     **
  * * Copyright (c) 2018 by FPT Telecom      **
  */
-class MainPresenterImp @Inject constructor(private val apiIstorageService: ApiIstorageService) : BasePresenter<MainContract.MainView>(), MainContract.MainPresenter {
+class MainActivityPresenter @Inject constructor(private val apiIstorageService: ApiIstorageService) : BasePresenter<MainActivityContract.MainView>(), MainActivityContract.MainPresenter {
     override fun getAssetToken(map: HashMap<String, Any>) {
         addSubscribe(apiIstorageService.getAccessToken(map)
                 .subscribeOn(Schedulers.io())
