@@ -159,7 +159,7 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             getImeiDevice()
             presenter.let {
                 val map = HashMap<String, Any>()
-            map[Constants.PARAMS_IMEI_LOW] = getSharePreferences().imeiDevice
+                map[Constants.PARAMS_IMEI_LOW] = getSharePreferences().imeiDevice
 //                map[Constants.PARAMS_IMEI_LOW] = "358548066496528"
                 it.postCheckImei(map)
             }
@@ -177,7 +177,15 @@ class SplashScreenActivity : BaseActivity(), ConfirmDialogInterface, SplashScree
             }
         else {
             hideLoading()
-            AppUtils.showDialog(fragmentManager = supportFragmentManager, content = response.Description, confirmDialogInterface = null)
+            AppUtils.showDialog(fragmentManager = supportFragmentManager, content = response.Description, confirmDialogInterface = object : ConfirmDialogInterface {
+                override fun onClickOk() {
+                    this@SplashScreenActivity.finish()
+                }
+
+                override fun onClickCancel() {
+
+                }
+            })
         }
     }
 
